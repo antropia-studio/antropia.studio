@@ -1,1 +1,17 @@
 @import "tailwindcss";
+
+@theme {
+  --color-blinking-blue: #0030FF;
+  --color-sasquatch-socks: #FF4B7E;
+  --color-benzol-green: #00DC64;
+  --color-alucards-night: #030454;
+
+  --text-superxl: 18rem;
+  --text-superxl--line-height: 0.8;
+
+  --font-round8: 'Round8', 'sans-serif';
+}
+
+@utility center {
+  @apply justify-center items-center;
+}
