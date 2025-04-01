@@ -2,16 +2,27 @@
 
 @theme {
   --color-blinking-blue: #0030FF;
+  --color-ice-cold-stare: #B2D2FB;
   --color-sasquatch-socks: #FF4B7E;
   --color-benzol-green: #00DC64;
   --color-alucards-night: #030454;
 
+  --text-10xl: 10rem;
+  --text-10xl--line-height: 0.8;
+  --text-11xl: 12rem;
+  --text-11xl--line-height: 0.8;
   --text-superxl: 18rem;
   --text-superxl--line-height: 0.8;
 
   --font-round8: 'Round8', 'sans-serif';
+  --font-nudica: 'Nudica', 'sans-serif';
 }
 
 @utility center {
   @apply justify-center items-center;
+}
+
+body {
+  background-color: var(--color-alucards-night);
+  color: white;
 }

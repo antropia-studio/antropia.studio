@@ -29,7 +29,7 @@
     "prettier": "^3.5.3",
     "release-it": "^18.1.2"
   },
-  "packageManager": "pnpm@10.6.5",
+  "packageManager": "pnpm@10.7.1",
   "commitlint": {
     "extends": [
       "@commitlint/config-conventional"
