@@ -1,11 +1,177 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import antropiaLogo from '../assets/logo.svg';
+import Blob1 from '../components/Blob1.astro';
+import Blob2 from '../components/Blob2.astro';
+import ContactButton from '../components/ContactButton.astro';
+import Steps from '../components/Steps.astro';
+import Step from '../components/Step.astro';
 ---
 
 <Layout>
-  <Welcome/>
+  <div id="container">
+    <nav class="fixed flex bg-blinking-blue w-navbar h-full rounded-tl-xl justify-center items-start z-20">
+      <a href="/" class="mt-10 cursor-pointer">
+        <img src={antropiaLogo.src} width="40" height="200" alt="Antropia Homepage" />
+      </a>
+    </nav>
+
+    <main>
+      <div class="flex flex-col items-center bg-alucards-night">
+        <Blob1 />
+        <Blob2 />
+
+        <section id="apps-that-matter" class="pt-32 section items-start">
+          <h1 class="text-white uppercase font-round8 text-superxl">
+            Apps that<br><span class="text-benzol-green italic ml-[355px]">matter</span>
+          </h1>
+
+          <p class="text-4xl font-nudica w-3/5">
+            We are the rapid prototyping studio that turns <span class="text-benzol-green">"what if"</span> into <span
+            class="text-benzol-green">"what's next"</span> — crafting human experiences at pace that get your idea in
+            front of real users
+          </p>
+
+          <ContactButton class="self-start" />
+        </section>
+
+        <section id="working-together" class="section mt-64">
+          <div class="flex flex-row gap-10 items-start">
+            <div class="flex flex-col mt-28">
+              <h1 class="text-white uppercase font-round8 text-10xl">
+                Working<br><span class="text-sasquatch-socks italic ml-[110px]">together</span>
+              </h1>
+
+              <p class="subtitle ml-[110px] mt-20">
+                This is what you can expect <br /> from our collaboration
+              </p>
+            </div>
+
+            <img src="/images/working-together.svg" alt="Working together" class="flex-1 w-full" />
+          </div>
+
+          <Steps class="bg-sasquatch-socks">
+            <Step class="text-sasquatch-socks" title="1. Talk" slot="first">
+              Let's meet, chat about your idea, and explore how we can <b>bring it to life</b>, together. No pitch decks
+              needed - just honest an conversation.
+            </Step>
+            <Step class="text-sasquatch-socks" title="2. Hands on" slot="second">
+              Three words: iterate, iterate, ite... you get it. Your idea starts taking shape through <b>constant
+              testing
+              and feedback</b>. You'll own everything we create together.
+            </Step>
+            <Step class="text-sasquatch-socks" title="3. Takeoff" slot="third">
+              We'll handle the tech for your <b>app store launch</b> and help you chart the best course forward -
+              whether
+              that's attracting investors or winning your first users.
+            </Step>
+          </Steps>
+
+          <p class="headline text-ice-cold-stare">
+            Let's craft a project together.<br />We'll focus on what really matters.
+          </p>
+
+          <ContactButton />
+        </section>
+
+        <section id="your-vision" class="section">
+          <div class="flex flex-row gap-20 items-end mt-20">
+            <div class="flex flex-col mb-10">
+              <h1 class="flex-1 text-white uppercase font-round8 text-10xl">
+                Your<br><span class="text-blinking-blue italic ml-[90px]">vision</span>
+              </h1>
+
+              <p class="subtitle ml-[100px] mt-10">
+                What you bring to the table<br />is what matter to us
+              </p>
+            </div>
+
+            <img src="/images/your-vision.svg" alt="Your vision" class="flex-1 w-full" />
+          </div>
+
+          <Steps class="bg-blinking-blue">
+            <Step class="text-hello-summer" title="To the point" slot="first">
+              Let's meet, chat about your idea, and explore how we can <b>bring it to life</b>, together. No pitch decks
+              needed - just honest an conversation.
+            </Step>
+            <Step class="text-hello-summer" title="Eyes on the prize" slot="second">
+              Three words: iterate, iterate, ite... you get it. Your idea starts taking shape through <b>constant
+              testing
+              and feedback</b>. You'll own everything we create together.
+            </Step>
+            <Step class="text-hello-summer" title="Working hours" slot="third">
+              We'll handle the tech for your <b>app store launch</b> and help you chart the best course forward -
+              whether
+              that's attracting investors or winning your first users.
+            </Step>
+          </Steps>
+
+          <p class="headline text-white">
+            Let's craft a project together.<br />We'll focus on what really matters.
+          </p>
+
+          <ContactButton />
+        </section>
+
+
+        <section id="our-craft" class="items-center section mt-32">
+          <div class="flex flex-row w-full items-end justify-between">
+            <div class="flex flex-col flex-1 mb-10">
+              <h1 class="flex-1 text-white uppercase font-round8 text-10xl">
+                Our<br><span class="text-benzol-green italic ml-[90px]">craft</span>
+              </h1>
+
+              <p class="subtitle text-benzol-green ml-[100px] mt-10">
+                Years of experience building <br /> apps for humans
+              </p>
+            </div>
+
+            <img src="/images/our-craft.svg" alt="Your vision" class="flex-1" />
+          </div>
+
+          <Steps class="bg-benzol-green">
+            <Step class="text-benzol-green" title="Fixed rate" slot="first">
+              One fixed rate of <b>$125/hr (plus taxes)</b> for all our clients. No hidden fees, no special deals - just
+              transparent pricing that only changes when it changes for everyone.
+            </Step>
+            <Step class="text-benzol-green" title="Focused work" slot="second">
+              We work <b>6 focused hours</b> each day, <b>5 days a week</b>, ensuring you get our best thinking and
+              strongest work. Less quantity, more quality - we believe that's how great apps are built.
+            </Step>
+            <Step class="text-benzol-green" title="Working hours" slot="third">
+              Based in <b>Spain</b> but flexible with schedules. All we need is <b>2 hours of overlap between 10AM-6PM
+              CET</b> to keep the collaboration flowing.
+            </Step>
+          </Steps>
+
+          <p class="headline text-benzol-green">
+            Let's craft a project together.<br />We'll focus on what really matters.
+          </p>
+          <ContactButton />
+        </section>
+      </div>
+
+      <div class="flex flex-col items-center bg-white mt-32">
+        <section id="about-us" class="section bg-white pt-32">
+          <h1 class="text-blinking-blue uppercase font-round8 text-superxl self-start">
+            Hey, <span class="text-hello-summer italic">world!</span>
+          </h1>
+
+          <p class="text-5xl font-nudica text-blinking-blue mt-20">
+            Thanks for stopping by.<br />
+            I'm Sergio, and this is <span class="text-sasquatch-socks">Antropia</span>. It's my little peaceful corner
+            where
+            I tinker with new ideas and explore
+            better ways of working while trying to make what I do really matter.
+          </p>
+
+          <div class="h-px mt-24 w-screen bg-blinking-blue" />
+
+          <h1 class="text-blinking-blue uppercase font-round8 text-11xl mt-32 self-start">
+            Me
+          </h1>
+        </section>
+      </div>
+    </main>
+  </div>
 </Layout>

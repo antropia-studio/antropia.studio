@@ -2,6 +2,7 @@
 
 @theme {
   --color-blinking-blue: #0030FF;
+  --color-hello-summer: #5DBDF9;
   --color-ice-cold-stare: #B2D2FB;
   --color-sasquatch-socks: #FF4B7E;
   --color-benzol-green: #00DC64;
@@ -16,10 +17,30 @@
 
   --font-round8: 'Round8', 'sans-serif';
   --font-nudica: 'Nudica', 'sans-serif';
+
+  --container-navbar: 100px;
+  --container-content: 1200px;
 }
 
 @utility center {
   @apply justify-center items-center;
+}
+
+@layer components {
+  .section {
+    @apply flex flex-col items-center z-10;
+
+    padding-left: var(--container-navbar);
+    max-width: var(--container-content);
+  }
+
+  .headline {
+    @apply text-3xl font-nudica text-center mt-10;
+  }
+
+  .subtitle {
+    @apply text-3xl font-nudica text-ice-cold-stare;
+  }
 }
 
 body {
