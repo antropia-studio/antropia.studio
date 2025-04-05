@@ -1,6 +1,9 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import antropiaLogo from '../assets/logo.svg';
+import workingTogetherIcon from '../assets/working-together.svg';
+import yourVisionIcon from '../assets/your-vision.svg';
+import ourCraftIcon from '../assets/our-craft.svg';
 import Blob1 from '../components/Blob1.astro';
 import Blob2 from '../components/Blob2.astro';
 import ContactButton from '../components/ContactButton.astro';
@@ -11,12 +14,13 @@ import Step from '../components/Step.astro';
 <Layout>
   <div id="container">
     <nav class="fixed flex bg-blinking-blue w-navbar h-full rounded-tl-xl justify-center items-start z-20">
-      <a href="/" class="mt-10 cursor-pointer">
-        <img src={antropiaLogo.src} width="40" height="200" alt="Antropia Homepage" />
+      <a href="/" class="mt-20 cursor-pointer">
+        <img style="transform: rotateZ(-90deg) scale(1.2); display: block" src={antropiaLogo.src} width="200"
+             alt="Antropia Homepage" />
       </a>
     </nav>
 
-    <main>
+    <main class="pb-16">
       <div class="flex flex-col items-center bg-alucards-night">
         <Blob1 />
         <Blob2 />
@@ -47,7 +51,7 @@ import Step from '../components/Step.astro';
               </p>
             </div>
 
-            <img src="images/working-together.svg" alt="Working together" class="flex-1 w-full" />
+            <img src={workingTogetherIcon.src} alt="Working together" class="flex-1 w-full" />
           </div>
 
           <Steps class="bg-sasquatch-socks">
@@ -86,7 +90,7 @@ import Step from '../components/Step.astro';
               </p>
             </div>
 
-            <img src="images/your-vision.svg" alt="Your vision" class="flex-1 w-full" />
+            <img src={yourVisionIcon.src} alt="Your vision" class="flex-1 w-full" />
           </div>
 
           <Steps class="bg-blinking-blue">
@@ -126,7 +130,7 @@ import Step from '../components/Step.astro';
               </p>
             </div>
 
-            <img src="images/our-craft.svg" alt="Your vision" class="flex-1" />
+            <img src={ourCraftIcon.src} alt="Our craft" class="flex-1" />
           </div>
 
           <Steps class="bg-benzol-green">
@@ -152,7 +156,7 @@ import Step from '../components/Step.astro';
       </div>
 
       <div class="flex flex-col items-center bg-white mt-32">
-        <section id="about-us" class="section bg-white pt-32">
+        <section id="about-us" class="section bg-white py-32">
           <h1 class="text-blinking-blue uppercase font-round8 text-superxl self-start">
             Hey, <span class="text-hello-summer italic">world!</span>
           </h1>
@@ -160,17 +164,78 @@ import Step from '../components/Step.astro';
           <p class="text-5xl font-nudica text-blinking-blue mt-20">
             Thanks for stopping by.<br />
             I'm Sergio, and this is <span class="text-sasquatch-socks">Antropia</span>. It's my little peaceful corner
-            where
-            I tinker with new ideas and explore
-            better ways of working while trying to make what I do really matter.
+            where I tinker with new ideas and explore better ways of working while trying to make what I do really
+            matter.
           </p>
 
-          <div class="h-px mt-24 w-screen bg-blinking-blue" />
+          <div class="separator bg-blinking-blue" />
 
           <h1 class="text-blinking-blue uppercase font-round8 text-11xl mt-32 self-start">
             Me
           </h1>
+
+          <p class="text-xl font-nudica text-blinking-blue mt-20">
+            I’m a software developer by education and passion. I have X years (and growing) of experience in building
+            extraordinary software in companies like Tuenti, IBM, Cabify, Sketch and Harvest. I spent the last Y years
+            creating apps with <b>React Native</b> and learning in other areas like <b>Design</b> (UXER course) and
+            <b>Security</b> (z).
+          </p>
+
+          <div class="separator bg-blinking-blue" />
+
+          <h1 class="text-blinking-blue uppercase font-round8 text-11xl mt-32 self-start">
+            Antropia <span class="italic text-sasquatch-socks">studio</span>
+          </h1>
+
+          <div class="w-4/5 self-start">
+            <p class="text-3xl font-nudica text-blinking-blue mt-20">
+              Antropia started as a simple question: <b>what if work felt different?</b> While we are not yet officially
+              a
+              cooperative, that’s the spirit that guide us.
+            </p>
+
+            <p class="text-xl font-nudica text-blinking-blue mt-20">
+              We created this studio with the purpose of rethinking our relationship with work. In particular, Antropia
+              is our exploration to find some essential -yet often overlooked - values we found missing in our
+              work-life: <b>novelty</b>, <b>pride</b>, <b>progress</b>, <b>fairness</b>, <b>satisfaction</b> and
+              <b>impact</b>, to name a few.
+              <br />
+              <br />
+              We keep looking for ways to make our job something different, weaving purpose into our business fabric.
+              That’s why signed the <a href="https://www.givingwhatwecan.org/">Giving What We Can</a> pledge and
+              <b>we donate 10%</b> of our income to effective <b>charities</b>.
+              <br />
+              <br />
+              Antropia continues to evolve naturally, much like a living organism. And it does so because that's exactly
+              what it should do - it's a continuous exploration of better ways to work together.
+              <br />
+              <br />
+              We welcome conversations about work, collaboration, or any related thoughts. Reach out to us at
+              <a href="mailto:hi@antropia.studio">hi@antropia.studio</a>.
+            </p>
+          </div>
         </section>
+      </div>
+
+      <div class="flex flex-col items-center bg-alucards-night">
+        <section id="lets-talk" class="section bg-alucards-night pt-52">
+          <h1 class="text-hello-summer uppercase font-round8 text-10xl">
+            Let's talk
+          </h1>
+
+          <p class="headline text-granny-smith-apple">
+            Book a call or email us, let’s do<br />
+            something amazing, together.
+          </p>
+
+          <ContactButton />
+
+          <div class="flex flex-row gap-4 mt-32">
+            <img src={antropiaLogo.src} width="100" alt="Antropia Homepage" />
+            <span>@2025 Antropia Studio</span>
+          </div>
+        </section>
+
       </div>
     </main>
   </div>
