@@ -1,6 +1,9 @@
 @import "tailwindcss";
 
 @theme {
+  --navbar-width: 44px;
+  --navbar-width-xl: 100px;
+
   --color-blinking-blue: #0030FF;
   --color-hello-summer: #5DBDF9;
   --color-ice-cold-stare: #B2D2FB;
@@ -19,8 +22,12 @@
   --font-round8: 'Round8', 'sans-serif';
   --font-nudica: 'Nudica', 'sans-serif';
 
-  --container-navbar: 100px;
+  --container-navbar: var(--navbar-width);
+  --container-navbar-xl: var(--navbar-width-xl);
   --container-content: 1200px;
+
+  --spacing-navbar: var(--navbar-width);
+  --spacing-navbar-xl: var(--navbar-width-xl);
 }
 
 @utility center {
@@ -29,23 +36,33 @@
 
 @layer components {
   .section {
-    @apply flex flex-col items-center z-10;
-
-    padding-left: var(--container-navbar);
-    max-width: var(--container-content);
+    @apply flex flex-col items-center z-10 max-w-content;
   }
 
   .headline {
-    @apply text-3xl font-nudica text-center mt-10;
+    @apply text-2xl font-nudica mt-10 px-4 xl:text-center xl:text-3xl;
   }
 
   .subtitle {
-    @apply text-3xl font-nudica text-ice-cold-stare;
+    @apply text-xl xl:text-3xl font-nudica;
   }
 
   .separator {
-    @apply h-px mt-24 w-screen;
+    @apply h-px mt-10 w-screen xl:mt-24;
     margin-left: calc(var(--container-navbar) * -1);
+  }
+
+  .title {
+    @apply text-white uppercase font-round8;
+
+    font-size: 30vw;
+    line-height: var(--text-10xl--line-height);
+    word-spacing: 100vw;
+
+    @media screen(xl) {
+      font-size: var(--text-superxl);
+      word-spacing: unset;
+    }
   }
 }
 

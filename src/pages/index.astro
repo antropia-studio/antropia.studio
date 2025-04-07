@@ -13,24 +13,25 @@ import Step from '../components/Step.astro';
 
 <Layout>
   <div id="container">
-    <nav class="fixed flex bg-blinking-blue w-navbar h-full rounded-tl-xl justify-center items-start z-20">
+    <nav
+      class="fixed flex bg-blinking-blue w-navbar xl:w-navbar-xl h-full rounded-tl-xl justify-center items-start z-20">
       <a href="/" class="mt-20 cursor-pointer">
-        <img style="transform: rotateZ(-90deg) scale(1.2); display: block" src={antropiaLogo.src} width="200"
+        <img src={antropiaLogo.src} width="200" class="scale-200 xl:scale-120 block -rotate-90"
              alt="Antropia Homepage" />
       </a>
     </nav>
 
-    <main class="pb-16">
+    <main class="pb-16 ml-navbar xl:mx-navbar-xl">
       <div class="flex flex-col items-center bg-alucards-night">
         <Blob1 />
         <Blob2 />
 
-        <section id="apps-that-matter" class="pt-32 section items-start">
-          <h1 class="text-white uppercase font-round8 text-superxl">
-            Apps that<br><span class="text-benzol-green italic ml-[355px]">matter</span>
+        <section id="apps-that-matter" class="section pt-16 px-6 xl:pt-32 xl:items-start">
+          <h1 class="title">
+            Apps that<br><span class="text-benzol-green italic xl:ml-[355px]">matter</span>
           </h1>
 
-          <p class="text-4xl font-nudica w-3/5">
+          <p class="text-2xl font-nudica xl:w-3/5 xl:text-4xl">
             We are the rapid prototyping studio that turns <span class="text-benzol-green">"what if"</span> into <span
             class="text-benzol-green">"what's next"</span> — crafting human experiences at pace that get your idea in
             front of real users
@@ -39,19 +40,20 @@ import Step from '../components/Step.astro';
           <ContactButton class="self-start" />
         </section>
 
-        <section id="working-together" class="section mt-64">
-          <div class="flex flex-row gap-10 items-start">
-            <div class="flex flex-col mt-28">
-              <h1 class="text-white uppercase font-round8 text-10xl">
-                Working<br><span class="text-sasquatch-socks italic ml-[110px]">together</span>
+        <section id="working-together" class="section mt-20 xl:mt-64">
+          <div class="flex flex-col xl:flex-row-reverse gap-10 items-center xl:items-start">
+            <img src={workingTogetherIcon.src} alt="Working together" class="flex-1 w-3/5 xl:w-full" />
+
+            <div class="flex flex-col items-center xl:mt-28">
+              <h1 class="text-white font-round8 text-8xl xl:text-10xl">
+                Working<br><span class="text-sasquatch-socks italic ml-[50px] xl:ml-[110px]">together</span>
               </h1>
 
-              <p class="subtitle ml-[110px] mt-20">
+              <p class="subtitle text-ice-cold-stare self-start xl:ml-[110px] xl:mt-20">
                 This is what you can expect <br /> from our collaboration
               </p>
             </div>
 
-            <img src={workingTogetherIcon.src} alt="Working together" class="flex-1 w-full" />
           </div>
 
           <Steps class="bg-sasquatch-socks">
@@ -71,7 +73,7 @@ import Step from '../components/Step.astro';
             </Step>
           </Steps>
 
-          <p class="headline text-ice-cold-stare">
+          <p class="headline text-ice-cold-stare ml-2 xl:ml-0">
             Let's craft a project together.<br />We'll focus on what really matters.
           </p>
 
@@ -79,18 +81,18 @@ import Step from '../components/Step.astro';
         </section>
 
         <section id="your-vision" class="section">
-          <div class="flex flex-row gap-20 items-end mt-20">
-            <div class="flex flex-col mb-10">
-              <h1 class="flex-1 text-white uppercase font-round8 text-10xl">
-                Your<br><span class="text-blinking-blue italic ml-[90px]">vision</span>
+          <div class="flex flex-col items-center gap-10 mt-20 px-6 xl:flex-row-reverse xl:items-end xl:gap-20">
+            <img src={yourVisionIcon.src} alt="Your vision" class="flex-1 w-3/5 xl:w-full" />
+
+            <div class="flex flex-col w-full xl:mb-10">
+              <h1 class="flex-1 text-white font-round8 text-8xl xl:text-10xl">
+                Your<br><span class="text-blinking-blue italic ml-[50px] xl:ml-[90px]">vision</span>
               </h1>
 
-              <p class="subtitle ml-[100px] mt-10">
+              <p class="subtitle text-hello-summer xl:ml-[100px] xl:mt-10">
                 What you bring to the table<br />is what matter to us
               </p>
             </div>
-
-            <img src={yourVisionIcon.src} alt="Your vision" class="flex-1 w-full" />
           </div>
 
           <Steps class="bg-blinking-blue">
@@ -110,8 +112,8 @@ import Step from '../components/Step.astro';
             </Step>
           </Steps>
 
-          <p class="headline text-white">
-            Let's craft a project together.<br />We'll focus on what really matters.
+          <p class="headline ml-2  text-ice-cold-stare xl:text-white xl:ml-0">
+            Let's craft a project together. We'll focus on what really matters.
           </p>
 
           <ContactButton />
@@ -119,18 +121,18 @@ import Step from '../components/Step.astro';
 
 
         <section id="our-craft" class="items-center section mt-32">
-          <div class="flex flex-row w-full items-end justify-between">
-            <div class="flex flex-col flex-1 mb-10">
-              <h1 class="flex-1 text-white uppercase font-round8 text-10xl">
+          <div class="flex flex-col items-center justify-between xl:flex-row-reverse xl:items-end">
+            <img src={ourCraftIcon.src} alt="Our craft" class="flex-1 w-3/5 xl:w-full" />
+
+            <div class="flex flex-col w-full flex-1 xl:mb-10">
+              <h1 class="flex-1 text-white font-round8 text-8xl xl:text-10xl">
                 Our<br><span class="text-benzol-green italic ml-[90px]">craft</span>
               </h1>
 
-              <p class="subtitle text-benzol-green ml-[100px] mt-10">
+              <p class="subtitle text-benzol-green xl:ml-[100px] xl:mt-10">
                 Years of experience building <br /> apps for humans
               </p>
             </div>
-
-            <img src={ourCraftIcon.src} alt="Our craft" class="flex-1" />
           </div>
 
           <Steps class="bg-benzol-green">

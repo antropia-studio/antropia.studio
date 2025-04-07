@@ -2,7 +2,7 @@
 const { class: className, title, ...rest } = Astro.props;
 ---
 
-<p class={`text-6xl font-round8 ${className}`} {...rest}>{title}</p>
+<p class={`text-5xl xl:text-6xl font-round8 ${className}`} {...rest}>{title}</p>
 <p class="text-xl">
   <slot />
 </p>
