@@ -27,6 +27,8 @@
     "eslint-plugin-prettier": "^5.2.6",
     "lefthook": "^1.11.9",
     "prettier": "^3.5.3",
+    "prettier-plugin-astro": "^0.14.1",
+    "prettier-plugin-tailwindcss": "^0.6.11",
     "release-it": "^18.1.2"
   },
   "packageManager": "pnpm@10.8.0",
@@ -54,7 +56,19 @@
     "singleQuote": true,
     "tabWidth": 2,
     "trailingComma": "es5",
-    "useTabs": false
+    "useTabs": false,
+    "plugins": [
+      "prettier-plugin-astro",
+      "prettier-plugin-tailwindcss"
+    ],
+    "overrides": [
+      {
+        "files": "*.astro",
+        "options": {
+          "parser": "astro"
+        }
+      }
+    ]
   },
   "pnpm": {
     "onlyBuiltDependencies": [
