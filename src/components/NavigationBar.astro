@@ -1,0 +1,81 @@
+---
+import antropiaLogo from '../assets/logo.svg';
+---
+
+<nav
+  class="fixed flex flex-col w-navbar xl:w-navbar-xl h-full rounded-tl-xl z-20">
+  <div id="side-menu"
+       class="fixed flex center h-full bg-blinking-blue/75 w-navbar-open backdrop-blur-sm transition-all duration-300 ease-[cubic-bezier(1, 0, 0, 1)] -translate-x-full">
+    <div class="flex flex-col gap-6">
+      <p class="uppercase text-benzol-green font-bold text-lg tracking-[0.8rem]">Menu</p>
+      <ul class="flex flex-col gap-4">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#working-together">Working Together</a></li>
+        <li><a href="#your-vision">Your Vision</a></li>
+        <li><a href="#our-craft">Our craft</a></li>
+        <li><a href="#about-us">About us</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div id="navbar-bg" class="absolute inset-0 bg-blinking-blue duration-300 transition-all" />
+  <a href="/" class="mt-20 cursor-pointer">
+    <img src={antropiaLogo.src} width="200" class="scale-200 xl:scale-150 xl:mt-6 block -rotate-90"
+         alt="Antropia Homepage" />
+  </a>
+
+  <div id="menu-toggle" class="mt-20 flex flex-1 flex-col center pb-40">
+    <div class="cursor-pointer pb-16">
+      <div class="h-20 w-20 flex center">
+        <div id="toggle" />
+        <div id="menu-icon" />
+      </div>
+
+      <p id="menu-text"
+         class="-rotate-90 uppercase tracking-[0.5rem] font-light text-xs mt-5 transition-all duration-300 text-right">
+        Menu</p>
+    </div>
+  </div>
+</nav>
+
+<script>
+  const menuToggle = document.getElementById('menu-toggle')!;
+  const sideMenu = document.getElementById('side-menu')!;
+  const navbarBg = document.getElementById('navbar-bg')!;
+  const toggleLabel = menuToggle.querySelector('#toggle')!;
+  const menuText = document.getElementById('menu-text')!;
+  const navLinks = document.querySelectorAll('nav a');
+
+  let isOpen = false;
+
+  function toggleMenu(open: boolean) {
+    isOpen = open;
+
+    // Toggle UI elements based on menu state
+    toggleLabel.classList.toggle('open', isOpen);
+    sideMenu.style.transform = isOpen ? 'translateX(100%)' : 'translateX(0%)';
+    navbarBg.style.opacity = isOpen ? '0' : '1';
+
+    // Handle text transition
+    menuText.style.opacity = '0';
+    menuText.style.transform = 'translateX(-10px)';
+
+    setTimeout(() => {
+      menuText.textContent = isOpen ? 'Close' : 'Menu';
+      menuText.style.opacity = '1';
+      menuText.style.transform = 'translateX(0)';
+    }, 300);
+  }
+
+
+  navLinks.forEach((link) => {
+    link.addEventListener('click', () => {
+      toggleMenu(false);
+    });
+  });
+
+  menuToggle.addEventListener('click', () => {
+    toggleMenu(!isOpen);
+  });
+</script>

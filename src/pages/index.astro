@@ -9,24 +9,19 @@ import Blob2 from '../components/Blob2.astro';
 import ContactButton from '../components/ContactButton.astro';
 import Steps from '../components/Steps.astro';
 import Step from '../components/Step.astro';
+import NavigationBar from '../components/NavigationBar.astro';
 ---
 
 <Layout>
   <div id="container">
-    <nav
-      class="fixed flex bg-blinking-blue w-navbar xl:w-navbar-xl h-full rounded-tl-xl justify-center items-start z-20">
-      <a href="/" class="mt-20 cursor-pointer">
-        <img src={antropiaLogo.src} width="200" class="scale-200 xl:scale-120 block -rotate-90"
-             alt="Antropia Homepage" />
-      </a>
-    </nav>
+    <NavigationBar />
 
     <main class="pb-16 ml-navbar xl:ml-navbar-xl">
       <div class="flex flex-col items-center bg-alucards-night">
         <Blob1 />
         <Blob2 />
 
-        <section id="apps-that-matter" class="section pt-16 px-6 xl:pt-32 xl:items-start">
+        <section id="home" class="section pt-16 px-6 xl:pt-32 xl:items-start">
           <h1 class="title">
             Apps that<br><span class="text-benzol-green italic xl:ml-[355px]">matter</span>
           </h1>
@@ -229,7 +224,7 @@ import Step from '../components/Step.astro';
       </div>
 
       <div class="flex flex-col items-center bg-alucards-night">
-        <section id="lets-talk" class="section bg-alucards-night pt-20 xl:pt-52">
+        <section id="contact" class="section bg-alucards-night pt-20 xl:pt-52">
           <h1 class="text-hello-summer uppercase font-round8 text-10xl text-center xl:text-start">
             Let's talk
           </h1>

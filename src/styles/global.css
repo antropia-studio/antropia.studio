@@ -3,6 +3,8 @@
 @theme {
   --navbar-width: 44px;
   --navbar-width-xl: 100px;
+  --navbar-open-width: 700px;
+  --animation-curve: cubic-bezier(1, 0, 0, 1);
 
   --color-blinking-blue: #0030ff;
   --color-hello-summer: #5dbdf9;
@@ -24,6 +26,7 @@
 
   --container-navbar: var(--navbar-width);
   --container-navbar-xl: var(--navbar-width-xl);
+  --container-navbar-open: var(--navbar-open-width);
   --container-content: 1200px;
 
   --spacing-navbar: var(--navbar-width);
@@ -67,14 +70,76 @@
       word-spacing: unset;
     }
   }
+
+  body {
+    background-color: var(--color-alucards-night);
+    color: white;
+  }
+
+  a {
+    text-decoration: underline;
+    font-weight: bold;
+  }
+
+  nav a {
+    @apply text-white text-5xl font-medium no-underline;
+  }
 }
 
-body {
-  background-color: var(--color-alucards-night);
-  color: white;
+#menu-icon {
+  width: 21px;
+  height: 2px;
+  display: block;
+  background-color: var(--color-benzol-green);
+  position: relative;
+
+  &::before,
+  &::after {
+    content: "";
+    width: 26px;
+    height: 2px;
+    background-color: var(--color-benzol-green);
+    display: block;
+    position: relative;
+    color: var(--color-benzol-green);
+    transition: all 0.6s var(--animation-curve);
+  }
+
+  &::before {
+    top: -8px;
+    transform: rotateZ(0deg);
+    transform-origin: left top;
+  }
+
+  &::after {
+    bottom: -6px;
+    transform: rotateZ(0deg);
+    transform-origin: left bottom;
+  }
 }
 
-a {
-  text-decoration: underline;
-  font-weight: bold;
+#toggle.open ~ #menu-icon::before {
+  content: "";
+  background-color: var(--color-benzol-green);
+  transform: translateX(2px) translateY(-1px) rotateZ(45deg);
+  left: 0;
+}
+
+#toggle.open ~ #menu-icon::after {
+  content: "";
+  background-color: var(--color-benzol-green);
+  transform: translateX(2px) translateY(1px) rotateZ(-45deg);
+  left: 0;
+}
+
+#toggle.open ~ #menu-icon {
+  background-color: #0125D4;
+}
+
+#toggle ~ #menu-icon {
+  transition: all 0.5s var(--animation-curve);
+}
+
+input {
+  display: none;
 }
