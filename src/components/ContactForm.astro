@@ -3,12 +3,12 @@ import closeIcon from '../assets/close.svg';
 ---
 
 <div id="contact-form-modal"
-     class="hidden opacity-0 fixed flex-col center inset-0 h-screen w-screen z-30 bg-alucards-night/30 backdrop-blur-xl">
+     class="hidden opacity-0 fixed flex-col center inset-0 h-screen w-screen z-30 bg-alucards-night/30 backdrop-blur-xl px-4">
   <div id="backdrop" class="absolute inset-0" />
 
   <form action="https://api.web3forms.com/submit" method="POST"
-        class="relative flex flex-col center bg-white rounded-2xl p-12 w-[500px]">
-    <h1 class="font-round8 text-8xl text-blinking-blue">Contact us</h1>
+        class="relative flex flex-col center bg-white rounded-2xl p-6 xl:p-12 w-full xl:w-[500px]">
+    <h1 class="font-round8 text-[20vw] xl:text-8xl text-blinking-blue mt-8 xl:mt-0">Contact us</h1>
 
     <div id="close-contact-form" class="absolute right-4 top-4 cursor-pointer h-[44px] w-[44px] flex center">
       <img src={closeIcon.src} alt="Close" />
@@ -27,7 +27,7 @@ import closeIcon from '../assets/close.svg';
       <label for="message" class="block text-blinking-blue font-medium mb-2">Your
         Message</label>
       <textarea id="message" name="message" required
-                class="border border-blinking-blue w-full p-2 rounded placeholder:text-blinking-blue/50"
+                class="border border-blinking-blue w-full p-2 rounded placeholder:text-blinking-blue/50 h-24"
                 placeholder="Describe your project, proposal or your idea of collaboration..."></textarea>
     </div>
 
@@ -35,7 +35,7 @@ import closeIcon from '../assets/close.svg';
     <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
 
     <button type="submit"
-            class="bg-benzol-green text-white font-nudica text-sm xl:text-lg px-10 py-2 rounded-full self-start xl:self-center hover:bg-white hover:text-benzol-green cursor-pointer transition">
+            class="bg-benzol-green text-white font-nudica text-sm xl:text-lg px-10 py-2 rounded-full hover:bg-white hover:text-benzol-green cursor-pointer transition">
       Send email
     </button>
   </form>
