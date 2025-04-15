@@ -5,10 +5,11 @@ import antropiaLogo from '../assets/logo.svg';
 <nav
   class="fixed flex flex-col w-navbar xl:w-navbar-xl h-full rounded-tl-xl z-20">
   <div id="side-menu"
-       class="fixed flex center h-full bg-blinking-blue/75 w-navbar-open backdrop-blur-sm transition-all duration-300 ease-[cubic-bezier(1, 0, 0, 1)] -translate-x-full">
+       class="fixed flex items-start justify-center pl-8 xl:pl-0 pt-32 xl:pt-0 xl:center h-full bg-blinking-blue xl:bg-blinking-blue/75 w-navbar-open xl:w-navbar-open-xl xl:backdrop-blur-sm -translate-x-full">
     <div class="flex flex-col gap-6">
-      <p class="uppercase text-benzol-green font-bold text-lg tracking-[0.8rem]">Menu</p>
-      <ul class="flex flex-col gap-4">
+      <p class="uppercase text-benzol-green font-bold text-[10px] xl:text-lg tracking-[0.5rem] xl:tracking-[0.8rem]">
+        Menu</p>
+      <ul class="flex flex-col gap-3 xl:gap-4">
         <li><a href="#home">Home</a></li>
         <li><a href="#working-together">Working Together</a></li>
         <li><a href="#your-vision">Your Vision</a></li>
@@ -19,55 +20,70 @@ import antropiaLogo from '../assets/logo.svg';
     </div>
   </div>
 
-  <div id="navbar-bg" class="absolute inset-0 bg-blinking-blue duration-300 transition-all" />
+  <div id="navbar-bg" class="absolute inset-0 bg-blinking-blue" />
   <a href="/" class="mt-20 cursor-pointer">
     <img src={antropiaLogo.src} width="200" class="scale-200 xl:scale-150 xl:mt-6 block -rotate-90"
          alt="Antropia Homepage" />
   </a>
 
-  <div id="menu-toggle" class="mt-20 flex flex-1 flex-col center pb-40">
+  <div id="menu-toggle" class="mt-20 flex flex-1 flex-col items-center justify-start xl:center pb-40">
     <div class="cursor-pointer pb-16">
-      <div class="h-20 w-20 flex center">
+      <div class="h-10 w-full pr-1 xl:h-20 xl:w-20 flex center">
         <div id="toggle" />
         <div id="menu-icon" />
       </div>
 
       <p id="menu-text"
-         class="-rotate-90 uppercase tracking-[0.5rem] font-light text-xs mt-5 transition-all duration-300 text-right">
+         class="-rotate-90 uppercase tracking-[0.35rem] xl:tracking-[0.5rem] font-light text-xs mt-5 text-right">
         Menu</p>
     </div>
   </div>
 </nav>
 
 <script>
+  import { animate, type AnimationOptions } from 'motion';
+
+  const SoftSpringAnimation: AnimationOptions = { type: 'spring', duration: 0.5, bounce: 0.2 };
+  const HeavySpringAnimation: AnimationOptions = { type: 'spring', duration: 0.5, bounce: 0.6 };
+
   const menuToggle = document.getElementById('menu-toggle')!;
   const sideMenu = document.getElementById('side-menu')!;
   const navbarBg = document.getElementById('navbar-bg')!;
   const toggleLabel = menuToggle.querySelector('#toggle')!;
   const menuText = document.getElementById('menu-text')!;
-  const navLinks = document.querySelectorAll('nav a');
+  const navLinks = document.querySelectorAll<HTMLAnchorElement>('nav #side-menu a');
 
   let isOpen = false;
 
   function toggleMenu(open: boolean) {
     isOpen = open;
 
-    // Toggle UI elements based on menu state
     toggleLabel.classList.toggle('open', isOpen);
-    sideMenu.style.transform = isOpen ? 'translateX(100%)' : 'translateX(0%)';
-    navbarBg.style.opacity = isOpen ? '0' : '1';
-
-    // Handle text transition
-    menuText.style.opacity = '0';
-    menuText.style.transform = 'translateX(-10px)';
+    animate(sideMenu, { transform: isOpen ? 'translateX(99%)' : 'translateX(0%)' }, SoftSpringAnimation);
+    animate(navbarBg, { opacity: isOpen ? 0 : 1 }, { duration: 0.2 });
+    animate(menuText, { opacity: 0, transform: 'translateX(-10px)' }, HeavySpringAnimation);
 
     setTimeout(() => {
       menuText.textContent = isOpen ? 'Close' : 'Menu';
-      menuText.style.opacity = '1';
-      menuText.style.transform = 'translateX(0)';
-    }, 300);
-  }
 
+      animate(menuText, { opacity: 1, transform: 'translateX(0px)' }, HeavySpringAnimation);
+    }, 150);
+
+    if (isOpen) {
+      navLinks.forEach((link, index) => {
+        animate(link, { transform: 'translateX(10px)' }, HeavySpringAnimation);
+
+        setTimeout(() => {
+          animate(link, { transform: 'translateX(0px)' }, HeavySpringAnimation);
+        }, 260 + (index * 20));
+      });
+    } else {
+      navLinks.forEach((link) => {
+        link.style.transform = 'translateX(10px)';
+      });
+    }
+
+  }
 
   navLinks.forEach((link) => {
     link.addEventListener('click', () => {
