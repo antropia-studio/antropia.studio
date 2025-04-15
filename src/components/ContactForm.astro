@@ -1,0 +1,87 @@
+---
+import closeIcon from '../assets/close.svg';
+---
+
+<div id="contact-form-modal"
+     class="hidden opacity-0 fixed flex-col center inset-0 h-screen w-screen z-30 bg-alucards-night/30 backdrop-blur-xl">
+  <div id="backdrop" class="absolute inset-0" />
+
+  <form action="https://api.web3forms.com/submit" method="POST"
+        class="relative flex flex-col center bg-white rounded-2xl p-12 w-[500px]">
+    <h1 class="font-round8 text-8xl text-blinking-blue">Contact us</h1>
+
+    <div id="close-contact-form" class="absolute right-4 top-4 cursor-pointer h-[44px] w-[44px] flex center">
+      <img src={closeIcon.src} alt="Close" />
+    </div>
+
+    <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
+
+    <div class="flex flex-col items-start mt-4 mb-4 w-full">
+      <label for="email" class="block text-blinking-blue font-medium mb-2">Your email</label>
+      <input type="email" id="email" name="email" required
+             class="border border-blinking-blue w-full p-2 rounded placeholder:text-blinking-blue/50"
+             placeholder="building@amazing.things">
+    </div>
+
+    <div class="flex flex-col items-start mb-8 w-full">
+      <label for="message" class="block text-blinking-blue font-medium mb-2">Your
+        Message</label>
+      <textarea id="message" name="message" required
+                class="border border-blinking-blue w-full p-2 rounded placeholder:text-blinking-blue/50"
+                placeholder="Describe your project, proposal or your idea of collaboration..."></textarea>
+    </div>
+
+
+    <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+
+    <button type="submit"
+            class="bg-benzol-green text-white font-nudica text-sm xl:text-lg px-10 py-2 rounded-full self-start xl:self-center hover:bg-white hover:text-benzol-green cursor-pointer transition">
+      Send email
+    </button>
+  </form>
+</div>
+
+<script>
+  import { animate } from 'motion';
+
+  const ANIMATION_DURATION = 0.2;
+  const TRANSITION_DELAY = 200;
+
+  const backdrop = document.querySelector<HTMLDivElement>('#contact-form-modal #backdrop')!;
+  const contactButtons = document.querySelectorAll('.contact-button');
+  const modal = document.getElementById('contact-form-modal')! as HTMLDivElement;
+  const form = document.querySelector('#contact-form-modal form')! as HTMLFormElement;
+  const closeButton = document.getElementById('close-contact-form')!;
+
+  const showContactForm = () => {
+    modal.style.display = 'flex';
+    animate(modal, { opacity: 1 }, { duration: ANIMATION_DURATION });
+
+    animate(form,
+      { transform: ['rotate(5deg)', 'rotate(0deg)'] },
+      { type: 'spring', duration: 0.5, bounce: 0.6 },
+    );
+  };
+
+  const hideContactForm = () => {
+    animate(modal, { opacity: 0 }, { duration: ANIMATION_DURATION });
+    setTimeout(() => {
+      modal.style.display = 'none';
+    }, TRANSITION_DELAY);
+  };
+
+  // Event Listeners
+  contactButtons.forEach(button => {
+    button.addEventListener('click', showContactForm);
+  });
+
+  [backdrop, closeButton].forEach(element => {
+    element.addEventListener('click', hideContactForm);
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') {
+      hideContactForm();
+    }
+  });
+</script>

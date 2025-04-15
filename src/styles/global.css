@@ -148,6 +148,3 @@
   transition: all 0.3s var(--animation-curve);
 }
 
-input {
-  display: none;
-}
