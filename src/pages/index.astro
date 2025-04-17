@@ -244,12 +244,18 @@ import Toast from '../components/Toast.astro';
             <ContactButton class="ml-0!" />
           </div>
 
-          <div class="flex flex-col items-center xl:flex-row gap-2 xl:gap-4 mt-32">
-            <img src={antropiaLogo.src} width="100" alt="Antropia Homepage" />
-            <span class="text-xs xl:text-sm">@2025 Antropia Studio</span>
-          </div>
-        </section>
 
+          <footer class="flex flex-col mt-32 items-center gap-6">
+            <p class="text-sm text-white/60 text-center">We collect aggregate and anonymous analytics.<br />For the
+              sake of transparency, you can see the dashboard <a href="https://antropiastudio.pirsch.io">here</a>.
+            </p>
+
+            <div class="flex flex-col items-center xl:flex-row gap-2 xl:gap-4">
+              <img src={antropiaLogo.src} width="100" alt="Antropia Homepage" />
+              <span class="text-xs xl:text-sm">@2025 Antropia Studio</span>
+            </div>
+          </footer>
+        </section>
       </div>
     </main>
   </div>
