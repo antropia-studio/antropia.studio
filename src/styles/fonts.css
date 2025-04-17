@@ -1,6 +1,6 @@
 @font-face {
   font-family: 'Round8';
-  src: url('/antropia.studio/fonts/round8-six-webfont.woff') format('woff');
+  src: url('/fonts/round8-six-webfont.woff') format('woff');
   font-weight: normal;
   font-style: italic;
   font-display: swap;
@@ -8,7 +8,7 @@
 
 @font-face {
   font-family: 'Round8';
-  src: url('/antropia.studio/fonts/round8-five-webfont.woff') format('woff');
+  src: url('/fonts/round8-five-webfont.woff') format('woff');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -16,7 +16,7 @@
 
 @font-face {
   font-family: 'Nudica';
-  src: url('/antropia.studio/fonts/nudica-regular-webfont.woff') format('woff');
+  src: url('/fonts/nudica-regular-webfont.woff') format('woff');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -24,7 +24,7 @@
 
 @font-face {
   font-family: 'Nudica';
-  src: url('/antropia.studio/fonts/nudica-bold-webfont.woff') format('woff');
+  src: url('/fonts/nudica-bold-webfont.woff') format('woff');
   font-weight: bold;
   font-style: normal;
   font-display: swap;

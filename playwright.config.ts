@@ -53,7 +53,7 @@ export default defineConfig({
   webServer: {
     command: 'pnpm run preview',
     reuseExistingServer: !process.env.CI,
-    url: 'http://localhost:4321/antropia.studio',
+    url: 'http://localhost:4321',
   },
   workers: process.env.CI ? 1 : undefined,
 });
