@@ -6,20 +6,20 @@ import closeIcon from '../assets/close.svg';
      class="hidden opacity-0 fixed flex-col center inset-0 h-screen w-screen z-30 bg-alucards-night/30 backdrop-blur-xl px-4">
   <div id="backdrop" class="absolute inset-0" />
 
-  <form action="https://api.web3forms.com/submit" method="POST"
-        class="relative flex flex-col center bg-white rounded-2xl p-6 xl:p-12 w-full xl:w-[500px]">
+  <form method="POST"
+        class="relative flex flex-col center bg-white rounded-md p-6 xl:p-12 w-full xl:w-[500px] xl:mb-40">
     <h1 class="font-round8 text-[20vw] xl:text-8xl text-blinking-blue mt-8 xl:mt-0">Contact us</h1>
 
     <div id="close-contact-form" class="absolute right-4 top-4 cursor-pointer h-[44px] w-[44px] flex center">
       <img src={closeIcon.src} alt="Close" />
     </div>
 
-    <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
+    <input type="hidden" name="access_key" value="3aa3993c-93c4-452f-9bda-0a9dafd0aa26">
 
     <div class="flex flex-col items-start mt-4 mb-4 w-full">
       <label for="email" class="block text-blinking-blue font-medium mb-2">Your email</label>
       <input type="email" id="email" name="email" required
-             class="border border-blinking-blue w-full p-2 rounded placeholder:text-blinking-blue/50"
+             class="border border-blinking-blue text-blinking-blue w-full p-2 rounded placeholder:text-blinking-blue/50"
              placeholder="building@amazing.things">
     </div>
 
@@ -27,16 +27,19 @@ import closeIcon from '../assets/close.svg';
       <label for="message" class="block text-blinking-blue font-medium mb-2">Your
         Message</label>
       <textarea id="message" name="message" required
-                class="border border-blinking-blue w-full p-2 rounded placeholder:text-blinking-blue/50 h-24"
+                class="border border-blinking-blue text-blinking-blue w-full p-2 rounded placeholder:text-blinking-blue/50 h-24"
                 placeholder="Describe your project, proposal or your idea of collaboration..."></textarea>
     </div>
 
 
+    <input type="hidden" name="subject" value="New Message for Antropia">
     <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
 
-    <button type="submit"
-            class="bg-benzol-green text-white font-nudica text-sm xl:text-lg px-10 py-2 rounded-full hover:bg-white hover:text-benzol-green cursor-pointer transition">
-      Send email
+    <button id="submit-form-button"
+            type="submit"
+            class="w-[180px] h-12 flex center bg-blinking-blue text-white font-nudica text-sm xl:text-lg px-10 py-2 rounded-full enabled:hover:bg-alucards-night cursor-pointer transition">
+      <div class="loader hidden" />
+      <span id="send-email-label">Send email</span>
     </button>
   </form>
 </div>
@@ -52,6 +55,9 @@ import closeIcon from '../assets/close.svg';
   const modal = document.getElementById('contact-form-modal')! as HTMLDivElement;
   const form = document.querySelector('#contact-form-modal form')! as HTMLFormElement;
   const closeButton = document.getElementById('close-contact-form')!;
+  const submitButton = document.querySelector('#submit-form-button')! as HTMLButtonElement;
+  const loading = document.querySelector('#submit-form-button .loader')! as HTMLDivElement;
+  const label = document.querySelector('#submit-form-button #send-email-label')! as HTMLSpanElement;
 
   const showContactForm = () => {
     modal.style.display = 'flex';
@@ -70,7 +76,6 @@ import closeIcon from '../assets/close.svg';
     }, TRANSITION_DELAY);
   };
 
-  // Event Listeners
   contactButtons.forEach(button => {
     button.addEventListener('click', showContactForm);
   });
@@ -83,5 +88,35 @@ import closeIcon from '../assets/close.svg';
     if (event.key === 'Escape') {
       hideContactForm();
     }
+  });
+
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    const formData = new FormData(form);
+    const object = Object.fromEntries(formData);
+    const json = JSON.stringify(object);
+
+    loading.classList.remove('hidden');
+    label.classList.add('hidden');
+    submitButton.disabled = true;
+
+    fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+      },
+      body: json,
+    }).then(function() {
+      window.showToast();
+      form.reset();
+      hideContactForm();
+    }).catch(error => {
+      console.log(error);
+    }).finally(() => {
+      loading.classList.add('hidden');
+      label.classList.remove('hidden');
+      submitButton.disabled = false;
+    });
   });
 </script>

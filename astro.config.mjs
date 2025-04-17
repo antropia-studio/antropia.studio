@@ -5,8 +5,7 @@ import tailwindcss from '@tailwindcss/vite';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://antropia-studio.github.io/antopia-studio',
-  base: 'antropia.studio',
+  site: 'https://antropia.studio/',
   vite: {
     plugins: [tailwindcss()],
   },

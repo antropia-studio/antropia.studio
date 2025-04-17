@@ -16,8 +16,8 @@
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.4",
-    "astro": "^5.7.0",
-    "motion": "^12.7.3",
+    "astro": "^5.7.2",
+    "motion": "^12.7.4",
     "tailwindcss": "^4.1.4"
   },
   "devDependencies": {

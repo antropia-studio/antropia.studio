@@ -11,10 +11,12 @@ import Steps from '../components/Steps.astro';
 import Step from '../components/Step.astro';
 import NavigationBar from '../components/NavigationBar.astro';
 import ContactForm from '../components/ContactForm.astro';
+import Toast from '../components/Toast.astro';
 ---
 
 <Layout>
   <div id="container">
+    <Toast />
     <NavigationBar />
 
     <ContactForm />
@@ -23,6 +25,7 @@ import ContactForm from '../components/ContactForm.astro';
       <div class="flex flex-col items-center bg-alucards-night">
         <Blob1 />
         <Blob2 />
+
 
         <section id="home" class="section pt-16 px-6 xl:pt-32 xl:items-start">
           <h1 class="title">
