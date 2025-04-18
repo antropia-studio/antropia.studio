@@ -51,7 +51,7 @@ export default defineConfig({
     baseURL: 'http://localhost:4321/',
   },
   webServer: {
-    command: 'pnpm run preview',
+    command: 'pnpm run dev',
     reuseExistingServer: !process.env.CI,
     url: 'http://localhost:4321',
   },
