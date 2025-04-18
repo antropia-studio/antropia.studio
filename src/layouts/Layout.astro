@@ -48,9 +48,27 @@ const {
 
   <meta name="generator" content={Astro.generator} />
 
+  <!-- Pirsch analytics -->
   <script defer src="https://api.pirsch.io/pa.js"
           id="pianjs"
           data-code="gxYI8XdHpDUlWF9Synok7rqJHGRaqQ3J" />
+
+  <!-- Font preload-->
+  <link
+    rel="preload"
+    href="/fonts/round8-five-webfont.woff"
+    as="font"
+    type="font/woff"
+    crossorigin
+  />
+  <link
+    rel="preload"
+    href="/fonts/nudica-regular-webfont.woff"
+    as="font"
+    type="font/woff"
+    crossorigin
+  />
+
 </head>
 <body>
 <slot />
