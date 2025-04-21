@@ -1,5 +1,7 @@
 @import 'tailwindcss';
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
   --navbar-width: 44px;
   --navbar-width-xl: 100px;
@@ -7,6 +9,7 @@
   --navbar-open-width-xl: 700px;
   --animation-curve: cubic-bezier(1, 0, 0, 1);
 
+  --color-antropia-white: #f8f8f8;
   --color-blinking-blue: #0030ff;
   --color-hello-summer: #5dbdf9;
   --color-ice-cold-stare: #b2d2fb;
@@ -14,6 +17,7 @@
   --color-benzol-green: #00dc64;
   --color-granny-smith-apple: #9fe38e;
   --color-alucards-night: #030454;
+  --color-ash: #0f0f0f;
 
   --text-10xl: 10rem;
   --text-10xl--line-height: 0.8;
@@ -75,143 +79,237 @@
     }
   }
 
-  body {
-    background-color: var(--color-alucards-night);
-    color: white;
+  #index {
+    body {
+      background-color: var(--color-alucards-night);
+      color: white;
+    }
+
+    a {
+      text-decoration: underline;
+      font-weight: bold;
+    }
+
+    nav #side-menu a {
+      @apply text-white text-xl xl:text-5xl font-medium no-underline hover:underline inline-block;
+    }
   }
 
-  a {
-    text-decoration: underline;
-    font-weight: bold;
-  }
-
-  nav #side-menu a {
-    @apply text-white text-xl xl:text-5xl font-medium no-underline hover:underline inline-block;
-  }
-}
-
-#menu-icon {
-  width: 21px;
-  height: 2px;
-  display: block;
-  background-color: var(--color-benzol-green);
-  position: relative;
-
-  &::before,
-  &::after {
-    content: "";
-    width: 26px;
+  #menu-icon {
+    width: 21px;
     height: 2px;
-    background-color: var(--color-benzol-green);
     display: block;
+    background-color: var(--color-benzol-green);
     position: relative;
-    color: var(--color-benzol-green);
+
+    &::before,
+    &::after {
+      content: "";
+      width: 26px;
+      height: 2px;
+      background-color: var(--color-benzol-green);
+      display: block;
+      position: relative;
+      color: var(--color-benzol-green);
+      transition: all 0.3s var(--animation-curve);
+    }
+
+    &::before {
+      top: -8px;
+      transform: rotateZ(0deg);
+      transform-origin: left top;
+    }
+
+    &::after {
+      bottom: -6px;
+      transform: rotateZ(0deg);
+      transform-origin: left bottom;
+    }
+
+    .no-hover {
+      pointer-events: none;
+    }
+  }
+
+  #toggle.open ~ #menu-icon::before {
+    content: "";
+    background-color: var(--color-benzol-green);
+    transform: translateX(2px) translateY(-1px) rotateZ(45deg);
+    left: 0;
+  }
+
+  #toggle.open ~ #menu-icon::after {
+    content: "";
+    background-color: var(--color-benzol-green);
+    transform: translateX(2px) translateY(1px) rotateZ(-45deg);
+    left: 0;
+  }
+
+  #toggle.open ~ #menu-icon {
+    background-color: var(--color-blinking-blue);
+
+    @media (min-width: 1280px) {
+      background-color: #0125D4;
+    }
+  }
+
+  #toggle ~ #menu-icon {
     transition: all 0.3s var(--animation-curve);
   }
 
-  &::before {
-    top: -8px;
-    transform: rotateZ(0deg);
-    transform-origin: left top;
+  /* https://css-loaders.com/blob/ */
+  /* HTML: <div class="loader"></div> */
+  .loader {
+    width: 40px;
+    aspect-ratio: 1;
+    border: 5px solid #0000;
+    padding: 2.5px;
+    box-sizing: border-box;
+    background: radial-gradient(farthest-side, #fff 98%, #0000) 0 0/20px 20px no-repeat,
+    radial-gradient(circle, #fff 50%, #0000 80%) content-box,
+    #0025C3;
+
+    filter: blur(2px) contrast(10);
+    animation: l11 2s infinite linear;
   }
 
-  &::after {
-    bottom: -6px;
-    transform: rotateZ(0deg);
-    transform-origin: left bottom;
+  .loader::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 50%; /* Adjust size as needed */
+    height: 50%; /* Adjust size as needed */
+    background-color: var(--color-blinking-blue);
+    border-radius: 50%;
+    transform: translate(-50%, -50%); /* Center the circle */
+    z-index: 1; /* Ensure it appears on top */
   }
 
-  .no-hover {
-    pointer-events: none;
+  @keyframes l11 {
+    0%, 100% {
+      background-position: 50% 25%;
+    }
+    12.5% {
+      background-position: 75% 35%;
+    }
+    25% {
+      background-position: 85% 50%;
+    }
+    37.5% {
+      background-position: 75% 65%;
+    }
+    50% {
+      background-position: 50% 75%;
+    }
+    62.5% {
+      background-position: 35% 65%;
+    }
+    75% {
+      background-position: 25% 50%;
+    }
+    87.5% {
+      background-position: 35% 35%;
+    }
   }
 }
 
-#toggle.open ~ #menu-icon::before {
-  content: "";
-  background-color: var(--color-benzol-green);
-  transform: translateX(2px) translateY(-1px) rotateZ(45deg);
-  left: 0;
-}
+.prose {
+  @apply w-full max-w-[900px] m-auto text-antropia-white/80 text-xl font-light;
 
-#toggle.open ~ #menu-icon::after {
-  content: "";
-  background-color: var(--color-benzol-green);
-  transform: translateX(2px) translateY(1px) rotateZ(-45deg);
-  left: 0;
-}
+  @media screen and (min-width: 768px) {
+    width: calc(100% - 2em);
+    padding: 1em;
+  }
 
-#toggle.open ~ #menu-icon {
-  background-color: var(--color-blinking-blue);
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-round8 font-light text-antropia-white text-center mt-2;
+    letter-spacing: 0.1rem;
+    margin: 0.75em 0 0.1em;
+  }
+
+  h1 {
+    @apply text-8xl;
+  }
+
+  h2 {
+    @apply text-7xl;
+  }
+
+  h3 {
+    @apply text-6xl;
+  }
+
+  h4 {
+    @apply text-5xl;
+  }
+
+  b, strong {
+    @apply text-antropia-white font-bold;
+  }
+
+  img {
+    margin: 2rem auto;
+    border-radius: 24px;
+  }
+
+  p {
+    margin-bottom: 1em;
+  }
+
+  a {
+    @apply text-sasquatch-socks underline font-bold;
+  }
+
+  ol,
+  ul {
+    padding-left: 1.5em;
+    margin-bottom: 1em;
+  }
+
+  ol {
+    list-style: decimal;
+  }
+
+  ul {
+    list-style: disc;
+  }
+
+  pre {
+    font-size: 0.8rem;
+    margin: 1em 0;
+
+    @media screen and (min-width: 768px) {
+      font-size: 1rem;
+    }
+  }
+
+  code {
+    background-color: #2d2d2d;
+    color: #dfb047;
+    border-radius: 4px;
+  }
+
+  blockquote {
+    line-height: 1.2;
+  }
+
+  em {
+    font-size: 1.2rem;
+  }
+
+  hr {
+    width: 100%;
+  }
+
+  #footnote-label {
+    @apply text-6xl text-sasquatch-socks
+  }
 
   @media (min-width: 1280px) {
-    background-color: #0125D4;
+    h1, h2, h3, h4, h5, h6 {
+      @apply text-start mt-12;
+    }
   }
 }
 
-#toggle ~ #menu-icon {
-  transition: all 0.3s var(--animation-curve);
-}
-
-/* https://css-loaders.com/blob/ */
-/* HTML: <div class="loader"></div> */
-.loader {
-  width: 40px;
-  aspect-ratio: 1;
-  border: 5px solid #0000;
-  padding: 2.5px;
-  box-sizing: border-box;
-  background: radial-gradient(farthest-side, #fff 98%, #0000) 0 0/20px 20px no-repeat,
-  radial-gradient(circle, #fff 50%, #0000 80%) content-box,
-  #0025C3;
-
-  filter: blur(2px) contrast(10);
-  animation: l11 2s infinite linear;
-}
-
-.loader::before {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 50%; /* Adjust size as needed */
-  height: 50%; /* Adjust size as needed */
-  background-color: var(--color-blinking-blue);
-  border-radius: 50%;
-  transform: translate(-50%, -50%); /* Center the circle */
-  z-index: 1; /* Ensure it appears on top */
-}
-
-@keyframes l11 {
-  0%, 100% {
-    background-position: 50% 25%;
-  }
-  /* Top center - smaller circle */
-  12.5% {
-    background-position: 75% 35%;
-  }
-  /* Top right - smaller circle */
-  25% {
-    background-position: 85% 50%;
-  }
-  /* Right center - smaller circle */
-  37.5% {
-    background-position: 75% 65%;
-  }
-  /* Bottom right - smaller circle */
-  50% {
-    background-position: 50% 75%;
-  }
-  /* Bottom center - smaller circle */
-  62.5% {
-    background-position: 35% 65%;
-  }
-  /* Bottom left - smaller circle */
-  75% {
-    background-position: 25% 50%;
-  }
-  /* Left center - smaller circle */
-  87.5% {
-    background-position: 35% 35%;
-  }
-  /* Top left - smaller circle */
-}

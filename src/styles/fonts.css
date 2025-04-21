@@ -15,9 +15,25 @@
 }
 
 @font-face {
+  font-family: 'Round8';
+  src: url('/fonts/round8-one-webfont.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
   font-family: 'Nudica';
   src: url('/fonts/nudica-regular-webfont.woff') format('woff');
   font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Nudica';
+  src: url('/fonts/nudica-light-webfont.woff') format('woff');
+  font-weight: 300;
   font-style: normal;
   font-display: swap;
 }

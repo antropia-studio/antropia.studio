@@ -1,0 +1,60 @@
+---
+import { BLOG_TITLE, BLOG_DESCRIPTION } from '../../consts';
+import Head from '../../components/blog/Head.astro';
+import Header from '../../components/blog/Header.astro';
+import Footer from '../../components/blog/Footer.astro';
+import { Image } from 'astro:assets';
+import FormattedDate from '../../components/blog/FormattedDate.astro';
+import { type CollectionEntry } from 'astro:content';
+const { posts } = Astro.props;
+
+type Post = CollectionEntry<'blog' | 'drafts'>
+---
+
+
+<!doctype html>
+<html class="dark" lang="en">
+<Head title={BLOG_TITLE} description={BLOG_DESCRIPTION} image="/images/social.blog.png" />
+<body class="bg-antropia-white dark:bg-ash">
+<Header />
+<main class="flex center font-nudica pt-20 xl:pt-40 px-6">
+  <section class="max-w-[1024px]">
+    <ul>
+      {
+        posts.map((post: Post) => {
+          const url = post.collection === 'drafts' ? `/blog/drafts/${post.id}/` : `/blog/${post.id}/`;
+
+          return (
+            <li
+              class="mb-16 text-blinking-blue dark:text-antropia-white no-underline flex justify-center items-center flex-col">
+              <p
+                class="font-round8 text-[20vw] leading-none xl:text-8xl text-center mb-4 uppercase text-blinking-blue dark:text-white hover:dark:text-sasquatch-socks">
+                <a class="no-underline" href={url}>{post.data.title}</a>
+              </p>
+
+              <a href={url}>
+                <Image width={720} height={400} src={post.data.heroImage!} alt={post.data.title}
+                       style="border-radius: 1rem" />
+              </a>
+
+              <p class="mt-4 p-0 text-base font-light dark:text-white">
+                <FormattedDate date={post.data.pubDate} />
+              </p>
+
+              <p
+                class="text-xl text-center italic text-alucards-night dark:text-white/70 md:px-10 md:w-3/4 w-full py-2">
+                {post.data.description}
+              </p>
+
+              <p class="text-center underline hover:dark:text-sasquatch-socks">
+                <a href={url}>Read more...</a>
+              </p>
+            </li>);
+        })
+      }
+    </ul>
+  </section>
+</main>
+<Footer />
+</body>
+</html>

@@ -1,0 +1,20 @@
+---
+import { BLOG_TITLE } from '../../consts';
+import logo from '../../assets/blog.logo.svg';
+import ThemeIcon from './ThemeIcon.astro';
+---
+
+<header>
+  <nav class="px-8 py-4">
+    <div class="flex flex-row items-center md:justify-between justify-center gap-6">
+      <div class="flex flex-row items-center gap-2">
+        <a href="/" class="md:flex hidden">
+          <img src={logo.src} width="48" height="48" alt="logo">
+        </a>
+      </div>
+
+      <!--<ThemeIcon />-->
+    </div>
+
+  </nav>
+</header>
