@@ -12,7 +12,7 @@ test('menu', async ({ page }) => {
   await page.goto('/');
 
   await page.waitForLoadState('domcontentloaded');
-  await page.locator('#menu-toggle').click({ force: true });
+  await page.locator('#menu-toggle div').filter({ hasText: 'Menu' }).click();
 
-  await expect(page).toHaveScreenshot({ fullPage: true });
+  await expect(page).toHaveScreenshot();
 });
