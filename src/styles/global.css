@@ -17,12 +17,14 @@
   --color-benzol-green: #00dc64;
   --color-granny-smith-apple: #9fe38e;
   --color-alucards-night: #030454;
-  --color-ash: #0f0f0f;
+  --color-ash: #101114;
 
   --text-10xl: 10rem;
   --text-10xl--line-height: 0.8;
   --text-11xl: 12rem;
   --text-11xl--line-height: 0.8;
+  --text-12xl: 14rem;
+  --text-12xl--line-height: 0.8;
   --text-superxl: 18rem;
   --text-superxl--line-height: 0.8;
 

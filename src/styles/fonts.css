@@ -1,5 +1,13 @@
 @font-face {
   font-family: 'Round8';
+  src: url('/fonts/round8-seven-webfont.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Round8';
   src: url('/fonts/round8-six-webfont.woff') format('woff');
   font-weight: normal;
   font-style: italic;
