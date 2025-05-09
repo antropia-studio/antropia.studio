@@ -12,7 +12,7 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 ---
 
 <html class="dark" lang="en">
-<Head title={title} description={description} image="/images/social.blog.png" />
+<Head title={title} description={description} image={heroImage ?? '/images/social.blog.png'} />
 <body class="bg-antropia-white dark:bg-ash text-black dark:text-white">
 <Header />
 <main class="flex center font-nudica">
