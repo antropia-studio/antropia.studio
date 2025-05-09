@@ -6,11 +6,12 @@ interface Props {
   title: string;
   description: string;
   image: string;
+  keywords?: string[]
 }
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
-const { title, description, image } = Astro.props;
+const { title, description, image, keywords } = Astro.props;
 ---
 
 <head>
@@ -50,6 +51,7 @@ const { title, description, image } = Astro.props;
   <title>{title}</title>
   <meta name="title" content={title} />
   <meta name="description" content={description} />
+  {keywords && <meta name="keywords" content={keywords.join(", ")} />}
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website" />
