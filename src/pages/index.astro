@@ -15,241 +15,238 @@ import Toast from '../components/Toast.astro';
 ---
 
 <Layout>
-  <div id="container">
-    <Toast />
-    <NavigationBar />
+  <Toast />
+  <NavigationBar />
 
-    <ContactForm />
+  <ContactForm />
 
-    <main class="pb-16 ml-navbar xl:ml-navbar-xl">
-      <div class="flex flex-col items-center bg-alucards-night">
-        <Blob1 />
-        <Blob2 />
+  <main class="pb-16 ml-navbar xl:ml-navbar-xl">
+    <div class="flex flex-col items-center bg-alucards-night">
+      <Blob1 />
+      <Blob2 />
 
-        <section id="home" class="section pt-16 px-6 xl:pt-32 xl:items-start">
-          <h1 class="title">
-            Apps that<br><span class="text-benzol-green italic xl:ml-[355px]">matter</span>
+      <section id="home" class="section pt-16 px-6 xl:pt-32 xl:items-start">
+        <h1 class="title">
+          Apps that<br><span class="text-benzol-green italic xl:ml-[355px]">matter</span>
+        </h1>
+
+        <p class="text-xl font-nudica mt-6 xl:w-3/5 xl:text-4xl">
+          We are the rapid prototyping studio that turns <span class="text-benzol-green">"what if"</span> into <span
+          class="text-benzol-green">"what's next"</span> — crafting human experiences at pace that get your idea in
+          front of real users
+        </p>
+
+        <ContactButton class="ml-0!" />
+      </section>
+
+      <section id="working-together" class="section mt-20 xl:mt-64">
+        <div class="flex flex-col xl:flex-row-reverse gap-10 items-center xl:items-start">
+          <img src={workingTogetherIcon.src} alt="Working together" class="flex-1 w-3/5 xl:w-full" />
+
+          <div class="flex flex-col items-center xl:mt-28">
+            <h1 class="text-white font-round8 text-[23vw] xl:text-10xl leading-none">
+              Working<br><span class="text-sasquatch-socks italic ml-[50px] xl:ml-[110px]">together</span>
+            </h1>
+
+            <p class="subtitle text-ice-cold-stare self-start xl:ml-[110px] xl:mt-20">
+              This is what you can expect <br /> from our collaboration
+            </p>
+          </div>
+
+        </div>
+
+        <Steps class="bg-sasquatch-socks">
+          <Step class="text-sasquatch-socks" title="1. Talk" slot="first">
+            Let's meet, chat about your idea, and explore how we can <b>bring it to life</b>, together. No pitch decks
+            needed - just an honest conversation.
+          </Step>
+          <Step class="text-sasquatch-socks" title="2. Hands on" slot="second">
+            Three words: <span class="italic">iterate, iterate, ite...</span> you get it. Your idea starts taking
+            shape through <b>constant testing and feedback</b>. You'll own everything we create together.
+          </Step>
+          <Step class="text-sasquatch-socks" title="3. Takeoff" slot="third">
+            We'll handle the tech for your <b>app store launch</b> and help you chart the best course forward -
+            whether that's attracting investors or winning your first users.
+          </Step>
+        </Steps>
+
+        <p class="headline text-ice-cold-stare ml-2 xl:ml-0">
+          Let's craft a project together.<br />We'll focus on what really matters.
+        </p>
+
+        <ContactButton />
+      </section>
+
+      <section id="your-vision" class="section">
+        <div class="flex flex-col items-center gap-10 mt-20 px-6 xl:flex-row-reverse xl:items-end xl:gap-20">
+          <img src={yourVisionIcon.src} alt="Your vision" class="flex-1 w-4/5 xl:w-full" />
+
+          <div class="flex flex-col w-full xl:flex-1 xl:mb-10">
+            <h1 class="flex-1 text-white font-round8 text-[23vw] xl:text-11xl leading-none">
+              Your<br><span class="text-blinking-blue italic ml-[50px] xl:ml-[90px]">vision</span>
+            </h1>
+
+            <p class="subtitle text-hello-summer xl:ml-[100px] xl:mt-10">
+              What you bring to the table<br />is what matter to us
+            </p>
+          </div>
+        </div>
+
+        <Steps class="bg-blinking-blue">
+          <Step class="text-hello-summer" title="To the point" slot="first">
+            We keep projects <b>short and focused</b>, typically wrapping up within a month to give you everything
+            needed to validate your idea and continue growing. No endless timelines - just swift, meaningful progress.
+          </Step>
+          <Step class="text-hello-summer" title="Eyes on the prize" slot="second">
+            We help navigate the exciting chaos of early-stage projects, ensuring your journey leads to <b>something
+            tangible</b> you can be proud of.
+          </Step>
+          <Step class="text-hello-summer" title="Working hours" slot="third">
+            We become part of your team, bringing our perspective and experience while <b>solving problems
+            together</b>. Your challenges become our challenges, and your wins become our wins.
+          </Step>
+        </Steps>
+
+        <p class="headline ml-2 text-ice-cold-stare xl:text-white xl:ml-0 xl:w-1/2">
+          Ready to build something meaningful together?
+        </p>
+
+        <ContactButton />
+      </section>
+
+      <section id="our-craft" class="items-center section mt-16 xl:mt-32">
+        <div class="flex flex-col items-center justify-between px-6 xl:flex-row-reverse xl:items-end">
+          <img src={ourCraftIcon.src} alt="Our craft" class="flex-1 w-full xl:flex-none xl:w-2/5" />
+
+          <div class="flex flex-col w-full flex-1 mt-4 xl:mb-10">
+            <h1 class="flex-1 text-white font-round8 text-[23vw] xl:text-10xl leading-none xl:leading-36">
+              Our<br><span class="text-benzol-green italic ml-[23vw] xl:ml-[90px]">craft</span>
+            </h1>
+
+            <p class="subtitle text-benzol-green xl:ml-[100px] xl:mt-10">
+              Years of experience building <br /> apps for humans
+            </p>
+          </div>
+        </div>
+
+        <Steps class="bg-benzol-green">
+          <Step class="text-benzol-green" title="Fixed rate" slot="first">
+            One fixed rate of <b>$125/hr (plus taxes)</b> for all our clients. No hidden fees, no special deals - just
+            transparent pricing that only changes when it changes for everyone.
+          </Step>
+          <Step class="text-benzol-green" title="Focused work" slot="second">
+            We work up to <b>6 focused hours</b> each day, <b>5 days a week</b>, ensuring you get our best thinking
+            and
+            strongest work. Less quantity, more quality - we believe that's how great apps are built.
+          </Step>
+          <Step class="text-benzol-green" title="Working hours" slot="third">
+            Based in <b>Spain</b> but flexible with schedules. All we need is <b>2 hours of overlap between 10AM-6PM
+            CET</b> to keep the collaboration flowing.
+          </Step>
+        </Steps>
+
+        <p class="headline text-benzol-green">
+          Let's start building what matters to you.
+        </p>
+        <ContactButton />
+      </section>
+    </div>
+
+    <div class="flex flex-col items-center bg-white mt-16 xl:mt-32">
+      <section id="about-us" class="section items-center w-full py-8 xl:py-32 xl:px-5">
+        <div class="flex flex-col w-full px-5 py-5 xl:py-10">
+          <h1
+            class="text-blinking-blue font-round8 text-[20vw] xl:text-superxl leading-none">
+            Hey, <span class="text-hello-summer italic">world!</span>
           </h1>
 
-          <p class="text-xl font-nudica mt-6 xl:w-3/5 xl:text-4xl">
-            We are the rapid prototyping studio that turns <span class="text-benzol-green">"what if"</span> into <span
-            class="text-benzol-green">"what's next"</span> — crafting human experiences at pace that get your idea in
-            front of real users
+          <p class="text-xl xl:text-5xl font-nudica text-blinking-blue mt-4 xl:mt-20 w-4/5 xl:leading-none">
+            Thanks for stopping by.<br />
+            I'm Sergio, and this is <b class="text-sasquatch-socks">Antropia</b>. It's my little peaceful corner
+            where I tinker with new ideas and explore better ways of working while trying to make what I do really
+            matter.
           </p>
+        </div>
 
+        <div class="separator bg-blinking-blue hidden xl:block" />
+
+        <div class="flex flex-col w-full px-5 py-5 xl:py-10">
+          <h1 class="text-blinking-blue uppercase font-round8 text-[10vw] mt-5 xl:text-11xl xl:mt-20">
+            Me
+          </h1>
+
+          <p class="text-sm xl:text-xl font-nudica text-blinking-blue mt-2 xl:mt-12 xl:w-2/3">
+            I’m a software developer by education and passion. I have 12 years (and growing) of experience in building
+            extraordinary software in companies like Tuenti, IBM, Cabify, Sketch and Harvest. I spent the last 4 years
+            creating apps with <b>React Native</b> and learning in other areas like <b>Design</b> and
+            <b>Security</b>.
+          </p>
+        </div>
+
+        <div class="separator bg-blinking-blue hidden xl:block" />
+
+        <div class="flex flex-col w-full px-5 py-2 xl:py-10">
+          <h1 class="text-blinking-blue uppercase font-round8 text-[10vw] xl:text-11xl xl:mt-20 self-start">
+            Antropia <span class="italic text-sasquatch-socks">studio</span>
+          </h1>
+
+          <div class="xl:w-4/5 self-start">
+            <p class="text-lg xl:text-3xl font-nudica text-blinking-blue mt-2 xl:mt-12 leading-5 xl:leading-10">
+              Antropia started as a simple question: <b>what if work felt different?</b> While we are not yet
+              officially a cooperative, it’s the spirit that guide us.
+            </p>
+
+            <p class="text-sm xl:text-xl font-nudica text-blinking-blue mt-6">
+              We created this studio with the purpose of rethinking our relationship with work. In particular,
+              Antropia is our exploration to find some essential -yet often overlooked - characteristics we found
+              missing in our work-life: <b>novelty</b>, <b>pride</b>, <b>progress</b>, <b>fairness</b>, <b>satisfaction</b>
+              and <b>impact</b>, to name a few.
+              <br />
+              <br />
+              We keep looking for ways to make our job something different, weaving purpose into our business fabric.
+              That’s why signed the <a class="text-sasquatch-socks" href="https://www.givingwhatwecan.org/">Giving
+              What We Can</a> pledge and
+              <b>we donate 10%</b> of our income to effective <b>charities</b>.
+              <br />
+              <br />
+              Antropia continues to evolve naturally, much like a living organism. And it does so because that's
+              exactly what it should do - it's a continuous exploration of better ways to work together.
+              <br />
+              <br />
+              We welcome conversations about work, collaboration, or any related thoughts. Reach out to us at
+              <b>hi {'{at}'} antropia {'{dot}'} studio</b>.
+            </p>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <div class="flex flex-col items-center bg-alucards-night">
+      <section id="contact" class="section bg-alucards-night pt-20 xl:pt-52">
+        <h1 class="text-hello-summer uppercase font-round8 text-10xl text-center xl:text-start">
+          Let's talk
+        </h1>
+
+        <p class="headline text-granny-smith-apple text-lg xl:text-4xl text-center xl:w-1/2">
+          Contact us, let’s do something amazing, together.
+        </p>
+
+        <div>
           <ContactButton class="ml-0!" />
-        </section>
+        </div>
 
-        <section id="working-together" class="section mt-20 xl:mt-64">
-          <div class="flex flex-col xl:flex-row-reverse gap-10 items-center xl:items-start">
-            <img src={workingTogetherIcon.src} alt="Working together" class="flex-1 w-3/5 xl:w-full" />
 
-            <div class="flex flex-col items-center xl:mt-28">
-              <h1 class="text-white font-round8 text-[23vw] xl:text-10xl leading-none">
-                Working<br><span class="text-sasquatch-socks italic ml-[50px] xl:ml-[110px]">together</span>
-              </h1>
-
-              <p class="subtitle text-ice-cold-stare self-start xl:ml-[110px] xl:mt-20">
-                This is what you can expect <br /> from our collaboration
-              </p>
-            </div>
-
-          </div>
-
-          <Steps class="bg-sasquatch-socks">
-            <Step class="text-sasquatch-socks" title="1. Talk" slot="first">
-              Let's meet, chat about your idea, and explore how we can <b>bring it to life</b>, together. No pitch decks
-              needed - just an honest conversation.
-            </Step>
-            <Step class="text-sasquatch-socks" title="2. Hands on" slot="second">
-              Three words: <span class="italic">iterate, iterate, ite...</span> you get it. Your idea starts taking
-              shape through <b>constant testing and feedback</b>. You'll own everything we create together.
-            </Step>
-            <Step class="text-sasquatch-socks" title="3. Takeoff" slot="third">
-              We'll handle the tech for your <b>app store launch</b> and help you chart the best course forward -
-              whether that's attracting investors or winning your first users.
-            </Step>
-          </Steps>
-
-          <p class="headline text-ice-cold-stare ml-2 xl:ml-0">
-            Let's craft a project together.<br />We'll focus on what really matters.
+        <footer class="flex flex-col mt-32 items-center gap-6">
+          <p class="text-sm text-white/60 text-center">We collect aggregate and anonymous analytics.<br />For the
+            sake of transparency, you can see the dashboard <a href="https://antropiastudio.pirsch.io">here</a>.
           </p>
 
-          <ContactButton />
-        </section>
-
-        <section id="your-vision" class="section">
-          <div class="flex flex-col items-center gap-10 mt-20 px-6 xl:flex-row-reverse xl:items-end xl:gap-20">
-            <img src={yourVisionIcon.src} alt="Your vision" class="flex-1 w-4/5 xl:w-full" />
-
-            <div class="flex flex-col w-full xl:flex-1 xl:mb-10">
-              <h1 class="flex-1 text-white font-round8 text-[23vw] xl:text-11xl leading-none">
-                Your<br><span class="text-blinking-blue italic ml-[50px] xl:ml-[90px]">vision</span>
-              </h1>
-
-              <p class="subtitle text-hello-summer xl:ml-[100px] xl:mt-10">
-                What you bring to the table<br />is what matter to us
-              </p>
-            </div>
+          <div class="flex flex-col items-center xl:flex-row gap-2 xl:gap-4">
+            <img src={antropiaLogo.src} width="100" alt="Antropia Homepage" />
+            <span class="text-xs xl:text-sm">@2025 Antropia Studio</span>
           </div>
-
-          <Steps class="bg-blinking-blue">
-            <Step class="text-hello-summer" title="To the point" slot="first">
-              We keep projects <b>short and focused</b>, typically wrapping up within a month to give you everything
-              needed to validate your idea and continue growing. No endless timelines - just swift, meaningful progress.
-            </Step>
-            <Step class="text-hello-summer" title="Eyes on the prize" slot="second">
-              We help navigate the exciting chaos of early-stage projects, ensuring your journey leads to <b>something
-              tangible</b> you can be proud of.
-            </Step>
-            <Step class="text-hello-summer" title="Working hours" slot="third">
-              We become part of your team, bringing our perspective and experience while <b>solving problems
-              together</b>. Your challenges become our challenges, and your wins become our wins.
-            </Step>
-          </Steps>
-
-          <p class="headline ml-2 text-ice-cold-stare xl:text-white xl:ml-0 xl:w-1/2">
-            Ready to build something meaningful together?
-          </p>
-
-          <ContactButton />
-        </section>
-
-
-        <section id="our-craft" class="items-center section mt-16 xl:mt-32">
-          <div class="flex flex-col items-center justify-between px-6 xl:flex-row-reverse xl:items-end">
-            <img src={ourCraftIcon.src} alt="Our craft" class="flex-1 w-full xl:flex-none xl:w-2/5" />
-
-            <div class="flex flex-col w-full flex-1 mt-4 xl:mb-10">
-              <h1 class="flex-1 text-white font-round8 text-[23vw] xl:text-10xl leading-none xl:leading-36">
-                Our<br><span class="text-benzol-green italic ml-[23vw] xl:ml-[90px]">craft</span>
-              </h1>
-
-              <p class="subtitle text-benzol-green xl:ml-[100px] xl:mt-10">
-                Years of experience building <br /> apps for humans
-              </p>
-            </div>
-          </div>
-
-          <Steps class="bg-benzol-green">
-            <Step class="text-benzol-green" title="Fixed rate" slot="first">
-              One fixed rate of <b>$125/hr (plus taxes)</b> for all our clients. No hidden fees, no special deals - just
-              transparent pricing that only changes when it changes for everyone.
-            </Step>
-            <Step class="text-benzol-green" title="Focused work" slot="second">
-              We work up to <b>6 focused hours</b> each day, <b>5 days a week</b>, ensuring you get our best thinking
-              and
-              strongest work. Less quantity, more quality - we believe that's how great apps are built.
-            </Step>
-            <Step class="text-benzol-green" title="Working hours" slot="third">
-              Based in <b>Spain</b> but flexible with schedules. All we need is <b>2 hours of overlap between 10AM-6PM
-              CET</b> to keep the collaboration flowing.
-            </Step>
-          </Steps>
-
-          <p class="headline text-benzol-green">
-            Let's start building what matters to you.
-          </p>
-          <ContactButton />
-        </section>
-      </div>
-
-      <div class="flex flex-col items-center bg-white mt-16 xl:mt-32">
-        <section id="about-us" class="section items-center w-full py-8 xl:py-32 xl:px-5">
-          <div class="flex flex-col w-full px-5 py-5 xl:py-10">
-            <h1
-              class="text-blinking-blue font-round8 text-[20vw] xl:text-superxl leading-none">
-              Hey, <span class="text-hello-summer italic">world!</span>
-            </h1>
-
-            <p class="text-xl xl:text-5xl font-nudica text-blinking-blue mt-4 xl:mt-20 w-4/5 xl:leading-none">
-              Thanks for stopping by.<br />
-              I'm Sergio, and this is <b class="text-sasquatch-socks">Antropia</b>. It's my little peaceful corner
-              where I tinker with new ideas and explore better ways of working while trying to make what I do really
-              matter.
-            </p>
-          </div>
-
-          <div class="separator bg-blinking-blue hidden xl:block" />
-
-          <div class="flex flex-col w-full px-5 py-5 xl:py-10">
-            <h1 class="text-blinking-blue uppercase font-round8 text-[10vw] mt-5 xl:text-11xl xl:mt-20">
-              Me
-            </h1>
-
-            <p class="text-sm xl:text-xl font-nudica text-blinking-blue mt-2 xl:mt-12 xl:w-2/3">
-              I’m a software developer by education and passion. I have 12 years (and growing) of experience in building
-              extraordinary software in companies like Tuenti, IBM, Cabify, Sketch and Harvest. I spent the last 4 years
-              creating apps with <b>React Native</b> and learning in other areas like <b>Design</b> and
-              <b>Security</b>.
-            </p>
-          </div>
-
-          <div class="separator bg-blinking-blue hidden xl:block" />
-
-          <div class="flex flex-col w-full px-5 py-2 xl:py-10">
-            <h1 class="text-blinking-blue uppercase font-round8 text-[10vw] xl:mt-6 xl:text-11xl xl:mt-20 self-start">
-              Antropia <span class="italic text-sasquatch-socks">studio</span>
-            </h1>
-
-            <div class="xl:w-4/5 self-start">
-              <p class="text-lg xl:text-3xl font-nudica text-blinking-blue mt-2 xl:mt-12 leading-5 xl:leading-10">
-                Antropia started as a simple question: <b>what if work felt different?</b> While we are not yet
-                officially a cooperative, it’s the spirit that guide us.
-              </p>
-
-              <p class="text-sm xl:text-xl font-nudica text-blinking-blue mt-6">
-                We created this studio with the purpose of rethinking our relationship with work. In particular,
-                Antropia is our exploration to find some essential -yet often overlooked - characteristics we found
-                missing in our work-life: <b>novelty</b>, <b>pride</b>, <b>progress</b>, <b>fairness</b>, <b>satisfaction</b>
-                and <b>impact</b>, to name a few.
-                <br />
-                <br />
-                We keep looking for ways to make our job something different, weaving purpose into our business fabric.
-                That’s why signed the <a class="text-sasquatch-socks" href="https://www.givingwhatwecan.org/">Giving
-                What We Can</a> pledge and
-                <b>we donate 10%</b> of our income to effective <b>charities</b>.
-                <br />
-                <br />
-                Antropia continues to evolve naturally, much like a living organism. And it does so because that's
-                exactly what it should do - it's a continuous exploration of better ways to work together.
-                <br />
-                <br />
-                We welcome conversations about work, collaboration, or any related thoughts. Reach out to us at
-                <b>hi {'{at}'} antropia {'{dot}'} studio</b>.
-              </p>
-            </div>
-          </div>
-        </section>
-      </div>
-
-      <div class="flex flex-col items-center bg-alucards-night">
-        <section id="contact" class="section bg-alucards-night pt-20 xl:pt-52">
-          <h1 class="text-hello-summer uppercase font-round8 text-10xl text-center xl:text-start">
-            Let's talk
-          </h1>
-
-          <p class="headline text-granny-smith-apple text-lg xl:text-4xl text-center xl:w-1/2">
-            Contact us, let’s do something amazing, together.
-          </p>
-
-          <div>
-            <ContactButton class="ml-0!" />
-          </div>
-
-
-          <footer class="flex flex-col mt-32 items-center gap-6">
-            <p class="text-sm text-white/60 text-center">We collect aggregate and anonymous analytics.<br />For the
-              sake of transparency, you can see the dashboard <a href="https://antropiastudio.pirsch.io">here</a>.
-            </p>
-
-            <div class="flex flex-col items-center xl:flex-row gap-2 xl:gap-4">
-              <img src={antropiaLogo.src} width="100" alt="Antropia Homepage" />
-              <span class="text-xs xl:text-sm">@2025 Antropia Studio</span>
-            </div>
-          </footer>
-        </section>
-      </div>
-    </main>
-  </div>
+        </footer>
+      </section>
+    </div>
+  </main>
 </Layout>

@@ -1,0 +1,104 @@
+---
+import Layout from '../layouts/Layout.astro';
+import NavigationBar from '../components/NavigationBar.astro';
+import countingSheepIcon from '../assets/counting-sheep.svg';
+import blob3Icon from '../assets/blob-3.svg';
+import antropiaLogo from '../assets/logo.svg';
+import ContactButton from '../components/ContactButton.astro';
+import ContactForm from '../components/ContactForm.astro';
+---
+
+<Layout class="text-alucards-night!">
+  <NavigationBar />
+  <ContactForm />
+
+  <main class="ml-navbar xl:ml-navbar-xl bg-hello-summer">
+    <section class="flex flex-col items-center py-20 xl:py-40 max-w-content mx-auto px-6">
+      <h1 class="text-[20vw] xl:text-8xl leading-none text-center font-nudica font-bold uppercase">Do It Myself</h1>
+
+      <p class="text-3xl text-center xl:w-3/5 mt-8">Track your DIY projects with detailed manuals, progress logs, and
+        media
+        organization. Perfect
+        for furniture
+        assembly, home improvements, and creative crafts.</p>
+    </section>
+
+    <section class="bg-alucards-night flex center">
+      <div class="flex flex-row center pt-20 gap-10 max-w-content px-6">
+        <div class="hidden xl:block bg-hello-summer w-px self-stretch" />
+
+        <div class="flex flex-col xl:flex-row pb-20 gap-10 xl:gap-32 center">
+          <div class="flex flex-col gap-6">
+            <div class="flex flex-col gap-2">
+              <h3 class="text-white text-3xl">Title</h3>
+              <p class="text-hello-summer text-xl">Let's meet, chat about your idea, and explore how we can bring it to
+                life,
+                together. No pitch decks needed -
+                just honest an conversation.</p>
+            </div>
+
+            <div class="flex flex-col gap-2">
+              <h3 class="text-white text-3xl">Title</h3>
+              <p class="text-hello-summer text-xl">Let's meet, chat about your idea, and explore how we can bring it to
+                life,
+                together. No pitch decks needed -
+                just honest an conversation.</p>
+            </div>
+
+            <div class="flex flex-col gap-2">
+              <h3 class="text-white text-3xl">Title</h3>
+              <p class="text-hello-summer text-xl">Let's meet, chat about your idea, and explore how we can bring it to
+                life,
+                together. No pitch decks needed -
+                just honest an conversation.</p>
+            </div>
+          </div>
+
+          <img src={countingSheepIcon.src} alt="Counting sheep" />
+        </div>
+      </div>
+    </section>
+
+    <section class="py-20 xl:py-40 flex center">
+      <div class="flex flex-col xl:flex-row center gap-20 px-6 xl:w-3/5 max-w-content">
+        <img src={blob3Icon.src} alt="Blob" />
+
+        <p class="text-xl xl:text-3xl">
+          Texto destacado sobre la app y CTA. Thanks for stopping by.
+          <br />
+          <br />
+          I'm Sergio, and this is Antropia. It's my little peaceful corner where I tinker with new ideas and explore
+          better ways of working while trying to make what I do really matter.
+        </p>
+      </div>
+    </section>
+
+    <section class="bg-alucards-night pt-20 xl:pt-52 pb-20">
+      <div class="flex flex-col center max-w-content mx-auto">
+        <h1 class="text-hello-summer uppercase font-round8 text-10xl text-center xl:text-start">
+          Let's talk
+        </h1>
+
+        <p class="headline text-granny-smith-apple text-lg xl:text-4xl text-center xl:w-1/2">
+          Contact us, let’s do something amazing, together.
+        </p>
+
+        <div>
+          <ContactButton class="ml-0!" />
+        </div>
+
+
+        <footer class="flex flex-col mt-32 items-center gap-6">
+          <p class="text-sm text-white/60 text-center">We collect aggregate and anonymous analytics.<br />For the
+            sake of transparency, you can see the dashboard <a href="https://antropiastudio.pirsch.io">here</a>.
+          </p>
+
+          <div class="flex flex-col items-center xl:flex-row gap-2 xl:gap-4">
+            <img src={antropiaLogo.src} width="100" alt="Antropia Homepage" />
+            <span class="text-xs xl:text-sm text-white">@2025 Antropia Studio</span>
+          </div>
+        </footer>
+      </div>
+    </section>
+  </main>
+</Layout>

@@ -7,6 +7,7 @@ const {
   description = 'Prototyping, design, and development. We create human-first apps in weeks.',
   canonicalURL = Astro.url.href,
   image = '/images/social.png',
+  class: className,
 } = Astro.props;
 ---
 
@@ -70,7 +71,7 @@ const {
   />
 
 </head>
-<body>
+<body class={`bg-alucards-night text-white ${className}`}>
 <slot />
 </body>
 </html>

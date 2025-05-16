@@ -82,11 +82,6 @@
   }
 
   #index {
-    body {
-      background-color: var(--color-alucards-night);
-      color: white;
-    }
-
     a {
       text-decoration: underline;
       font-weight: bold;
