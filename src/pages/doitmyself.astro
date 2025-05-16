@@ -16,14 +16,64 @@ import ContactForm from '../components/ContactForm.astro';
     <section class="flex flex-col items-center py-20 xl:py-40 max-w-content mx-auto px-6">
       <h1 class="text-[20vw] xl:text-8xl leading-none text-center font-nudica font-bold uppercase">Do It Myself</h1>
 
-      <p class="text-3xl text-center xl:w-3/5 mt-8">Track your DIY projects with detailed manuals, progress logs, and
-        media
-        organization. Perfect
-        for furniture
-        assembly, home improvements, and creative crafts.</p>
+      <p class="text-3xl text-center xl:w-3/5 mt-8">
+        Track your DIY projects with detailed manuals, progress logs, and
+        media organization. Perfect for furniture assembly, home improvements, and creative crafts.
+      </p>
+
+
+      <div class="relative h-[80vh] xl:h-[1000px] w-full xl:w-[400px] mt-10 xl:mt-40 mx-auto z-0">
+        <div id="parallax-container" class="relative h-full w-full">
+          <img src="/images/trufario/trufario-03.png"
+               class="absolute w-[400px] rounded-4xl shadow-2xl z-40 parallax-img" data-speed="-2" />
+          <img src="/images/trufario/trufario-02.png"
+               class="absolute w-[400px] rounded-4xl shadow-2xl z-50 parallax-img" data-speed="-1" />
+          <img src="/images/trufario/trufario-01.png"
+               class="absolute w-[400px] rounded-4xl shadow-2xl z-60 parallax-img" data-speed="0" />
+          <img src="/images/trufario/trufario-04.png"
+               class="absolute w-[400px] rounded-4xl shadow-2xl z-50 parallax-img" data-speed="1" />
+          <img src="/images/trufario/trufario-05.png"
+               class="absolute w-[400px] rounded-4xl shadow-2xl z-40 parallax-img" data-speed="2" />
+        </div>
+      </div>
+
+      <script>
+        import { animate, scroll, inView } from 'motion';
+
+        const parallaxContainer = document.getElementById('parallax-container');
+        const parallaxImages = document.querySelectorAll('.parallax-img');
+
+        if (parallaxContainer && parallaxImages.length > 0) {
+          const isXlScreen = () => window.innerWidth >= 1280;
+
+          inView(parallaxContainer, () => {
+            parallaxImages.forEach((img) => {
+              const speed = parseFloat(img.getAttribute('data-speed') ?? '0');
+
+              scroll(
+                animate(img, isXlScreen() ? {
+                  x: [0, 750 * speed],
+                  rotate: [0, 30 * speed],
+                  y: [0, -100 * Math.random() + Math.abs(100 * speed)],
+                } : {
+                  x: [0, 100 * Math.random() + 500 * speed],
+                  rotate: [0, 30 * speed],
+                  y: [0, 100 * Math.random() + Math.abs(50 * speed)],
+                  scale: [1, -0.75],
+                }),
+                {},
+              );
+            });
+
+            return () => {
+            };
+          });
+        }
+      </script>
     </section>
 
     <section class="bg-alucards-night flex center">
+
       <div class="flex flex-row center pt-20 gap-10 max-w-content px-6">
         <div class="hidden xl:block bg-hello-summer w-px self-stretch" />
 
@@ -32,25 +82,19 @@ import ContactForm from '../components/ContactForm.astro';
             <div class="flex flex-col gap-2">
               <h3 class="text-white text-3xl">Title</h3>
               <p class="text-hello-summer text-xl">Let's meet, chat about your idea, and explore how we can bring it to
-                life,
-                together. No pitch decks needed -
-                just honest an conversation.</p>
+                life, together. No pitch decks needed - just honest an conversation.</p>
             </div>
 
             <div class="flex flex-col gap-2">
               <h3 class="text-white text-3xl">Title</h3>
               <p class="text-hello-summer text-xl">Let's meet, chat about your idea, and explore how we can bring it to
-                life,
-                together. No pitch decks needed -
-                just honest an conversation.</p>
+                life, together. No pitch decks needed - just honest an conversation.</p>
             </div>
 
             <div class="flex flex-col gap-2">
               <h3 class="text-white text-3xl">Title</h3>
               <p class="text-hello-summer text-xl">Let's meet, chat about your idea, and explore how we can bring it to
-                life,
-                together. No pitch decks needed -
-                just honest an conversation.</p>
+                life, together. No pitch decks needed - just honest an conversation.</p>
             </div>
           </div>
 
@@ -61,7 +105,14 @@ import ContactForm from '../components/ContactForm.astro';
 
     <section class="py-20 xl:py-40 flex center">
       <div class="flex flex-col xl:flex-row center gap-20 px-6 xl:w-3/5 max-w-content">
-        <img src={blob3Icon.src} alt="Blob" />
+
+        <div class="relative w-[400px] h-[400px] shrink-0">
+          <img src="/images/trufario/trufario-01.png"
+               class="absolute inset-0 object-contain"
+               style=`mask: url(${blob3Icon.src});` />
+
+          <div class="absolute inset-0" style=`background-image: url(${blob3Icon.src});` />
+        </div>
 
         <p class="text-xl xl:text-3xl">
           Texto destacado sobre la app y CTA. Thanks for stopping by.
