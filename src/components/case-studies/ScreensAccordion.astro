@@ -7,7 +7,7 @@ interface Props {
 const { class: className, images } = Astro.props;
 ---
 
-<div class={`relative h-[80vh] xl:h-[1000px] w-full xl:w-[400px] mt-10 xl:mt-40 mx-auto z-0 ${className}`}>
+<div class={`relative h-[50vh] xl:h-[600px] w-full xl:w-[400px] mt-10 xl:mt-40 mx-auto z-0 ${className}`}>
   <div id="parallax-container" class="relative h-full w-full">
     {images.map((src, index) => {
       const midElement = Math.floor(images.length / 2);

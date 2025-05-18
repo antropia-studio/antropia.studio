@@ -2,19 +2,18 @@
 import Layout from '../layouts/Layout.astro';
 import NavigationBar from '../components/NavigationBar.astro';
 import countingSheepIcon from '../assets/counting-sheep.svg';
-import blob3Icon from '../assets/blob-3.svg';
-import blob3NegIcon from '../assets/blob-3-neg.svg';
 import antropiaLogo from '../assets/logo.svg';
 import ContactButton from '../components/ContactButton.astro';
 import ContactForm from '../components/ContactForm.astro';
 import ScreensAccordion from '../components/case-studies/ScreensAccordion.astro';
+import HighlightedScreen from '../components/case-studies/HighlightedScreen.astro';
 ---
 
 <Layout class="text-alucards-night!">
   <NavigationBar />
   <ContactForm />
 
-  <main class="ml-navbar xl:ml-navbar-xl bg-hello-summer">
+  <main class="ml-navbar xl:ml-navbar-xl bg-hello-summer overflow-hidden">
     <section class="flex flex-col items-center py-20 xl:py-40 max-w-content mx-auto px-6">
       <h1 class="text-[17vw] xl:text-11xl leading-none text-center font-nudica font-bold uppercase">Trufario</h1>
 
@@ -25,44 +24,9 @@ import ScreensAccordion from '../components/case-studies/ScreensAccordion.astro'
 
       <ScreensAccordion
         images={['/images/trufario/trufario-03.png', '/images/trufario/trufario-02.png', '/images/trufario/trufario-01.png', '/images/trufario/trufario-04.png', '/images/trufario/trufario-05.png']} />
-
-      <script>
-        import { animate, scroll, inView } from 'motion';
-
-        const parallaxContainer = document.getElementById('parallax-container');
-        const parallaxImages = document.querySelectorAll('.parallax-img');
-
-        if (parallaxContainer && parallaxImages.length > 0) {
-          const isXlScreen = () => window.innerWidth >= 1280;
-
-          inView(parallaxContainer, () => {
-            parallaxImages.forEach((img) => {
-              const speed = parseFloat(img.getAttribute('data-speed') ?? '0');
-
-              scroll(
-                animate(img, isXlScreen() ? {
-                  x: [0, 750 * speed],
-                  rotate: [0, 30 * speed],
-                  y: [0, -100 * Math.random() + Math.abs(100 * speed)],
-                } : {
-                  x: [0, 100 * Math.random() + 500 * speed],
-                  rotate: [0, 30 * speed],
-                  y: [0, 100 * Math.random() + Math.abs(50 * speed)],
-                  scale: [1, -0.75],
-                }),
-                {},
-              );
-            });
-
-            return () => {
-            };
-          });
-        }
-      </script>
     </section>
 
-    <section class="bg-alucards-night flex center">
-
+    <section class="bg-alucards-night flex center z-50 relative">
       <div class="flex flex-row center pt-20 gap-10 max-w-content px-6">
         <div class="hidden xl:block bg-hello-summer w-px self-stretch" />
 
@@ -94,42 +58,7 @@ import ScreensAccordion from '../components/case-studies/ScreensAccordion.astro'
 
     <section class="py-20 xl:py-40 flex center">
       <div class="flex flex-col xl:flex-row center gap-20 px-6 xl:w-4/5 max-w-content z-10">
-
-        <div class="relative w-[300px] h-[450px] xl:w-[400px] xl:h-[600px] shrink-0 top-20">
-          <img src={blob3Icon.src} class="absolute inset-x-0 bottom-0 z-10" alt="Blob background" />
-          <img src={blob3NegIcon.src} class="absolute inset-x-0 bottom-0 z-30" alt="Blob negative background" />
-
-          <img
-            id="parallax-screenshot"
-            src="/images/trufario/trufario-01.png"
-            class="absolute inset-x-0 w-2/3 mx-auto z-20 rounded-4xl bottom-1"
-            alt="App screenshot"
-            data-speed="-2"
-          />
-        </div>
-
-        <script>
-          import { animate, scroll, inView } from 'motion';
-
-          const parallaxScreenshot = document.getElementById('parallax-screenshot');
-
-          if (parallaxScreenshot) {
-            const isXlScreen = () => window.innerWidth >= 1280;
-
-            inView(parallaxScreenshot, () => {
-              const speed = parseFloat(parallaxScreenshot.getAttribute('data-speed') ?? '0');
-
-              scroll(
-                animate(parallaxScreenshot, isXlScreen() ? { y: [100, 0, -100] } : { y: [0, 50 * speed] }),
-                {},
-              );
-
-              return () => {
-              };
-            });
-          }
-        </script>
-
+        <HighlightedScreen image="/images/trufario/trufario-02.png" />
 
         <p class="text-xl xl:text-3xl">
           Texto destacado sobre la app y CTA. Thanks for stopping by.

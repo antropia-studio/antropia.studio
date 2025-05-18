@@ -1,0 +1,46 @@
+---
+import blob3Icon from '../../assets/blob-3.svg';
+import blob3NegIcon from '../../assets/blob-3-neg.svg';
+
+interface Props {
+  class?: string;
+  image: string;
+}
+
+const { class: className, image } = Astro.props;
+---
+
+<div class={`relative w-[300px] h-[450px] xl:w-[600px] xl:h-[900px] shrink-0 top-20 ${className}`}>
+  <img src={blob3Icon.src} class="absolute inset-x-0 w-full bottom-0 z-10" alt="Blob background" />
+  <img src={blob3NegIcon.src} class="absolute inset-x-0 w-full bottom-0 z-30" alt="Blob negative background" />
+
+  <img
+    id="parallax-screenshot"
+    src={image}
+    class="absolute inset-x-0 w-2/3 mx-auto z-20 rounded-4xl bottom-1"
+    alt="App screenshot"
+    data-speed="-2"
+  />
+</div>
+
+<script>
+  import { animate, scroll, inView } from 'motion';
+
+  const parallaxScreenshot = document.getElementById('parallax-screenshot');
+
+  if (parallaxScreenshot) {
+    const isXlScreen = () => window.innerWidth >= 1280;
+
+    inView(parallaxScreenshot, () => {
+      const speed = parseFloat(parallaxScreenshot.getAttribute('data-speed') ?? '0');
+
+      scroll(
+        animate(parallaxScreenshot, isXlScreen() ? { y: [100, 0, -200] } : { y: [0, 50 * speed] }),
+        {},
+      );
+
+      return () => {
+      };
+    });
+  }
+</script>
