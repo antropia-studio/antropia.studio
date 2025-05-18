@@ -19,7 +19,7 @@ const { class: className, images } = Astro.props;
       }
 
       return <img src={src}
-                  class="absolute w-[400px] rounded-4xl shadow-2xl parallax-img"
+                  class="absolute w-[400px] rounded-4xl shadow-lg parallax-img"
                   style={`z-index: ${zIndex};`}
                   data-speed={index - midElement} />;
     })}
