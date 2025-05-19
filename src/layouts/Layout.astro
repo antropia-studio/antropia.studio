@@ -2,6 +2,14 @@
 import '../styles/fonts.css';
 import '../styles/global.css';
 
+interface Props {
+  title?: string;
+  description?: string;
+  canonicalURL?: string;
+  image?: string;
+  class?: string;
+}
+
 const {
   title = 'Antropia',
   description = 'Prototyping, design, and development. We create human-first apps in weeks.',
