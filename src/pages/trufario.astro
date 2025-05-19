@@ -3,6 +3,8 @@ import Layout from '../layouts/Layout.astro';
 import NavigationBar from '../components/NavigationBar.astro';
 import countingSheepIcon from '../assets/counting-sheep.svg';
 import antropiaLogo from '../assets/logo.svg';
+import downloadAppStore from '../assets/download-app-store-black.svg';
+import downloadPlayStore from '../assets/download-play-store.svg';
 import ContactButton from '../components/ContactButton.astro';
 import ContactForm from '../components/ContactForm.astro';
 import ScreensAccordion from '../components/case-studies/ScreensAccordion.astro';
@@ -26,28 +28,28 @@ import HighlightedScreen from '../components/case-studies/HighlightedScreen.astr
         images={['/images/trufario/trufario-03.png', '/images/trufario/trufario-02.png', '/images/trufario/trufario-01.png', '/images/trufario/trufario-04.png', '/images/trufario/trufario-05.png']} />
     </section>
 
-    <section class="bg-alucards-night flex center z-50 relative">
+    <section class="bg-alucards-night flex center relative">
       <div class="flex flex-row center pt-20 gap-10 max-w-content px-6">
         <div class="hidden xl:block bg-hello-summer w-px self-stretch" />
 
         <div class="flex flex-col xl:flex-row pb-20 gap-10 xl:gap-32 center">
           <div class="flex flex-col gap-6">
             <div class="flex flex-col gap-2">
-              <h3 class="text-white text-3xl">Title</h3>
-              <p class="text-hello-summer text-xl">Let's meet, chat about your idea, and explore how we can bring it to
-                life, together. No pitch decks needed - just honest an conversation.</p>
+              <h3 class="text-white text-3xl">Journal</h3>
+              <p class="text-hello-summer text-xl">Keep a detailed log of the most relevant events in your dog's
+                life. Vet visits, reactive events, walks and games.</p>
             </div>
 
             <div class="flex flex-col gap-2">
-              <h3 class="text-white text-3xl">Title</h3>
-              <p class="text-hello-summer text-xl">Let's meet, chat about your idea, and explore how we can bring it to
-                life, together. No pitch decks needed - just honest an conversation.</p>
+              <h3 class="text-white text-3xl">Analysis</h3>
+              <p class="text-hello-summer text-xl">Discover patterns or correlations among the events you have recorded.
+                This will help you understand how certain events influence your dog's behavior and well-being.</p>
             </div>
 
             <div class="flex flex-col gap-2">
-              <h3 class="text-white text-3xl">Title</h3>
-              <p class="text-hello-summer text-xl">Let's meet, chat about your idea, and explore how we can bring it to
-                life, together. No pitch decks needed - just honest an conversation.</p>
+              <h3 class="text-white text-3xl">Sharing</h3>
+              <p class="text-hello-summer text-xl">Discuss your history with your veterinarian or trainer. This way,
+                they can provide personalized guidance considering your dog's habits.</p>
             </div>
           </div>
 
@@ -57,19 +59,27 @@ import HighlightedScreen from '../components/case-studies/HighlightedScreen.astr
     </section>
 
     <section class="py-20 xl:py-40 flex center">
-      <div class="flex flex-col xl:flex-row center gap-20 px-6 xl:w-4/5 max-w-content z-10">
+      <div class="flex flex-col xl:flex-row center gap-20 px-6 xl:w-4/5 max-w-content">
         <HighlightedScreen image="/images/trufario/trufario-02.png" />
 
-        <p class="text-xl xl:text-3xl">
-          Texto destacado sobre la app y CTA. Thanks for stopping by.
-          <br />
-          <br />
-          I'm Sergio, and this is Antropia. It's my little peaceful corner where I tinker with new ideas and explore
-          better ways of working while trying to make what I do really matter.
-        </p>
+        <div class="flex flex-col gap-4">
+          <h3 class="font-bold text-5xl">Built for you</h3>
+          <p class="text-xl xl:text-3xl">
+            Trufario is yours entirely. Your data is only yours and your time is only yours. No annoying
+            subscriptions, notifications or privacy policies, pay once and enjoy forever.
+          </p>
+
+          <div class="flex flex-row center">
+            <a href="https://apps.apple.com/app/trufario/id6473553839">
+              <img src={downloadAppStore.src} width="150" alt="Download on the App Store" />
+            </a>
+            <a href="https://play.google.com/store/apps/details?id=com.trufario.app">
+              <img src={downloadPlayStore.src} width="190" alt="Download on the Play Store" />
+            </a>
+          </div>
+        </div>
       </div>
     </section>
-
 
     <section class="bg-alucards-night pt-20 xl:pt-52 pb-20">
       <div class="flex flex-col center max-w-content mx-auto">
@@ -85,8 +95,7 @@ import HighlightedScreen from '../components/case-studies/HighlightedScreen.astr
           <ContactButton class="ml-0!" />
         </div>
 
-
-        <footer class="flex flex-col mt-32 items-center gap-6">
+        <footer class="flex flex-col mt-16 xl:mt-32 items-center gap-6">
           <p class="text-sm text-white/60 text-center">We collect aggregate and anonymous analytics.<br />For the
             sake of transparency, you can see the dashboard <a href="https://antropiastudio.pirsch.io">here</a>.
           </p>

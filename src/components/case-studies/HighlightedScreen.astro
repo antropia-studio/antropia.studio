@@ -35,7 +35,7 @@ const { class: className, image } = Astro.props;
       const speed = parseFloat(parallaxScreenshot.getAttribute('data-speed') ?? '0');
 
       scroll(
-        animate(parallaxScreenshot, isXlScreen() ? { y: [100, 0, -200] } : { y: [0, 50 * speed] }),
+        animate(parallaxScreenshot, isXlScreen() ? { y: [200, 0, -300] } : { y: [0, 50 * speed] }),
         {},
       );
 
