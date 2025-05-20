@@ -6,6 +6,7 @@ import yourVisionIcon from '../assets/your-vision.svg';
 import ourCraftIcon from '../assets/our-craft.svg';
 import Blob1 from '../components/Blob1.astro';
 import Blob2 from '../components/Blob2.astro';
+import CornerIcon from '../assets/case-study-corner.svg';
 import ContactButton from '../components/ContactButton.astro';
 import Steps from '../components/Steps.astro';
 import Step from '../components/Step.astro';
@@ -199,7 +200,8 @@ import Toast from '../components/Toast.astro';
             <p class="text-sm xl:text-xl font-nudica text-blinking-blue mt-6">
               We created this studio with the purpose of rethinking our relationship with work. In particular,
               Antropia is our exploration to find some essential -yet often overlooked - characteristics we found
-              missing in our work-life: <b>novelty</b>, <b>pride</b>, <b>progress</b>, <b>fairness</b>, <b>satisfaction</b>
+              missing in our work-life: <b>novelty</b>, <b>pride</b>, <b>progress</b>, <b>fairness</b>,
+              <b>satisfaction</b>
               and <b>impact</b>, to name a few.
               <br />
               <br />
@@ -218,6 +220,73 @@ import Toast from '../components/Toast.astro';
             </p>
           </div>
         </div>
+      </section>
+    </div>
+
+    <div class="flex flex-col items-center bg-sasquatch-socks">
+      <section id="our-work" class="section items-center w-full py-8 xl:py-16 xl:px-5">
+        <h1 class="text-white uppercase font-round8 text-[20vw] px-5 xl:text-[10vw] xl:text-11xl xl:mt-20 self-start">
+          Our <span class="italic">work</span>
+        </h1>
+
+        <div class="flex flex-col xl:flex-row xl:flex-wrap rounded-4xl center gap-12 my-10 xl:my-20 px-5">
+          <a class="work-link overflow-hidden rounded-4xl relative cursor-pointer hover:scale-105 transition-transform"
+             href="/trufario">
+            <div class="absolute left-0 top-0 z-10 flex flex-row items-start">
+              <div class="flex flex-col items-start">
+                <div class="py-4 px-6 bg-sasquatch-socks rounded-br-2xl">
+                  <h2 class="text-xl xl:text-3xl font-nudica text-white text-center uppercase font-bold">
+                    Trufario
+                  </h2>
+                </div>
+
+                <img src={CornerIcon.src} alt="" />
+              </div>
+
+              <img src={CornerIcon.src} alt="" />
+            </div>
+
+            <img class="work-animation object-fill h-[300px] xl:h-[400px]" src="/images/trufario/preview.jpeg"
+                 alt="Trufario app" />
+          </a>
+
+          <!--<a class="work-link overflow-hidden rounded-4xl relative cursor-pointer hover:scale-105 transition-transform"-->
+          <!--   href="/trufario">-->
+          <!--  <div class="absolute left-0 top-0 z-10 flex flex-row items-start">-->
+          <!--    <div class="flex flex-col items-start">-->
+          <!--      <div class="py-4 px-6 bg-sasquatch-socks rounded-br-2xl">-->
+          <!--        <h2 class="text-xl xl:text-3xl font-nudica text-white text-center uppercase font-bold">-->
+          <!--          Do it myself-->
+          <!--        </h2>-->
+          <!--      </div>-->
+
+          <!--      <img src={CornerIcon.src} alt="" />-->
+          <!--    </div>-->
+
+          <!--    <img src={CornerIcon.src} alt="" />-->
+          <!--  </div>-->
+
+          <!--  <img class="work-animation object-fill h-[300px] xl:h-[400px]" src="/images/do-it-myself/preview.jpeg"-->
+          <!--       alt="Trufario app" />-->
+          <!--</a>-->
+        </div>
+
+        <script>
+          document.querySelectorAll('.work-link').forEach(link => {
+            const image = link.querySelector<HTMLImageElement>('img.work-animation')!;
+
+            const staticImageSrc = image.src;
+            const animatedImageSrc = image.src.replace('.jpeg', '.webp');
+
+            link.addEventListener('mouseenter', () => {
+              image.src = animatedImageSrc;
+            });
+
+            link.addEventListener('mouseleave', () => {
+              image.src = staticImageSrc;
+            });
+          });
+        </script>
       </section>
     </div>
 
