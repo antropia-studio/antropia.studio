@@ -16,3 +16,24 @@ test('menu', async ({ page }) => {
 
   await expect(page).toHaveScreenshot();
 });
+
+test('contactform', async ({ page }) => {
+  await page.goto('/');
+
+  await page.waitForLoadState('domcontentloaded');
+  await page
+    .locator('button')
+    .filter({ hasText: 'Contact us' })
+    .first()
+    .click();
+
+  await expect(page).toHaveScreenshot();
+});
+
+test('trufario', async ({ page }) => {
+  await page.goto('/trufario');
+
+  await page.waitForLoadState('domcontentloaded');
+
+  await expect(page).toHaveScreenshot({ fullPage: true });
+});
