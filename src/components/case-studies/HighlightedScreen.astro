@@ -1,18 +1,22 @@
 ---
 import blob3Icon from '../../assets/blob-3.svg';
 import blob3NegIcon from '../../assets/blob-3-neg.svg';
+import blob3NegAlucardsIcon from '../../assets/blob-3-neg-alucards.svg';
+import Image from 'astro/components/Image.astro';
 
 interface Props {
   class?: string;
   image: string;
+  negBlobColor?: 'alucards';
 }
 
-const { class: className, image } = Astro.props;
+const { class: className, negBlobColor, image } = Astro.props;
 ---
 
 <div class={`relative w-[300px] h-[450px] xl:w-[600px] xl:h-[900px] shrink-0 top-20 ${className}`}>
-  <img src={blob3Icon.src} class="absolute inset-x-0 w-full bottom-0 z-10" alt="Blob background" />
-  <img src={blob3NegIcon.src} class="absolute inset-x-0 w-full bottom-0 z-30" alt="Blob negative background" />
+  <Image src={blob3Icon} class="absolute inset-x-0 w-full bottom-0 z-10" alt="" />
+  <Image src={negBlobColor === 'alucards' ? blob3NegAlucardsIcon : blob3NegIcon}
+         class="absolute inset-x-0 w-full bottom-0 z-30" alt="" />
 
   <img
     id="parallax-screenshot"
@@ -35,7 +39,7 @@ const { class: className, image } = Astro.props;
       const speed = parseFloat(parallaxScreenshot.getAttribute('data-speed') ?? '0');
 
       scroll(
-        animate(parallaxScreenshot, isXlScreen() ? { y: [200, 0, -300] } : { y: [0, 50 * speed] }),
+        animate(parallaxScreenshot, isXlScreen() ? { y: [200, 0, -250] } : { y: [0, 50 * speed] }),
         {},
       );
 

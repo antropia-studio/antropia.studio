@@ -31,7 +31,7 @@ test('contactform', async ({ page }) => {
 });
 
 test('trufario', async ({ page }) => {
-  await page.goto('/trufario');
+  await page.goto('/work/trufario');
 
   await page.waitForLoadState('domcontentloaded');
 
@@ -39,7 +39,15 @@ test('trufario', async ({ page }) => {
 });
 
 test('doitmyself', async ({ page }) => {
-  await page.goto('/doitmyself');
+  await page.goto('/work/doitmyself');
+
+  await page.waitForLoadState('domcontentloaded');
+
+  await expect(page).toHaveScreenshot({ fullPage: true });
+});
+
+test('muppy', async ({ page }) => {
+  await page.goto('/work/muppy');
 
   await page.waitForLoadState('domcontentloaded');
 

@@ -1,0 +1,129 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import NavigationBar from '../../components/NavigationBar.astro';
+import countingMoneyIcon from '../../assets/counting-money.svg';
+import antropiaLogo from '../../assets/logo-neg.svg';
+import downloadAppStore from '../../assets/download-app-store-black.svg';
+import downloadPlayStore from '../../assets/download-play-store.svg';
+import ContactButton from '../../components/ContactButton.astro';
+import ContactForm from '../../components/ContactForm.astro';
+import ScreensAccordion from '../../components/case-studies/ScreensAccordion.astro';
+import HighlightedScreen from '../../components/case-studies/HighlightedScreen.astro';
+import Image from 'astro/components/Image.astro';
+---
+
+<Layout title="Muppy"
+        description="Unlock access to hand-picked real estate investment opportunities with high returns and full 360º management."
+        image="/images/muppy/social.png"
+        class="text-white!">
+  <NavigationBar />
+  <ContactForm />
+
+  <main class="ml-navbar xl:ml-navbar-xl bg-alucards-night overflow-hidden text-balance">
+    <section class="flex flex-col items-center py-20 xl:py-40 max-w-content mx-auto px-6">
+      <h1 class="text-[17vw] xl:text-11xl leading-none text-center font-nudica font-bold uppercase">Muppy</h1>
+
+      <p class="text-3xl text-center xl:w-3/5 mt-8">
+        Muppy Investors is the gateway to exclusive real estate opportunities in Spain's major metropolitan areas.
+      </p>
+
+      <ScreensAccordion images={[
+        '/images/muppy/screen-03.png',
+        '/images/muppy/screen-02.png',
+        '/images/muppy/screen-06.png',
+        '/images/muppy/screen-04.png',
+        '/images/muppy/screen-05.png',
+      ]} />
+    </section>
+
+    <section class="bg-hello-summer flex center relative">
+      <div class="flex flex-row center pt-20 gap-10 max-w-content px-6">
+        <div class="hidden xl:block bg-alucards-night w-px self-stretch" />
+
+        <div class="flex flex-col xl:flex-row pb-20 gap-10 xl:gap-32 center text-alucards-night">
+          <div class="flex flex-col gap-10">
+            <div class="flex flex-col gap-2">
+              <h3 class="font-bold text-3xl">
+                The Challenge
+              </h3>
+              <p class="text-xl">
+                Muppy needed to expand beyond their web platform. As their coliving concept grew across Spanish cities,
+                they required a native app to reach mobile users and open a new business channel that embodied their
+                "home away from home" philosophy.
+              </p>
+            </div>
+
+            <div class="flex flex-col gap-2">
+              <h3 class="font-bold text-3xl">
+                Development
+              </h3>
+              <p class="text-xl">
+                Partnership over just coding. We created a workflow prioritizing continuous collaboration with design
+                and backend teams. Through transparent communication and rapid iterations, we transformed feedback into
+                features quickly, allowing Muppy to validate their mobile strategy with real data.
+              </p>
+            </div>
+
+            <div class="flex flex-col gap-2">
+              <h3 class="font-bold text-3xl">
+                Building independence
+              </h3>
+              <p class="text-xl">
+                Alongside development, we conducted React Native workshops for Muppy's team. These targeted training
+                sessions ensured they could independently maintain and evolve the app after launch—delivering not just a
+                product, but the capability to own their digital future.
+              </p>
+            </div>
+          </div>
+
+          <Image src={countingMoneyIcon} alt="" />
+        </div>
+      </div>
+    </section>
+
+    <section class="py-20 xl:py-40 flex center">
+      <div class="flex flex-col xl:flex-row center gap-20 px-6 xl:w-4/5 max-w-content">
+        <HighlightedScreen image="/images/muppy/demo.webp" negBlobColor="alucards" />
+
+        <div class="flex flex-col gap-4">
+          <h3 class="font-bold text-5xl">Perfect Match</h3>
+          <p class="text-xl xl:text-3xl">
+            <span class="text-benzol-green">Muppy</span>'s need for rapid mobile expansion aligned perfectly with
+            <span
+              class="text-sasquatch-socks">Antropia</span>'s sweet spot: kickstarting critical
+            projects with speed while building foundations that support future growth—exactly what a thriving coliving
+            platform required to evolve their digital presence.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-ice-cold-stare pt-20 xl:pt-52 pb-20">
+      <div class="flex flex-col center max-w-content mx-auto text-alucards-night">
+        <h1 class="uppercase font-round8 text-10xl text-center xl:text-start">
+          Let's talk
+        </h1>
+
+        <p class="headline text-lg xl:text-4xl text-center xl:w-1/2">
+          Contact us, let’s do something amazing, together.
+        </p>
+
+        <div>
+          <ContactButton class="ml-0! bg-alucards-night! text-white!" />
+        </div>
+
+        <footer class="flex flex-col mt-16 xl:mt-32 items-center gap-6">
+          <p class="text-sm text-alucards-night/60 text-center">
+            We collect aggregate and anonymous analytics.<br />For the sake of transparency, you can see the dashboard
+            <a href="https://antropiastudio.pirsch.io">here</a>.
+          </p>
+
+          <div class="flex flex-col items-center xl:flex-row gap-2 xl:gap-4">
+            <img src={antropiaLogo.src} width="100" alt="Antropia Homepage" />
+            <span class="text-xs xl:text-sm">@2025 Antropia Studio</span>
+          </div>
+        </footer>
+      </div>
+    </section>
+  </main>
+</Layout>

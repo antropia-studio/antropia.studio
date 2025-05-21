@@ -13,6 +13,7 @@ import Step from '../components/Step.astro';
 import NavigationBar from '../components/NavigationBar.astro';
 import ContactForm from '../components/ContactForm.astro';
 import Toast from '../components/Toast.astro';
+import CaseStudyPreview from '../components/case-studies/CaseStudyPreview.astro';
 ---
 
 <Layout>
@@ -229,46 +230,21 @@ import Toast from '../components/Toast.astro';
           Our <span class="italic">work</span>
         </h1>
 
-        <div class="flex flex-col xl:flex-row xl:flex-wrap rounded-4xl center gap-12 my-10 xl:my-20 px-5">
-          <a class="work-link overflow-hidden rounded-4xl relative cursor-pointer hover:scale-105 transition-transform"
-             href="/trufario">
-            <div class="absolute left-0 top-0 z-10 flex flex-row items-start">
-              <div class="flex flex-col items-start">
-                <div class="py-4 px-6 bg-sasquatch-socks rounded-br-2xl">
-                  <h2 class="text-xl xl:text-3xl font-nudica text-white text-center uppercase font-bold">
-                    Trufario
-                  </h2>
-                </div>
+        <div class="flex flex-col xl:flex-row xl:flex-wrap rounded-4xl gap-12 my-10 xl:my-20 px-5">
+          <CaseStudyPreview
+            href="/work/trufario"
+            imageSrc="/images/trufario/preview.jpeg"
+            title="Trufario" />
 
-                <img src={CornerIcon.src} alt="" />
-              </div>
+          <CaseStudyPreview
+            href="/work/doitmyself"
+            imageSrc="/images/do-it-myself/preview.jpeg"
+            title="Do It Myself" />
 
-              <img src={CornerIcon.src} alt="" />
-            </div>
-
-            <img class="work-animation object-fill h-[300px] xl:h-[400px]" src="/images/trufario/preview.jpeg"
-                 alt="Trufario app" />
-          </a>
-
-          <a class="work-link overflow-hidden rounded-4xl relative cursor-pointer hover:scale-105 transition-transform"
-             href="/doitmyself">
-            <div class="absolute left-0 top-0 z-10 flex flex-row items-start">
-              <div class="flex flex-col items-start">
-                <div class="py-4 px-6 bg-sasquatch-socks rounded-br-2xl">
-                  <h2 class="text-xl xl:text-3xl font-nudica text-white text-center uppercase font-bold">
-                    Do it myself
-                  </h2>
-                </div>
-
-                <img src={CornerIcon.src} alt="" />
-              </div>
-
-              <img src={CornerIcon.src} alt="" />
-            </div>
-
-            <img class="work-animation object-fill h-[300px] xl:h-[400px]" src="/images/do-it-myself/preview.jpeg"
-                 alt="Trufario app" />
-          </a>
+          <CaseStudyPreview
+            href="/work/muppy"
+            imageSrc="/images/muppy/preview.jpeg"
+            title="Muppy" />
         </div>
 
         <script>
