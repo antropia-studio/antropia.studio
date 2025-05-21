@@ -37,3 +37,11 @@ test('trufario', async ({ page }) => {
 
   await expect(page).toHaveScreenshot({ fullPage: true });
 });
+
+test('doitmyself', async ({ page }) => {
+  await page.goto('/doitmyself');
+
+  await page.waitForLoadState('domcontentloaded');
+
+  await expect(page).toHaveScreenshot({ fullPage: true });
+});

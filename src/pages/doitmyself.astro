@@ -1,0 +1,117 @@
+---
+import Layout from '../layouts/Layout.astro';
+import NavigationBar from '../components/NavigationBar.astro';
+import sawWorkIcon from '../assets/saw-work.svg';
+import antropiaLogo from '../assets/logo.svg';
+import ContactButton from '../components/ContactButton.astro';
+import ContactForm from '../components/ContactForm.astro';
+import ScreensAccordion from '../components/case-studies/ScreensAccordion.astro';
+---
+
+<Layout title="Do It Myself by Antropia"
+        description="Track your DIY projects with detailed manuals, progress logs, and media organization."
+        image="/images/trufario/social.png"
+        class="text-alucards-night! bg-biscuit-cream!">
+  <NavigationBar />
+  <ContactForm />
+
+  <main class="ml-navbar xl:ml-navbar-xl bg-biscuit-cream overflow-hidden">
+    <section class="flex flex-col items-center py-20 xl:py-40 max-w-content mx-auto px-6">
+      <h1 class="text-[17vw] xl:text-11xl leading-none text-center font-nudica font-bold uppercase">Do It Myself</h1>
+
+      <p class="text-3xl text-center xl:w-3/5 mt-8">
+        The project tracking app designed for anyone who wants to document and organize their DIY
+        endeavors.
+        <br />
+        <br />
+        Whether you're assembling furniture, building something from scratch, or working on home
+        improvements, Do It Myself helps you maintain clear documentation of your process.
+      </p>
+
+      <a
+        class="text-alucards-night text-center font-nudica text-2xl mt-6 decoration-2 hover:text-blinking-blue"
+        href="/blog/80-hour-app">
+        Read more about how we built the app in our blog
+      </a>
+
+      <ScreensAccordion images={[
+        '/images/do-it-myself/do-it-myself-03.png',
+        '/images/do-it-myself/do-it-myself-02.png',
+        '/images/do-it-myself/do-it-myself-01.png',
+        '/images/do-it-myself/do-it-myself-04.png',
+        '/images/do-it-myself/do-it-myself-05.png',
+      ]} />
+    </section>
+
+    <section class="bg-sasquatch-socks flex center relative">
+      <div class="flex flex-row center pt-20 gap-10 max-w-content px-6">
+        <div class="hidden xl:block bg-white w-px self-stretch" />
+
+        <div class="flex flex-col xl:flex-row pb-20 gap-10 xl:gap-32 center text-white">
+          <div class="flex flex-col gap-6">
+            <div class="flex flex-col gap-2">
+              <h3 class="text-3xl">
+                Project Organization
+              </h3>
+              <p class="opacity-80 text-xl">
+                Create and manage multiple projects, each with its own set of tools and documentation. Keep all your DIY
+                activities organized in one place.
+              </p>
+            </div>
+
+            <div class="flex flex-col gap-2">
+              <h3 class="text-3xl">
+                Custom Manuals
+              </h3>
+              <p class="opacity-80 text-xl">
+                Write step-by-step instructions for your projects. Ideal for documenting assembly processes, recording
+                measurements, or creating personal building guides.
+              </p>
+            </div>
+
+            <div class="flex flex-col gap-2">
+              <h3 class="text-3xl">
+                Media Management
+              </h3>
+              <p class="opacity-80 text-xl">
+                Store and organize photos and videos related to your projects. Document important details, capture
+                assembly steps, or save reference images. Essential for remembering specific arrangements, like screw
+                placements or part orientations.
+              </p>
+            </div>
+          </div>
+
+          <img src={sawWorkIcon.src} alt="" />
+        </div>
+      </div>
+    </section>
+
+
+    <section class="bg-alucards-night pt-20 xl:pt-52 pb-20">
+      <div class="flex flex-col center max-w-content mx-auto">
+        <h1 class="text-hello-summer uppercase font-round8 text-10xl text-center xl:text-start">
+          Let's talk
+        </h1>
+
+        <p class="headline text-granny-smith-apple text-lg xl:text-4xl text-center xl:w-1/2">
+          Contact us, let’s do something amazing, together.
+        </p>
+
+        <div>
+          <ContactButton class="ml-0!" />
+        </div>
+
+        <footer class="flex flex-col mt-16 xl:mt-32 items-center gap-6">
+          <p class="text-sm text-white/60 text-center">We collect aggregate and anonymous analytics.<br />For the
+            sake of transparency, you can see the dashboard <a href="https://antropiastudio.pirsch.io">here</a>.
+          </p>
+
+          <div class="flex flex-col items-center xl:flex-row gap-2 xl:gap-4">
+            <img src={antropiaLogo.src} width="100" alt="Antropia Homepage" />
+            <span class="text-xs xl:text-sm text-white">@2025 Antropia Studio</span>
+          </div>
+        </footer>
+      </div>
+    </section>
+  </main>
+</Layout>
