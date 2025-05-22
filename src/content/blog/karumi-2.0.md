@@ -56,6 +56,15 @@ it and to reach new frontiers. For us, this means the following:
   we can. We have created Antropia to raise (and try to answer) some hard questions on sensitive topics: working hours,
   compensation, ownership, etc.
 
+## Karumi 2.0?
+
+So... is Antropia an improved version of Karumi? It's hard to answer with a single yes or no. In some ways it's
+absolutely an evolution of some of the principles Karumi embodied, but in others, it's something entirely different.
+There are many sources of inspiration for Antropia — Karumi has been one of them, but there are others: small studios
+around the globe guided by infinite passion, books and games exploring the philosophy of life, work, and community, and
+perhaps most importantly, the people I talk with and spend my time alongside, openly discussing these and countless
+other everyday questions.
+
 ## Appreciation
 
 To say that Antropia is **Karumi 2.0** is the best compliment I've received so far. And it's humbling. It's clear Karumi
@@ -68,4 +77,4 @@ thank [Davide](https://www.linkedin.com/in/dmendolia/), [Fran](https://www.linke
 [Pedro](https://www.linkedin.com/in/pedrovgs/) and [Toni](https://www.linkedin.com/in/tonilopezmr/) for the time we
 shared while in Karumi.
 
-It goes without saying; **I hope some day I can make Antropia as great as Karumi was**.
+It goes without saying: **I hope some day I can make Antropia as great as Karumi was**.
