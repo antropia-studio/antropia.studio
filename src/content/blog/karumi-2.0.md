@@ -21,7 +21,7 @@ This isn't a comprehensive list of Karumi's guiding principles, but rather the o
 most. I don't know if they were written somewhere or if I just absorbed them from the experience I had working there,
 but here they are:
 
-- **Transparency** — Karumi shared their accounts with us, and they told us when things were going great and when they
+- **Transparency** — Karumi shared their numbers with us, and they told us when things were going great and when they
   weren't. This helped us understand decisions and made us feel in control of the company's future.
 - **Honesty** — We had tough conversations—not dismissive or offensive, but genuinely challenging conversations.
   This reinforced the idea that everyone's voice mattered and could be heard.
