@@ -71,10 +71,10 @@ To say that Antropia is **Karumi 2.0** is the best compliment I've received so f
 has been an inspiration, not only to me, but to many others. It makes sense that Antropia follows their path and evolves
 it, adapting it to the current state of the world and the lives of the ones who are part of it.
 
-I want to
-thank [Davide](https://www.linkedin.com/in/dmendolia/), [Fran](https://www.linkedin.com/in/franciscojavierfernandeztoro/),
+I want to thank all Karumi
+members [Alberto](https://www.linkedin.com/in/gragera/), [Davide](https://www.linkedin.com/in/dmendolia/), [Fran](https://www.linkedin.com/in/franciscojavierfernandeztoro/), [Irene](https://www.linkedin.com/in/iherranz/),
 [Jorge](https://www.linkedin.com/in/jorge-juan-barroso-carmona-a3aa225/), [Laura](https://www.linkedin.com/in/laura-perandones-s%C3%A1nchez-898718112/),
 [Pedro](https://www.linkedin.com/in/pedrovgs/) and [Toni](https://www.linkedin.com/in/tonilopezmr/) for the time we
-shared while in Karumi.
+shared while I was there.
 
 It goes without saying: **I hope some day I can make Antropia as great as Karumi was**.
