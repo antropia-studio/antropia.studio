@@ -13,9 +13,9 @@ really knew nothing meaningful would emerge from these foggy afternoon hours.
 This feeling isn't about laziness or lack of commitment. It's about something more fundamental: the growing disconnect
 between how we structure work and how I, and more generally humans, actually function at my best.
 
-Those rare times I've pushed myself into longer days—trying to squeeze out just a bit more—have always left me feeling
-miserable. Not accomplished. Not proud. Just depleted, wondering why I thought staring at a screen for extra hours would
-magically produce better work.
+Those rare times I've pushed myself into longer days — trying to squeeze out just a bit more — have always left me
+feeling miserable. Not accomplished. Not proud. Just depleted, wondering why I thought staring at a screen for extra
+hours would magically produce better work.
 
 ## The Myth of the Eight-Hour Day
 
@@ -45,7 +45,8 @@ In [*The Burnout Society*](https://www.sup.org/books/title/?id=25725), he observ
 > "The tiredness of exhaustion is not a tiredness of positive potency. It is a tiredness that separates and isolates."
 
 This resonates deeply with what I've been experiencing and where my mind automatically drives me when I investigate what
-to me is one of the most important matters. The constant push for productivity doesn't just exhaust us—it disconnects us
+to me is one of the most important matters. The constant push for productivity doesn't just exhaust us — it disconnects
+us
 from ourselves, from others, from the very creativity we're trying to access... and we don't even realize.
 
 ## What the Research Tells Us
@@ -72,54 +73,54 @@ standard by the early 20th century, something strange happened after that victor
 increasing by over 400% since 1950 in most developed economies, our standard working hours have remained frozen. We've
 become 4-5 times more efficient, yet we're still clocking the same hours our great-grandparents did a century ago.
 Instead of translating these massive productivity gains into more time for living, we've simply increased
-output—creating more, consuming more, **but not living more**.
+output — creating more, consuming more, **but not living more**.
 
-Finally, let me be clear one more time—**productivity must not be our north star**. We should care far more about
+Finally, let me be clear one more time — **productivity must not be our north star**. We should care far more about
 quality of life, time with loved ones, and physical and mental wellbeing. I mention these productivity gains not because
 they're the goal, but because they reveal how deeply we've been deceiving ourselves. The metrics that corporations
 worship actually improve when we prioritize being human.
 
-![A man thinking about work-hours](/blog/8-hour-myth/intermission.png)
+![A man thinking about work-hours](/blog/8-hour-myth/pause.png)
 
 ## My Own Experiment
 
 Here's what I've been doing for the last year: **capping my workdays at six hours maximum, though most days I work
-closer to four**. It's not about rigid schedules or specific start times—it's about recognizing when I've given my best
-and having the wisdom to stop. This has become one of the most important rules in Antropia as well.
+closer to four**. It's not about rigid schedules or specific start times — it's about recognizing when I've given my
+best and having the wisdom to stop. This has become one of the most important rules in Antropia as well.
 
 On top of that, I've started building in purposeful pauses. A walk with my dog when my brain needs to breathe. A trip to
-the grocery store or time to prepare a nice meal. These moments of stepping away create space—space where connections
+the grocery store or time to prepare a nice meal. These moments of stepping away create space — space where connections
 form, where problems untangle themselves, where I can simply exist without the weight of productivity.
 
-The shift has been subtle but profound. My walks with my dog feel different now—not because they're longer or more
+The shift has been subtle but profound. My walks with my dog feel different now — not because they're longer or more
 frequent, but because **the anxious mental chatter has quieted**. I go grocery shopping and actually notice things: "
 *Should I try miso paste? How do I cook it?*". I fix those garage lights that have been broken for months. I have actual
-conversations with loved ones—not the exhausted, half-present exchanges that used to pass for connection. Sometimes I
+conversations with loved ones — not the exhausted, half-present exchanges that used to pass for connection. Sometimes I
 just sit outside with a fiction book, letting my mind wander into someone else's world.
 
 I'm not living a life full of grand adventures or constant travel. That's not what I'm seeking. What I've found instead
-is presence in the everyday—a deeper awareness in the simple rhythms of daily life. And that, surprisingly, has led to a
-much happier existence.
+is presence in the everyday — a deeper awareness in the simple rhythms of daily life. And that, surprisingly, has led to
+a much happier existence.
 
 ## The Courage to Change
 
-I'll be honest—this feels scary to write. There's a voice in my head (probably yours too) that whispers: *But what will
-clients think? What about competition? What about...*
+I'll be honest — this entire post feels scary to write. There's a voice in my head that whispers:
+*But what will clients think? What about competition? What about...*
 
 But here's what grounds me: Antropia exists because of a belief in putting people first. We're not machines optimizing
 for output. **We're humans creating meaningful work while honoring our full humanity**.
 
 Our clients don't hire us to warm chairs or rack up billable hours. They hire us to solve problems, create beauty, build
 systems that work. And we do that better when we're energized, focused, and fully human. When we put people over
-everything else—our team, our clients, ourselves—the work naturally improves.
+everything else — our team, our clients, ourselves — the work naturally improves.
 
 ## Moving Forward
 
 This isn't about working less for the sake of it. It's about recognizing that sustainable excellence requires
 structuring work around human lives, not just human psychology. It's about having the courage to honor our whole
-selves—the parts that need rest, play, connection, and meaning beyond our screens.
+selves — the parts that need rest, play, connection, and meaning beyond our screens.
 
-At Antropia, we're not just building products or delivering services. We're experimenting with what work could be—a
+At Antropia, we're not just building products or delivering services. We're experimenting with what work could be — a
 source of meaning and mastery that enhances rather than depletes our lives.
 
 **The question isn't whether we can afford to work this way. The question is whether we can afford not to.**
@@ -128,9 +129,9 @@ source of meaning and mastery that enhances rather than depletes our lives.
 
 #### Context and Privilege
 
-I need to be transparent here: this is a reflection of my personal experience, and I'm acutely aware that my answer to
-the question of working hours comes from a specific context. Age, life stage, family situation, economic realities—all
-these factors shape what's possible for each of us.
+This is a reflection of my personal experience, and I'm acutely aware that my answer to the question of working hours
+comes from a specific context. Age, life stage, family situation, economic realities — all these factors shape what's
+possible for each of us.
 
 I can experiment with working less because I'm in a privileged position. I have a comfortable life without immediate
 financial urgencies. My loved ones won't suffer if this experiment fails. Not everyone has this luxury, and I don't want
