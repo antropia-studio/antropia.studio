@@ -79,6 +79,8 @@ quality of life, time with loved ones, and physical and mental wellbeing. I ment
 they're the goal, but because they reveal how deeply we've been deceiving ourselves. The metrics that corporations
 worship actually improve when we prioritize being human.
 
+![A man thinking about work-hours](/blog/8-hour-myth/intermission.png)
+
 ## My Own Experiment
 
 Here's what I've been doing for the last year: **capping my workdays at six hours maximum, though most days I work
