@@ -67,7 +67,8 @@ We tell ourselves that working more hours equals more productivity, when data sh
 internalized [Parkinson's law](https://en.wikipedia.org/wiki/Parkinson%27s_law) — that work expands to fill the time
 available — but somehow missed its inverse: **constraining time often sharpens focus and output**.
 
-And there's another troubling pattern at play here: [Jevons paradox](https://en.wikipedia.org/wiki/Jevons_paradox).
+And there's another troubling pattern at play here: a modified version
+of [Jevons paradox](https://en.wikipedia.org/wiki/Jevons_paradox).
 While it's true that workers fought their way from 12-16 hour days during the industrial revolution down to the 8-hour
 standard by the early 20th century, something strange happened after that victory. Despite productivity per worker
 increasing by over 400% since 1950 in most developed economies, our standard working hours have remained frozen. We've
@@ -93,10 +94,10 @@ the grocery store or time to prepare a nice meal. These moments of stepping away
 form, where problems untangle themselves, where I can simply exist without the weight of productivity.
 
 The shift has been subtle but profound. My walks with my dog feel different now — not because they're longer or more
-frequent, but because **the anxious mental chatter has quieted**. I go grocery shopping and actually notice things: "
-*Should I try miso paste? How do I cook it?*". I fix those garage lights that have been broken for months. I have actual
-conversations with loved ones — not the exhausted, half-present exchanges that used to pass for connection. Sometimes I
-just sit outside with a fiction book, letting my mind wander into someone else's world.
+frequent, but because **the anxious mental chatter has quieted**. I go grocery shopping and actually notice things:
+"*Should I try miso paste? How do I cook it?*". I fix those garage lights that have been broken for months. I have
+actual conversations with loved ones — not the exhausted, half-present exchanges that used to pass for connection.
+Sometimes I just sit outside with a fiction book, letting my mind wander into someone else's world.
 
 I'm not living a life full of grand adventures or constant travel. That's not what I'm seeking. What I've found instead
 is presence in the everyday — a deeper awareness in the simple rhythms of daily life. And that, surprisingly, has led to
@@ -117,8 +118,8 @@ everything else — our team, our clients, ourselves — the work naturally impr
 ## Moving Forward
 
 This isn't about working less for the sake of it. It's about recognizing that sustainable excellence requires
-structuring work around human lives, not just human psychology. It's about having the courage to honor our whole
-selves — the parts that need rest, play, connection, and meaning beyond our screens.
+structuring work around human lives. It's about having the courage to honor our whole selves — the parts that need rest,
+play, connection, and meaning beyond our screens.
 
 At Antropia, we're not just building products or delivering services. We're experimenting with what work could be — a
 source of meaning and mastery that enhances rather than depletes our lives.
