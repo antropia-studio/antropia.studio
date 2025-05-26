@@ -286,8 +286,8 @@
   }
 
   code {
+    @apply text-sasquatch-socks;
     background-color: #2d2d2d;
-    color: #dfb047;
     border-radius: 4px;
   }
 
@@ -304,7 +304,23 @@
   }
 
   #footnote-label {
-    @apply text-6xl text-sasquatch-socks
+    @apply text-6xl text-white
+  }
+
+  .footnotes ol li {
+    @apply marker:text-sasquatch-socks marker:font-bold
+  }
+
+  .footnotes ol li p {
+    @apply mb-0 text-lg
+  }
+
+  .footnotes ol li p a {
+    @apply text-candlelight-peach font-light italic
+  }
+
+  blockquote {
+    @apply text-ice-cold-stare italic text-2xl px-10 text-center py-6
   }
 
   @media (min-width: 1280px) {
