@@ -46,8 +46,7 @@ In [*The Burnout Society*](https://www.sup.org/books/title/?id=25725), he observ
 
 This resonates deeply with what I've been experiencing and where my mind automatically drives me when I investigate what
 to me is one of the most important matters. The constant push for productivity doesn't just exhaust us — it disconnects
-us
-from ourselves, from others, from the very creativity we're trying to access... and we don't even realize.
+us from ourselves, from others, from the very creativity we're trying to access... and we don't even realize.
 
 ## What the Research Tells Us
 
@@ -60,6 +59,10 @@ The larger experiments, like Iceland's trial of a 4-day work week (with no reduc
 actually increased across 2,500 workers[^4] (I'm well aware of the critiques here regarding not being a true 4-day week
 as they *only* reduced weekly hours from 40 to 35). Sweden's experiments with 6-hour workdays showed similar
 results[^5] [^6]. Microsoft Japan saw a 40% boost in productivity when they tested a 4-day week[^7].
+
+Beyond these studies, a growing movement of companies, particularly in the IT sector, are taking matters into their own
+hands. There is a popular listing of companies called [4 day week](https://4dayweek.io/) that post offers for 4-day
+positions, with tech companies leading the charge in proving that less really can be more.
 
 ## The paradox
 
