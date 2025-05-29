@@ -303,6 +303,10 @@
     width: 100%;
   }
 
+  .footnote {
+    @apply text-center italic text-base font-light text-ice-cold-stare/80 pb-4
+  }
+
   #footnote-label {
     @apply text-6xl text-white
   }
