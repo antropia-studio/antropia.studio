@@ -1,0 +1,182 @@
+---
+title: 'Linguito'
+description: "Presenting Linguito, your AI-assisted companion for your app's translations"
+heroImage: "/blog/linguito/hero.png"
+keywords: [ "App development", "React Native", "i18n", "l10n", "Tooling", "Lingui" ]
+pubDate: 'May 28 2025'
+---
+
+# Lingui - i18n
+
+There are plenty of tools out there for internationalization (i18n), and it can take a while to find one that clicks
+with your workflow. For us, that tool turned out to be [Lingui](https://lingui.dev/). It strikes a sweet spot between
+flexibility, ease of use, and compatibility in a way that feels just right for my projects. Some of the features I
+particularly like are:
+
+- **Rich-text support** - You can define copies inside React tags and the translation will include them for extra
+context. Common problems links, bold text or listing items are gracefully resolved using anonymous tags.
+
+![Lingui rich-text support](/blog/linguito/lingui%20rich-text.png)
+
+<p class="footnote">Lingui includes used tags inside the translation key to make working with rich-text so much
+  smoother</p>
+
+- **Plurals support** - Nothing to add here, managing plurals is vital to any i18n effort.
+- **Extensibility** - Lingui uses standard formats (`.po`) that can be plugged into your translation workflow easily.
+
+This post isn't a pitch for Linguito though, and it’s more of a journal entry about what building it taught me, the
+libraries I used, and why I think tooling plays such a huge role in enjoying the work I do.
+
+# Linguito
+
+![Linguito in action](/blog/linguito/demo.gif)
+
+<p class="footnote">Check Linguito [here](https://github.com/Serchinastico/linguito)</p>
+
+So why [Linguito](https://github.com/antropia-studio/linguito)? Well, I've always had a soft spot for tooling - it's like
+having a well-organized workshop where everything has its place, and when everything is tidy, you can spend more time in
+what really matters. While Lingui is solid as a rock, I noticed some gaps in my workflow that I felt could be easily
+addressed:
+
+- **Missing translations** - I've made the mistake of publishing a version (or two) of my apps with untranslated
+strings. This happens because it feels very natural to use the final copies while coding, and I often forget about the
+extra step of translating them.
+- **Context loss** - Catalog files are like words taken out of a conversation, they are stripped from the original
+context where strings are used. This makes the translation process a bit rough as you go back and forth between the
+app, the code and the string being translated.
+
+On top of that, I can't emphasize how important *tooling* (as a concept) is to me. As someone who loves to kick off new
+projects like they are goung out of style, good tooling has become crucial to avoid the groundhog day feeling of doing
+the same tasks over and over again. Tooling turns that into a continuous learning process where I can take note of the
+things that hurt the most and fix them for the next iteration.
+
+## The implementation
+
+Because talking about how the tool is used would feel too *rtfm-ish* I decided to talk about some of the libraries I
+used in this project and how they helped me create Linguito.
+
+### [ts-morph](https://ts-morph.com/)
+
+This library has become one of the most powerful ones in my toolbox. It allows for metaprogramming in Typescript by
+wrapping the compiler and exposing methods to read and modify the abstract syntax tree (AST). I've used it so many times
+already for some error-prone cases and this has been no different.
+
+The usage of this library in Linguito can be seen as *forced* though, but I promise it solves a real problem I had:
+Transforming an external library type hierarchy from classes/interfaces (open, extensible) to types (closed,
+discriminated union). I know this will sound meta but the hierarchy is no other than the one defined
+in [acorn](https://github.com/acornjs/acorn), a JavaScript parser. As you may imagine, all acorn's AST nodes extend
+the [`Node`](https://github.com/acornjs/acorn/blob/master/acorn/src/node.js) class, that in turn, transforms into a
+Typescript interface.
+
+```ts
+export interface Node {
+  start: number
+  end: number
+  type: string
+  range?: [number, number]
+  loc?: SourceLocation | null
+}
+```
+
+<p class="footnote">The Typescript's definition of acorn's Node class</p>
+
+This is quite useful when coding the library, but when we move to the type world in Typescript, it becomes quite
+hard/cumbersome to work with it in a generic way. For example, defining a variable with type `Node[type]` that infers to
+the union `'Identifier' | 'ArrayPattern' | 'ContinueStatement' | ...` is simply not possible. It will always infer the
+type of `Node[type]` to be `string`.
+
+How I leveraged ts-morph to solve this? I just
+created [a 36-line script](https://github.com/Serchinastico/linguito/blob/main/scripts/build-acorn-node-types.ts) that
+finds the type definition of acorn and creates a discriminated union with all interfaces that extend `Node`. The cherry
+on top is that this runs after every `npm install` call so this file is always in sync with acorn's definition.
+
+### [acorn](https://github.com/acornjs/acorn)
+
+The already mentioned and popular acorn is a minimalistic JavaScript parser that gives you access to a JavaScript AST
+for a given file. Linguito uses it to read Lingui's configuration file and extract all its data in a secure (or
+non-regex) way. By reading the config file we are able to get the defined locales, the catalog files location and the
+format of the catalog files. For ergonomics reasons I wrapped the tool into my own class that allows me to easily
+traverse the AST using only predicates or node names.
+
+```ts
+    /* ... */
+
+const ast = await Ast.fromFile(configFilePath)
+
+const exports = ast
+  .filterByType('ExportNamedDeclaration')
+  .get<VariableDeclaration>('declaration')
+  .get<VariableDeclarator>('declarations')
+
+const locales = exports
+  .filter((node) => node.id?.type === 'Identifier' && node.id.name === 'locales')
+  .get<ArrayExpression>('init')
+  .get<Literal>('elements')
+  .get('value')
+
+/* ... */
+```
+
+<p class="footnote">Section of the [Lingui's config
+  parser](https://github.com/Serchinastico/linguito/blob/main/src/lib/ast/ast.ts)</p>
+
+### [oclif](https://oclif.io/)
+
+My go-to library for building CLI tools. It's not just a library but a framework that helps you with argument parsing,
+command taxonomies, error handling, testing and much more.
+
+```
+$ linguito --help
+
+CLI tool designed to enhance the capabilities of Lingui
+
+VERSION
+  linguito/0.0.0 darwin-arm64 node-v22.12.0
+
+USAGE
+  $ linguito [COMMAND]
+
+COMMANDS
+  check      Check for missing translations in catalog files.
+  config     Interactively read and update the app's configuration settings.
+  help       Display help for linguito.
+  translate  Check for missing translations in catalog files.
+```
+
+<p class="footnote">Most of the content displayed here is part of the definition of commands inside the tool and is used
+  to build amazing
+  CLI experiences</p>
+
+### [Ink](https://github.com/vadimdemedes/ink)
+
+This is the most esoteric library I used for Linguito. Imagine React but in the terminal, that's what Ink does. At first
+it felt dirty bringing such a modern piece of technology to the terminal but it ended up solving many usability issues
+and making the interactive mode in Linguito a delight.
+
+![Interactive mode](/blog/linguito/interactive_mode.png)
+
+<p class="footnote">I now feel building this UI without React would have been quite a journey</p>
+
+# My takes
+
+After spending about a week putting all the pieces together, I've had some time to mull over the decisions I made along
+the way.
+
+- **Local LLMs first** - I rarely use non-local LLMs for anything other than generic questions. I'm very protective of
+my personal data, and I wanted that to reflect on the tool itself. My wish for the future of LLMs is for them to
+respect user's privacy at all costs and that includes running local models rather than feeding the data-hungry tech
+giants.
+- **Open source** - Making Linguito open source wasn't really a choice - it was just the natural way to go. The tool
+builds upon other open source projects, and keeping it open means anyone can peek under the hood, learn from my
+mistakes (there are plenty), or even better, point out ways to improve it. It's like cooking with the kitchen door
+open - you never know who might drop by with a good suggestion for the recipe.
+- **Part of the work on the studio** - This is one more building block in the foundation of the studio I'm creating,
+making the process of spinning up new React Native prototypes smooth as butter.
+
+Looking back at this little journey, Linguito started as a scratch for my own itch but ended up teaching me quite a bit
+about parsing, ASTs, and building proper CLI tools. It's far from perfect - and probably will always be - but it makes
+my day-to-day work with translations less of a hassle. If you're working with Lingui and bump into similar pain points,
+feel free to give it a shot or contribute your own ideas. The tool is still finding its feet, and I'm curious to see how
+it evolves with real-world usage.
+
+Happy translations!
