@@ -8,55 +8,66 @@ import FormattedDate from '../../components/blog/FormattedDate.astro';
 import { type CollectionEntry } from 'astro:content';
 const { posts } = Astro.props;
 
-type Post = CollectionEntry<'blog' | 'drafts'>
+type Post = CollectionEntry<'blog' | 'drafts'>;
 ---
-
 
 <!doctype html>
 <html class="dark" lang="en">
-<Head title={BLOG_TITLE} description={BLOG_DESCRIPTION} image="/images/social.blog.png" />
-<body class="bg-antropia-white dark:bg-ash">
-<Header />
-<main class="flex center font-nudica pt-10 xl:pt-20 px-6">
-  <section class="max-w-[1024px]">
-    <ul>
-      {
-        posts.map((post: Post) => {
-          const url = post.collection === 'drafts' ? `/blog/drafts/${post.id}/` : `/blog/${post.id}/`;
+  <Head
+    title={BLOG_TITLE}
+    description={BLOG_DESCRIPTION}
+    image="/images/social.blog.png"
+  />
+  <body class="bg-antropia-white dark:bg-ash">
+    <Header />
+    <main class="center font-nudica flex px-6 pt-10 xl:pt-20">
+      <section class="max-w-[1024px]">
+        <ul>
+          {
+            posts.map((post: Post) => {
+              const url =
+                post.collection === 'drafts'
+                  ? `/blog/drafts/${post.id}/`
+                  : `/blog/${post.id}/`;
 
-          return (
-            <li
-              class="mb-16 text-blinking-blue dark:text-antropia-white no-underline flex justify-center items-center flex-col">
-              <p
-                class="font-round8 text-[20vw] leading-none xl:text-8xl text-center mb-4 uppercase text-blinking-blue dark:text-white hover:dark:text-sasquatch-socks">
-                <a class="no-underline" href={url}>{post.data.title}</a>
-              </p>
+              return (
+                <li class="text-blinking-blue dark:text-antropia-white mb-16 flex flex-col items-center justify-center no-underline">
+                  <p class="font-round8 text-blinking-blue hover:dark:text-sasquatch-socks mb-4 text-center text-[20vw] leading-none uppercase xl:text-8xl dark:text-white">
+                    <a class="no-underline" href={url}>
+                      {post.data.title}
+                    </a>
+                  </p>
 
-              <a href={url}>
-                <Image width={720} height={400} src={post.data.heroImage!} alt={post.data.title}
-                       style="border-radius: 1rem" />
-              </a>
+                  <a href={url}>
+                    <Image
+                      width={720}
+                      height={400}
+                      src={post.data.heroImage!}
+                      alt={post.data.title}
+                      style="border-radius: 1rem"
+                    />
+                  </a>
 
-              <p class="mt-4 p-0 text-base font-light dark:text-white">
-                <FormattedDate date={post.data.pubDate} />
-              </p>
+                  <p class="mt-4 p-0 text-base font-light dark:text-white">
+                    <FormattedDate date={post.data.pubDate} />
+                  </p>
 
-              <p
-                class="text-xl text-center italic text-alucards-night dark:text-white/70 md:px-10 md:w-3/4 w-full py-2">
-                {post.data.description}
-              </p>
+                  <p class="text-alucards-night w-full py-2 text-center text-xl italic md:w-3/4 md:px-10 dark:text-white/70">
+                    {post.data.description}
+                  </p>
 
-              <p class="text-center underline hover:dark:text-sasquatch-socks">
-                <a href={url}>Read more...</a>
-              </p>
+                  <p class="hover:dark:text-sasquatch-socks text-center underline">
+                    <a href={url}>Read more...</a>
+                  </p>
 
-              <div class="h-px w-full bg-antropia-white/20 mt-20" />
-            </li>);
-        })
-      }
-    </ul>
-  </section>
-</main>
-<Footer />
-</body>
+                  <div class="bg-antropia-white/20 mt-20 h-px w-full" />
+                </li>
+              );
+            })
+          }
+        </ul>
+      </section>
+    </main>
+    <Footer />
+  </body>
 </html>

@@ -1,7 +1,4 @@
 ---
-import { Image } from 'astro:assets';
-import CornerIcon from '../../assets/case-study-corner.svg';
-
 interface Props {
   class?: string;
   imageSrc: string;
@@ -10,21 +7,30 @@ interface Props {
   href: string;
 }
 
-const { class: className, href, imageSrc, title, description } = Astro.props;
+const { href, imageSrc, title, description } = Astro.props;
 ---
 
-<div class="flex flex-col xl:flex-row no-underline center">
+<div class="center flex flex-col no-underline xl:flex-row">
   <a class="work-link w-[300px] xl:w-[400px]" href={href}>
     <img
-      class="work-animation cursor-pointer hover:scale-105 transition-transform rounded-4xl aspect-square object-cover h-[300px] w-[300px] xl:w-[400px] xl:h-[400px]"
+      class="work-animation aspect-square h-[300px] w-[300px] cursor-pointer rounded-4xl object-cover transition-transform hover:scale-105 xl:h-[400px] xl:w-[400px]"
       src={imageSrc}
-      alt="" />
+      alt=""
+    />
   </a>
 
-  <div class="flex flex-col flex-1 xl:ml-10 xl:mt-0 mt-10 justify-center">
+  <div class="mt-10 flex flex-1 flex-col justify-center xl:mt-0 xl:ml-10">
     <a class="no-underline" href={href}>
-      <h2 class="text-6xl xl:text-8xl text-center xl:text-start font-nudica text-white uppercase font-bold">{title}</h2>
+      <h2
+        class="font-nudica text-center text-6xl font-bold text-white uppercase xl:text-start xl:text-8xl"
+      >
+        {title}
+      </h2>
     </a>
-    <p class="text-xl text-center xl:text-start font-nudica text-white font-normal mt-4 xl:mt-0">{description}</p>
+    <p
+      class="font-nudica mt-4 text-center text-xl font-normal text-white xl:mt-0 xl:text-start"
+    >
+      {description}
+    </p>
   </div>
 </div>

@@ -6,7 +6,7 @@ interface Props {
   title: string;
   description: string;
   image: string;
-  keywords?: string[]
+  keywords?: string[];
 }
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
@@ -18,14 +18,24 @@ const { title, description, image, keywords } = Astro.props;
   <!-- Global Metadata -->
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="icon" type="image/svg+xml" href="/images/favicon.svg" />
+  <link
+    rel="apple-touch-icon"
+    sizes="180x180"
+    href="/images/apple-touch-icon.png"
+  />
   <link
     rel="icon"
-    type="image/svg+xml"
-    href="/images/favicon.svg"
+    type="image/png"
+    sizes="32x32"
+    href="/images/favicon-32x32.png"
   />
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+  <link
+    rel="icon"
+    type="image/png"
+    sizes="16x16"
+    href="/images/favicon-16x16.png"
+  />
   <meta name="generator" content={Astro.generator} />
 
   <!-- Font preloads -->
@@ -51,7 +61,7 @@ const { title, description, image, keywords } = Astro.props;
   <title>{title}</title>
   <meta name="title" content={title} />
   <meta name="description" content={description} />
-  {keywords && <meta name="keywords" content={keywords.join(", ")} />}
+  {keywords && <meta name="keywords" content={keywords.join(', ')} />}
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website" />
@@ -68,7 +78,9 @@ const { title, description, image, keywords } = Astro.props;
   <meta property="twitter:image" content={new URL(image, Astro.url)} />
 
   <!-- Analytics with Pirsch -->
-  <script defer src="https://api.pirsch.io/pa.js"
-          id="pianjs"
-          data-code="gxYI8XdHpDUlWF9Synok7rqJHGRaqQ3J" />
+  <script
+    defer
+    src="https://api.pirsch.io/pa.js"
+    id="pianjs"
+    data-code="gxYI8XdHpDUlWF9Synok7rqJHGRaqQ3J"></script>
 </head>

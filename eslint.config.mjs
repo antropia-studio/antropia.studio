@@ -6,4 +6,5 @@ export default [
   js.configs.recommended,
   prettier,
   ...eslintPluginAstro.configs.recommended,
+  { ignores: ['dist', '.astro'] },
 ];

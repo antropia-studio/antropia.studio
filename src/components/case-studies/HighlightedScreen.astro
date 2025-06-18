@@ -13,15 +13,24 @@ interface Props {
 const { class: className, negBlobColor, image } = Astro.props;
 ---
 
-<div class={`relative w-[300px] h-[450px] xl:w-[600px] xl:h-[900px] shrink-0 top-20 ${className}`}>
-  <Image src={blob3Icon} class="absolute inset-x-0 w-full bottom-0 z-10" alt="" />
-  <Image src={negBlobColor === 'alucards' ? blob3NegAlucardsIcon : blob3NegIcon}
-         class="absolute inset-x-0 w-full bottom-0 z-30" alt="" />
+<div
+  class={`relative w-[300px] h-[450px] xl:w-[600px] xl:h-[900px] shrink-0 top-20 ${className}`}
+>
+  <Image
+    src={blob3Icon}
+    class="absolute inset-x-0 bottom-0 z-10 w-full"
+    alt=""
+  />
+  <Image
+    src={negBlobColor === 'alucards' ? blob3NegAlucardsIcon : blob3NegIcon}
+    class="absolute inset-x-0 bottom-0 z-30 w-full"
+    alt=""
+  />
 
   <img
     id="parallax-screenshot"
     src={image}
-    class="absolute inset-x-0 w-2/3 mx-auto z-20 rounded-4xl bottom-1"
+    class="absolute inset-x-0 bottom-1 z-20 mx-auto w-2/3 rounded-4xl"
     alt="App screenshot"
     data-speed="-2"
   />
@@ -36,15 +45,19 @@ const { class: className, negBlobColor, image } = Astro.props;
     const isXlScreen = () => window.innerWidth >= 1280;
 
     inView(parallaxScreenshot, () => {
-      const speed = parseFloat(parallaxScreenshot.getAttribute('data-speed') ?? '0');
-
-      scroll(
-        animate(parallaxScreenshot, isXlScreen() ? { y: [200, 0, -250] } : { y: [0, 50 * speed] }),
-        {},
+      const speed = parseFloat(
+        parallaxScreenshot.getAttribute('data-speed') ?? '0'
       );
 
-      return () => {
-      };
+      scroll(
+        animate(
+          parallaxScreenshot,
+          isXlScreen() ? { y: [200, 0, -250] } : { y: [0, 50 * speed] }
+        ),
+        {}
+      );
+
+      return () => {};
     });
   }
 </script>

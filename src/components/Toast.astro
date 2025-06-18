@@ -1,15 +1,22 @@
 ---
+
 ---
 
-<div id="toast" class="fixed top-10 left-0 right-0 flex justify-center z-50"
-     style="opacity: 0; transform: translateY(-120px);">
-  <div class="bg-blinking-blue px-10 py-5 rounded-sm">Message received! We'll get back to you 🙌</div>
+<div
+  id="toast"
+  class="fixed top-10 right-0 left-0 z-50 flex justify-center"
+  style="opacity: 0; transform: translateY(-120px);"
+>
+  <div class="bg-blinking-blue rounded-sm px-10 py-5">
+    Message received! We'll get back to you 🙌
+  </div>
 </div>
 
 <script>
   import { animate } from 'motion';
 
   declare global {
+    // eslint-disable-next-line no-unused-vars
     interface Window {
       showToast: () => void;
     }
@@ -23,7 +30,7 @@
     animate(
       toast,
       { opacity: 1, y: ['-50px', '0px'] },
-      { type: 'spring', duration: 0.5, bounce: 0.2 },
+      { type: 'spring', duration: 0.5, bounce: 0.2 }
     );
 
     setTimeout(() => hideToast(), 3000);
@@ -33,7 +40,7 @@
     animate(
       toast,
       { opacity: 0, y: ['0px', '-50px'] },
-      { type: 'spring', duration: 0.5, bounce: 0.2 },
+      { type: 'spring', duration: 0.5, bounce: 0.2 }
     ).finished.then(() => {
       toast.classList.add('pointer-events-none');
     });

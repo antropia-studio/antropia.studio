@@ -8,53 +8,66 @@ import { Image } from 'astro:assets';
 
 type Props = CollectionEntry<'blog'>['data'];
 
-const { title, description, pubDate, updatedDate, heroImage, keywords } = Astro.props;
+const { title, description, pubDate, updatedDate, heroImage, keywords } =
+  Astro.props;
 ---
 
 <html class="dark" lang="en">
-<Head title={title} description={description} image={heroImage ?? '/images/social.blog.png'} keywords={keywords} />
-<body class="bg-antropia-white dark:bg-ash text-black dark:text-white">
-<Header />
-<main class="flex center font-nudica">
-  <article>
-    <div class="prose px-6">
-      <div class="flex flex-col items-center mb-8">
-        <p
-          class="font-round8 font-bold text-[28vw] leading-none xl:text-[10vw] text-center mb-0! uppercase text-blinking-blue dark:text-white">
-          {title}
-        </p>
+  <Head
+    title={title}
+    description={description}
+    image={heroImage ?? '/images/social.blog.png'}
+    keywords={keywords}
+  />
+  <body class="bg-antropia-white dark:bg-ash text-black dark:text-white">
+    <Header />
+    <main class="center font-nudica flex">
+      <article>
+        <div class="prose px-6">
+          <div class="mb-8 flex flex-col items-center">
+            <p
+              class="font-round8 text-blinking-blue mb-0! text-center text-[28vw] leading-none font-bold uppercase xl:text-[10vw] dark:text-white"
+            >
+              {title}
+            </p>
 
-        <div class="hero-image">
-          {
-            heroImage && (
-              <Image width={1020} height={510} src={heroImage} alt="" style="border-radius: 1rem" />
-            )
-          }
+            <div class="hero-image">
+              {
+                heroImage && (
+                  <Image
+                    width={1020}
+                    height={510}
+                    src={heroImage}
+                    alt=""
+                    style="border-radius: 1rem"
+                  />
+                )
+              }
+            </div>
+
+            <p class="mt-2 !mb-2 text-base font-light text-white/50">
+              <FormattedDate date={pubDate} />
+              {
+                updatedDate && (
+                  <div>
+                    Last updated on
+                    <FormattedDate date={updatedDate} />
+                  </div>
+                )
+              }
+            </p>
+
+            <p class="mt-4 px-10 text-center text-xl font-normal italic">
+              {description}
+            </p>
+
+            <hr />
+          </div>
+
+          <slot />
         </div>
-
-        <p class="mt-2 !mb-2 text-base font-light text-white/50">
-          <FormattedDate date={pubDate} />
-          {
-            updatedDate && (
-              <div>
-                Last updated on
-                <FormattedDate date={updatedDate} />
-              </div>
-            )
-          }
-        </p>
-
-        <p class="text-xl font-normal text-center px-10 mt-4 italic">
-          {description}
-        </p>
-
-        <hr />
-      </div>
-
-      <slot />
-    </div>
-  </article>
-</main>
-<Footer />
-</body>
+      </article>
+    </main>
+    <Footer />
+  </body>
 </html>

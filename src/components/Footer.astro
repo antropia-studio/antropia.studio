@@ -5,24 +5,38 @@ import antropiaLightLogo from '../assets/logo.light.svg';
 const today = new Date();
 ---
 
-<footer class="flex flex-col mt-32 items-center gap-6 pb-8">
-  <p class="text-sm text-blinking-blue dark:text-white/60 text-center">We collect aggregate and anonymous
-    analytics.<br />For the sake of transparency, you can see the dashboard
-    <a class="font-bold underline" href="https://antropiastudio.pirsch.io">here</a>.
+<footer class="mt-32 flex flex-col items-center gap-6 pb-8">
+  <p class="text-blinking-blue text-center text-sm dark:text-white/60">
+    We collect aggregate and anonymous analytics.<br />For the sake of
+    transparency, you can see the dashboard
+    <a class="font-bold underline" href="https://antropiastudio.pirsch.io"
+      >here</a
+    >.
   </p>
 
-  <div class="flex flex-col items-center xl:flex-row gap-2 xl:gap-4">
-    <img id="antropia-footer-img-light" src={antropiaLightLogo.src} width="100" alt="Antropia Homepage"
+  <div class="flex flex-col items-center gap-2 xl:flex-row xl:gap-4">
+    <img
+      id="antropia-footer-img-light"
+      src={antropiaLightLogo.src}
+      width="100"
+      alt="Antropia Homepage"
     />
-    <img id="antropia-footer-img-dark" src={antropiaDarkLogo.src} width="100" alt="Antropia Homepage" class="hidden" />
-    <span class="text-xs xl:text-sm text-blinking-blue dark:text-white">@{today.getFullYear()} Antropia Studio. All rights reserved.</span>
+    <img
+      id="antropia-footer-img-dark"
+      src={antropiaDarkLogo.src}
+      width="100"
+      alt="Antropia Homepage"
+      class="hidden"
+    />
+    <span class="text-blinking-blue text-xs xl:text-sm dark:text-white"
+      >@{today.getFullYear()} Antropia Studio. All rights reserved.</span
+    >
   </div>
 </footer>
 
 <script>
   const lightImage = document.getElementById('antropia-footer-img-light')!;
   const darkImage = document.getElementById('antropia-footer-img-dark')!;
-
 
   const switchImage = () => {
     const isDarkMode = document.documentElement.classList.contains('dark');
@@ -42,6 +56,7 @@ const today = new Date();
 
   switchImage();
 
-  document.getElementById('themeToggle')?.addEventListener('click', handleToggleClick);
-
+  document
+    .getElementById('themeToggle')
+    ?.addEventListener('click', handleToggleClick);
 </script>

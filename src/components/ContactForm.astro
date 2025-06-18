@@ -2,43 +2,76 @@
 import closeIcon from '../assets/close.svg';
 ---
 
-<div id="contact-form-modal"
-     class="hidden opacity-0 fixed flex-col center inset-0 h-screen w-screen z-50 bg-alucards-night/30 backdrop-blur-xl px-4">
-  <div id="backdrop" class="absolute inset-0" />
+<div
+  id="contact-form-modal"
+  class="center bg-alucards-night/30 fixed inset-0 z-50 hidden h-screen w-screen flex-col px-4 opacity-0 backdrop-blur-xl"
+>
+  <div id="backdrop" class="absolute inset-0"></div>
 
-  <form method="POST"
-        class="relative flex flex-col center bg-white rounded-md p-6 xl:p-12 w-full xl:w-[500px] xl:mb-40">
-    <h1 class="font-round8 text-[20vw] xl:text-8xl text-blinking-blue mt-8 xl:mt-0">Contact us</h1>
+  <form
+    method="POST"
+    class="center relative flex w-full flex-col rounded-md bg-white p-6 xl:mb-40 xl:w-[500px] xl:p-12"
+  >
+    <h1
+      class="font-round8 text-blinking-blue mt-8 text-[20vw] xl:mt-0 xl:text-8xl"
+    >
+      Contact us
+    </h1>
 
-    <div id="close-contact-form" class="absolute right-4 top-4 cursor-pointer h-[44px] w-[44px] flex center">
+    <div
+      id="close-contact-form"
+      class="center absolute top-4 right-4 flex h-[44px] w-[44px] cursor-pointer"
+    >
       <img src={closeIcon.src} alt="Close" />
     </div>
 
-    <input type="hidden" name="access_key" value="3aa3993c-93c4-452f-9bda-0a9dafd0aa26">
+    <input
+      type="hidden"
+      name="access_key"
+      value="3aa3993c-93c4-452f-9bda-0a9dafd0aa26"
+    />
 
-    <div class="flex flex-col items-start mt-4 mb-4 w-full">
-      <label for="email" class="block text-blinking-blue font-medium mb-2">Your email</label>
-      <input type="email" id="email" name="email" required
-             class="border border-blinking-blue text-blinking-blue w-full p-2 rounded placeholder:text-blinking-blue/50"
-             placeholder="building@amazing.things">
+    <div class="mt-4 mb-4 flex w-full flex-col items-start">
+      <label for="email" class="text-blinking-blue mb-2 block font-medium"
+        >Your email</label
+      >
+      <input
+        type="email"
+        id="email"
+        name="email"
+        required
+        class="border-blinking-blue text-blinking-blue placeholder:text-blinking-blue/50 w-full rounded border p-2"
+        placeholder="building@amazing.things"
+      />
     </div>
 
-    <div class="flex flex-col items-start mb-8 w-full">
-      <label for="message" class="block text-blinking-blue font-medium mb-2">Your
-        Message</label>
-      <textarea id="message" name="message" required
-                class="border border-blinking-blue text-blinking-blue w-full p-2 rounded placeholder:text-blinking-blue/50 h-24"
-                placeholder="Describe your project, proposal or your idea of collaboration..."></textarea>
+    <div class="mb-8 flex w-full flex-col items-start">
+      <label for="message" class="text-blinking-blue mb-2 block font-medium"
+        >Your Message</label
+      >
+      <textarea
+        id="message"
+        name="message"
+        required
+        class="border-blinking-blue text-blinking-blue placeholder:text-blinking-blue/50 h-24 w-full rounded border p-2"
+        placeholder="Describe your project, proposal or your idea of collaboration..."
+      ></textarea>
     </div>
 
+    <input type="hidden" name="subject" value="New Message for Antropia" />
+    <input
+      type="checkbox"
+      name="botcheck"
+      class="hidden"
+      style="display: none;"
+    />
 
-    <input type="hidden" name="subject" value="New Message for Antropia">
-    <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
-
-    <button id="submit-form-button"
-            type="submit"
-            class="w-[180px] h-12 flex center bg-blinking-blue text-white font-nudica text-sm xl:text-lg px-10 py-2 rounded-full enabled:hover:bg-alucards-night cursor-pointer transition">
-      <div class="loader hidden" />
+    <button
+      id="submit-form-button"
+      type="submit"
+      class="center bg-blinking-blue font-nudica enabled:hover:bg-alucards-night flex h-12 w-[180px] cursor-pointer rounded-full px-10 py-2 text-sm text-white transition xl:text-lg"
+    >
+      <div class="loader hidden"></div>
       <span id="send-email-label">Send email</span>
     </button>
   </form>
@@ -50,22 +83,35 @@ import closeIcon from '../assets/close.svg';
   const ANIMATION_DURATION = 0.2;
   const TRANSITION_DELAY = 200;
 
-  const backdrop = document.querySelector<HTMLDivElement>('#contact-form-modal #backdrop')!;
+  const backdrop = document.querySelector<HTMLDivElement>(
+    '#contact-form-modal #backdrop'
+  )!;
   const contactButtons = document.querySelectorAll('.contact-button');
-  const modal = document.getElementById('contact-form-modal')! as HTMLDivElement;
-  const form = document.querySelector('#contact-form-modal form')! as HTMLFormElement;
+  const modal = document.getElementById(
+    'contact-form-modal'
+  )! as HTMLDivElement;
+  const form = document.querySelector(
+    '#contact-form-modal form'
+  )! as HTMLFormElement;
   const closeButton = document.getElementById('close-contact-form')!;
-  const submitButton = document.querySelector('#submit-form-button')! as HTMLButtonElement;
-  const loading = document.querySelector('#submit-form-button .loader')! as HTMLDivElement;
-  const label = document.querySelector('#submit-form-button #send-email-label')! as HTMLSpanElement;
+  const submitButton = document.querySelector(
+    '#submit-form-button'
+  )! as HTMLButtonElement;
+  const loading = document.querySelector(
+    '#submit-form-button .loader'
+  )! as HTMLDivElement;
+  const label = document.querySelector(
+    '#submit-form-button #send-email-label'
+  )! as HTMLSpanElement;
 
   const showContactForm = () => {
     modal.style.display = 'flex';
     animate(modal, { opacity: 1 }, { duration: ANIMATION_DURATION });
 
-    animate(form,
+    animate(
+      form,
       { transform: ['rotate(5deg)', 'rotate(0deg)'] },
-      { type: 'spring', duration: 0.5, bounce: 0.6 },
+      { type: 'spring', duration: 0.5, bounce: 0.6 }
     );
   };
 
@@ -76,11 +122,11 @@ import closeIcon from '../assets/close.svg';
     }, TRANSITION_DELAY);
   };
 
-  contactButtons.forEach(button => {
+  contactButtons.forEach((button) => {
     button.addEventListener('click', showContactForm);
   });
 
-  [backdrop, closeButton].forEach(element => {
+  [backdrop, closeButton].forEach((element) => {
     element.addEventListener('click', hideContactForm);
   });
 
@@ -90,7 +136,7 @@ import closeIcon from '../assets/close.svg';
     }
   });
 
-  form.addEventListener('submit', function(e) {
+  form.addEventListener('submit', function (e) {
     e.preventDefault();
     const formData = new FormData(form);
     const object = Object.fromEntries(formData);
@@ -107,16 +153,19 @@ import closeIcon from '../assets/close.svg';
         'Accept': 'application/json',
       },
       body: json,
-    }).then(function() {
-      window.showToast();
-      form.reset();
-      hideContactForm();
-    }).catch(error => {
-      console.log(error);
-    }).finally(() => {
-      loading.classList.add('hidden');
-      label.classList.remove('hidden');
-      submitButton.disabled = false;
-    });
+    })
+      .then(function () {
+        window.showToast();
+        form.reset();
+        hideContactForm();
+      })
+      .catch((error) => {
+        console.log(error);
+      })
+      .finally(() => {
+        loading.classList.add('hidden');
+        label.classList.remove('hidden');
+        submitButton.disabled = false;
+      });
   });
 </script>

@@ -1,20 +1,21 @@
 ---
-import { BLOG_TITLE } from '../../consts';
 import logo from '../../assets/blog.logo.svg';
-import ThemeIcon from './ThemeIcon.astro';
 ---
 
 <header>
   <nav class="px-8 py-4 md:mb-10">
-    <div class="flex flex-row items-center md:justify-between justify-center gap-6">
+    <div
+      class="flex flex-row items-center justify-center gap-6 md:justify-between"
+    >
       <div class="flex flex-row items-center gap-2">
-        <a href="/" class="md:flex hidden">
-          <img src={logo.src} width="48" height="48" alt="logo">
+        <a href="/" class="hidden md:flex">
+          <img src={logo.src} width="48" height="48" alt="logo" />
         </a>
       </div>
 
       <h1
-        class="text-antropia-white hover:text-sasquatch-socks text-2xl md:text-4xl uppercase text-center flex-1 md:mr-20 font-black font-nudica">
+        class="text-antropia-white hover:text-sasquatch-socks font-nudica flex-1 text-center text-2xl font-black uppercase md:mr-20 md:text-4xl"
+      >
         <a href="/blog">The Antropia Blog</a>
       </h1>
     </div>

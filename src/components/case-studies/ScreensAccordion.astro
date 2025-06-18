@@ -1,28 +1,36 @@
 ---
 interface Props {
   class?: string;
-  images: string[]
+  images: string[];
 }
 
 const { class: className, images } = Astro.props;
 ---
 
-<div class={`relative h-[50vh] xl:h-[600px] w-full xl:w-[400px] mt-10 xl:mt-40 mx-auto z-0 ${className}`}>
+<div
+  class={`relative h-[50vh] xl:h-[600px] w-full xl:w-[400px] mt-10 xl:mt-40 mx-auto z-0 ${className}`}
+>
   <div id="parallax-container" class="relative h-full w-full">
-    {images.map((src, index) => {
-      const midElement = Math.floor(images.length / 2);
-      let zIndex;
-      if (index > midElement) {
-        zIndex = midElement - index
-      } else {
-        zIndex = index
-      }
+    {
+      images.map((src, index) => {
+        const midElement = Math.floor(images.length / 2);
+        let zIndex;
+        if (index > midElement) {
+          zIndex = midElement - index;
+        } else {
+          zIndex = index;
+        }
 
-      return <img src={src}
-                  class="absolute w-[400px] rounded-4xl shadow-lg parallax-img cursor-pointer"
-                  style={`z-index: ${zIndex};`}
-                  data-speed={index - midElement} />;
-    })}
+        return (
+          <img
+            src={src}
+            class="parallax-img absolute w-[400px] cursor-pointer rounded-4xl shadow-lg"
+            style={`z-index: ${zIndex};`}
+            data-speed={index - midElement}
+          />
+        );
+      })
+    }
   </div>
 </div>
 
@@ -40,23 +48,26 @@ const { class: className, images } = Astro.props;
         const speed = parseFloat(img.getAttribute('data-speed') ?? '0');
 
         scroll(
-          animate(img, isXlScreen() ? {
-            x: [0, 750 * speed],
-            rotate: [0, 30 * speed],
-            y: [0, -100 * Math.random() + Math.abs(100 * speed)],
-          } : {
-            x: [0, 100 * Math.random() + 500 * speed],
-            rotate: [0, 30 * speed],
-            y: [0, 100 * Math.random() + Math.abs(50 * speed)],
-            scale: [1, -0.75],
-          }),
-          {},
+          animate(
+            img,
+            isXlScreen()
+              ? {
+                  x: [0, 750 * speed],
+                  rotate: [0, 30 * speed],
+                  y: [0, -100 * Math.random() + Math.abs(100 * speed)],
+                }
+              : {
+                  x: [0, 100 * Math.random() + 500 * speed],
+                  rotate: [0, 30 * speed],
+                  y: [0, 100 * Math.random() + Math.abs(50 * speed)],
+                  scale: [1, -0.75],
+                }
+          ),
+          {}
         );
       });
 
-      return () => {
-      };
+      return () => {};
     });
   }
 </script>
-</section>
