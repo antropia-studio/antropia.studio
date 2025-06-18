@@ -17,7 +17,7 @@ Those rare times I've pushed myself into longer days — trying to squeeze out j
 feeling miserable. Not accomplished. Not proud. Just depleted, wondering why I thought staring at a screen for extra
 hours would magically produce better work.
 
-## The Myth of the Eight-Hour Day
+# The Myth of the Eight-Hour Day
 
 The eight-hour workday is a social fight that goes back to the industrial revolution, where work was designed for
 factory floors where human output could be measured in widgets per hour. Spain was the first country that introduced a
@@ -86,7 +86,7 @@ worship actually improve when we prioritize being human.
 
 ![A man thinking about work-hours](/blog/8-hour-myth/pause.png)
 
-## My Own Experiment
+# My Own Experiment
 
 Here's what I've been doing for the last year: **capping my workdays at six hours maximum, though most days I work
 closer to four**. It's not about rigid schedules or specific start times — it's about recognizing when I've given my

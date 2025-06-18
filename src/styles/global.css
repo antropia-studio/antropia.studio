@@ -216,7 +216,7 @@
 }
 
 .prose {
-  @apply w-full max-w-[900px] m-auto text-antropia-white/80 text-xl font-light;
+  @apply w-full max-w-[900px] m-auto text-antropia-white/75 text-xl font-light;
 
   @media screen and (min-width: 768px) {
     width: calc(100% - 2em);
@@ -224,25 +224,24 @@
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-round8 font-light text-antropia-white text-center mt-2;
-    letter-spacing: 0.1rem;
-    margin: 0.75em 0 0.1em;
+    @apply font-nudica font-bold text-antropia-white mt-2;
+    margin: 0.75em 0 0.2em;
   }
 
   h1 {
-    @apply text-8xl;
+    @apply text-6xl uppercase;
   }
 
   h2 {
-    @apply text-7xl;
+    @apply text-5xl;
   }
 
   h3 {
-    @apply text-6xl;
+    @apply text-4xl;
   }
 
   h4 {
-    @apply text-5xl;
+    @apply text-3xl;
   }
 
   b, strong {
