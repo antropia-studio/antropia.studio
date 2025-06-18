@@ -230,20 +230,27 @@ import CaseStudyPreview from '../components/case-studies/CaseStudyPreview.astro'
           Our <span class="italic">work</span>
         </h1>
 
-        <div class="flex flex-col xl:flex-row xl:flex-wrap rounded-4xl gap-12 my-10 xl:my-20 px-5">
+        <div class="flex flex-col xl:flex-row xl:flex-wrap rounded-4xl gap-10 xl:gap-24 my-10 xl:my-20 px-5">
           <CaseStudyPreview
             href="/work/trufario"
-            imageSrc="/images/trufario/preview.jpeg"
+            imageSrc="/images/trufario/preview.png"
+            description="Your essential companion app for recording every moment with your dog. From walks and playtime to vet visits, it keeps a detailed track of their health and behavior."
             title="Trufario" />
+
+          <div class="bg-candlelight-peach/50 h-px w-full" />
 
           <CaseStudyPreview
             href="/work/doitmyself"
-            imageSrc="/images/do-it-myself/preview.jpeg"
+            imageSrc="/images/do-it-myself/preview.png"
+            description="Track your DIY projects with detailed manuals, progress logs, and media organization."
             title="Do It Myself" />
+
+          <div class="bg-candlelight-peach/50 h-px w-full" />
 
           <CaseStudyPreview
             href="/work/muppy"
-            imageSrc="/images/muppy/preview.jpeg"
+            imageSrc="/images/muppy/preview.png"
+            description="Unlock access to hand-picked real estate investment opportunities with high returns and full 360º management."
             title="Muppy" />
         </div>
 
@@ -252,7 +259,9 @@ import CaseStudyPreview from '../components/case-studies/CaseStudyPreview.astro'
             const image = link.querySelector<HTMLImageElement>('img.work-animation')!;
 
             const staticImageSrc = image.src;
-            const animatedImageSrc = image.src.replace('.jpeg', '.webp');
+            const animatedImageSrc = image.src
+              .replace('.png', '.webp')
+              .replace('.jpeg', '.webp');
 
             link.addEventListener('mouseenter', () => {
               image.src = animatedImageSrc;

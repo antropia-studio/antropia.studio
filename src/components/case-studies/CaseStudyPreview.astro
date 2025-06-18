@@ -6,28 +6,25 @@ interface Props {
   class?: string;
   imageSrc: string;
   title: string;
+  description: string;
   href: string;
 }
 
-const { class: className, href, imageSrc, title } = Astro.props;
+const { class: className, href, imageSrc, title, description } = Astro.props;
 ---
 
-<a
-  class={`work-link overflow-hidden rounded-4xl relative cursor-pointer hover:scale-105 transition-transform ${className}`}
-  href={href}>
-  <div class="absolute left-0 top-0 z-10 flex flex-row items-start">
-    <div class="flex flex-col items-start">
-      <div class="py-4 px-6 bg-sasquatch-socks rounded-br-2xl">
-        <h2 class="text-xl xl:text-3xl font-nudica text-white text-center uppercase font-bold">
-          {title}
-        </h2>
-      </div>
+<div class="flex flex-col xl:flex-row no-underline center">
+  <a class="work-link w-[300px] xl:w-[400px]" href={href}>
+    <img
+      class="work-animation cursor-pointer hover:scale-105 transition-transform rounded-4xl aspect-square object-cover h-[300px] w-[300px] xl:w-[400px] xl:h-[400px]"
+      src={imageSrc}
+      alt="" />
+  </a>
 
-      <Image src={CornerIcon} alt="" />
-    </div>
-
-    <Image src={CornerIcon} alt="" />
+  <div class="flex flex-col flex-1 xl:ml-10 xl:mt-0 mt-10 justify-center">
+    <a class="no-underline" href={href}>
+      <h2 class="text-6xl xl:text-8xl text-center xl:text-start font-nudica text-white uppercase font-bold">{title}</h2>
+    </a>
+    <p class="text-xl text-center xl:text-start font-nudica text-white font-normal mt-4 xl:mt-0">{description}</p>
   </div>
-
-  <img class="work-animation object-fill h-[300px] xl:h-[400px]" src={imageSrc} alt="" />
-</a>
+</div>
