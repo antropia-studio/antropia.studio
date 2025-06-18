@@ -10,6 +10,7 @@
     "lint:fix": "eslint . --fix",
     "preview": "astro preview",
     "release": "release-it",
+    "test": "playwright test",
     "test:codegen": "playwright codegen",
     "test:record": "playwright test --update-snapshots",
     "test:report": "playwright show-report",
