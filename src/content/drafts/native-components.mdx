@@ -7,13 +7,13 @@ keywords: [ "App development", "React Native", "Fabric", "iOS", "Android", "Kotl
 pubDate: 'Mar 11 2025'
 ---
 
-I recently had the chance to create a new library using React Native's new renderer, Fabric, and I thought of documenting this personal milestone. My hope is for this post to be useful to anyone wanting to create their own native component.
+We recently had the chance to create a new library using React Native's new renderer, Fabric, and we thought of documenting this milestone. Our hope is for this post to be useful to anyone wanting to create their own native component.
 
-Keep in mind, <span class="underline">this is not your usual post you read diagonally to get an idea of how native components work</span>, rather, it's a step by step guide with lots of code snippets, diffs, and sidenotes for the ones who truly want to create a native component of their own.
+Keep in mind, <span class="underline">this is not your usual post you read diagonally to get an idea of how native components work</span>, rather, it's a step-by-step guide with lots of code snippets, diffs, and sidenotes for the ones who truly want to dive deep into the world of building native components with React Native.
 
 ## The library
 
-For the sake of this post, we will create a new native library to edit images. The component we will create here is nothing but a simplified version of our own image edition library: [Sorolla](https://github.com/antropia-studio/sorolla). Feel free to visit the project to watch a more complete implementation of the things we will read here.
+For the sake of this post, we will create a new native library to edit images. The component we will create here is nothing but a simplified version of our own image edition library: [Sorolla](https://github.com/antropia-studio/sorolla). Feel free to visit the project to watch a more complete implementation of the things we will go through in this post.
 
 The library will provide two silly features:
 
@@ -34,7 +34,7 @@ As part of this new architecture, the React Native team created a new renderer: 
 
 ## Kickoff
 
-We are going to use [`create-react-native-library`](https://callstack.github.io/react-native-builder-bob/create) to create a new Fabric component. Just to give you some context, the library is part of Callstack's [`react-native-builder-bob`](https://github.com/callstack/react-native-builder-bob), a fantastic set of tools to create and maintain RN libraries.
+Let's get things started! We are going to use [`create-react-native-library`](https://callstack.github.io/react-native-builder-bob/create) to create a new Fabric component. Just to give you some context, the library is part of Callstack's [`react-native-builder-bob`](https://github.com/callstack/react-native-builder-bob), a fantastic set of tools to create and maintain RN libraries.
 
 Without further ado, let's create our library by running `create-react-native-library`.
 
@@ -46,22 +46,7 @@ npx create-react-native-library@latest react-native-silly-image-editor
 
 You will see many options to configure the library as you want. The most important option for this guide is the one to decide which kind of library we want: a Fabric view.
 
-```shell
-✔ What is the name of the npm package? … react-native-silly-image-editor
-✔ What is the description for the package? … React Native library to do image editions like hand-drawing or color tinting
-✔ What is the name of package author? … Antropia
-✔ What is the email address for the package author? … hi@antropia.studio
-✔ What is the URL for the package author? … https://antropia.studio
-✔ What is the URL for the repository? … https://github.com/antropia-studio/react-native-silly-image-editor
-? What type of library do you want to develop? › - Use arrow-keys. Return to submit.
-    Turbo module
-    Nitro module
-❯   Fabric view - integration for native views to JS # 👈 SELECT THIS OPTION
-    Legacy Native module
-    Legacy Native view
-    JavaScript library
-✔ Project created successfully at react-native-silly-image-editor!
-```
+![Select fabric view from the menu](/blog/native-components/fabric_view.png)
 
 <p class="footnote">Take your time filling in all the settings for your library</p>
 
@@ -78,7 +63,7 @@ packages:
 ```
 
 <p class="footnote">For some reason, react native does not like symlinks in node_modules. I know (or should I say
-  _"sense"_) this configuration is far from ideal, but it has been the quickest way to get the project working with
+  "sense") this configuration is far from ideal, but it has been the quickest way to get the project working with
   `pnpm`.</p>
 
 If you followed these steps, you will be able now to run the example app with `pnpm run --filter react-native-silly-image-editor-example [start/android/ios]`.
@@ -89,7 +74,7 @@ If you followed these steps, you will be able now to run the example app with `p
 
 ## Project structure
 
-To start changing things in our new library, we first need to understand where are things located.
+To start changing things in our new library, we first need to understand where things are located.
 
 ```
 react-native-silly-image-editor
