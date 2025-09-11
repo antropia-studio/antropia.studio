@@ -1,0 +1,75 @@
+---
+title: 'To AI or not to AI'
+description: 'An honest account of our two-week experiment building an app with AI assistance, exploring both the promise and frustrations of LLM-powered development workflows.'
+heroImage: "/blog/to-ai-or-not-to-ai/hero.png"
+keywords: [ai, llm, claude, openai, chatgpt, junie]
+pubDate: 'Sep 10 2025'
+---
+
+There is no denying that LLMs are the new kid on the block. Our marketing director (that'd be me) said that if we don't write something about it, we will be left behind, so we ran an experiment, we went hardcore on it, and... **TL;DR, we don't fully buy it, yet**.
+
+What a way to disincentive you to read the article, uh? Well, the devil is in the details, so if you want to understand why we aren't jumping the full AI wagon yet, we recommend you read the post.
+
+# The experiment
+
+We have been _brewing_ (strange choice of a word, you'll understand why in a moment) a prototype for a couple of months with one of our dearest friends, [Bernardo](https://www.bernardo.fyi/). While the two of us were helping my wife with her shop, we struggled with her Facebook Ads account. I don't know if you ever had the opportunity to play with Facebook Ads, but our experience was quite terrible.
+
+![Facebook ads dashboard is pure chaos](/blog/to-ai-or-not-to-ai/fb-ads.png)
+
+<p class="footnote">Look at that! Once you get pass the big chaos this dashboard is, you start noticing the little inconsistencies here and there, like why are there two different tones of red for notifications? 🙃</p>
+
+We are not here to judge, though. In general, ads are one hell of a problem to solve, especially if you have the size of Facebook. One of the (possibly multiple) reasons the UI is so cluttered is that it's trying to do **everything**. Filtering, reports, ad creation, etc. It's pure chaos. That's when we decided to make our own simplified version of Facebook Ads by using their API. Something that would help our use case and our use case only.
+
+And so [adbrew](https://www.getadbrew.com/) was born. What a great opportunity to uncover the full potential of (generative) AIs, or so we thought.
+
+# The approach
+
+We started following some AI-related accounts and studying their workflows. Chose a solid tech stack ([Remix](https://remix.run/) a.k.a. [React Router v7](https://reactrouter.com/home), not very happy with it, but that's for another post) and subscribed to Claude Code.
+
+We spent our first hours [tweaking the prompts](https://www.anthropic.com/engineering/claude-code-best-practices), setting all the usual DX tools in place (in hopes it'd help the AI) and started defining issues.
+
+Our daily routine would become something like this:
+
+1. Define issues.
+2. Ask the AI to implement the issue at hand.
+3. Give and forth with the AI, refining the requirements.
+4. Review generated code in detail.
+5. Commit code, push and deploy.
+6. Repeat.
+
+From time to time we'd refine the Guidelines file, added MCPs, automatic checks, and more.
+
+# The problems
+
+This workflow lasted 2 weeks. And as days passed, we grew more and more frustrated with it. At first, we justified it by the fact that this was an entirely new way of (VIBE) coding, and we were just not used to it. But we kept tweaking the flow, adjusting expectations, trusting the process, and... the frustration would only grow.
+
+We want to pinpoint some of the problems we had with it, in an attempt to fully understand if this is something that can be solvable in the future, if it's inherent to _vibing_, or if it's just us doing it wrong.
+
+1. **There is never enough context.** We learned quickly that the more context we provided and the smaller the issues, the better the results. However, no matter how much context we provided, the AI would still mess things up because it didn't ask us for feedback. AI would just not understand if it didn't have enough information to finish a task, it would **assume**, a lot, and fail.
+2. **No maintainability.** We couldn't make it abstract things away or reuse code at all. If we asked the AI to solve a task that was already partially solved, it would just replicate code all over the project. We'd end up with three different card components. Yes, this is where reviews are important, but it's very tiring to tell the AI for the nth time that we already have a `Text` component with defined sizes and colors. Adding this information to the guidelines didn't work BTW.
+3. **No flow.** As the AI was solving an issue, we stared at the screen, trying to catch a mistake in their _reasoning_ to stop it as soon as possible. We tried _YOLOing_ as well, and keep writing issues at the same time, but we couldn't find ~30-minute slots dedicated to one single task. This killed any inertia we tried to build.
+4. **Hallucinations.** The Facebook API is a complex one by nature. On top of that, there are endpoints that are not documented (thanks to StackOverflow answers for clearing this up), and their SDK is poorly typed (They truly love `Record<string, any>`). If we mix this with the confidence of the AI, we have a recipe for disaster. It would make up parameters, endpoints and more. Now multiply that for every other framework/library/API we use (Tailwind, React Router, dayjs, pino, etc.).
+5. **Pareto is more present than ever.** We like to think of tasks as trees. We'd start with a coarse-grained idea (the root) and turn that into more concrete ideas and tasks (the branches). It's at that moment when corner cases, cross-feature interactions, transversal tasks (logging, tracking, etc.), and more appear. In our experiment, we lost the ability to uncover those, and so we ended up with something that looked like it worked, but was full of inconsistencies and bugs. It's relatively easy to get the 80% of the solution done with the AI, but you still have to spend 80% of your time to make it truly work.
+
+# The outcome
+
+After these two weeks, we decided to stop trying. The code was getting larger and messy each day, and we were losing control of it. More importantly, **we were not enjoying the process**, and the results were simply not there.
+
+We spent another two weeks back with our classic workflow, cleaning up when needed and marveling at the things we just missed in the reviews (not the AI to blame, but ourselves).
+
+![Adbrew dashboard showing general stats](/blog/to-ai-or-not-to-ai/adbrew.png)
+
+<p class="footnote">Not perfect, but a great improvement over the original, especially for our workflow. If you work with FB ads, visit [getadbrew.com](https://www.getadbrew.com).</p>
+
+# Our opinion
+
+We already use AI in our daily work. And we use it for many things:
+
+- **Powerful search engine.** One that, if it gets the response right, it fastens the search process and is even able to adapt the solutions to your specific context (and that's mind-blowing by itself). But when it fails (and it often does), we can dismiss it quickly and go back to our regular approach of _RTFM_ (or _RTSO_, Read The StackOverflow)
+- **Rubber ducking.** Throwing ideas and asking for alternative solutions, just to make sure we haven't missed anything.
+- **Code snippet assistant.** The fifth time we write a `chunkify`, `clamp` or `mapValues` function it gets tiring. The AI can help with those tiny snippets we use in every project and make the rest of our work more enjoyable.
+- **Language-related tasks.** We use as a copy editor for commit messages, posts, issues and PRs. In all of these use cases, we have actually reversed the relationship with the AI: we ask the AI to review our work, rather than us reviewing its work.
+
+So we will keep using the AI, and we will keep favoring local LLMs over cloud ones in an attempt to keep control of our data, even when that is not always possible.
+
+We just don't think we will incorporate AI to do more than that, given the current state of things. We will, however, keep an eye in case the technology changes, fundamentally.
