@@ -41,7 +41,7 @@ From time to time we'd refine the Guidelines file, added MCPs, automatic checks,
 
 # The problems
 
-This workflow lasted 2 weeks. And as days passed, we grew more and more frustrated with it. At first, we justified it by the fact that this was an entirely new way of (VIBE) coding, and we were just not used to it. But we kept tweaking the flow, adjusting expectations, trusting the process, and... the frustration would only grow.
+This experiment lasted 2 weeks. And as days passed, we grew more and more frustrated with it. At first, we justified it by the fact that this was an entirely new way of (VIBE) coding, and we were just not used to it. But we kept tweaking the flow, adjusting expectations, trusting the process, and... the frustration would only grow.
 
 We want to pinpoint some of the problems we had with it, in an attempt to fully understand if this is something that can be solvable in the future, if it's inherent to _vibing_, or if it's just us doing it wrong.
 
@@ -49,7 +49,7 @@ We want to pinpoint some of the problems we had with it, in an attempt to fully 
 2. **No maintainability.** We couldn't make it abstract things away or reuse code at all. If we asked the AI to solve a task that was already partially solved, it would just replicate code all over the project. We'd end up with three different card components. Yes, this is where reviews are important, but it's very tiring to tell the AI for the nth time that we already have a `Text` component with defined sizes and colors. Adding this information to the guidelines didn't work BTW.
 3. **No flow.** As the AI was solving an issue, we stared at the screen, trying to catch a mistake in their _reasoning_ to stop it as soon as possible. We tried _YOLOing_ as well, and keep writing issues at the same time, but we couldn't find ~30-minute slots dedicated to one single task. This killed any inertia we tried to build.
 4. **Hallucinations.** The Facebook API is a complex one by nature. On top of that, there are endpoints that are not documented (thanks to StackOverflow answers for clearing this up), and their SDK is poorly typed (They truly love `Record<string, any>`). If we mix this with the confidence of the AI, we have a recipe for disaster. It would make up parameters, endpoints and more. Now multiply that for every other framework/library/API we use (Tailwind, React Router, dayjs, pino, etc.).
-5. **Pareto is more present than ever.** We like to think of tasks as trees. We'd start with a coarse-grained idea (the root) and turn that into more concrete ideas and tasks (the branches). It's at that moment when corner cases, cross-feature interactions, transversal tasks (logging, tracking, etc.), and more appear. In our experiment, we lost the ability to uncover those, and so we ended up with something that looked like it worked, but was full of inconsistencies and bugs. It's relatively easy to get the 80% of the solution done with the AI, but you still have to spend 80% of your time to make it truly work.
+5. **Pareto is more present than ever.** We like to think of tasks as trees. We'd start with a coarse-grained idea (the root) and turn that into more concrete ideas and tasks (the branches). It's at that moment when corner cases, cross-feature interactions, transversal tasks (logging, tracking, etc.), and more appear. In our experiment, we lost the ability to uncover those, and so we ended up with something that looked like it worked, but was full of inconsistencies and bugs. It's relatively easy to get the 80% of the solution done with the AI, but we still had to spend 80% of our time to make it truly work.
 
 # The outcome
 
@@ -68,7 +68,7 @@ We already use AI in our daily work. And we use it for many things:
 - **Powerful search engine.** One that, if it gets the response right, it fastens the search process and is even able to adapt the solutions to your specific context (and that's mind-blowing by itself). But when it fails (and it often does), we can dismiss it quickly and go back to our regular approach of _RTFM_ (or _RTSO_, Read The StackOverflow)
 - **Rubber ducking.** Throwing ideas and asking for alternative solutions, just to make sure we haven't missed anything.
 - **Code snippet assistant.** The fifth time we write a `chunkify`, `clamp` or `mapValues` function it gets tiring. The AI can help with those tiny snippets we use in every project and make the rest of our work more enjoyable.
-- **Language-related tasks.** We use as a copy editor for commit messages, posts, issues and PRs. In all of these use cases, we have actually reversed the relationship with the AI: we ask the AI to review our work, rather than us reviewing its work.
+- **Language-related tasks.** We use it as a copy editor for commit messages, posts, issues and PRs. In all of these use cases, we have actually reversed the relationship with the AI: we ask the AI to review our work, rather than us reviewing its work.
 
 So we will keep using the AI, and we will keep favoring local LLMs over cloud ones in an attempt to keep control of our data, even when that is not always possible.
 
