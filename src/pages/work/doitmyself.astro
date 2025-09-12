@@ -2,7 +2,7 @@
 import Layout from '../../layouts/Layout.astro';
 import NavigationBar from '../../components/NavigationBar.astro';
 import sawWorkIcon from '../../assets/saw-work.svg';
-import antropiaLogo from '../../assets/logo.svg';
+import Footer from '../../components/Footer.astro';
 import ContactButton from '../../components/ContactButton.astro';
 import ContactForm from '../../components/ContactForm.astro';
 import ScreensAccordion from '../../components/case-studies/ScreensAccordion.astro';
@@ -115,21 +115,7 @@ import ScreensAccordion from '../../components/case-studies/ScreensAccordion.ast
           <ContactButton class="ml-0!" />
         </div>
 
-        <footer class="mt-16 flex flex-col items-center gap-6 xl:mt-32">
-          <p class="text-center text-sm text-white/60">
-            We collect aggregate and anonymous analytics.<br />For the sake of
-            transparency, you can see the dashboard <a
-              href="https://antropiastudio.pirsch.io">here</a
-            >.
-          </p>
-
-          <div class="flex flex-col items-center gap-2 xl:flex-row xl:gap-4">
-            <img src={antropiaLogo.src} width="100" alt="Antropia Homepage" />
-            <span class="text-xs text-white xl:text-sm"
-              >@2025 Antropia Studio</span
-            >
-          </div>
-        </footer>
+        <Footer />
       </div>
     </section>
   </main>

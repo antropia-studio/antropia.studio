@@ -1,6 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import antropiaLogo from '../assets/logo.svg';
+import Footer from '../components/Footer.astro';
 import workingTogetherIcon from '../assets/working-together.svg';
 import yourVisionIcon from '../assets/your-vision.svg';
 import ourCraftIcon from '../assets/our-craft.svg';
@@ -12,7 +12,8 @@ import Step from '../components/Step.astro';
 import NavigationBar from '../components/NavigationBar.astro';
 import ContactForm from '../components/ContactForm.astro';
 import Toast from '../components/Toast.astro';
-import CaseStudyPreview from '../components/case-studies/CaseStudyPreview.astro';
+import CaseStudyPreview
+  from '../components/case-studies/CaseStudyPreview.astro';
 ---
 
 <Layout>
@@ -78,14 +79,17 @@ import CaseStudyPreview from '../components/case-studies/CaseStudyPreview.astro'
           >, together. No pitch decks needed - just an honest conversation.
           </Step>
           <Step class="text-sasquatch-socks" title="2. Hands on" slot="second">
-            Three words: <span class="italic">iterate, iterate, ite...</span> you
+            Three words: <span class="italic">iterate, iterate, ite...</span>
+            you
             get it. Your idea starts taking shape through <b
           >constant testing and feedback</b
           >. You'll own everything we create together.
           </Step>
           <Step class="text-sasquatch-socks" title="3. Takeoff" slot="third">
-            We'll handle the tech for your <b>app store launch</b> and help you chart
-            the best course forward - whether that's attracting investors or winning
+            We'll handle the tech for your <b>app store launch</b> and help you
+            chart
+            the best course forward - whether that's attracting investors or
+            winning
             your first users.
           </Step>
         </Steps>
@@ -137,7 +141,8 @@ import CaseStudyPreview from '../components/case-studies/CaseStudyPreview.astro'
             slot="second"
           >
             We help navigate the exciting chaos of early-stage projects,
-            ensuring your journey leads to <b>something tangible</b> you can be proud
+            ensuring your journey leads to <b>something tangible</b> you can be
+            proud
             of.
           </Step>
           <Step class="text-hello-summer" title="Working hours" slot="third">
@@ -184,8 +189,10 @@ import CaseStudyPreview from '../components/case-studies/CaseStudyPreview.astro'
 
         <Steps class="bg-benzol-green">
           <Step class="text-benzol-green" title="Fixed rate" slot="first">
-            One fixed rate of <b>$125/hr (plus taxes)</b> for all our clients. No
-            hidden fees, no special deals - just transparent pricing that only changes
+            One fixed rate of <b>$125/hr (plus taxes)</b> for all our clients.
+            No
+            hidden fees, no special deals - just transparent pricing that only
+            changes
             when it changes for everyone.
           </Step>
           <Step class="text-benzol-green" title="Focused work" slot="second">
@@ -245,7 +252,8 @@ import CaseStudyPreview from '../components/case-studies/CaseStudyPreview.astro'
             I’m a software developer by education and passion. I have 12 years
             (and growing) of experience in building extraordinary software in
             companies like Tuenti, IBM, Cabify, Sketch and Harvest. I spent the
-            last 4 years creating apps with <b>React Native</b> and learning in other
+            last 4 years creating apps with <b>React Native</b> and learning in
+            other
             areas like <b>Design</b> and
             <b>Security</b>.
           </p>
@@ -266,7 +274,8 @@ import CaseStudyPreview from '../components/case-studies/CaseStudyPreview.astro'
             >
               Antropia started as a simple question: <b
             >what if work felt different?</b
-            > While we are not yet officially a cooperative, it’s the spirit that
+            > While we are not yet officially a cooperative, it’s the spirit
+              that
               guide us.
             </p>
 
@@ -281,7 +290,8 @@ import CaseStudyPreview from '../components/case-studies/CaseStudyPreview.astro'
               and <b>impact</b>, to name a few.
               <br />
               <br />
-              We keep looking for ways to make our job something different, weaving
+              We keep looking for ways to make our job something different,
+              weaving
               purpose into our business fabric. That’s why signed the <a
               class="text-sasquatch-socks"
               href="https://www.givingwhatwecan.org/">Giving What We Can</a
@@ -289,8 +299,10 @@ import CaseStudyPreview from '../components/case-studies/CaseStudyPreview.astro'
               <b>we donate 10%</b> of our income to effective <b>charities</b>.
               <br />
               <br />
-              Antropia continues to evolve naturally, much like a living organism.
-              And it does so because that's exactly what it should do - it's a continuous
+              Antropia continues to evolve naturally, much like a living
+              organism.
+              And it does so because that's exactly what it should do - it's a
+              continuous
               exploration of better ways to work together.
               <br />
               <br />
@@ -383,19 +395,7 @@ import CaseStudyPreview from '../components/case-studies/CaseStudyPreview.astro'
           <ContactButton class="ml-0!" />
         </div>
 
-        <footer class="mt-32 flex flex-col items-center gap-6">
-          <p class="text-center text-sm text-white/60">
-            We collect aggregate and anonymous analytics.<br />For the sake of
-            transparency, you can see the dashboard <a
-            href="https://antropiastudio.pirsch.io">here</a
-          >.
-          </p>
-
-          <div class="flex flex-col items-center gap-2 xl:flex-row xl:gap-4">
-            <img src={antropiaLogo.src} width="100" alt="Antropia Homepage" />
-            <span class="text-xs xl:text-sm">@2025 Antropia Studio</span>
-          </div>
-        </footer>
+        <Footer />
       </section>
     </div>
   </main>

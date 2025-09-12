@@ -2,7 +2,7 @@
 import type { CollectionEntry } from 'astro:content';
 import Head from '../../components/blog/Head.astro';
 import Header from '../../components/blog/Header.astro';
-import Footer from '../../components/blog/Footer.astro';
+import Footer from '../../components/Footer.astro';
 import FormattedDate from '../../components/blog/FormattedDate.astro';
 import { Image } from 'astro:assets';
 
@@ -68,6 +68,9 @@ const { title, description, pubDate, updatedDate, heroImage, keywords } =
         </div>
       </article>
     </main>
+
+    <div class="pb-16">
     <Footer />
+    </div>
   </body>
 </html>

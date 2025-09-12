@@ -2,12 +2,12 @@
 import Layout from '../../layouts/Layout.astro';
 import NavigationBar from '../../components/NavigationBar.astro';
 import countingMoneyIcon from '../../assets/counting-money.svg';
-import antropiaLogo from '../../assets/logo-neg.svg';
 import ContactButton from '../../components/ContactButton.astro';
 import ContactForm from '../../components/ContactForm.astro';
 import ScreensAccordion from '../../components/case-studies/ScreensAccordion.astro';
 import HighlightedScreen from '../../components/case-studies/HighlightedScreen.astro';
 import Image from 'astro/components/Image.astro';
+import Footer from '../../components/Footer.astro';
 ---
 
 <Layout
@@ -132,18 +132,7 @@ import Image from 'astro/components/Image.astro';
           <ContactButton class="bg-alucards-night! ml-0! text-white!" />
         </div>
 
-        <footer class="mt-16 flex flex-col items-center gap-6 xl:mt-32">
-          <p class="text-alucards-night/60 text-center text-sm">
-            We collect aggregate and anonymous analytics.<br />For the sake of
-            transparency, you can see the dashboard
-            <a href="https://antropiastudio.pirsch.io">here</a>.
-          </p>
-
-          <div class="flex flex-col items-center gap-2 xl:flex-row xl:gap-4">
-            <img src={antropiaLogo.src} width="100" alt="Antropia Homepage" />
-            <span class="text-xs xl:text-sm">@2025 Antropia Studio</span>
-          </div>
-        </footer>
+        <Footer isDark />
       </div>
     </section>
   </main>

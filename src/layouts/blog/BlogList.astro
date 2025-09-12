@@ -2,7 +2,7 @@
 import { BLOG_TITLE, BLOG_DESCRIPTION } from '../../consts';
 import Head from '../../components/blog/Head.astro';
 import Header from '../../components/blog/Header.astro';
-import Footer from '../../components/blog/Footer.astro';
+import Footer from '../../components/Footer.astro';
 import { Image } from 'astro:assets';
 import FormattedDate from '../../components/blog/FormattedDate.astro';
 import { type CollectionEntry } from 'astro:content';
@@ -68,6 +68,9 @@ type Post = CollectionEntry<'blog' | 'drafts'>;
         </ul>
       </section>
     </main>
+
+    <div class="pb-16">
     <Footer />
+    </div>
   </body>
 </html>
