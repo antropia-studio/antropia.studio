@@ -3,10 +3,10 @@ title: 'The Component Garden'
 description: 'A playground to build innovative user interfaces, single components and animations. For us, to have fun and experiment, and for you to learn and dive into the world of animations and user interactions.'
 heroImage: "/blog/the-component-garden/hero.png"
 keywords: [react-native, ios, android, components, ui, library, open-source]
-pubDate: 'Sep 23 2025'
+pubDate: 'Sep 25 2025'
 ---
 
-Welcome to [The Component Garden](https://github.com/antropia-studio/TheComponentGarden), a playground to build innovative user interfaces, components and animations. This is our way to keep ourselves updated with the latest design trends, while keeping a critical eye on the usability and accessibility of our components.
+Welcome to [The Component Garden](https://github.com/antropia-studio/TheComponentGarden), an open-source playground repository where we build and showcase innovative user interfaces, components and animations. This project serves as our sandbox to experiment with new design trends, while keeping a critical eye on the usability and accessibility of our components.
 
 We are taking the chance to talk a bit about our first implemented component: the card deck.
 
@@ -28,7 +28,7 @@ The resting position shows four cards distributed along a vertical ellipsis. At 
 
 <p class="footnote">Carefully analyzing the positioning of the cards reveals that their center are within a vertical ellipse. What's more, elements not in the center vertical axis are slightly displaced on the oval in clockwise direction.</p>
 
-By imagining what it'd look like for five cards, we get a better feeling of the maths behind the component.
+By imagining what it'd look like for five cards, we get a better feeling of the math behind the component.
 
 ![What if we had 5 items](/blog/the-component-garden/five-cards.png)
 
@@ -127,9 +127,11 @@ And here is the result of these calculations:
 
 <p class="footnote">With this simple positioning technique we manage to place four and five cards just as we planned.</p>
 
-The animation here is more tricky, and we can basically split it into two different problems: the animation while the user is dragging the cards, and the animation when restoring their position.
+The animation is more tricky, but still doable. We have splitted it into two different problems: the animation while the user is dragging the cards, and the animation when restoring their position.
 
-For the dragging gesture we used the omni-present [`react-native-gesture-handler`](https://docs.swmansion.com/react-native-gesture-handler/docs/) and its [`Pan` gesture](https://docs.swmansion.com/react-native-gesture-handler/docs/gestures/pan-gesture). We paired it with [`react-native-reanimated`](https://docs.swmansion.com/react-native-reanimated/) to achieve a smooth and spring-y animation. The idea here is to keep a `dragProgress` shared value that we then send to each item for them to calculate their exact position. I included an overly-documented snippet here with the way we calculate shared values:
+For the dragging gesture we used the omni-present [`react-native-gesture-handler`](https://docs.swmansion.com/react-native-gesture-handler/docs/) and its [`Pan` gesture](https://docs.swmansion.com/react-native-gesture-handler/docs/gestures/pan-gesture). This library provides a more native feel to gestures compared to React Native's built-in gesture responder system. We paired it with [`react-native-reanimated`](https://docs.swmansion.com/react-native-reanimated/) to achieve a smooth and springy animation.
+
+The idea here is to keep a `dragProgress` shared value that we then send to each item for them to calculate their exact position. I included an overly-documented snippet here with the way we calculate shared values:
 
 ```typescript
 const [selectedCardIndex, setSelectedCardIndex] = useState<number>(0);
@@ -187,11 +189,11 @@ With that we are done! The animation feels snappy and fun.
 
 ![Our implementation](/blog/the-component-garden/implementation.webp)
 
-<p class="footnote">The animation is a bit more spring-ish than the original. This was a conscious choice, the tension it generates while dragging was asking us for a great release when the user ended the gesture.</p>
+<p class="footnote">The animation is a bit more spring-ish than the original. This was a conscious choice; the tension it generates while dragging was asking us for a great release when the user ended the gesture.</p>
 
 # Final words
 
-In this post we went through the implementation of our first _crop_ for The Component Garden. We will keep using this project to explore advanced UI and animation techniques, and we will use it build them in public so that others can learn with us.
+In this post we went through the implementation of our first _crop_ for The Component Garden. We will keep using this project to explore advanced UI and animation techniques, and we will use it to build them in public so that others can learn with us.
 
 If you want to learn more about the project, check out the [GitHub repository](https://github.com/antropia-studio/TheComponentGarden).
 
