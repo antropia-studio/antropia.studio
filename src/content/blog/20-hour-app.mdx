@@ -1,0 +1,72 @@
+---
+title: 'The 20-hour app'
+description: "How we rewrote our first React Native app in 20 hours"
+summary: "A rewrite of our first React Native app and a personal take on tooling for prototypes"
+heroImage: "/blog/20-hour-app/hero.png"
+keywords: [ "App development", "Prototyping", "React Native", "App design" ]
+pubDate: 'Jan 15 2025'
+---
+
+# The context
+
+Back in 2018, when Antropia didn't even exist, I (that'd be me, Sergio) was working at [Karumi](https://www.karumi.com/), a small studio specialized in developing mobile apps. As part of the team, I juggled between platforms, writing Java/Kotlin for Android and Obj-C/Swift for iOS. You can imagine the mental gymnastics and the many hours I spent switching gears, trying to understand the differences between interfaces and protocols, the most idiomatic way to implement dependency injection on each platform, and the quirks of different rendering systems.
+
+**React Native** promised an escape from this complexity: one ecosystem for both platforms (and hopefully, a farewell to XCode, which still gives me nightmares).
+
+During that time, my then-girlfriend (now wife) was dealing with food intolerances. Her doctor recommended a rotation diet that involved avoiding repeated ingredients in consecutive meals. To help her manage this challenge, I decided to create an app that would track ingredients and suggest alternatives she hadn't eaten recently. This became my perfect opportunity to dive into React Native, and within a month, the app was live in both stores.
+
+![The original designs](/blog/20-hour-app/mockup.png)
+
+<p class="footnote">The original Four Days was designed in an afternoon using [Sketch](https://www.sketch.com/).</p>
+
+# Homage
+
+For years, we left the app as it was, quietly paying itself for the Apple Developer Program. During that time, and despite our growing expertise in React Native, TypeScript, and modern development practices, we never managed to update **Four Days**. Our Git history was littered with abandoned branches `fourdays-ts`, `fourdays-ts2`, `fourdays-rn70`... none of which ever saw the light of production.
+
+Late in 2023, both app stores (understandably) requested updates to support newer OS versions and devices. Unfortunately, I missed the notifications and **the app was eventually removed from both platforms**.
+
+With the creation of [Antropia](https://antropia.studio), we felt we owed something to the project that had brought us into this career path. So, after finishing [Trufario](https://antropia.studio/blog/40-hour-app/), we decided to apply everything we'd learned to rewrite Four Days.
+
+# The rewrite
+
+Before getting our hands dirty, we decided to define a clear scope for the project, including the following rules:
+
+- **No new designs** - We agreed not to revisit any of the usability or design choices we made in the past. After all, and to our surprise, there was still a small group of people using it, and we didn't want to ruin their experience.
+- **Feature parity** - The rewrite would neither add nor remove features from the original implementation. It would be an updated copy.
+- **Backward compatibility** - We would ensure that data stored in previous versions of the app would be migrated seamlessly to the rewritten version.
+
+In total, the rewrite took just **20 hours** (excluding store approval and testing times) from creating the repository to having the app published. Here is a video of the new Four Days:
+
+![The new Four Days app](/blog/20-hour-app/fourdays.webp)
+
+<p class="footnote">No fancy animations but all the original features are there, and users did not even realize this was an entirely new app.</p>
+
+This feat was only possible because:
+
+- **No switching hats** - Even though we'd lost the original Sketch designs, we were able to compile the original app and run it on our devices. That meant no context-switching into design or product roles, we didn't have to rethink how features worked or what color palette and iconography we wanted to use.
+- **Trufario experience** - We were able to dodge many of the rabbit holes we'd fallen into with Trufario. Why run another lengthy investigation into the most ergonomic global state library? (that'd be [jotai](https://jotai.org/) by the way). Why spend time fixing safe area disparities between platforms? Trufario gave us the tools and the solutions to many day-to-day problems of creating a new app.
+- **The tooling** - We'd already started (and continue) building a set of tools that'd help us build quick prototypes. This one deserves its own section so keep reading.
+
+# The tooling
+
+After Trufario, we realized how much we enjoyed working on one very specific problem and wondered why it had to be a one-shot. We started envisioning a way to focus on the problem at hand, and less on the surroundings (processes, languages, frameworks, libraries, etc.).
+
+Following the essence of [playful programming](https://news.ycombinator.com/item?id=38828766) we created a collection of tools, each aimed
+at solving a specific process or problem. Some are already in use across all our current and future apps and are evolving quickly, others are still an empty GitHub repository with a few open issues. They all have silly/temporal names, if only because we didn't want to spend hours in *the surroundings of the surroundings*. Here is a quick tour of the tools we're actively developing:
+
+- **Gardenia**, the UI library - React Native doesn't offer a complete set of components for your app. There isn't even a `Button` component (we get why, though). There are plenty of options out there, but we wanted something we could break and extend for our own apps. Gardenia uses [Tailwind CSS](https://tailwindcss.com/) + [twrnc](https://github.com/jaredh159/tailwind-react-native-classnames) under the hood and provides a set of reusable themed components.
+
+![Video of Gardenia](/blog/20-hour-app/telar.webp)
+
+- **Substrate**, the utils library - We often find ourselves rewriting the same snippets of code for the most trivial things. From object and array utilities (`groupBy`, `repeat`, `zip`, `chunkify`, etc.) to generating random ids, mathematical usual suspects (e.g. `clamp`, `inRange`) and more.
+- **Lutier**, our project assistant - Creating new React Native projects involve all the usual scaffolding: linting, git hooks, npm scripts, Expo integration, architecture setup, and more. This can be handled with project templates, but we needed something else, something that could be **augmented**. What if we later decide to add deep links? Or include in-app purchases, translations or camera permissions? The assistant fills these gaps, it's a CLI tool that helps us progressively add features to our React Native projects.
+
+![Lutier CLI](/blog/20-hour-app/lutier.png)
+
+- **Linguito**, the translator - This tool has its own [blogpost](https://antropia.studio/blog/linguito/) but in summary, Linguito helps us come up with translations for our apps.
+
+# On prototypes
+
+If you have reached this far you probably see where this is heading: we've found our place in the world of prototyping. We love creating apps out of thin air, born from the imagination of the people we collaborate with.
+
+If you need building something like this, drop us a message.
