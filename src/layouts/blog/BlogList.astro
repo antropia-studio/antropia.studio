@@ -1,14 +1,15 @@
 ---
-import { BLOG_TITLE, BLOG_DESCRIPTION } from '../../consts';
-import Head from '../../components/blog/Head.astro';
-import Header from '../../components/blog/Header.astro';
-import Footer from '../../components/Footer.astro';
-import { Image } from 'astro:assets';
-import FormattedDate from '../../components/blog/FormattedDate.astro';
-import { type CollectionEntry } from 'astro:content';
+import { Image } from "astro:assets";
+import { type CollectionEntry } from "astro:content";
+import FormattedDate from "../../components/blog/FormattedDate.astro";
+import Head from "../../components/blog/Head.astro";
+import Header from "../../components/blog/Header.astro";
+import Footer from "../../components/Footer.astro";
+import { BLOG_DESCRIPTION, BLOG_TITLE } from "../../consts";
+
 const { posts } = Astro.props;
 
-type Post = CollectionEntry<'blog' | 'drafts'>;
+type Post = CollectionEntry<"blog" | "drafts">;
 ---
 
 <!doctype html>

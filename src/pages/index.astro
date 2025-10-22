@@ -1,19 +1,18 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Footer from '../components/Footer.astro';
-import workingTogetherIcon from '../assets/working-together.svg';
-import yourVisionIcon from '../assets/your-vision.svg';
-import ourCraftIcon from '../assets/our-craft.svg';
-import Blob1 from '../components/Blob1.astro';
-import Blob2 from '../components/Blob2.astro';
-import ContactButton from '../components/ContactButton.astro';
-import Steps from '../components/Steps.astro';
-import Step from '../components/Step.astro';
-import NavigationBar from '../components/NavigationBar.astro';
-import ContactForm from '../components/ContactForm.astro';
-import Toast from '../components/Toast.astro';
-import CaseStudyPreview
-  from '../components/case-studies/CaseStudyPreview.astro';
+import ourCraftIcon from "../assets/our-craft.svg";
+import workingTogetherIcon from "../assets/working-together.svg";
+import yourVisionIcon from "../assets/your-vision.svg";
+import Blob1 from "../components/Blob1.astro";
+import Blob2 from "../components/Blob2.astro";
+import ContactButton from "../components/ContactButton.astro";
+import ContactForm from "../components/ContactForm.astro";
+import CaseStudyPreview from "../components/case-studies/CaseStudyPreview.astro";
+import Footer from "../components/Footer.astro";
+import NavigationBar from "../components/NavigationBar.astro";
+import Step from "../components/Step.astro";
+import Steps from "../components/Steps.astro";
+import Toast from "../components/Toast.astro";
+import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout>
@@ -29,9 +28,7 @@ import CaseStudyPreview
 
       <section id="home" class="section px-6 pt-16 xl:items-start xl:pt-32">
         <h1 class="title">
-          Apps that<br /><span class="text-benzol-green italic xl:ml-[355px]"
-        >matter</span
-        >
+          Apps that<br /><span class="text-benzol-green italic xl:ml-[355px]">matter</span>
         </h1>
 
         <p class="font-nudica mt-6 text-xl xl:w-3/5 xl:text-4xl">
@@ -86,7 +83,8 @@ import CaseStudyPreview
           </Step>
           <Step class="text-sasquatch-socks" title="3. Takeoff" slot="third">
             We'll handle the tech for your <b>app store launch</b> and help you
-            chart the best course forward, whether that's attracting investors or
+            chart the best course forward, whether that's attracting investors
+            or
             winning your first users.
           </Step>
         </Steps>

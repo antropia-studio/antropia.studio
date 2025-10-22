@@ -1,54 +1,54 @@
 @font-face {
-  font-family: 'Round8';
-  src: url('/fonts/round8-seven-webfont.woff') format('woff');
+  font-family: "Round8";
+  src: url("/fonts/round8-seven-webfont.woff") format("woff");
   font-weight: 700;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Round8';
-  src: url('/fonts/round8-six-webfont.woff') format('woff');
+  font-family: "Round8";
+  src: url("/fonts/round8-six-webfont.woff") format("woff");
   font-weight: normal;
   font-style: italic;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Round8';
-  src: url('/fonts/round8-five-webfont.woff') format('woff');
+  font-family: "Round8";
+  src: url("/fonts/round8-five-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Round8';
-  src: url('/fonts/round8-one-webfont.woff') format('woff');
+  font-family: "Round8";
+  src: url("/fonts/round8-one-webfont.woff") format("woff");
   font-weight: 300;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Nudica';
-  src: url('/fonts/nudica-regular-webfont.woff') format('woff');
+  font-family: "Nudica";
+  src: url("/fonts/nudica-regular-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Nudica';
-  src: url('/fonts/nudica-light-webfont.woff') format('woff');
+  font-family: "Nudica";
+  src: url("/fonts/nudica-light-webfont.woff") format("woff");
   font-weight: 300;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Nudica';
-  src: url('/fonts/nudica-bold-webfont.woff') format('woff');
+  font-family: "Nudica";
+  src: url("/fonts/nudica-bold-webfont.woff") format("woff");
   font-weight: bold;
   font-style: normal;
   font-display: swap;

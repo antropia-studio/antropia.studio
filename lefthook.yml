@@ -3,7 +3,7 @@ pre-commit:
   commands:
     lint:
       glob: '*.{ts,tsx}'
-      run: npx eslint {staged_files}
+      run: npx biome check {staged_files}
     types:
       glob: '*.{ts,tsx}'
       run: npx tsc

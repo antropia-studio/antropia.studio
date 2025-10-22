@@ -1,13 +1,13 @@
 ---
-import blob3Icon from '../../assets/blob-3.svg';
-import blob3NegIcon from '../../assets/blob-3-neg.svg';
-import blob3NegAlucardsIcon from '../../assets/blob-3-neg-alucards.svg';
-import Image from 'astro/components/Image.astro';
+import Image from "astro/components/Image.astro";
+import blob3Icon from "../../assets/blob-3.svg";
+import blob3NegIcon from "../../assets/blob-3-neg.svg";
+import blob3NegAlucardsIcon from "../../assets/blob-3-neg-alucards.svg";
 
 interface Props {
   class?: string;
   image: string;
-  negBlobColor?: 'alucards';
+  negBlobColor?: "alucards";
 }
 
 const { class: className, negBlobColor, image } = Astro.props;

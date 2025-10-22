@@ -1,20 +1,21 @@
 // @ts-check
-import { defineConfig, passthroughImageService } from 'astro/config';
-import tailwindcss from '@tailwindcss/vite';
-import sitemap from '@astrojs/sitemap';
-import mdx from '@astrojs/mdx';
+
+import mdx from "@astrojs/mdx";
+import sitemap from "@astrojs/sitemap";
+import tailwindcss from "@tailwindcss/vite";
+import { defineConfig, passthroughImageService } from "astro/config";
 
 // https://astro.build/config
 export default defineConfig({
   markdown: {
     shikiConfig: {
-      theme: 'one-dark-pro',
+      theme: "one-dark-pro",
     },
   },
   image: {
     service: passthroughImageService(),
   },
-  site: 'https://antropia.studio/',
+  site: "https://antropia.studio/",
   vite: {
     plugins: [tailwindcss()],
   },

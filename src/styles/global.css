@@ -1,4 +1,4 @@
-@import 'tailwindcss';
+@import "tailwindcss";
 
 @custom-variant dark (&:where(.dark, .dark *));
 
@@ -32,8 +32,8 @@
   --text-superxl: 18rem;
   --text-superxl--line-height: 0.8;
 
-  --font-round8: 'Round8', 'sans-serif';
-  --font-nudica: 'Nudica', 'sans-serif';
+  --font-round8: "Round8", "sans-serif";
+  --font-nudica: "Nudica", "sans-serif";
 
   --container-navbar: var(--navbar-width);
   --container-navbar-xl: var(--navbar-width-xl);
@@ -105,7 +105,7 @@
 
     &::before,
     &::after {
-      content: '';
+      content: "";
       width: 26px;
       height: 2px;
       background-color: var(--color-benzol-green);
@@ -133,14 +133,14 @@
   }
 
   #toggle.open ~ #menu-icon::before {
-    content: '';
+    content: "";
     background-color: var(--color-benzol-green);
     transform: translateX(2px) translateY(-1px) rotateZ(45deg);
     left: 0;
   }
 
   #toggle.open ~ #menu-icon::after {
-    content: '';
+    content: "";
     background-color: var(--color-benzol-green);
     transform: translateX(2px) translateY(1px) rotateZ(-45deg);
     left: 0;
@@ -167,7 +167,7 @@
     padding: 2.5px;
     box-sizing: border-box;
     background:
-      radial-gradient(farthest-side, #fff 98%, #0000) 0 0/20px 20px no-repeat,
+      radial-gradient(farthest-side, #fff 98%, #0000) 0 0 / 20px 20px no-repeat,
       radial-gradient(circle, #fff 50%, #0000 80%) content-box,
       #0025c3;
 
@@ -176,7 +176,7 @@
   }
 
   .loader::before {
-    content: '';
+    content: "";
     position: absolute;
     top: 50%;
     left: 50%;
