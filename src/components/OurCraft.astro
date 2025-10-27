@@ -1,0 +1,41 @@
+---
+import ourCraftIcon from "../assets/our-craft.svg";
+import Step from "./Step.astro";
+import Steps from "./Steps.astro";
+---
+
+
+<section id="our-craft" class="section mt-16 items-center xl:mt-32">
+  <div class="flex flex-col items-center justify-between px-6 xl:flex-row xl:items-end">
+    <div class="mt-4 flex w-full flex-1 flex-col xl:mb-10">
+      <h1 class="font-round8 xl:text-12xl flex-1 text-[30vw] leading-none text-white xl:leading-44">
+        Our<br /><span class="text-benzol-green ml-[20vw] italic xl:ml-[90px]">craft</span>
+      </h1>
+    </div>
+
+    <img
+      src={ourCraftIcon.src}
+      alt="Our craft"
+      class="w-full flex-1 xl:w-2/5 xl:flex-none"
+    />
+  </div>
+
+  <Steps class="bg-benzol-green">
+    <Step class="text-benzol-green" title="Fixed rate" slot="first">
+      One fixed rate of <span class="font-bold underline-base">$125/hr (plus taxes)</span> for all our clients.
+      No hidden fees, no special deals, just transparent pricing that only
+      changes when it changes for everyone.
+    </Step>
+    <Step class="text-benzol-green" title="Focused work" slot="second">
+      We work up to <span class="font-bold underline-base">6 focused hours</span> each day,
+      <span class="font-bold underline-base">5 days a week</span>, ensuring you get our
+      best thinking and strongest work. Less quantity, more quality,
+      we believe that's how great apps are built.
+    </Step>
+    <Step class="text-benzol-green" title="Working hours" slot="third">
+      Based in <span class="font-bold underline-base">Spain</span> but flexible with schedules. All we need is
+      <span class="font-bold underline-base">2 hours of overlap between 10AM-6PM CET</span>
+      to keep the collaboration flowing.
+    </Step>
+  </Steps>
+</section>

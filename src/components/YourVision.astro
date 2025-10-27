@@ -1,0 +1,49 @@
+---
+import yourVisionIcon from "../assets/your-vision.svg";
+import ContactButton from "./ContactButton.astro";
+import Step from "./Step.astro";
+import Steps from "./Steps.astro";
+---
+
+<section id="your-vision" class="section">
+  <div
+    class="mt-20 flex flex-col items-center gap-10 px-6 xl:flex-row xl:items-end xl:gap-20"
+  >
+    <div class="flex w-full flex-col xl:mb-10 xl:flex-1">
+      <h1 class="font-round8 xl:text-12xl flex-1 text-[28vw] leading-none text-white">
+        Your<br /><span class="text-blinking-blue ml-[50px] italic xl:ml-[90px]">vision</span>
+      </h1>
+    </div>
+
+    <img
+      src={yourVisionIcon.src}
+      alt="Your vision"
+      class="w-4/5 flex-1 xl:w-full"
+    />
+  </div>
+
+  <Steps class="bg-blinking-blue">
+    <Step class="text-hello-summer" title="To the point" slot="first">
+      We keep projects <span class="font-bold underline-base">short and focused</span>, typically wrapping up
+      within a month to give you everything needed to validate your idea
+      and continue growing. No endless timelines, just swift, meaningful
+      progress.
+    </Step>
+    <Step class="text-hello-summer" title="Eyes on the prize" slot="second">
+      We help navigate the exciting chaos of early-stage projects,
+      ensuring your journey leads to <span class="font-bold underline-base">something tangible</span> you can be
+      proud of.
+    </Step>
+    <Step class="text-hello-summer" title="Working hours" slot="third">
+      We become part of your team, bringing our perspective and experience
+      while <span class="font-bold underline-base">solving problems together</span>. Your challenges become our
+      challenges, and your wins become our wins.
+    </Step>
+  </Steps>
+
+  <p class="headline text-ice-cold-stare ml-2 xl:ml-0 xl:w-1/2 xl:text-white">
+    Ready to build something meaningful together?
+  </p>
+
+  <ContactButton />
+</section>

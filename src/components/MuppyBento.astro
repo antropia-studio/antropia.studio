@@ -1,0 +1,72 @@
+---
+import Image from "astro/components/Image.astro";
+import muppyIcon from "../assets/bento/muppy/app-icon.png";
+import cardImg from "../assets/bento/muppy/card.png";
+import illustration from "../assets/bento/muppy/illustration.png";
+import logoImg from "../assets/bento/muppy/logo.png";
+import sliderComponent from "../assets/bento/muppy/slider-component.png";
+import wordCloud from "../assets/bento/muppy/word-cloud.png";
+import downloadAppStore from "../assets/download-app-store-black.svg";
+import downloadPlayStore from "../assets/download-play-store.svg";
+---
+
+<section
+  id="our-work-muppy"
+  class="section w-full xl:px-5"
+>
+  <h2 class="container-fill-text font-round8 w-full">
+  <span class="container-fill-text__container">
+    <span class="container-fill-text__display">MUPPY</span>
+  </span>
+    <span class="container-fill-text__reference" aria-hidden="true">MUPPY</span>
+  </h2>
+
+
+  <div class="w-full mt-4 grid grid-cols-2 xl:grid-cols-4 xl:grid-rows-4 gap-4">
+    <div class="col-span-2 xl:col-span-1 xl:row-span-2 bg-ice-cold-stare rounded-4xl aspect-square xl:aspect-auto overflow-hidden">
+      <Image src={muppyIcon} alt="App Icon" class="w-full h-auto -mt-20 xl:mt-0" />
+    </div>
+
+    <div class="flex flex-col center col-span-2 xl:col-span-1 bg-biscuit-cream rounded-4xl pt-3">
+      <a href="https://apps.apple.com/us/app/muppy-investors/id6744638280">
+        <Image src={downloadAppStore} width="165" alt="Download in the App Store" />
+      </a>
+      <a href="https://play.google.com/store/apps/details?id=com.muppy.investors">
+        <Image src={downloadPlayStore} width="190" alt="Download in the Play Store" />
+      </a>
+    </div>
+
+    <div class="flex center text-sm italic text-center bg-creamy-avocado rounded-4xl text-ash font-light py-4 px-2 xl:px-6 xl:text-base">
+      <p>
+        Unlock access to hand-picked <span class="font-bold">real estate investment opportunities</span>
+        with high returns and full 360º management.
+      </p>
+    </div>
+
+    <div class="xl:row-span-2 bg-prime-purple rounded-4xl">
+      <Image src={cardImg} alt="Card asset in the app" />
+    </div>
+
+    <div class="hidden xl:flex xl:col-span-2 xl:row-span-2 xl:col-start-2 bg-antropia-white rounded-4xl overflow-clip h-[424px]">
+      <img src="/images/muppy/preview.webp" alt="A video showing the different screens in the Muppy app"
+           class="h-full object-fit" />
+    </div>
+
+    <div class="hidden xl:flex xl:row-span-2 xl:row-start-3 bg-prime-purple rounded-4xl">
+      <Image src={illustration} alt="An illustration of someone using the app" />
+    </div>
+
+    <div class="row-start-3 col-span-2 xl:col-span-1 xl:col-start-2 xl:row-start-4 bg-granny-smith-apple rounded-4xl">
+      <Image src={wordCloud}
+             alt="A list of technologies used in this project: react native, expo, typescript, nativewind, mapbox, localization, etc." />
+    </div>
+
+    <div class="hidden xl:flex xl:col-span-2 xl:col-start-3 xl:row-start-4 bg-candlelight-peach rounded-4xl">
+      <Image src={sliderComponent} alt="Price slider component" />
+    </div>
+
+    <div class="flex col-span-2 center xl:col-span-1 xl:col-start-4 xl:row-start-3 bg-ice-cold-stare rounded-4xl">
+      <Image src={logoImg} alt="Company logo" />
+    </div>
+  </div>
+</section>

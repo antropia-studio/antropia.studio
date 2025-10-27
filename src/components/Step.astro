@@ -3,11 +3,11 @@ const { class: className, title, ...rest } = Astro.props;
 ---
 
 <p
-  class={`text-4xl xl:text-6xl font-round8 tracking-wide ${className}`}
+  class={`text-6xl xl:text-6xl font-round8 tracking-wide font-light ${className}`}
   {...rest}
 >
   {title}
 </p>
-<p class="text-sm xl:text-xl">
+<p class="text-base xl:text-xl font-thin">
   <slot />
 </p>

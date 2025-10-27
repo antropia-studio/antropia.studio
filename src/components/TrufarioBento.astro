@@ -1,0 +1,72 @@
+---
+import Image from "astro/components/Image.astro";
+import appIcon from "../assets/bento/trufario/app-icon.png";
+import cardImg from "../assets/bento/trufario/card.png";
+import illustration from "../assets/bento/trufario/illustration.svg";
+import logoImg from "../assets/bento/trufario/logo.png";
+import trackerComponent from "../assets/bento/trufario/tracker.png";
+import wordCloud from "../assets/bento/trufario/word-cloud.png";
+import downloadAppStore from "../assets/download-app-store-black.svg";
+import downloadPlayStore from "../assets/download-play-store.svg";
+---
+
+<section
+  id="our-work-muppy"
+  class="section w-full xl:px-5"
+>
+  <h2 class="container-fill-text font-round8 w-full">
+  <span class="container-fill-text__container">
+    <span class="container-fill-text__display">TRUFARIO</span>
+  </span>
+    <span class="container-fill-text__reference" aria-hidden="true">TRUFARIO</span>
+  </h2>
+
+
+  <div class="w-full mt-4 grid grid-cols-2 xl:grid-cols-4 xl:grid-rows-4 gap-4">
+    <div class="col-span-2 xl:col-span-1 xl:row-span-2 xl:col-start-4 bg-candlelight-peach rounded-4xl aspect-square xl:aspect-auto overflow-hidden">
+      <Image src={appIcon} alt="App Icon" class="w-full xl:w-auto xl:h-full -mt-20 xl:mt-0" />
+    </div>
+
+    <div class="flex flex-col center col-span-2 xl:col-start-4 xl:col-span-1 bg-hello-summer rounded-4xl pt-3">
+      <a href="https://apps.apple.com/app/trufario/id6473553839">
+        <Image src={downloadAppStore} width="165" alt="Download in the App Store" />
+      </a>
+      <a href="https://play.google.com/store/apps/details?id=com.trufario.app">
+        <Image src={downloadPlayStore} width="190" alt="Download in the Play Store" />
+      </a>
+    </div>
+
+    <div class="flex xl:col-start-3 xl:row-start-4 center text-sm italic text-center bg-ice-cold-stare rounded-4xl text-ash font-light py-4 px-2 xl:px-6 xl:text-base">
+      <p>
+        Your essential companion app for <span class="font-bold">recording every moment with your dog</span>.
+        From walks and playtime to vet visits, it keeps a detailed track of their health and behavior.
+      </p>
+    </div>
+
+    <div class="flex center xl:row-span-2 xl:row-start-1 xl:col-start-1 bg-benzol-green xl:bg-sasquatch-socks rounded-4xl">
+      <Image src={cardImg} alt="Card asset in the app" />
+    </div>
+
+    <div class="hidden xl:flex xl:col-span-2 xl:row-span-2 xl:row-start-2 xl:col-start-2 bg-antropia-white rounded-4xl overflow-clip">
+      <img src="/images/trufario/preview-02.webp" alt="A video showing the different screens in the Trufario app"
+           class="w-full object-contain" />
+    </div>
+
+    <div class="hidden xl:flex xl:row-span-2 xl:row-start-3 xl:col-start-1 bg-blinking-blue rounded-4xl px-4">
+      <Image src={illustration} alt="An illustration of someone using the app" />
+    </div>
+
+    <div class="hidden xl:flex center row-start-3 col-span-2 xl:col-span-1 xl:col-start-2 xl:row-start-4 bg-antropia-white/10 rounded-4xl">
+      <Image src={logoImg} alt="Company logo" class="w-full h-auto object-contain max-w-40" />
+    </div>
+
+    <div class="hidden xl:flex xl:col-span-2 xl:col-start-2 xl:row-start-1 bg-granny-smith-apple rounded-4xl xl:px-20">
+      <Image src={trackerComponent} alt="Tracker component in the app" class="w-full h-auto object-contain" />
+    </div>
+
+    <div class="flex col-span-2 center xl:col-span-1 xl:col-start-4 xl:row-start-3 bg-sasquatch-socks rounded-4xl">
+      <Image src={wordCloud}
+             alt="A list of technologies used in this project: react native, expo, typescript, jest, detox, etc." />
+    </div>
+  </div>
+</section>

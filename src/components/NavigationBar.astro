@@ -1,4 +1,6 @@
 ---
+import Image from "astro/components/Image.astro";
+import externalLink from "../assets/external-link.svg";
 import antropiaLogo from "../assets/logo.svg";
 ---
 
@@ -21,12 +23,11 @@ import antropiaLogo from "../assets/logo.svg";
       <ul class="flex flex-col gap-3 xl:gap-4">
         <li><a href="/#home">Home</a></li>
         <li><a href="/#working-together">Working Together</a></li>
+        <li><a href="/#projects">Projects</a></li>
         <li><a href="/#your-vision">Your Vision</a></li>
         <li><a href="/#our-craft">Our craft</a></li>
-        <li><a href="/#about-us">About us</a></li>
-        <li><a href="/#our-work">Our work</a></li>
         <li><a href="/#contact">Contact</a></li>
-        <li><a href="/blog">Blog</a></li>
+        <li><a href="/blog" target="_blank" class="flex flex-row items-center gap-2">Blog <Image src={externalLink} alt="" /></a></li>
       </ul>
     </div>
   </div>

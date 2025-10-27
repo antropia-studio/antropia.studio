@@ -18,6 +18,7 @@
   --color-biscuit-cream: #facdb6;
   --color-benzol-green: #00dc64;
   --color-granny-smith-apple: #9fe38e;
+  --color-creamy-avocado: #D6F78E;
   --color-alucards-night: #030454;
   --color-tory-blue: #374d86;
   --color-prime-purple: #636395;
@@ -33,7 +34,7 @@
   --text-superxl--line-height: 0.8;
 
   --font-round8: "Round8", "sans-serif";
-  --font-nudica: "Nudica", "sans-serif";
+  --font-nudica: "-apple-system", "BlinkMacSystemFont", "Nudica", "sans-serif";
 
   --container-navbar: var(--navbar-width);
   --container-navbar-xl: var(--navbar-width-xl);
@@ -51,13 +52,41 @@
   @apply items-center justify-center;
 }
 
+@utility underline-bold {
+  text-decoration: underline;
+  text-decoration-skip: none;
+  text-decoration-skip-ink: none;
+  text-decoration-thickness: 12px;
+  text-decoration-color: var(--color-blinking-blue);
+  text-underline-offset: -5px;
+
+  @media (min-width: 1280px) {
+    text-decoration-thickness: 20px;
+    text-underline-offset: -8px;
+  }
+}
+
+@utility underline-base {
+  text-decoration: underline;
+  text-decoration-skip: none;
+  text-decoration-skip-ink: none;
+  text-decoration-thickness: 10px;
+  text-decoration-color: var(--color-blinking-blue);
+  text-underline-offset: -4px;
+
+  @media (min-width: 1280px) {
+    text-decoration-thickness: 10px;
+    text-underline-offset: -4px;
+  }
+}
+
 @layer components {
   .section {
     @apply xl:max-w-content z-10 flex flex-col items-center;
   }
 
   .headline {
-    @apply font-nudica mt-10 px-4 text-base leading-tight xl:text-center xl:text-3xl;
+    @apply font-nudica mt-10 px-4 text-base leading-tight text-center xl:text-3xl font-light;
   }
 
   .subtitle {
@@ -346,4 +375,62 @@
       @apply mt-12 text-start;
     }
   }
+}
+
+/* Automatic text sizing @see https://piccalil.li/blog/riffing-on-the-latest-css-fit-text-approach/ */
+
+.container-fill-text {
+  --container-fill-text-captured-length: initial;
+
+  display: flex;
+  container-type: inline-size;
+
+  /* Overrides a global style on headings */
+  max-width: unset;
+
+  line-height: 0.6;
+  font-weight: bold;
+}
+
+.container-fill-text__reference {
+  visibility: hidden;
+}
+
+.container-fill-text__container {
+  --container-fill-text-captured-length: 100cqi;
+  --container-fill-text-available-space: var(--container-fill-text-captured-length);
+
+  flex-grow: 1;
+  container-type: inline-size;
+}
+
+.container-fill-text__display {
+  --container-fill-text-captured-length: 100cqi;
+  --container-fill-text-ratio: tan(
+    atan2(
+      var(--container-fill-text-available-space),
+      var(--container-fill-text-available-space) - var(--container-fill-text-captured-length)
+    )
+  );
+
+  display: block;
+
+  /* AKA, width */
+  inline-size: var(--container-fill-text-available-space);
+
+  /* Apply the calculated size with sensible fallbacks for no support */
+  font-size: var(--text-6xl);
+
+  /* The initial fallback value for no support now becomes our minimum clamp value */
+  font-size: clamp(
+    var(--text-6xl),
+    1em * var(--container-fill-text-ratio),
+    var(--container-fill-text-max-font-size, infinity * 1px)
+  );
+}
+
+@property --container-fill-text-captured-length {
+  syntax: '<length>';
+  initial-value: 0px;
+  inherits: true;
 }

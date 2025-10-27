@@ -1,0 +1,51 @@
+---
+import workingTogetherIcon from "../assets/working-together.svg";
+import ContactButton from "./ContactButton.astro";
+import Step from "./Step.astro";
+import Steps from "./Steps.astro";
+---
+
+<section id="working-together" class="section mt-20 xl:mt-64">
+  <div
+    class="flex flex-col items-center gap-10 xl:flex-row xl:items-start"
+  >
+    <div class="flex flex-col items-center xl:mt-28">
+      <h1 class="font-round8 xl:text-10xl text-[23vw] leading-none text-white">
+        Working<br /><span class="text-sasquatch-socks ml-[50px] italic xl:ml-[110px]">together</span>
+      </h1>
+    </div>
+
+    <img
+      src={workingTogetherIcon.src}
+      alt="Working together"
+      class="w-3/5 flex-1 xl:w-full"
+    />
+  </div>
+
+  <Steps class="bg-sasquatch-socks">
+    <Step class="text-sasquatch-socks" title="1. Talk" slot="first">
+      Let's meet, chat about your idea, and explore how we can
+      <span class="font-bold underline-base">bring it to life</span>, together. No pitch decks needed, just an
+      honest conversation.
+    </Step>
+    <Step class="text-sasquatch-socks" title="2. Hands on" slot="second">
+      Three words: <span class="italic">iterate, iterate, ite...</span>
+      you get it. Your idea starts taking shape through
+      <span class="font-bold underline-base">constant testing and feedback</span>. You'll own everything we
+      create together.
+    </Step>
+    <Step class="text-sasquatch-socks" title="3. Takeoff" slot="third">
+      We'll handle the tech for your <span class="font-bold underline-base">app store launch</span> and help you
+      chart the best course forward, whether that's attracting investors
+      or winning your first users.
+    </Step>
+  </Steps>
+
+  <p class="headline text-ice-cold-stare">
+    Let's craft a project together.<br />We'll focus on what really matters.
+  </p>
+
+  <div>
+    <ContactButton class="ml-0!" />
+  </div>
+</section>
