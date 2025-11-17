@@ -1,0 +1,26 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ivory: #FFFFFF;
+  --color-ash: #1A1A1A;
+  --color-off-black: #313131;
+  --color-rockman-blue: #329CF2;
+
+  --color-lines: var(--color-off-black);
+  --color-content-accent: var(--color-rockman-blue);
+
+  --default-font-family: ui-sans-serif, system-ui, sans-serif;
+}
+
+@utility center {
+  @apply items-center justify-center;
+}
+
+html,
+body {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+
+  @apply text-ivory
+}

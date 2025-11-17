@@ -1,0 +1,129 @@
+---
+import Image from "astro/components/Image.astro";
+import CodeIcon from "../../assets/icons/code.svg";
+import LaptopMinimalIcon from "../../assets/icons/laptop-minimal.svg";
+import PaintRollerIcon from "../../assets/icons/paint-roller.svg";
+import dog from "../../assets/opensource/magekit/dog.png";
+import dotsBg01 from "../../assets/opensource/magekit/dotsbg-01.png";
+import dotsBg02 from "../../assets/opensource/magekit/dotsbg-02.png";
+import fadeLine from "../../assets/opensource/magekit/fade-line.svg";
+import github from "../../assets/opensource/magekit/github.svg";
+import logo from "../../assets/opensource/magekit/logo.svg";
+import RotatingText from "../../components/opensource/RotatingText.astro";
+import Layout from "../../layouts/opensource/Layout.astro";
+---
+<Layout
+  title="Magekit"
+  description="Your self-hosted image toolkit"
+  image="/images/magekit/social.png"
+  class="bg-ash"
+>
+  <div class="relative -z-10">
+    <Image src={dotsBg01} class="absolute left-1/2 top-0 w-xl transform translate-x-[-800px]" alt="" />
+    <Image src={dotsBg02} class="absolute left-1/2 top-20 w-xl transform translate-x-[100px]" alt="" />
+  </div>
+
+  <div class="flex center">
+    <main class="xl:w-6xl max-w-6xl border-x border-lines">
+      <div class="flex flex-row justify-between px-8">
+        <div class="flex flex-row flex-1 py-6 items-center gap-20">
+          <a href="#">
+            <Image src={logo} alt="" class="w-20" />
+          </a>
+
+          <div class="flex flex-row gap-6 text-xl font-normal">
+            <a href="#" class="no-underline">Docs</a>
+            <a href="#" class="no-underline">Pricing</a>
+            <a href="#" class="no-underline">About us</a>
+          </div>
+        </div>
+
+        <a href="#" class="flex center no-underline">
+          <div class="flex flex-row gap-2 border border-white/50 rounded-lg p-2">
+            <Image src={github} alt="" class="w-6" />
+            Star Us
+          </div>
+        </a>
+      </div>
+
+      <div class="flex flex-row">
+        <div class="flex-1 px-20" />
+
+        <div class="flex-1">
+          <Image src={fadeLine} class="" alt="" />
+        </div>
+      </div>
+
+      <div class="flex flex-row">
+        <div class="flex flex-col flex-1 gap-6 py-10 px-20 border-y border-lines">
+          <Image src={logo} alt="" class="w-sm" />
+
+          <div class="flex flex-col gap-2 xl:text-3xl">
+            <p>Your self-hosted image toolkit.</p>
+            <RotatingText template="{} your images locally." words={["Upscale", "Vectorize", "Isolate"]} wordsClass="font-bold text-content-accent" />
+            <p>Your images. Your data. Your magekit.</p>
+          </div>
+        </div>
+
+        <div class="flex flex-1">
+          <Image src={dog} alt="" class="flex-1 object-cover" />
+        </div>
+      </div>
+
+      <div class="flex flex-row">
+        <div class="flex-1 px-20" />
+
+        <div class="flex-1">
+          <Image src={fadeLine} class="rotate-180" alt="" />
+        </div>
+      </div>
+
+      <div class="flex flex-row border-y border-lines">
+        <div class="flex flex-row flex-1 px-8 py-10 gap-4 border-r border-lines">
+          <PaintRollerIcon class="w-10 mt-1" />
+
+          <div class="flex flex-col gap-2">
+            <h2 class="text-2xl font-medium">The best image tools</h2>
+            <p class="text-lg font-thin text-white/70">We have selected the best open-source tools for image edition.</p>
+          </div>
+        </div>
+
+        <div class="flex flex-row flex-1 px-6 py-10 gap-4 border-r border-lines">
+          <CodeIcon class="w-10 mt-1" />
+
+          <div class="flex flex-col gap-2">
+            <h2 class="text-2xl font-medium">Open-source</h2>
+            <p class="text-lg font-thin text-white/80">We believe open source tools are the ultimate frontier for progress.</p>
+          </div>
+        </div>
+
+        <div class="flex flex-row flex-1 px-8 py-10 gap-4">
+          <LaptopMinimalIcon class="w-10 mt-1" />
+
+          <div class="flex flex-col gap-2">
+            <h2 class="text-2xl font-medium">Self-hosted</h2>
+            <p class="text-lg font-thin text-white/80">We provide instructions to self-host your instance of magekit.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex flex-row border-b border-lines">
+        <div class="flex flex-col gap-6 p-10 border-r border-lines">
+          <a href="#"><h2 class="text-3xl font-bold text-right">Remove background</h2></a>
+          <a href="#"><h2 class="text-3xl font-bold text-right">Vectorize</h2></a>
+          <a href="#"><h2 class="text-3xl font-bold text-right">Upscale</h2></a>
+        </div>
+
+        <div class="flex flex-1 p-10">
+          <Image src={dog} alt="" class="flex-1 object-cover" />
+        </div>
+      </div>
+
+      <footer class="flex flex-row py-10 px-6 justify-between items-center">
+        <p class="text-white/70 font-thin">Copyright © 2025 Magekit. All rights reserved.</p>
+
+        <p class="text-white/70 font-thin">Made with utter love by Antropia</p>
+      </footer>
+    </main>
+  </div>
+</Layout>

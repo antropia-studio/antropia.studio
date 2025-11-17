@@ -1,0 +1,65 @@
+---
+
+interface Props {
+  class?: string;
+  wordsClass?: string;
+  template: string;
+  words: string[];
+  placeholderString?: string;
+}
+
+const {
+  class: className,
+  template,
+  wordsClass = "",
+  words,
+  placeholderString = "{}",
+} = Astro.props;
+---
+
+<div id="rotating-text"
+   class={`flex flex-row gap-4 h-9 overflow-hidden ${className}`}
+   data-template={template}
+   data-words={words.join("|")}
+   data-wordsclass={wordsClass}
+   data-placeholderstring={placeholderString}>
+</div>
+
+<script>
+  import { animate, spring, type AnimationSequence } from 'motion';
+
+  const node = document.getElementById('rotating-text')!;
+  const template = node.dataset.template as string
+  const words = (node.dataset.words as string).split("|")
+  const wordsClass = node.dataset.wordsclass as string
+  const placeholderString = node.dataset.placeholderstring as string
+
+  const wordNodes = words.map(word => {
+    const wordNode = document.createElement("p")
+    wordNode.className = wordsClass
+    wordNode.textContent = word
+    return wordNode
+  })
+
+  const wordsContainer = document.createElement("div")
+  wordsContainer.classList.add("flex", "flex-col")
+  // We introduce the words twice so that we can infinitely rotate
+  wordNodes.forEach((wordNode) => wordsContainer.appendChild(wordNode))
+  wordNodes.forEach((wordNode) => wordsContainer.appendChild(wordNode.cloneNode(true)))
+
+  const templateParts =template.split(placeholderString)
+  const leftNode = document.createTextNode(templateParts[0])
+  const rightNode = document.createTextNode(templateParts[1])
+
+  node.appendChild(leftNode)
+  node.appendChild(wordsContainer)
+  node.appendChild(rightNode)
+
+
+  const sequence: AnimationSequence = wordNodes.map(
+    (_, index) =>
+      [wordsContainer, { translateY: `-${index * 1.2}em` }, { delay: index === 0 ? 0 : 1, type: spring, bounce: 0.55 }]
+  )
+  sequence.push([wordsContainer, { translateY: `-${wordNodes.length * 1.2}em` }, { delay: 1, type: spring, bounce: 0.55 }])
+  animate(sequence, {repeat: Infinity})
+</script>
