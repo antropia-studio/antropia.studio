@@ -1,0 +1,68 @@
+---
+import Image from 'astro/components/Image.astro';
+import workingTogetherIcon from '../assets/working-together.svg';
+import ContactButton from './ContactButton.astro';
+import Step from './Step.astro';
+import Steps from './Steps.astro';
+import harvest from '../assets/companies/harvest.png';
+import sketch from '../assets/companies/sketch.png';
+import ibm from '../assets/companies/ibm.png';
+import cabify from '../assets/companies/cabify.png';
+import karumi from '../assets/companies/karumi.png';
+import jobandtalent from '../assets/companies/jobandtalent.png';
+import together from '../assets/companies/together.svg';
+import muppy from '../assets/companies/muppy.png';
+import omnia from '../assets/companies/omnia.png';
+---
+
+<section class="section mt-20 xl:mt-32 w-full">
+
+  <div class="h-px w-full bg-hello-summer/10" />
+
+  <p class="headline text-xl text-ice-cold-stare mx-10">
+    We have worked with the most amazing companies
+  </p>
+
+  <div class="flex flex-row mt-12 w-full relative overflow-hidden">
+    <div
+      class="w-px xl:w-100 bg-linear-to-r from-alucards-night to-alucards-night/0 absolute inset-y-0 left-0 z-10" />
+
+    <div id="companies-carousel"
+         class="flex flex-row center gap-12 xl:gap-16">
+      <Image src={karumi} alt="" class="max-w-32 max-h-12 object-contain" />
+      <Image src={sketch} alt="" class="max-w-32 max-h-12 object-contain" />
+      <Image src={harvest} alt="" class="max-w-32 max-h-12 object-contain" />
+      <Image src={ibm} alt="" class="max-w-32 max-h-12 object-contain" />
+      <Image src={cabify} alt="" class="max-w-32 max-h-12 object-contain" />
+      <Image src={jobandtalent} alt="" class="max-w-32 max-h-12 object-contain" />
+      <Image src={muppy} alt="" class="max-w-32 max-h-12 object-contain" />
+      <Image src={together} alt="" class="max-w-32 max-h-12 object-contain" />
+      <Image src={omnia} alt="" class="max-w-32 max-h-12 object-contain" />
+    </div>
+
+    <div class="w-px xl:w-100 bg-linear-to-l from-alucards-night to-alucards-night/0 absolute inset-y-0 right-0" />
+  </div>
+
+  <div class="h-px w-full bg-hello-summer/10 mt-12" />
+
+</section>
+
+<script>
+  import { animate, spring, type AnimationSequence } from 'motion';
+
+  const companiesElement = document.getElementById('companies-carousel')!;
+
+  // We duplicate all children so that we can scroll endlessly
+  const children = companiesElement.children;
+  const clonedChildren: Node[] = [];
+  for (let i = 0; i < children.length; i++) {
+    const child = children[i];
+    const clone = child.cloneNode(true);
+    clonedChildren.push(clone);
+  }
+
+  clonedChildren.forEach((clone) => companiesElement.appendChild(clone));
+
+
+  animate(companiesElement, { translateX: '-50.75%' }, { ease: 'linear', duration: 30, repeat: Infinity });
+</script>
