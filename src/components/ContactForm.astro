@@ -1,5 +1,5 @@
 ---
-import closeIcon from "../assets/close.svg";
+import closeIcon from '../assets/close.svg';
 ---
 
 <div
@@ -33,7 +33,7 @@ import closeIcon from "../assets/close.svg";
 
     <div class="mt-4 mb-4 flex w-full flex-col items-start">
       <label for="email" class="text-blinking-blue mb-2 block font-medium"
-        >Your email</label
+      >Your email</label
       >
       <input
         type="email"
@@ -47,7 +47,7 @@ import closeIcon from "../assets/close.svg";
 
     <div class="mb-8 flex w-full flex-col items-start">
       <label for="message" class="text-blinking-blue mb-2 block font-medium"
-        >Your Message</label
+      >Your Message</label
       >
       <textarea
         id="message"
@@ -84,34 +84,36 @@ import closeIcon from "../assets/close.svg";
   const TRANSITION_DELAY = 200;
 
   const backdrop = document.querySelector<HTMLDivElement>(
-    '#contact-form-modal #backdrop'
+    '#contact-form-modal #backdrop',
   )!;
   const contactButtons = document.querySelectorAll('.contact-button');
   const modal = document.getElementById(
-    'contact-form-modal'
+    'contact-form-modal',
   )! as HTMLDivElement;
   const form = document.querySelector(
-    '#contact-form-modal form'
+    '#contact-form-modal form',
   )! as HTMLFormElement;
   const closeButton = document.getElementById('close-contact-form')!;
   const submitButton = document.querySelector(
-    '#submit-form-button'
+    '#submit-form-button',
   )! as HTMLButtonElement;
   const loading = document.querySelector(
-    '#submit-form-button .loader'
+    '#submit-form-button .loader',
   )! as HTMLDivElement;
   const label = document.querySelector(
-    '#submit-form-button #send-email-label'
+    '#submit-form-button #send-email-label',
   )! as HTMLSpanElement;
 
   const showContactForm = () => {
+    if (window.rdt) window.rdt('track', 'OpenContactForm');
+
     modal.style.display = 'flex';
     animate(modal, { opacity: 1 }, { duration: ANIMATION_DURATION });
 
     animate(
       form,
       { transform: ['rotate(5deg)', 'rotate(0deg)'] },
-      { type: 'spring', duration: 0.5, bounce: 0.6 }
+      { type: 'spring', duration: 0.5, bounce: 0.6 },
     );
   };
 
@@ -136,8 +138,11 @@ import closeIcon from "../assets/close.svg";
     }
   });
 
-  form.addEventListener('submit', function (e) {
+  form.addEventListener('submit', function(e) {
     e.preventDefault();
+
+    if (window.rdt) window.rdt('track', 'SendContactForm');
+
     const formData = new FormData(form);
     const object = Object.fromEntries(formData);
     const json = JSON.stringify(object);
@@ -154,7 +159,7 @@ import closeIcon from "../assets/close.svg";
       },
       body: json,
     })
-      .then(function () {
+      .then(function() {
         window.showToast();
         form.reset();
         hideContactForm();
