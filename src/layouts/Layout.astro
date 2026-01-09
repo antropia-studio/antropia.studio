@@ -1,7 +1,7 @@
 ---
-import '../styles/fonts.css';
-import '../styles/global.css';
-import RedditPixel from '../components/RedditPixel.astro';
+import "../styles/fonts.css";
+import "../styles/global.css";
+import RedditPixel from "../components/RedditPixel.astro";
 
 interface Props {
   title?: string;
@@ -12,10 +12,10 @@ interface Props {
 }
 
 const {
-  title = 'Antropia',
-  description = 'Prototyping, design, and development. We create human-first apps in weeks.',
+  title = "Antropia",
+  description = "Prototyping, design, and development. We create human-first apps in weeks.",
   canonicalURL = Astro.url.href,
-  image = '/images/social.png',
+  image = "/images/social.png",
   class: className,
 } = Astro.props;
 ---
@@ -77,6 +77,18 @@ const {
     src="https://api.pirsch.io/pa.js"
     id="pianjs"
     data-code="gxYI8XdHpDUlWF9Synok7rqJHGRaqQ3J" />
+
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17863209457"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'AW-17863209457');
+  </script>
+
 
   <!-- Font preload-->
   <link
