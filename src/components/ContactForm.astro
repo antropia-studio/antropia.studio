@@ -184,6 +184,10 @@ import closeIcon from "../assets/close.svg";
         form.reset();
         hideContactForm();
 
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('event', 'conversion', { 'send_to': 'AW-17863209457/pF-nCJDig-AbEPHj68VC' });
+
         removeQueryParam("cf")
         updateQueryParam("cfs", "1")
       })
