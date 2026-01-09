@@ -1,5 +1,5 @@
 ---
-import closeIcon from '../assets/close.svg';
+import closeIcon from "../assets/close.svg";
 ---
 
 <div
@@ -113,6 +113,8 @@ import closeIcon from '../assets/close.svg';
       { transform: ['rotate(5deg)', 'rotate(0deg)'] },
       { type: 'spring', duration: 0.5, bounce: 0.6 },
     );
+
+    window.history.replaceState(null, "", "?cf=1");
   };
 
   const hideContactForm = () => {
@@ -120,6 +122,8 @@ import closeIcon from '../assets/close.svg';
     setTimeout(() => {
       modal.style.display = 'none';
     }, TRANSITION_DELAY);
+
+    window.history.replaceState(null, "", "/");
   };
 
   contactButtons.forEach((button) => {
@@ -159,6 +163,7 @@ import closeIcon from '../assets/close.svg';
         window.showToast();
         form.reset();
         hideContactForm();
+        window.history.replaceState(null, "", "?cfs=1");
       })
       .catch((error) => {
         console.log(error);
