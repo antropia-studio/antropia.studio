@@ -104,6 +104,18 @@ import closeIcon from "../assets/close.svg";
     '#submit-form-button #send-email-label',
   )! as HTMLSpanElement;
 
+  const updateQueryParam = (key: string, value: string) => {
+    const url = new URL(window.location.href);
+    url.searchParams.set(key, value);
+    window.history.replaceState(null, "", url.toString());
+  };
+
+  const removeQueryParam = (key: string) => {
+    const url = new URL(window.location.href);
+    url.searchParams.delete(key);
+    window.history.replaceState(null, "", url.toString());
+  };
+
   const showContactForm = () => {
     modal.style.display = 'flex';
     animate(modal, { opacity: 1 }, { duration: ANIMATION_DURATION });
@@ -114,7 +126,7 @@ import closeIcon from "../assets/close.svg";
       { type: 'spring', duration: 0.5, bounce: 0.6 },
     );
 
-    window.history.replaceState(null, "", "?cf=1");
+    updateQueryParam("cf", "1")
   };
 
   const hideContactForm = () => {
@@ -123,6 +135,7 @@ import closeIcon from "../assets/close.svg";
       modal.style.display = 'none';
     }, TRANSITION_DELAY);
 
+    removeQueryParam("cf")
     window.history.replaceState(null, "", "/");
   };
 
@@ -145,6 +158,13 @@ import closeIcon from "../assets/close.svg";
 
     const formData = new FormData(form);
     const object = Object.fromEntries(formData);
+
+    // Include URL params to track referrers
+    const urlParams = new URLSearchParams(window.location.search);
+    urlParams.delete("cf");
+    urlParams.delete("cfs");
+    Object.assign(object, Object.fromEntries(urlParams))
+
     const json = JSON.stringify(object);
 
     loading.classList.remove('hidden');
@@ -163,7 +183,9 @@ import closeIcon from "../assets/close.svg";
         window.showToast();
         form.reset();
         hideContactForm();
-        window.history.replaceState(null, "", "?cfs=1");
+
+        removeQueryParam("cf")
+        updateQueryParam("cfs", "1")
       })
       .catch((error) => {
         console.log(error);
