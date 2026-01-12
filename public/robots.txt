@@ -1,0 +1,13 @@
+# robots.txt for antropia.studio
+
+# Allow all crawlers by default
+User-agent: *
+
+# Disallow draft blog posts (unpublished content)
+Disallow: /blog/drafts/
+
+# Allow everything else
+Allow: /
+
+# Sitemap location
+Sitemap: https://antropia.studio/sitemap-index.xml
