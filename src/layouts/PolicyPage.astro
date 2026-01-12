@@ -1,0 +1,20 @@
+---
+import Footer from "../components/Footer.astro";
+import Layout from "./Layout.astro";
+
+const { frontmatter } = Astro.props;
+const { title, description } = frontmatter;
+---
+
+<Layout title={title} description={description}>
+  <main class="center font-nudica flex min-h-screen">
+    <article class="prose px-6">
+      <h1 class="uppercase underline mb-8">{title}</h1>
+      <slot />
+    </article>
+  </main>
+
+  <div class="pb-16">
+    <Footer />
+  </div>
+</Layout>
