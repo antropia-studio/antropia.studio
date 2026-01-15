@@ -1,0 +1,118 @@
+---
+interface Props {
+  note: string;
+}
+
+const { note } = Astro.props;
+
+// Simple markdown parser for bold and italic
+const parseMarkdown = (text: string) => {
+  return (
+    text
+      // Bold: **text** or __text__
+      .replace(/\*\*(.+?)\*\*/g, '<b>$1</b>')
+      .replace(/__(.+?)__/g, '<b>$1</b>')
+      // Italic: *text* or _text_
+      .replace(/\*(.+?)\*/g, '<i>$1</i>')
+      .replace(/_(.+?)_/g, '<i>$1</i>')
+  );
+};
+
+const parsedNote = parseMarkdown(note);
+---
+
+<span class="sidenote-wrapper relative inline cursor-help">
+  <span class="sidenote-trigger text-white font-bold">
+    <slot />
+  </span>
+
+  <span
+    class="sidenote-content fixed w-64 p-4 bg-rose-950 xl:bg-sasquatch-socks/10 text-white text-right border-r-10 border-sasquatch-socks text-base leading-relaxed opacity-0 pointer-events-none transition-opacity duration-200 z-10 shadow-lg lg:block"
+    role="tooltip"
+    set:html={parsedNote}
+  />
+</span>
+
+<style>
+  .sidenote-trigger {
+    background: linear-gradient(
+      to bottom,
+      transparent 0%,
+      transparent 50%,
+      var(--color-blinking-blue) 50%,
+      var(--color-blinking-blue) 100%
+    );
+  }
+
+  .sidenote-trigger:hover {
+    background: linear-gradient(
+      to bottom,
+      transparent 0%,
+      transparent 50%,
+      var(--color-sasquatch-socks) 50%,
+      var(--color-sasquatch-socks) 100%
+    );
+  }
+
+  .sidenote-content {
+    /* Position will be set by JavaScript */
+  }
+
+  .sidenote-wrapper:hover .sidenote-content {
+    opacity: 1;
+  }
+
+  /* Style markdown elements inside side notes */
+  .sidenote-content :global(strong) {
+    font-weight: bold;
+    color: white;
+  }
+
+  .sidenote-content :global(em) {
+    font-style: italic;
+  }
+
+  /* Mobile: Show as tooltip below text */
+  @media (max-width: 1024px) {
+    .sidenote-content {
+      position: absolute;
+      right: auto;
+      left: 50%;
+      top: calc(100% + 0.5rem);
+      transform: translateX(-50%);
+      width: 16rem;
+      max-width: calc(100vw - 2rem);
+    }
+  }
+</style>
+
+<script>
+  // Update sidenote position on scroll and initially
+  function updateSidenotePositions() {
+    // Find the prose container to calculate the right edge
+    const proseContainer = document.querySelector('.prose');
+
+    document.querySelectorAll('.sidenote-wrapper').forEach((wrapper) => {
+      const rect = wrapper.getBoundingClientRect();
+      const content = wrapper.querySelector('.sidenote-content') as HTMLElement;
+
+      if (content && window.innerWidth > 1024 && proseContainer) {
+        const proseRect = proseContainer.getBoundingClientRect();
+        const noteRect = content.getBoundingClientRect();
+
+        // Position vertically aligned with the trigger text
+        content.style.top = `${rect.top - 8}px`;
+
+        // Position horizontally: right edge of prose + gap
+        content.style.left = `${proseRect.left - noteRect.width}px`; // 32px = 2rem gap
+      }
+    });
+  }
+
+  // Run on load and scroll
+  if (typeof window !== 'undefined') {
+    updateSidenotePositions();
+    window.addEventListener('scroll', updateSidenotePositions);
+    window.addEventListener('resize', updateSidenotePositions);
+  }
+</script>
