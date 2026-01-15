@@ -1,77 +1,78 @@
 ---
-import { Image } from "astro:assets";
-import type { CollectionEntry } from "astro:content";
-import FormattedDate from "../../components/blog/FormattedDate.astro";
-import Head from "../../components/blog/Head.astro";
-import Header from "../../components/blog/Header.astro";
-import Footer from "../../components/Footer.astro";
-import SideNote from "../../components/blog/SideNote.astro";
+import { Image } from 'astro:assets';
+import type { CollectionEntry } from 'astro:content';
+import FormattedDate from '../../components/blog/FormattedDate.astro';
+import Head from '../../components/blog/Head.astro';
+import Header from '../../components/blog/Header.astro';
+import SideNote from '../../components/blog/SideNote.astro';
+import Footer from '../../components/Footer.astro';
 
-type Props = CollectionEntry<"blog">["data"];
+type Props = CollectionEntry<'blog'>['data'];
 
 const { title, description, pubDate, updatedDate, heroImage, keywords } =
   Astro.props;
 ---
 
 <html class="dark" lang="en">
-  <Head
-    title={title}
-    description={description}
-    image={heroImage ?? '/images/social.blog.png'}
-    keywords={keywords}
-  />
-  <body class="bg-antropia-white dark:bg-ash text-black dark:text-white">
-    <Header />
-    <main class="center font-nudica flex">
-      <article>
-        <div class="prose px-6">
-          <div class="mb-8 flex flex-col items-center">
-            <p
-              class="font-round8 text-blinking-blue mb-0! text-center text-[28vw] leading-none font-bold uppercase md:text-9xl xl:text-12xl dark:text-white"
-            >
-              {title}
-            </p>
+<Head
+  title={title}
+  description={description}
+  image={heroImage ?? '/images/social.blog.png'}
+  keywords={keywords}
+/>
+<body class="bg-antropia-white dark:bg-ash text-black dark:text-white">
+<Header />
 
-            <div class="hero-image">
-              {
-                heroImage && (
-                  <Image
-                    width={1020}
-                    height={510}
-                    src={heroImage}
-                    alt=""
-                    style="border-radius: 1rem"
-                  />
-                )
-              }
-            </div>
+<main class="center font-nudica flex">
+  <article class="w-full">
+    <div class="prose px-6">
+      <div class="mb-8 flex flex-col items-center">
+        <p
+          class="font-round8 text-blinking-blue mb-0! text-center text-[28vw] leading-none font-bold uppercase md:text-9xl xl:text-12xl dark:text-white"
+        >
+          {title}
+        </p>
 
-            <p class="mt-2 !mb-2 text-base font-light text-white/50">
-              <FormattedDate date={pubDate} />
-              {
-                updatedDate && (
-                  <div>
-                    Last updated on
-                    <FormattedDate date={updatedDate} />
-                  </div>
-                )
-              }
-            </p>
-
-            <p class="mt-4 px-10 text-center text-xl font-normal italic">
-              {description}
-            </p>
-
-            <hr />
-          </div>
-
-          <slot />
+        <div class="hero-image">
+          {
+            heroImage && (
+              <Image
+                width={1020}
+                height={510}
+                src={heroImage}
+                alt=""
+                style="border-radius: 1rem"
+              />
+            )
+          }
         </div>
-      </article>
-    </main>
 
-    <div class="pb-16">
-    <Footer />
+        <p class="mt-2 !mb-2 text-base font-light text-white/50">
+          <FormattedDate date={pubDate} />
+          {
+            updatedDate && (
+              <div>
+                Last updated on
+                <FormattedDate date={updatedDate} />
+              </div>
+            )
+          }
+        </p>
+
+        <p class="mt-4 px-10 text-center text-xl font-normal italic">
+          {description}
+        </p>
+
+        <hr />
+      </div>
+
+      <slot />
     </div>
-  </body>
+  </article>
+</main>
+
+<div class="pb-16">
+  <Footer />
+</div>
+</body>
 </html>

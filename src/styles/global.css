@@ -9,6 +9,8 @@
   --navbar-open-width-xl: 700px;
   --animation-curve: cubic-bezier(1, 0, 0, 1);
 
+  --breakpoint-sidenote: 1480px;
+
   --color-antropia-white: #f8f8f8;
   --color-blinking-blue: #0030ff;
   --color-hello-summer: #5dbdf9;
