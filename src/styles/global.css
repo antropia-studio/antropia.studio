@@ -26,6 +26,8 @@
   --color-prime-purple: #636395;
   --color-ash: #0e0f17;
 
+  --color-blog-text: #c2c2c8;
+
   --text-10xl: 10rem;
   --text-10xl--line-height: 0.8;
   --text-11xl: 12rem;
@@ -249,7 +251,7 @@
 }
 
 .prose {
-  @apply text-antropia-white/75 m-auto w-full max-w-[900px] text-xl font-light;
+  @apply text-blog-text m-auto w-full max-w-225 text-xl font-light;
 
   @media screen and (min-width: 768px) {
     width: calc(100% - 2em);
