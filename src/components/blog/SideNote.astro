@@ -63,7 +63,7 @@ const parsedNote = parseMarkdown(note);
   }
 
   /* Mobile: Show as full-width tooltip below text */
-  @media (max-width: 1479px) {
+  @media (max-width: 1399px) {
     .sidenote-content {
       position: fixed;
       right: 1rem;
@@ -87,7 +87,7 @@ const parsedNote = parseMarkdown(note);
 
       if (!content) return;
       if (!proseContainer) return;
-      if (window.innerWidth >= 1480) {
+      if (window.innerWidth >= 1400) {
         const noteRect = content.getBoundingClientRect();
 
         // Position vertically aligned with the trigger text
