@@ -1,0 +1,169 @@
+---
+title: 'What we build'
+description: "We're shifting toward building our own products. In this post we explore the framework we use to pick and develop ideas."
+heroImage: "/blog/what-we-build/hero.png"
+keywords: [ ]
+pubDate: 'Jan 27 2026'
+---
+import Callout from "../../components/blog/Callout.astro"
+import SideNote from "../../components/blog/SideNote.astro"
+import Tag from "../../components/blog/Tag.astro"
+
+We are starting a new chapter at Antropia. We're slowly redirecting some of our efforts into building products ourselves. Not just for our clients, but for us.
+
+Our contractor work isn't going anywhere. But we've been quietly shifting toward this balance for a while now (see [adbrew](https://www.getadbrew.com/)), and this post makes it more official.
+
+The goal is a 50/50 split between contractor work and product work. And we'll do it in a way that prioritizes focus: never splitting days or fragmenting projects. **When we're on your idea, we're fully on it**.
+
+# Building at Antropia
+
+Building something new is always a challenge. But in this time, when we all feel (for better or for worse) that we can be replaced by a soul-less agent anytime, the search for *value* (whatever the hell that is) has become an extreme sport.
+
+That's why are building a <SideNote note="Ha! Take that, Anthropic">harness</SideNote> to build products in today's world. These are guidelines we use to decide what projects to take on and how to approach them. We use them as <SideNote note="Paradoxically, adding limits to the exploration space usually helps breaking analysis paralysis, or so it does for me">constraints</SideNote> we hold ourselves to.
+
+We publish them here for two reasons: **accountability** and **clarity**. If you work with us, you'll know what to expect. If we ever fall short of these standards, you can call us out.
+
+## Touching grass
+
+Before jumping into the restrictions section I wanted to take a short deviation to explain how we selected these constraints. It hasn't been a quick back and forth with Claude. Rather, it's been built with the original idea of Antropia in mind, the things that haven't changed since [its very conception](https://blog.serchinastico.com/road-to-antropia/).
+
+These are really some of <SideNote note="Watch the 'Principles of Technology Leadership' talk by Bryan Cantrill to understand why we call them *principles*">the principles</SideNote> that have guided all our decisions so far, including the one I describe in this post. I'm not going into detail for each one, instead I will just write a hint of what these virtues mean to us.
+
+- **Pride** - Being fully responsible for something, and to fully own it with its failures and successes.
+- **Fairness** - Spend the time to understand all sides and find a compromise.
+- **Positive impact** - The world can feel like a mess sometimes, we will only aim to make it better.
+- **Satisfaction** - Look for joy in both, the routine and the road bumps.
+- **Organicity** - As a constant [r]evolution. To continue looking for improvements is to keep things alive.
+
+## The non-negotiable
+
+With these things in mind, we start adding layers to the process. If the principles are the *why*, the constraints are the *how*. A more physical and non-unique representation of these principles in day-to-day actions that will help us build the best products.
+
+#### HAVE FUN
+
+<div className="flex flex-row gap-2">
+  <Tag text="Pride" style="bg-sasquatch-socks/10 text-sasquatch-socks border-sasquatch-socks" />
+  <Tag text="Satisfaction" style="bg-hello-summer/10 text-hello-summer border-hello-summer" />
+</div>
+
+Choose projects where you can see yourself working for a long time (months, even years). Find a domain that aligns with things you like: hobbies, interests, etc. This makes it easier for you to talk about, to share, and to frame in a wall.
+
+<Callout title="Why" icon="idea">
+  Novelty fades. The initial excitement of a new project goes away. When the domain doesn't genuinely interest you, maintenance becomes a chore, support feels like a burden, and you'll eventually abandon it. Pride comes from caring, and caring comes from alignment.
+</Callout>
+
+#### MAKE IT HUMAN
+
+<div className="flex flex-row gap-2">
+  <Tag text="Satisfaction" style="bg-hello-summer/10 text-hello-summer border-hello-summer" />
+</div>
+
+Be bold, be opinionated. Find your own way to solve the problem at hand. Speak through your design, your choices, and your actions. In a world where <SideNote note="Or they think they can anyway">everyone can copy</SideNote> *X* with a *deep thinking, harnessed multi-agent* setup, what they can't copy is your take. Make it human, make it different, make it you.
+
+<Callout title="Why" icon="idea">
+  Bland products are forgettable. When you strip away personality to appeal to everyone, you end up appealing to no one. Your quirks, your taste, your specific way of seeing the problem, are what creates something unique.
+</Callout>
+
+#### MAKE IT SUSTAINABLE
+
+<div className="flex flex-row gap-2">
+  <Tag text="Fairness" style="bg-candlelight-peach/10 text-candlelight-peach border-candlelight-peach" />
+  <Tag text="Organicity" style="bg-benzol-green/10 text-benzol-green border-benzol-green" />
+  <Tag text="Satisfaction" style="bg-hello-summer/10 text-hello-summer border-hello-summer" />
+</div>
+
+Save people's money. Look for problems that are expensive in resources, be it money, time or trust. Don't just trust your gut, talk with people and understand their pains.
+
+<Callout title="Why" icon="idea">
+  If users aren't currently spending something (money, time, frustration) on a workaround, they probably won't pay you either. Real pain leaves a trail: people complain about it, hack around it, or throw money at imperfect solutions. Follow that trail.
+</Callout>
+
+#### KEEP IT SHORT
+
+<div className="flex flex-row gap-2">
+  <Tag text="Organicity" style="bg-benzol-green/10 text-benzol-green border-benzol-green" />
+  <Tag text="Pride" style="bg-sasquatch-socks/10 text-sasquatch-socks border-sasquatch-socks" />
+  <Tag text="Satisfaction" style="bg-hello-summer/10 text-hello-summer border-hello-summer" />
+</div>
+
+Find projects that can be validated (that is, can find paying customers) in **under 6 months**. If a project can't be scoped to that timeline, it's either too ambitious or has unclear goals. Short projects force clarity and focus.
+
+<Callout title="Why" icon="idea">
+  Long timelines hide uncertainty. When you can't define what *done* looks like in a few months, it usually means you don't fully understand the problem yet. Shipping fast forces you to ask yourself *"does anyone actually want this?"* before you've invested years.
+</Callout>
+
+#### DO GOOD
+
+<div className="flex flex-row gap-2">
+  <Tag text="Positive impact" style="bg-creamy-avocado/10 text-creamy-avocado border-creamy-avocado" />
+  <Tag text="Pride" style="bg-sasquatch-socks/10 text-sasquatch-socks border-sasquatch-socks" />
+</div>
+
+Prefer projects that leave people better off. Not every app needs to save the world, but avoid building things that exploit attention, manufacture anxiety, or profit from confusion. If you wouldn't be proud to explain it to a stranger, don't build it.
+
+<Callout title="Why" icon="idea">
+  We'll spend hundreds of hours on this. That time should add something good to the world, even if it's small. And it's just much easier to sell something we believe in.
+</Callout>
+
+#### PRICE ACCORDINGLY
+
+<div className="flex flex-row gap-2">
+  <Tag text="Fairness" style="bg-candlelight-peach/10 text-candlelight-peach border-candlelight-peach" />
+</div>
+
+Do not charge subscriptions for an app that has no ongoing costs. Do not charge a one-time payment for something that requires servers. Find equivalencies: if you save 1 hour a day to a professional that charges $50 per hour, make it make sense for them.
+
+<Callout title="Why" icon="idea">
+  Misaligned pricing breeds resentment, in both sides. If you offer things for free, you will sell your time for nothing, if you charge too much, users (and competitors) will soon know it. It's sustainability we look for. Charge what reflects the value you deliver, and the costs you bear.
+</Callout>
+
+#### HONEST BY DEFAULT
+
+<div className="flex flex-row gap-2">
+  <Tag text="Pride" style="bg-sasquatch-socks/10 text-sasquatch-socks border-sasquatch-socks" />
+  <Tag text="Fairness" style="bg-candlelight-peach/10 text-candlelight-peach border-candlelight-peach" />
+</div>
+
+Be transparent about what your app does, what data it collects, and why. If the answer is "*nothing beyond what's needed to serve you*" say that clearly. If you ever need to collect more, explain the trade-off.
+
+<Callout title="Why" icon="idea">
+  I hate adding a *why* section here, I don't conceive a product built on anything other than honesty, and there shouldn't be a need to justify it. But some people think otherwise, and strangely, trust has become a moat too.
+</Callout>
+
+![An illustration of a compass shining light on a terrain](/blog/what-we-build/intermission-01.png)
+
+## The heuristics
+
+These create a common ground to play and explore, still there are some additional rules I wanted to include. Rules that do not specifically target any of the principles of Antropia, but that we have learned over the years, and that will prevent us sinking the whole initiative.
+
+#### DON'T SELL MORE AI
+
+Don't make AI your entire idea. That doesn't mean AI might not be a great fit for a feature. But the world is filled with "*Imagine X but with AI*", sincerely, <SideNote note="And it has terrible moat anyway">we don't need more of this</SideNote>.
+
+<Callout title="Why" icon="idea">
+  AI as a feature can be powerful. AI as the product is fragile. The underlying models improve constantly and are available to everyone. If your entire value is "*we use AI*" you're one API update away from being commoditized. Build something that would still be valuable if the AI disappeared.
+</Callout>
+
+#### RUN AWAY FROM CHICKEN-EGG PROBLEMS
+
+Avoid problems that have two or more sides that require each other to work. Social networks (readers and writers), marketplaces (buyers and sellers), or curated services (providers and consumers) are examples of these problems.
+
+<Callout title="Why" icon="idea">
+  The big issue is that you can't bring in consumers if there are no providers, and the other way around. You end up serving half-assed solutions to both, and nobody will jump to your platform. Multiple-sided markets require scale to function, and scale requires capital, time, and/or luck. As a small studio, we're competing against players who can subsidize one side indefinitely, we can't.
+</Callout>
+
+#### BUILD ON HARD CONTEXT
+
+Your own project-tracker or your own to-do list are pure software ideas, it's all about taste and execution. But in today's world it can be easily replicated. Look for problems where the context is the moat: regulatory complexity, professional workflows, industry-specific knowledge, etc. This is in line with the start-with-niche idea that floats around.
+
+<Callout title="Why" icon="idea">
+  You will live with eternal fear if your product can be rebuilt in a weekend hackathon. That is no way to build a product. Nowadays it's the context that is hard, not the code. Use it to your advantage.
+</Callout>
+
+## What's next?
+
+We are not pivoting overnight. We still have client projects in the pipeline and we'll honor them fully.
+
+For now, there will be no grand announcements and no "coming soon" landing pages. Just quiet work on ideas that fit these constraints. When something sticks, you will hear about it here.
+
+If you find this article interesting, or you think our project guidelines are aligned with something you want to build, reach out! We are always happy to talk.

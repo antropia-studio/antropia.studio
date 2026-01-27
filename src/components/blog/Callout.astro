@@ -1,0 +1,57 @@
+---
+import BulbIcon from '../../assets/icons/lightbulb.svg';
+import NoteIcon from '../../assets/icons/notebook-text.svg';
+import WarningIcon from '../../assets/icons/triangle-alert.svg';
+
+interface Props {
+  title: string;
+  icon: 'note' | 'idea' | 'warning';
+  variant?: 'primary' | 'secondary';
+}
+
+const { title, icon, variant } = Astro.props;
+
+const getIconEmoji = (icon: Props['icon']) => {
+  switch (icon) {
+    case 'note':
+      return NoteIcon;
+    case 'idea':
+      return BulbIcon;
+    case 'warning':
+      return WarningIcon;
+  }
+};
+
+const getColors = (variant: Props['variant']) => {
+  switch (variant) {
+    case 'primary':
+    case undefined:
+      return {
+        bg: 'bg-alucards-night',
+        border: 'border-blinking-blue',
+        header: 'text-ice-cold-stare',
+      };
+    case 'secondary':
+      return {
+        bg: 'bg-sasquatch-socks/10',
+        border: 'border-sasquatch-socks',
+        header: 'text-candlelight-peach',
+      };
+  }
+};
+
+const IconEmoji = getIconEmoji(icon);
+const colors = getColors(variant);
+---
+
+
+<div
+  class=`flex flex-col gap-4 px-6 pt-5 pb-2 ${colors.bg} ${colors.border} text-white border-l-10 text-base leading-relaxed font-normal rounded-sm`
+>
+  <div class=`flex flex-row items-center gap-2 ${colors.header}`>
+    <IconEmoji width={20} />
+    <span class="font-bold text-xl">{title}</span>
+  </div>
+  <span class="font-extralight text-lg"><slot /></span>
+</div>
+

@@ -1,0 +1,16 @@
+---
+interface Props {
+  text: string;
+  style: string;
+}
+
+const { text, style } = Astro.props;
+---
+
+
+<div
+  class=`mt-2 mb-4 px-4 py-1 text-xs font-medium rounded-full border ${style}`
+>
+  {text}
+</div>
+
