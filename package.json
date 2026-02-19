@@ -20,17 +20,17 @@
     "@astrojs/mdx": "^4.3.13",
     "@astrojs/rss": "^4.0.15",
     "@astrojs/sitemap": "^3.7.0",
-    "@tailwindcss/vite": "^4.1.18",
-    "astro": "^5.17.1",
-    "motion": "^12.34.0",
-    "tailwindcss": "^4.1.18"
+    "@tailwindcss/vite": "^4.2.0",
+    "astro": "^5.17.3",
+    "motion": "^12.34.2",
+    "tailwindcss": "^4.2.0"
   },
   "devDependencies": {
-    "@biomejs/biome": "2.3.11",
-    "@commitlint/config-conventional": "^20.4.1",
+    "@biomejs/biome": "2.4.2",
+    "@commitlint/config-conventional": "^20.4.2",
     "@playwright/test": "^1.58.2",
-    "commitlint": "^20.4.1",
-    "lefthook": "^2.1.0"
+    "commitlint": "^20.4.2",
+    "lefthook": "^2.1.1"
   },
   "packageManager": "pnpm@10.29.3",
   "commitlint": {
@@ -41,6 +41,7 @@
   "pnpm": {
     "onlyBuiltDependencies": [
       "@tailwindcss/oxide",
+      "esbuild",
       "lefthook"
     ]
   }

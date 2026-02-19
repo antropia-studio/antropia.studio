@@ -9,15 +9,17 @@ import Callout from "../../components/blog/Callout.astro"
 import SideNote from "../../components/blog/SideNote.astro"
 import Tag from "../../components/blog/Tag.astro"
 
-We have spent some time thinking in and around [our current product framework](https://antropia.studio/blog/whats-worth-building/) and we have some ideas to share.
+I've spent some time thinking about [our current product framework](https://antropia.studio/blog/whats-worth-building/), and I have some ideas to share.
 
 ## Changes to the framework
 
-We have talked with some people and got their feedback. There was one specific point that resonated strongly with our view on building products and that, for some reason, <SideNote note="A confession, I'm mainly a software engineer. Design, product, marketing and more I always considered secondary skills I didn't properly master, and I'm still a bit rusty on those areas. Nothing good and honest friends can't help you with">we accidentally left out of the original plan</SideNote>: **DISTRIBUTION**.
+I've talked with some people and got their feedback. There was one specific point that resonated strongly with Antropia's view on building products and that, for some reason, <SideNote note="A confession, I'm mainly a software engineer. Design, product, marketing and more I always considered secondary skills I didn't properly master, and I'm still a bit rusty on those areas. Nothing good and honest friends can't help you with">I accidentally left out of the original plan</SideNote>: **DISTRIBUTION**.
 
 That's why we have included one more rule to the framework:
 
-#### PLAN THE PATH
+<div className="bg-prime-purple/15 px-5 py-6 mb-10 rounded-2xl border border-white/10">
+
+<h4 id="plan-the-path" className="mt-0!">PLAN THE PATH</h4>
 
 <div className="flex flex-row gap-2">
   <Tag text="Pride" style="bg-sasquatch-socks/10 text-sasquatch-socks border-sasquatch-socks" />
@@ -31,54 +33,126 @@ Identify at least one distribution channel you can execute on. If you can't name
   Building something nobody finds is worse than building something that fails. Failure teaches you something while invisibility teaches you nothing. And it's not fun.
 </Callout>
 
-## What's in our minds?
+</div>
 
-We have been taking a broad-to-narrow approach. Starting from domains we genuinely care about, whether through experience, frustration or just love. Here is a list of some of the ones we identified:
+Having cleared things up, let's tackle some ideas that have popped in my head recently!
 
-- **Dogs** - It's no surprise <SideNote note="Shameless plug: my wife runs **guauful.com**, a dog food, snacks, and accessories store for Spain and Portugal">we love dogs</SideNote>, understanding them, and sharing our time with them.
-- **Freelancing** - Five years at [Karumi](https://www.karumi.com/), the software studio, and 2 years flying solo.
+## What's in my mind?
+
+I have been taking a broad-to-narrow approach. Starting from domains I genuinely care about, whether through experience, frustration or just love. Here is a list of some of the ones I identified:
+
+- **Dogs** - It's no surprise <SideNote note="Shameless plug: my wife runs **guauful.com**, a dog food, snacks, and accessories store for Spain and Portugal">I love dogs</SideNote>, understanding them, and sharing our time with them.
+- **Freelancing** - Plenty of experience here. Five years at [Karumi](https://www.karumi.com/), the software studio, and two years flying solo.
 - **Small businesses** - Did I mention my wife created [the best dog (& cat) store](https://guauful.com/)? She started in Shopify but now has opened a physical store and I loved every step of her journey.
 - **Social network** - My relationship with social networks is... difficult. I can see the value in them, but also the terrible incentives they have to [steal our focus](https://www.goodreads.com/book/show/57933306-stolen-focus).
-- **Self-hosted community** - We love the community, and we love the philosophy behind it. Some tech companies have destroyed our faith in them over[^1] and over[^2] again[^3]. It's refreshing to see trust-less alternatives to services like Google Photos, Drive, Analytics, Gmail, Buffer, Notion, and more.
+- **Self-hosted community** - I love the community, and I love the philosophy behind it. Some tech companies have destroyed our faith in them over[^1] and over[^2] again[^3]. It's refreshing to see trust-less alternatives to services like Google Photos, Drive, Analytics, Gmail, Buffer, Notion, and more.
 
-### Ideas
+### Going into specifics
 
-We are now in a new phase where we explore these domains to see if we find something we can't stop thinking about. We are sharing them here for transparency, accountability, and why not, because this is how we beat our fear of sharing. Warning: these are not fully fledged, detailed product ideas. For some of them we can already sense their shape, but others still need a ton of definition work to even consider them.
+I am now in a new phase where I explore these domains to see if I find something I can't stop thinking about. I am sharing them here for transparency, accountability, and why not, because this is how I beat my fear of sharing.
 
-#### Dog professionals scheduling
+<Callout title="Not products, ideas" icon="warning" variant="secondary">
+  These are not fully fledged, detailed products. These are general ideas that give me direction on my next explorations. For some of them I can already sense their shape, but others still need a ton of definition to even start considering them.
+</Callout>
 
-Trainers, photographers and more, they all need an introduction card (webpage), scheduling sessions, sharing offline work (Trufario?)
+<div className="mt-6" />
 
-#### Small business assistant
+I splitted each idea into multiple sections for better scannability:
 
-Aggregating mail, invoices, shopify data and more to give you insights on how is your day-to-day
+- **Tagline**: A one-liner to quickly grasp what is it about.
+- **The itch**: What I think can be solved.
+- **Personal notes**: Appetite, upsides, and short takeaways.
+- **The path**: What steps can I take from here to understand if the project is viable?
+
+#### Dog professionals hub
+
+![An illustration of a dog](/blog/product-ideas/dog-idea.png)
+
+> The link-in-bio for dog trainers, walkers, and photographers. Combining discovery, scheduling, and offline payments in one place.
+
+- **The itch**: Something I noticed is that trainers, photographers, walkers, etc. they each have to walk the same path to get the whole setup ready. They rely on social networks to bring in customers, they have a personal webpage, sometimes made with WordPress, others made by freelancers that design, code, and maintain them. Then they use a bunch of tools to fill in forms, scheduling, video-calls, sharing media, etc. It's all scattered and patched, the whole thing is friction-hell.
+- **Personal notes**
+  - I'm very close to the world of dog professionals so I can actually interview people in this world, this gives me a head start.
+  - I don't plan to solve all their problems or replace Zoom or Calendly, but I can already see how to reduce some of the friction they encounter daily. From introduction cards (webpage), contact methods (forms, scheduling), sharing progress ([Trufario?](https://antropia.studio/blog/40-hour-app/)), payments and reminders.
+  - I think it'd be wise to pick one or two, and because I'm close to professionals, I can offer whatever I create to 10 of them, and evolve it with their feedback.
+  - It's a small niche, but I find very attractive the idea of helping people that help dogs.
+- **The path**: Interviews should give me an idea of how much they pay for their webpages currently, and what services they use. From there I can start envisioning if I can make it simpler, cheaper, or more opinionated for this specific domain.
 
 #### Freelancer tools
 
-Screen recording for summaries, invoicing and more importantly, taxes.
+![An illustration of a cup of coffee and a laptop](/blog/product-ideas/freelancing-idea.png)
+
+> Screen recordings that turn into client summaries, invoices that know your tax rules, doc signing, and more. The boring stuff, done for you.
+
+- **The itch**: A lot of freelancing work consists in the day-to-day tasks: accounting, contracts, invoices, check-ins, demos, etc.
+- **Personal notes**
+  - I don't aim to create something entirely new here, there are tools for almost literally everything a freelancer might need nowadays. The space is crowded.
+  - However, most tools are aimed to teams, I guess it's because that's what gives real money. I think there is still space for solo-freelancer tools.
+  - Minimal, opinionated, and customizable are some of the characteristics I'd like to look into.
+- **The path**: Identify <SideNote note="An arbitrary number of them, when you think you've done the list, think of two more">five</SideNote> processes or tools I hated while doing client work. Analyze my expectations and the gaps with current tools.
+
+#### Small business assistant
+
+![An illustration of a seven eleven](/blog/product-ideas/small-business-idea.png)
+
+> A single dashboard that connects your store, your inbox, and your invoices. Stop tab-hopping and start understanding your day.
+
+- **The itch**: Small business are full of custom and tedious processes that depend on sector. Focusing on the small (daily tasks) makes it difficult to plan and think in the long term.
+- **Personal notes**
+  - Aggregating mail, invoices, shopify data and more to give small businesses insights on how is their day-to-day going.
+  - I can see it start small with a simple daily report of costs & earnings but growing with advices, reminders, providers book, etc.
+  - I can already sense each sector has different pains, so I'd be better off focusing on one or two specific types of stores.
+- **The path**: Lucky me, I have very close contacts I can talk to. The goal here is not only to understand how much money I can save them, but also what are the common patterns that arise from these business independent of their specific sector.
 
 #### Sane social network
 
-Thinking on aggregating your social networks and include filters, limits, etc.
+![An illustration of a multitude of people talking or screaming at each other](/blog/product-ideas/social-network-idea.png)
+
+> One feed, all your networks, with filters and limits you control. Social media on your terms, not theirs.
+
+- **The itch**: Social networks are attention extraction machines. Most of what we scroll is pure noise (or worse if go into that rabbit hole), you don't even remember 10 minutes in. It doesn't connect people, it separates us with the help of bots or bait. I want my feed back.
+- **Personal notes**
+  - I can think of multiple different products here, but the goal is almost always the same: to bring back control on digital feeds.
+  - Some recurring ideas here:
+    - Turn infinite doom-scrolling into finite content.
+    - Switch data push mechanisms (notifications) to pull mechanisms (I have 10 spare minutes, now it's a good time).
+    - Break bad habits (instantly resorting to social networks during breaks).
+  - Sentiment analysis can help (positively) bias your feed to help your current mood.
+  - I have fears this might not be entirely possible technically speaking (access to these platforms' content sits on a gray area legally speaking, and they will definitely not like if we skip their ads).
+- **The path**: My first instinct is to understand if anyone would be willing to pay to regain their control. This one is tough, I don't want to create a money barrier for people willing to change their habits for more healthy ones. Think of alternative ways of monetizing a tool like this.
 
 #### Self-hosted location tracker
 
-Images of the prototype
-Dawarich mention
+![An illustration of some colorful server racks](/blog/product-ideas/self-hosted-idea.png)
 
-![Some of the designs we explored for an app like this](/blog/first-steps-into-product-building/location-tracker-designs.png)
+> A private, self-hosted timeline of everywhere you've been. Your data, your server, your terms.
 
-## Other pains & domains we are interested in
+- **The itch**: There is still room to build self-hosted solutions for those who are concerned by their privacy. I'm one of those users myself. I disabled location tracking history in Google a long time ago for this very same reason, and <SideNote note="Google Maps will not even allow you to set your home address for quick access unless you allow them to share your location at all times. Make it make sense.">among other things</SideNote>, I miss having a timeline of my locations.
+- **Personal notes**
+  - I already played with this idea not so long ago, "designing" some prototypes.
+![Some of the designs I explored for an app like this](/blog/first-steps-into-product-building/location-tracker-designs.png)
+  - I'm concerned on the technicality of a solution like this. Modern phones limit (for energy and security reasons) continuous location access from apps.
+  - There are already apps in this space, but I felt they didn't really fit my use case. I even briefly talked with the creator of [Dawarich](https://dawarich.app/) (and gave them permission to use the protoype designs).
+  - I have a feeling (with no evidence I confess) the self-hosted community is a hard audience to ask for a price. An open-source service would work for them because they are generally tech-savvy, and can make it work themselves, but at the same time, those are not the people who I'd sell a hosted solution.
+- **The path**: I've already poked the [`r/selfhosted`](https://www.reddit.com/r/selfhosted/comments/1ociul5/considering_building_a_location_tracker_myself/) community in Reddit and the response was encouraging. People resonated with the designs and privacy-first approach. What I haven't validated yet is whether this audience would pay for a hosted version. Next step might be a landing page to gauge interest on privacy-conscious users who aren't technical enough to run their own server.
 
-We have many other interests and we haven't discarded them yet. We like to keep them in mind because maybe we find intersections with other ideas we are researching.
+## Other pains I am interested in
 
-- Pen plotting
-- 3d printing
-- data journalism
-- Boardgames
-- Coops
-- Taxes
-- Personal finances
+I have many other interests, and I haven't discarded working on them yet but wanted to keep the post as brief as possible (if that's even possible for me). However, I'd like to list them here to remind myself, and to keep my mind open. It wouldn't be surprising I even find intersections with some of the ideas I am currently working on.
+
+- **Pen plotting & 3D printing** - The intersection of creativity and tech. I've already built internal tools for pen plotting and used [DrawingBot V3](https://drawingbotv3.com/) extensively. The community is full of people doing genuinely inventive work. I don't know what the product would be, but I keep coming back to this.
+- **Data journalism** - I'm drawn to the visual side (infographics, data visualization) and the accountability side (exposing policy failures, corporate misbehavior). Whether there's a tool to build here or just work to support, I'm not sure yet.
+- **Boardgames** - Pure love, no analysis yet. I haven't investigated if there's space for a product, but I love the ecosystem, and I'd enjoy exploring it more deeply.
+- **Worker cooperatives** - Antropia is meant to become a cooperative if (when?) it grows. I know there are specific problems cooperatives face: governance, onboarding, decision-making tools. But I don't have enough personal experience yet to know where I could help.
+- **Personal finances** - Tracking and budgeting tools exist, but most feel either too clinical or too gamified. I'm interested in ways to help people understand their financial situation more intuitively, visually and contextually, without the spreadsheet anxiety.
+
+## On simplicity
+
+Some of these ideas might sound too simple. A scheduling tool? An invoicing app? Where's the disruption?
+
+That's the point. I'm not looking for VC moonshots. That vision collides with Antropia's cooperative principles anyway. I want projects that are achievable, bootstrappable, and sustainable on their own. Simple doesn't mean easy, and small doesn't mean unambitious. It means I can ship, learn, and own what I build.
+
+And yes, none of these are "AI-first" ideas. That's also deliberate. I've grown tired of riding the last wave. *Boring* has always attracted me more than *fancy*, and boring problems have stable demand. They don't get commoditized by the next model release, and they compound over time. AI might be part of how I solve them, but it won't be the reason they exist.
 
 [^1]: [1.2 billion euro fine for Facebook as a result of EDPB binding decision](https://www.edpb.europa.eu/news/news/2023/12-billion-euro-fine-facebook-result-edpb-binding-decision_en)
 [^2]: [Google to destroy browsing data to settle consumer privacy lawsuit](https://www.cnbc.com/2024/04/01/google-to-destroy-browsing-data-to-settle-consumer-privacy-lawsuit.html)
