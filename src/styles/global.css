@@ -366,7 +366,7 @@
   }
 
   blockquote {
-    @apply text-ice-cold-stare px-10 py-6 text-center text-2xl italic;
+    @apply text-ice-cold-stare px-2 py-2 xl:px-10 xl:py-6 text-center text-2xl italic;
   }
 
   @media (min-width: 1280px) {

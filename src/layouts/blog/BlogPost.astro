@@ -28,7 +28,8 @@ const { title, description, pubDate, updatedDate, heroImage, keywords } =
     <div class="prose px-6">
       <div class="mb-8 flex flex-col items-center">
         <p
-          class="font-round8 text-blinking-blue mb-0! text-center text-[28vw] whitespace-pre-wrap leading-[80%] font-bold uppercase md:text-9xl xl:text-12xl dark:text-white w-screen px-16 max-w-content"
+          id="blog-title"
+          class="font-round8 text-blinking-blue mb-0! text-center text-[26vw] whitespace-pre-wrap leading-[80%] font-bold uppercase md:text-9xl xl:text-12xl dark:text-white w-full px-4 max-w-content"
         >
           {title.replace(/ /g, '   ')}
         </p>
@@ -47,7 +48,7 @@ const { title, description, pubDate, updatedDate, heroImage, keywords } =
           }
         </div>
 
-        <p class="mt-2 !mb-2 text-base font-light text-white/50">
+        <p class="mt-2 mb-2! text-base font-light text-white/50">
           <FormattedDate date={pubDate} />
           {
             updatedDate && (
