@@ -1,0 +1,193 @@
+---
+title: 'The AI contrarian'
+description: ""
+heroImage: "/blog/antropia/hero.png"
+keywords: [ ]
+pubDate: 'Feb 21 2026'
+---
+
+import SideNote from "../../components/blog/SideNote.astro"
+import Callout from "../../components/blog/Callout.astro"
+
+This is not an anti-AI article. I use AI tools almost daily. I'm writing parts of this with one sitting right beside me. If that sounds contradictory, good, because that's exactly the tension I want to explore.
+
+I wrote this article in my own name, but also in the names of many people I talk to regularly, colleagues and friends who share similar non-hyped views but are too afraid to speak up. Some because their enthusiastic colleagues would drown their voice, others because their companies are **forcing** them (not suggesting, not encouraging, *forcing*) to use AI until they meet some arbitrary adoption metric. This one is for them too.
+
+**TL;DR** After three weeks of heavy AI-assisted coding, I noticed something unsettling: I was losing control over my own craft. This post explores that experience, the evidence (and lack thereof) behind the AI productivity hype, and why we should be more careful about what we're trading away.
+
+# Three weeks
+
+A few months ago, I decided to go all-in on <SideNote note="I'll spare you the brand names. Which specific model or tool I used is irrelevant to the broader point, and frankly, 'but have you tried X model?' is exactly the kind of deflection I want to avoid.">AI-assisted coding</SideNote>. Not dabbling, full immersion. Vibe coding, agentic workflows, the whole thing. I wanted to understand the hype from the inside.
+
+The first few days were exciting. Things moved fast. Features appeared, boilerplate vanished, and there was this satisfying rhythm of describing what I wanted and watching it materialize. I get why people love it. I really do.
+
+But then something started happening, and it happened quietly.
+
+By week two, I caught myself reaching for the AI to answer questions I *knew* the answer to. Basic things. Syntax I'd written thousands of times. Architectural decisions I'd made confidently for years. It wasn't that I'd forgotten, it was that the path of least resistance had shifted. Why think when you can ask?
+
+By week three, I stopped the experiment. Not because the tools were bad, but because **I was becoming worse**. I was rusty. The muscle memory that lets an experienced developer navigate a codebase by instinct, the deep familiarity that allows you to *feel* when something is off before you can articulate why, it was fading. And the speed at which it faded scared me.
+
+It took me time to recover. Not weeks, but days of deliberate, unaided work to feel like myself again. Days where I had to fight the urge to open a chat window for every minor decision.
+
+This experience is not unique to me. Luciano Nooijen, an engineer at the video-game infrastructure company Companion Group, described the same thing in an interview with MIT Technology Review[^1]: after using AI tools heavily at work, he started a side project without them and found himself struggling with tasks that used to be instinctive. His words resonated with me, he said he felt *"so stupid because things that used to be instinct became manual, sometimes even cumbersome."*
+
+And there is research backing this up. A 2025 study by Microsoft and Carnegie Mellon found that the more people relied on AI tools, the less critical thinking they engaged in, making it harder to summon those skills when needed[^2]. Crowston and Bolici (2025) found that programmers who relied heavily on AI assistance developed lower confidence in their coding abilities and showed reduced initiative in solving unfamiliar problems[^3]. Addy Osmani, a well-known developer advocate, put it plainly: *the erosion loop is real*. Ask AI, ship, skip understanding, need AI again, repeat. Fundamentals atrophy[^4].
+
+The counterargument writes itself: *"But you're just resisting progress! We let go of assembly, we let go of manual memory management."* Fair. But there's a difference between offloading a skill you've mastered to a reliable tool and offloading a skill you're actively using to a tool that is *not always right*. Calculators are deterministic. LLMs are not.
+
+# The evidence gap
+
+Here is what bugs me the most about the current AI conversation: **the confidence**.
+
+CEOs of AI companies are predicting the end of programming as we know it. Dario Amodei predicted that within six months 90% of all code would be written by AI[^1]. Satya Nadella and Sundar Pichai claim a quarter of their companies' code is now AI-generated. The narrative is set. The future is here. If you're not on board, you're the last person clinging to a horse in a world of cars.
+
+But what does the evidence actually say?
+
+On one side, early studies from GitHub, Google, and Microsoft (all vendors of AI tools, <SideNote note="This is not a conspiracy, but it's a conflict of interest worth acknowledging. When the company selling you the tool also produces the study measuring its effectiveness, you should read the methodology section twice.">notice the pattern</SideNote>) found developers completing tasks 20% to 55% faster[^5]. Stack Overflow's 2025 Developer Survey shows 84% of developers using or planning to use AI tools[^6]. GitHub Copilot users reportedly complete 126% more projects per week[^7]. The numbers sound impressive.
+
+On the other side, a September 2025 report from Bain & Company described real-world savings as *"unremarkable"*[^1]. The Faros AI research, analyzing telemetry from over 10,000 developers across 1,255 teams, found that while developers using AI wrote more code and completed more tasks, **no significant improvement was observed at the company level**. AI-augmented code was consistently associated with a 9% increase in bugs per developer and a 154% increase in average PR size[^8].
+
+And then there's the METR study[^9], the one that really made me sit up. Researchers at the nonprofit Model Evaluation & Threat Research ran a randomized controlled trial with 16 experienced open-source developers, each working on their own repositories. These are people who know their codebases inside and out, averaging 5 years of prior experience and projects with 22,000+ stars. When assigned to use AI tools, developers completed tasks **19% slower** than without them.
+
+But here's the punchline: **the developers themselves estimated they had been 20% faster**. They felt productive. They weren't.
+
+This gap between perceived and actual productivity is, to me, one of the most important findings in the entire AI-coding debate. It means self-reported surveys are unreliable. It means adoption rates tell us nothing about effectiveness. It means we might be building an industry-wide habit on a feeling rather than a fact.
+
+<SideNote note="I want to be fair: the METR study has limitations. Sixteen developers is a small sample. The tasks were in mature, complex codebases. The results may not generalize to greenfield projects or less experienced developers. But it is, to date, the most methodologically rigorous study we have. That's the point, it's the best we've got and it contradicts the narrative.">None of this is conclusive, and that's exactly my point</SideNote>. The evidence is still foggy, contradictory, and mostly funded by parties with skin in the game. How are people so bold and assertive when the data is this messy?
+
+# The bottleneck moves, it doesn't disappear
+
+Let's say, for the sake of argument, that AI genuinely makes code *generation* faster. Let's accept that premise completely. Does that solve the problem?
+
+Software development has never been bottlenecked by typing speed. The hard parts are understanding the problem, designing a solution, reviewing code, testing edge cases, debugging subtle interactions, maintaining the system over years. These are fundamentally human activities.
+
+What happens when you dramatically increase the volume of generated code? The bottleneck shifts. More code means more code to review, more to test, more to understand, more to maintain. You've accelerated the part of the pipeline that was already the fastest, and created a pileup at every human checkpoint downstream.
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                                                                 │
+│  [Code generation] ──▶ [Review] ──▶ [Testing] ──▶ [Maintenance] │
+│                                                                 │
+│  ████████████████       ███           ██            █            │
+│  ▲ AI makes this       ▲ Human      ▲ Human       ▲ Human       │
+│    explode               step         step          step         │
+│                                                                 │
+│  The bottleneck doesn't disappear. It moves.                    │
+│                                                                 │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+GitClear's analysis of 153 million lines of code found that "code churn" (code rewritten within two weeks of being written) has roughly doubled since AI tools became widespread. Copy-pasted code is increasing faster than refactored, moved, or properly integrated code[^10]. The code is being *added*, not *understood*.
+
+An academic paper from December 2025 on vibe coding formalized this as the "flow-debt trade-off": seamless code generation leads to the accumulation of technical debt through architectural inconsistencies, security vulnerabilities, and increased maintenance overhead[^11]. The paper found that regeneration speed routinely outpaces human review, and that early vibe-coded MVPs that "look done" on the surface repeatedly failed basic security scans.
+
+In my freelance work, I'm already seeing the consequences. I've had multiple conversations with potential clients who need their <SideNote note="Some of these are literally months old, built during the first wave of vibe-coding enthusiasm">recently built</SideNote> services rewritten because they've become unmaintainable. The irony is thick: the tool that promised to save development time is creating demand for experienced developers to clean up after it.
+
+Vibe coders are, in practice, passing responsibility to code reviewers. And when there is no experienced reviewer in the loop (which is the entire premise of "anyone can code now"), the debt just accumulates silently until the system breaks.
+
+# The sigmoid delusion
+
+Technology adoption tends to follow S-curves (sigmoid functions). Slow start, rapid growth, plateau. AI hype merchants want you to believe we're at the foot of the curve, that everything you're seeing is just the beginning of an exponential explosion.
+
+But multiple lines of evidence suggest we may already be past the steep part.
+
+A 2025 survey of 475 AI researchers found that 76% considered it "unlikely" or "very unlikely" that simply scaling up current LLMs would reach artificial general intelligence[^12]. This is a significant shift from the scaling-laws optimism of 2022-2023. GPT-5's release in mid-2025 exposed diminishing marginal returns on scaling, with performance gains largely leveling off across complex reasoning and commonsense tasks[^13]. Inside the labs, as HEC Paris put it, *"the consensus is growing that simply adding more data and compute will not create the all-knowing digital gods once promised."*[^14]
+
+The people who build these models know the plateau is real. The people who *sell* them need you to believe it isn't.
+
+I'm not saying there won't be progress. There almost certainly will be, new architectures, new approaches, new S-curves. But the specific curve we're on, the "scale it up and it gets smarter" curve, is flattening. And when you make trillion-dollar investment decisions on the assumption of indefinite exponential growth from a technology exhibiting logarithmic improvement, the math stops working.
+
+People confuse the foot of a sigmoid with an exponential. They look the same at the beginning. They diverge very fast.
+
+# The copyright question
+
+There's one aspect of this whole AI revolution that I find genuinely disturbing, and it doesn't get the attention it deserves in engineering circles: **the training data**.
+
+We have allowed (or rather, we failed to prevent) private companies from claiming the entire internet's content with no permission to train models that they sell back to us. Let that sink in.
+
+The U.S. Copyright Office released a 108-page report in May 2025 concluding that using copyrighted works to train AI models may constitute prima facie copyright infringement[^15]. There are now over 70 active infringement lawsuits against AI companies[^16]. Anthropic settled for $1.5 billion after being caught using millions of pirated book copies for training[^16]. OpenAI is being sued by the New York Times, by publishers, by authors, by musicians. YouTube videos were transcribed without creators' consent. Reddit content was scraped despite robots.txt blocks[^17].
+
+The companies knew this was legally dubious. They did it anyway because the potential profit outweighed the expected legal penalties. That's not innovation, that's the same calculated risk-reward playbook every extractive industry runs. <SideNote note="And yes, I'm aware of the irony that I'm using one of these tools right now. I'm not claiming purity, I'm asking whether the system is right.">Build first, settle later, keep the profits.</SideNote>
+
+The standard defense is "it's like how humans learn by reading." The Copyright Office explicitly rejected this analogy, noting that AI training involves *"perfect copying and analysis at superhuman scale,"* which is fundamentally different from human learning[^15].
+
+We should care about this not just as a matter of copyright law, but as a matter of *what world we're building*. If we establish a precedent that any publicly accessible content can be absorbed by a corporation and sold back as a service, we've created a machine that converts public knowledge into private profit. That's not a new concept in capitalism, but the scale and speed are unprecedented.
+
+# Enshittification is not a risk, it's the playbook
+
+Cory Doctorow's concept of enshittification, the predictable cycle where platforms start great, degrade to serve businesses, then degrade further to extract maximum shareholder value, is not a theoretical concern for AI products. **It's already happening.**
+
+As of late 2025, Google has confirmed that ads are coming to AI Mode with no opt-out[^18]. OpenAI moved meaningful functionality behind a $200/month paywall, removing model choice from its $20 subscription and pushing all customization to its "pro" tier[^19]. Anthropic implemented aggressive rate limits on Claude Code right after closing a $5 billion funding round[^19]. Cursor, Copilot, every major AI tool, all launched premium tiers in 2025 that make the "free" experience meaningfully worse.
+
+These are not the actions of companies confident in their product-market fit. These are the actions of companies burning cash faster than they can generate revenue ($40 billion in annual depreciation costs versus $15-20 billion in revenue for AI data centers in 2025[^20]), scrambling to extract value from users before the bill comes due.
+
+If your entire workflow depends on a tool whose business model requires it to get worse for you over time, that's not a productivity gain. That's a trap. And we've seen this movie before with every other platform in the history of tech.
+
+# Stop selling it
+
+I have grown tired of reading AI-generated text (it's becoming painfully obvious when it is), but even more, I've grown tired of people *selling* AI. The hype doesn't feel genuine anymore. It feels rehearsed, performative, and increasingly desperate.
+
+I'm not talking about the companies, their incentives are obvious. I'm talking about us. Engineers, developers, tech writers, conference speakers. Somewhere along the way, having a nuanced opinion became career-limiting. You either wave the AI flag enthusiastically or you're a Luddite who doesn't get it.
+
+Here's what I'd ask: **talk about your experience, honestly**. Say what works, say what doesn't. Share what you've noticed. But don't sell what these companies are selling. You are not their marketing department. You don't get a commission. When you uncritically repeat the claim that *"AI will write 90% of code by next year"* you're not sharing knowledge, you're doing unpaid advertising for a company that scraped your Stack Overflow answers without asking.
+
+The best articles I've read about AI this year were the honest ones. The ones that said *"I used it for X and it was great, I used it for Y and it was terrible, here's what I'm still figuring out."* That's useful. That helps people make decisions. The breathless "AI changed everything and if you're not using it you're dead" posts help nobody except the companies selling subscriptions.
+
+# What I actually think
+
+I don't want to end this as a pure critique, because that wouldn't be honest either. Here's where I actually land:
+
+AI coding tools **are** useful for some things. Boilerplate, repetitive patterns, exploring unfamiliar APIs, generating test scaffolding. I use them. I'll continue to use them. They are part of the toolbox.
+
+But they are not a revolution in how software is made. They are an incremental improvement to one specific part of a very long pipeline, wrapped in a marketing narrative that needs them to be much more than that to justify hundreds of billions of dollars in investment.
+
+The things that make software valuable, understanding the problem deeply, designing systems that evolve gracefully, making trade-offs you can defend years later, working with humans who have contradictory needs, these things haven't gotten easier. If anything, they've gotten harder, because now there's more code to understand and more pressure to move fast.
+
+So use the tools. But use them the way you'd use any tool: with intention, with awareness of their limits, and without letting them replace the skills that actually make you good at what you do. Code without AI sometimes. Not as a protest, but as practice, the way a musician still plays scales even when they have a synthesizer.
+
+And be skeptical. Not cynical, skeptical. When someone tells you the future is certain and all you need to do is buy their product to participate in it, you've heard that pitch before. You know how it ends.
+
+---
+
+I don't have all the answers here. The technology is evolving, the evidence is accumulating, and my own views will probably shift as both of those continue. What I'm asking for is not rejection but *caution*. The kind of caution we'd apply to any other tool that promises to do our thinking for us.
+
+If you've experienced something similar, or if you disagree entirely, I'd love to hear from you.
+
+[^1]: [AI coding is now everywhere. But not everyone is convinced — MIT Technology Review, December 2025](https://www.technologyreview.com/2025/12/15/1128352/rise-of-ai-coding-developers-2026/)
+[^2]: [The Effects of Generative AI on Critical Thinking — Microsoft Research & Carnegie Mellon, 2025](https://www.microsoft.com/en-us/research/publication/the-effects-of-generative-ai-on-critical-thinking/)
+[^3]: [Deskilling and upskilling with AI systems — Crowston & Bolici, Information Research Vol. 30, 2025](https://www.researchgate.net/publication/389742059_Deskilling_and_upskilling_with_AI_systems)
+[^4]: [Avoiding Skill Atrophy in the Age of AI — Addy Osmani, April 2025](https://addyo.substack.com/p/avoiding-skill-atrophy-in-the-age)
+[^5]: [GitHub Copilot research, Google internal studies, Microsoft Developer Division research (2023-2024)](https://github.blog/news-insights/research/)
+[^6]: [2025 Stack Overflow Developer Survey — AI section](https://survey.stackoverflow.co/2025/ai)
+[^7]: [AI Coding Assistant Statistics & Trends 2025 — Second Talent](https://www.secondtalent.com/resources/ai-coding-assistant-statistics/)
+[^8]: [The AI Productivity Paradox Report 2025 — Faros AI](https://www.faros.ai/blog/ai-software-engineering)
+[^9]: [Measuring the Impact of Early-2025 AI on Experienced Open-Source Developer Productivity — METR, July 2025](https://metr.org/blog/2025-07-10-early-2025-ai-experienced-os-dev-study/)
+[^10]: [AI in Software Development: Productivity at the Cost of Code Quality? — DevOps.com / GitClear, 2025](https://devops.com/ai-in-software-development-productivity-at-the-cost-of-code-quality-2/)
+[^11]: [Vibe Coding in Practice: Flow, Technical Debt, and Guidelines for Sustainable Use — Waseem et al., arXiv, December 2025](https://arxiv.org/abs/2512.11922)
+[^12]: [Survey of AI Scientists on Scaling and AGI, 2025 — cited in Generative AI and the Diminishing Returns of Scale](https://shaunyap01.github.io/articles/generative-ai-and-the-diminishing-returns-of-scale-are-we-nearing-the-plateau/)
+[^13]: [AI Progress Plateau in 2025: Economic and Strategic Implications — AI 2 Work](https://ai2.work/news/ai-market-progress-plateau-and-economic-impact-2025/)
+[^14]: [AI Beyond the Scaling Laws — HEC Paris](https://www.hec.edu/en/dare/tech-ai/ai-beyond-scaling-laws)
+[^15]: [Copyright Office Report on AI Training and Fair Use — U.S. Copyright Office, May 2025 (analysis by McGuireWoods)](https://www.mcguirewoods.com/client-resources/alerts/2025/9/copyright-and-generative-ai-recent-developments-on-the-use-of-copyrighted-works-in-ai/)
+[^16]: [AI Copyright Lawsuit Developments in 2025: A Year in Review — Copyright Alliance, January 2026](https://copyrightalliance.org/ai-copyright-lawsuit-developments-2025/)
+[^17]: [Google Sues SerpApi Over Data Scraping — VKTR, December 2025 (on robots.txt and scraping practices)](https://www.vktr.com/ai-platforms/google-sues-serpapi-over-data-scraping/)
+[^18]: [Google AI predicts its own enshittification timeline — Boing Boing, December 2025](https://boingboing.net/2025/12/19/google-ai-predicts-its-own-enshittification-timeline.html)
+[^19]: [The Enshittification of Generative AI — Where's Your Ed At, September 2025](https://www.wheresyoured.at/the-enshittification-of-generative-ai/)
+[^20]: [When Will AI Investments Start Paying Off? — GW&K Investment Management, 2025](https://www.gwkinvest.com/insight/macro/when-will-ai-investments-start-paying-off/)
+
+## Some ideas
+
+- What are we losing by
+  - Letting private companies claim the entire internet content with no permission to train models?
+  - letting the LLM design and implement entire projects? We lose control
+- The entire LLM ecosystem generates dependency.
+  - Projects started with AI are hard to continue without it
+  - After testing vide-coding for 3 weeks I noticed I found myself rusty and quick to jump into asking LLMs for the simplest of questions. It scared me and took me some time to recover control. (this can be the main point of the article)
+- But have you tried X model?
+- Stop selling what these companies are selling. Talk about it, your experience, but do not sell it.
+- Evidence is still foggy, with CEOs claiming the end of the world as we know it and independent studies claiming otherwise. How are pepole so bold and assertive when evidence is still not there?
+- What about the work it produces? More code is generated but we still have human steps in the funnel: review, testing, evaluation, exploration. [Diagram of a diamond growing and then finding a bottleneck in human steps]. Vibe coders are passing responsibility to code reviews.
+- enshitification (adding ads, making models worse, or making models more expensive) is the book for these companies, and we already know it.
+- People still believe sigmoid functions are exponential, and they only are in their foot.
+- The freelance work has plenty of cases of people wanting to re-write their services so that they are maintainable.
+- I've grown tired of reading AI-generated text (it's quite obvious when it is) and now I'm growing tired of people selling AI, the hype doesn't feel genuine.
+- I wrote this article in my own name, but also in the names of those who I talk to almost daily, and have similar non-hyped points of view, but are too afraid to talk because their hyped colleagues will drown their voice, or because their companies are forcing (yes, forcing, not suggesting, nor encouraging) them to use AI until they meet some arbitrary metric.
