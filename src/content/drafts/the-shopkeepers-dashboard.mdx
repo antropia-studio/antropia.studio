@@ -1,0 +1,160 @@
+---
+title: "The shopkeeper's dashboard"
+description: "I interviewed a real shopkeeper to find the pain points worth solving. Here's what I found: patchwork invoicing, invisible inventory, and margins you can only calculate in your head."
+heroImage: "/blog/the-shopkeepers-dashboard/hero.png"
+keywords: ["product development", "bootstrapping", "indie maker", "solo founder", "product ideation", "small business", "shopkeeper tools", "sustainable business", "bootstrapped"]
+pubDate: 'Mar 01 2026'
+---
+import Callout from "../../components/blog/Callout.astro"
+import SideNote from "../../components/blog/SideNote.astro"
+import Tag from "../../components/blog/Tag.astro"
+
+In the [one-person studio kit](/blog/the-one-person-studio-kit/) I interviewed myself and extracted a bunch of freelancer pains that could become products. This time I went one step further and talked to an actual human being. Progress.
+
+The domain: **small business**. Specifically, an online shop with a growing physical presence, selling pet food, snacks, and accessories. <SideNote note="Yes, my wife. I told you I had close contacts. And yes, I'm biased. But also: I've watched this business grow from a Shopify store on the couch to a real shop with real shelves and real customers. I know the pains because I've seen them happen in my own house.">Someone I know well runs it</SideNote>.
+
+I sat down with her, [Mom Test](https://www.momtestbook.com/) in hand, and asked about her day. Not about what tools she wished she had. Not about what she'd pay for. Just... what does a regular Tuesday look like?
+
+What came back was more interesting than I expected.
+
+## How this post works
+
+Same structure as the studio kit post. I describe the problem I found, share some notes and open questions, and then pitch a potential solution with a slightly more marketing-ish tone. Not because I'm selling anything, but because imagining the product helps me think about the problem.
+
+<Callout title="Still ideas, not products" icon="warning" variant="secondary">
+  Same caveat as before. None of this is built or committed to. These are directions I'm exploring, shaped by a real conversation, but still very much in the "should I keep pulling this thread?" phase.
+</Callout>
+
+---
+
+# The invoice patchwork
+
+This one hit close to home because I have the same problem as a freelancer, but her version is worse.
+
+Here is her workflow: invoices arrive by email. She leaves them unread as a to-do marker (sound familiar?). Later, she filters unread emails, downloads the PDFs one by one, and uploads them to Google Drive. But not one folder. Three folders, because she has two different tax activities <SideNote note="One of her activities falls under Spain's *recargo de equivalencia* regime, which changes how VAT works. The other doesn't. Shared expenses go in a third folder. If you're not Spanish, just know it's a mess.">with different tax treatments</SideNote>, plus shared expenses. After uploading, she copies the Drive link, pastes it into a personal Excel spreadsheet with columns for vendor, amount, and link.
+
+Some vendors don't even email invoices. She has to log into their portals and download them manually.
+
+She does this in monthly batches. It takes about two hours per session.
+
+**Insights and open questions**
+
+- **She built an entire system around this pain.** The unread-email-as-todo-list trick, the three-folder Drive structure, the Excel tracker on top of her gestoría's own process. These aren't signs of someone who's mildly annoyed. This is someone who spent real effort patching a gap that no tool fills for her.
+- **The gestoría angle again**: Just like with freelancers, the relationship with the tax advisor is the bottleneck. Whatever they do internally, the interface with the client is always "upload your stuff to a shared folder." That last mile is the gap.
+- **Two tax regimes complicate everything**: This isn't a generic invoicing problem. The fact that she has to split expenses across different fiscal categories makes generic tools useless. She needs something that understands (or at least respects) that her business is not a single bucket.
+- **Overlap with the invoice-o-tron**: This is essentially the same pain I identified in the [studio kit](/blog/the-one-person-studio-kit/#the-invoice-o-tron), but with an extra layer of complexity. Different tax treatments, physical suppliers with no email invoices, and higher volume. If there's a product here, it probably serves both audiences.
+
+## The invoice bridge
+
+> Stop downloading, sorting, and uploading invoices by hand. Let them flow to your tax advisor automatically, split by the tax rules that apply to your business.
+
+The disconnect between daily operations and quarterly tax prep is universal, but for a shopkeeper with multiple tax activities it's amplified. The invoice bridge sits between the mess and the gestoría, quietly organizing things so the quarterly scramble becomes a non-event.
+
+- **Automatic capture**: Connects to email, Shopify, and supplier portals to detect invoices as they arrive. No more leaving emails unread as a reminder system.
+- **Smart classification**: Learns which expenses belong to which tax activity. That Distribuid invoice? Goes to the *recargo* folder. The electricity bill? Shared expenses. You confirm with a tap, not a manual copy-paste-upload cycle.
+- **Adapts to your advisor's setup**: Uploads to Google Drive, Dropbox, or wherever your gestoría expects to find things. Respects their folder structure, not the other way around.
+- **The Excel you don't have to maintain**: Keeps a running log of every invoice, vendor, amount, and classification. Searchable, exportable, and always up to date. When your gestor asks "did you upload the November water bill?" you can answer in seconds.
+
+---
+
+# The invisible inventory
+
+She uses Shopify's inventory view, but it's full of discontinued products she doesn't want to delete (what if she restocks them?). So she scrolls through pages of zeros to find what matters. For bulk products sold by weight, she checks stock physically. She walks to the storage area, looks at the bag, and counts.
+
+She has missed restocking on items because she simply forgot. And she's lost customers because of it.
+
+**Insights and open questions**
+
+- **This one has real consequences.** Lost customers, annoyed regulars, missed sales. Not theoretical pain, actual money left on the table. Her current system is her memory, and memory is a terrible inventory manager.
+- **Generic alerts don't help**: She's looked at inventory tools before. They all send alerts for everything. But she doesn't need to know that decorative bandanas are running low. She needs to know that the German dog food that takes three weeks to ship is about to run out. Context matters here: lead time, supplier reliability, how fast things sell. A flat "low stock" notification is noise.
+- **Lead times vary wildly**: Some products come from a local distributor next-day. Others ship from Germany and take weeks. A useful tool would need to understand this difference, otherwise it's just another notification to ignore.
+- **Physical products need physical checks**: There's a limit to what software can do here. Bulk products sold by weight don't have a clean digital trail. The tool would have to make the physical check faster or less frequent, not eliminate it.
+
+## The stock sense
+
+> Know what's running low before your customers do. Smart restocking alerts that understand lead times, not just quantities.
+
+Inventory management tools assume you have clean data. You don't. You have a Shopify catalog full of ghosts, a storage room you check by eye, and three suppliers with wildly different delivery times.
+
+Stock Sense doesn't try to replace your judgment. It just makes sure the information you need is visible when it matters.
+
+- **Focus view**: Hides discontinued and zero-stock products by default. Shows you what's actually moving, sorted by urgency. The Shopify catalog stays untouched (no need to delete anything), you just get a cleaner lens on top of it.
+- **Lead-time aware alerts**: Set delivery windows per supplier. A product from Distribuid that arrives next-day gets a different alert threshold than one from Germany that takes three weeks. The tool reminds you when it's time to order, not when you've already run out.
+- **Sales velocity tracking**: Estimates how fast each product moves based on recent orders. Combines that with lead times to predict when you'll actually need to restock. No more gut-feeling math.
+- **Restock batching**: Groups suggestions by supplier so you can build an order that hits minimum thresholds (more on that next) without over-ordering. One screen, one decision, instead of cross-referencing Shopify with your memory.
+
+---
+
+# The margin fog
+
+She uses Lifetimely (connected to Shopify) to track sales by product and brand. Then she compares that against her own Excel of purchase invoices to figure out if she's actually making money. For single-brand suppliers, this works well enough. But for multi-brand distributors, the loop breaks. One invoice from Distribuid covers five different brands. She can see how much she sold of each brand, and she can see how much she paid Distribuid, but she can't connect the two without doing the math herself.
+
+She also can't easily answer "how much have I bought from Distribuid this quarter?" because her tools track by product and brand, not by supplier.
+
+**Insights and open questions**
+
+- **She's actively doing this work.** This isn't a latent pain she's ignoring. She checks Lifetimely, cross-references with her Excel, and runs the numbers. It directly feeds purchasing decisions: should she restock this brand? Is she losing money on that one? The fact that the current system breaks for multi-brand suppliers means those decisions are partially blind.
+- **Supplier-level visibility is the real gap**: She can see brand-level sales data. She can see supplier-level costs (from invoices). But one supplier carries many brands, and one brand might come from multiple suppliers. There's no clean join between the two, and that's where margins hide.
+- **Minimum order thresholds add pressure**: She has to bundle orders to hit minimum amounts (€3-10 shipping fees otherwise eat her margin). She mixes restocking with special client requests to reach those minimums. A tool that helps her see supplier-level spending and plan orders around thresholds could save real money, or at least prevent the anxiety of guessing.
+- **Synergies with the invoice bridge**: If invoices are already captured and classified, connecting them to sales data becomes much easier. The invoice bridge provides the cost side, Shopify provides the revenue side. The margin picture assembles itself.
+
+## The margin map
+
+> See which products and suppliers are actually making you money. Connect your sales to your costs without the spreadsheet gymnastics.
+
+The data already exists. Your sales are in Shopify. Your costs are in invoices and Excel sheets. The problem is that nobody connects them for you, and when one supplier carries five brands, the math gets messy fast.
+
+The margin map closes that loop.
+
+- **Supplier-level P&L**: See how much you've spent with each supplier and how much revenue their products generated. For the first time, answer "is my relationship with Distribuid profitable?" without a calculator.
+- **Multi-brand invoice splitting**: When an invoice covers multiple brands, allocate costs by line item or by proportion of units ordered. The tool does the math so you don't have to.
+- **Minimum order planning**: Track your spending per supplier across the month. See how close you are to minimum thresholds before placing an order. Batch intelligently instead of guessing.
+- **Trend detection**: Spot patterns over time. Is a brand's margin shrinking? Is a supplier getting more expensive? Are you ordering too much of something that moves slowly? Small signals, visible early, before they become problems.
+
+---
+
+# What I'm not building (and why)
+
+Two things came up in the interview that I'm deliberately setting aside.
+
+**Order preparation and fulfillment.** Her workflow for packing orders is manual: print labels, cut them with scissors, pick items from memory, weigh, pack, generate shipping labels in Shopify. It's held together with tape (literally). But she's adapted to it. The pain is real but the severity is medium, and the solution would require hardware integration (printers, scales) that makes it much harder to build and distribute. Not the right first step.
+
+**WhatsApp-based customer communication.** She personally messages new customers, asks for their pet's name, and includes a personalized €1 gift. She has keyboard shortcuts for common messages. This is charming. It's part of her brand. It works. Some things don't need to be optimized, they need to be left alone.
+
+---
+
+# Connecting the dots
+
+Looking at these three ideas together, something becomes clear: they're not really three separate products. They're three views of the same underlying problem. A shopkeeper's financial life is fragmented across tools that don't talk to each other. Shopify knows what she sold. Invoices know what she paid. Her memory knows what needs restocking. But nothing combines these into a picture she can act on.
+
+The invoice bridge captures cost data. The stock sense tracks what's moving and when to reorder. The margin map connects costs to revenue. Each one solves a real pain on its own, but together they become something more useful: a single, honest view of a small business.
+
+This is also where the [shopkeeper's dashboard](/blog/first-steps-into-product-building/#the-shopkeepers-dashboard) idea from my first exploration post starts taking shape. Not as a generic analytics tool, but as a system that understands the specific mess of running a small retail operation in Spain.
+
+<Callout title="Hard context = defensibility" icon="idea">
+  This is exactly the kind of problem that fits Antropia's [framework](/blog/whats-worth-building/#build-on-hard-context). Multiple tax regimes, supplier dynamics, physical inventory, local regulatory requirements. You can't rebuild this in a weekend hackathon because the code is the easy part. The hard part is understanding *recargo de equivalencia*, lead times from German pet food distributors, and why a shopkeeper's memory is her most critical (and most fragile) tool.
+</Callout>
+
+## Validation
+
+Same two questions as last time:
+
+##### 1. Do I love the idea?
+
+I do. I've watched these problems happen in real life. I've seen the frustration of a two-hour invoice session, the "we're out of stock and the customer just asked" moment, the mental math of "am I making money on this brand?" This isn't an abstract domain for me.
+
+But one interview is not enough. The question is whether these pains are shared widely enough to be worth building for.
+
+##### 2. Is there a pattern?
+
+One data point doesn't make a pattern. My next step is talking to other small shopkeepers, preferably in different sectors, to see if the same pains show up. The invoice chaos and margin blindness feel universal to me, but feelings aren't data.
+
+I'm particularly interested in whether the multi-tax-activity problem is common or an edge case. If it's common among Spanish small businesses (and I suspect it is), that's the kind of hard context that makes a product defensible and hard to replicate.
+
+---
+
+## What's next
+
+I'll keep pulling threads across all the domains I'm exploring. The freelancer kit and the shopkeeper's dashboard share more DNA than I initially thought, especially around invoicing and gestoría communication. There might be something there that serves both.
+
+If you run a small shop and any of this resonates, I'd love to hear from you. Even if it doesn't resonate, tell me that too. Knowing where I'm wrong is just as useful.

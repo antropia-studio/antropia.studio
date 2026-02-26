@@ -13,7 +13,7 @@ agency. With this post, I aim to answer that question to the best of my ability.
 
 For those who don't know, Karumi was a small studio founded in Madrid that offered mobile development services and
 training all around the world. But more importantly, it was the best company I've ever worked for. I was there almost
-five years starting in 2015 — the longest I've been at any company.
+five years starting in 2015, the longest I've been at any company.
 
 ## The soul of Karumi
 
@@ -60,7 +60,7 @@ it and to reach new frontiers. For us, this means the following:
 
 So... is Antropia an improved version of Karumi? It's hard to answer with a single yes or no. In some ways it's
 absolutely an evolution of some of the principles Karumi embodied, but in others, it's something entirely different.
-There are many sources of inspiration for Antropia — Karumi has been one of them, but there are others: small studios
+There are many sources of inspiration for Antropia, Karumi has been one of them, but there are others: small studios
 around the globe guided by infinite passion, books and games exploring the philosophy of life, work, and community, and
 perhaps most importantly, the people I talk with and spend my time alongside, openly discussing these and countless
 other everyday questions.
@@ -73,8 +73,9 @@ it, adapting it to the current state of the world and the lives of the ones who 
 
 I want to thank all Karumi
 members [Alberto](https://www.linkedin.com/in/gragera/), [Davide](https://www.linkedin.com/in/dmendolia/), [Fran](https://www.linkedin.com/in/franciscojavierfernandeztoro/), [Irene](https://www.linkedin.com/in/iherranz/),
-[Jorge](https://www.linkedin.com/in/jorge-juan-barroso-carmona-a3aa225/), [Laura](https://www.linkedin.com/in/laura-perandones-s%C3%A1nchez-898718112/),
-[Pedro](https://www.linkedin.com/in/pedrovgs/) and [Toni](https://www.linkedin.com/in/tonilopezmr/) for the time we
+[Jorge](https://www.linkedin.com/in/jorge-juan-barroso-carmona-a3aa225/), [Laura](https://www.linkedin.com/in/laura-perandones-s%C3%A1nchez-898718112/)
+and
+[Pedro](https://www.linkedin.com/in/pedrovgs/) for the time we
 shared while I was there.
 
 It goes without saying: **I hope some day I can make Antropia as great as Karumi was**.
