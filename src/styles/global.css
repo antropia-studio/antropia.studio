@@ -342,6 +342,7 @@
   }
 
   hr {
+    @apply border-t-hello-summer/25;
     width: 100%;
   }
 

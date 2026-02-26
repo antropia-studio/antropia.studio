@@ -1,0 +1,208 @@
+---
+title: "The one-person studio kit"
+description: "I interviewed myself to find product ideas worth building. Here are the frustrations I uncovered and the solutions I'm exploring for my one-person studio kit."
+heroImage: "/blog/the-one-person-studio-kit/hero.png"
+keywords: ["product development", "bootstrapping", "indie maker", "solo founder", "product ideation", "distribution strategy", "sustainable business", "bootstrapped"]
+pubDate: 'Feb 26 2026'
+---
+import Callout from "../../components/blog/Callout.astro"
+import SideNote from "../../components/blog/SideNote.astro"
+import Tag from "../../components/blog/Tag.astro"
+
+In my last post I described some of the domains I'd see myself working in the future. A baseline to look for ideas for Antropia's own line of digital products.
+
+I have started running the explorations in parallel and here I'll focus on the one that is more advanced: **the one-person studio kit**.
+
+I know it sounds weird but what I did was running an interview to myself (c'mon, who hasn't done it?), trying to identify recurring pains, frustrations, and things that didn't click with my current freelancer work.
+
+I did it with my copy of [The Mom Test](https://www.momtestbook.com/) in one hand, and a recording phone in the other.
+
+## The ideas
+
+The ideas I have come up focus on one single thing. I'm always tempted to bring them down to earth, build them and start adding features like a mad-person.
+
+But a huge part of this exploration phase is precisely ignoring that <SideNote note="This has happened to me since forever. I thought it was because I'm a software engineer, but I now think it might has always been the other way around: the voice told me to become one.">annoying voice telling me to "*build, build, build*"</SideNote> and be ready to listen to other signals.
+
+By pausing the build-publish-forget loop, not only I'm creating a foundation to understand if there is <SideNote note="Gee, I'm starting to hate that slippery word">"*value*"</SideNote> in what I'm building, but I also create **a thread™** (or a story) describing why I'm building it.
+
+With time I realized that creating these threads help me understand where I am at any point, give me direction, and guide my next steps.
+
+This is key because when novelty fades, and it always does, you need something to keep you focused other than potential success or money. This is where the thread really shows its worth.
+
+I think this is what designers call falling in love with the problem, but who am I to know.
+
+Having said that, let's jump into the ideas!
+
+I structured them by first describing the problem I identified, I include some personal notes, and then I present to you one or more potential solutions with a more marketing-ish tone, just for fun.
+
+---
+
+# Tax advisor comms
+
+Most relationships with tax advisors, at least here in Spain, are based on uploading invoices somewhere: GDrive, Dropbox, etc.
+
+It's usually quiet but at the end of each quarter it becomes pure chaos. You get a flurry of emails from your *gestor/gestora*, you're scrambling to remember if you uploaded that supabase receipt from two months ago, and the whole process feels like a frantic, error-prone admin sprint.
+
+This quarterly dread eats into time you could spend on actual work or, you know... living your life.
+
+**Insights and open questions**
+
+- **Picking the right step to bridge**: Changing how a tax advisor works is tough, they rely on being able to replicate their workflow for multiple clients. The lowest common denominator here is that no matter what they do behind the curtain, they always create a shared folder somewhere for you to upload your documents, that last gap can definitely be addressed.
+- **Local problem?**: This is centered around Spanish "*gestorías*" but what does this process look like in other countries? Are there similarities?
+- **Automatic invoice detection is very powerful**: Automatic invoice capture can have other uses, like giving you a full picture of your day-to-day. This is explored in a different idea.
+
+## The invoice-o-tron
+
+![An AI-generated illustration of a bunch of papers in a wall](/blog/the-one-person-studio-kit/invoice-o-tron.png)
+
+> The invoice automation tool to bridge the gap with your tax advisor
+
+The disconnect between your daily work and your advisor's quarterly needs is real. You operate in real-time, they need organized batches. This gap creates the frantic scramble.
+
+Invoice-o-tron acts as your personal finance assistant, operating silently in the background of your workday. Here’s how it bridges that gap:
+
+- **Automatic detection**: Connect to your email, Shopify, Holded, etc., to find invoices automatically.
+- **User in control**: A single prompt like "*Upload this €52.80 receipt from Supabase?*" is all it takes.
+- **Adapts to your advisor**: Uploads invoices to your preferred advisor platform: GDrive, Dropbox, you name it.
+- **Prevent the chaos**: Gentle, scheduled reminders transform a quarterly crisis into a minor weekly task.
+
+---
+
+# Where I stand?
+
+As a freelancer, you know your hourly rate and can tally your invoiced time, profits, and expenses, but the real picture often feels blurry.
+
+How much time did you actually spend on looking for clients last month? How many days were spent to admin, or *earned* as vacation?
+
+This lack of visibility into your own effort makes it hard to answer fundamental questions: *What is your true effective hourly rate after accounting for all that non-billable work?* or *How much runway do you really have?*
+
+**Insights and open questions**
+
+- **The data is there**: The data exists, but it's fragmented. The numbers you need are already scattered across different tools. The challenge is connecting them to tell a coherent (and useful) story.
+- **Value is not clear**: I don't spend time nor money into this problem anymore (but I did). The problem here is that once you have worked as a freelance for some time, you already create a good instinct of where you stand.
+- **Still useful for shops?** This is more valuable for people offering goods (shopkeepers) rather than long-term services. Uncertainty is more tangible there, and more persistent.
+- **Clarity > Tracking**: Tracking is just a tool, but the real focus here is in clarity. The goal is to periodically get a clear, honest snapshot of your business health without manual spreadsheet gymnastics.
+- **Synergies?**: There is a natural synergy with the "*invoice-o-tron*" idea. Automated invoice capture can provide one crucial stream of data (expenses and income) to feed the analysis.
+- **Focusing on the wrong thing**: There is a dangerous incentive lingering in summarizing all this data into one single number. It can cause anxiety, and poor time management ("*If I go on vacations my effective hourly rate will take a hit*"). While the incentive is inherent to the problem, we have to be careful not to magnify it. Perspective is key here.
+
+## The financial mirror
+
+![An AI-generated illustration of a mirror](/blog/the-one-person-studio-kit/financial-mirror.png)
+
+> Stop guessing where you stand. Get a simple, automatic summary of your effective hourly rate and how long your savings will last.
+
+The solution is a tool that acts like a personal business analyst. It securely connects to the sources you already use to automatically gather the raw data.
+
+Once a week or month, it gives you a simple, visual summary answering the questions that matter:
+
+- **True hourly rate**: Calculates your effective hourly rate by factoring non-billable work into your invoiced time. "*You invoiced for 60 hours this month, and spent 20 hours on non-billable work. Your effective rate is X*".
+- **Runway projection**: Projects how many months your savings will last based on average monthly profit and loss."*Picking up this new client extends your runway by approximately Z months*".
+- **Time & Money Allocation**: A visual breakdown showing not just hours but financial value allocated to different activities (e.g., "*Client Work: €4.200*", "*Marketing: €300 in time cost*", "*Admin: €150 in time cost*").
+- **Goal Tracking & Nudges**: Set financial targets (e.g., "*Keep non-billable work under 20%*", "*Save €X this quarter*") and sends you gentle, periodic updates on your progress versus those goals.
+
+It doesn't require you to change how you work, it simply reflects the reality of your work back to you with precision, helping you make informed decisions about pricing, focus, and growth.
+
+---
+
+# Client comms
+
+While working for a client, you need (and want!) to send continuous reports and updates. If only, to get early feedback and ensure alignment. But pausing deep work to structure a progress report breaks the flow.
+
+While summarizing you have to get screenshots, recalling decisions, editing videos. It can easily take 30 minutes to build something your clients will appreciate.
+
+Now multiply that for every time you want to run a demo, or show progress to your client, it's a lot of time.
+
+**Insights and open questions**
+
+- The work (writing, recording, etc.) itself will take time, and that's ok. That has to be a conscious effort (no way I'm letting AI decide what's important). The friction is in the assembly: getting the screenshots, moving branches to record a video, highlighting what has been meaningful progress.
+- The user is in control of delivery. The process can be assisted but if the points of contact with a freelancer are automatic the whole collaboration loses human touch.
+
+## The project director
+
+![An AI-generated illustration of video camera](/blog/the-one-person-studio-kit/update-director.png)
+
+> Your automated assistant for client updates. It drafts the narrative, gathers the proof, and lets you record the summary in minutes.
+
+The cognitive load of translating everything you've done in a couple days to a client-ready story is heavy. The director is also your production assistant, it gathers every piece of your work, and helps you deliver the updates your clients deserve.
+
+- **Background capture**: Securely connects to your work tools (GitHub, Linear, Figma, etc.) to log commits, completed tasks, and file changes as you work. It can also record your screen and microphone input.
+- **Narrative drafting**: At the end of your session, it uses this activity log to propose a short update script. You have total control on what to highlight from your day.
+- **Asset assembly**: Automatically grabs relevant screenshots, code snippets, or design mockups referenced in your work log, so you don't have to hunt for them.
+- **Seamless recording**: Presents you with the draft script and assets in a simple teleprompter interface. You hit record, deliver the update with the context already in mind, and it's ready to send.
+
+## The project production assistant
+
+![An AI-generated illustration of clues hanging in a wall](/blog/the-one-person-studio-kit/update-assistant.png)
+
+> Your quick-capture companion for client updates. Hit a key, capture a moment, and get an organized storyboard of your day's work.
+
+This approach tackles the same assembly problem but from a different angle. Instead of full background automation, it equips you with intentional, lightning-fast capture tools that remove friction in the moment, so assembly at the end of your session is effortless.
+
+Here’s how it streamlines your workflow:
+
+- **Intentional, instant capture**: Use global hotkeys to instantly capture exactly what’s important: a screenshot, a 30-second voice note (automatically transcribed), or a short screen recording.
+- **Automatic session grouping**: All your captures are automatically tagged and grouped by project, client, or time session. At the end of your work period, you have a chronological storyboard of notes, images, and clips ready to review.
+- **Structured digest**: The assistant organizes the raw captures into a simple draft narrative. It turns your voice note saying "Solved the API auth bug by refactoring the token handler" and a screenshot of the code into a bullet point for your update.
+- **One-click assembly**: With your storyboard and draft narrative ready, compiling the final update is drastically faster. You review, refine, and record your summary in minutes instead of hunting through folders and reconstructing your day.
+
+It simply makes capturing and organizing your chosen highlights so fast that sharing progress stops being a chore and becomes a natural part of your workflow.
+
+# Proposal and contract workflow
+
+Negotiating project scopes, timelines, and budgets is a necessary but often messy process. It typically unfolds over a series of emails and documents, where details get lost, versions multiply, and the final agreement is buried in threads. This unstructured back-and-forth wastes time and creates unnecessary stress, making it easy to miss important terms or leave scope ambiguous.
+
+**Insights and open questions**
+
+- **The real pain vs. perceived pain**: This might be one of those problems that feels annoying in the moment, but you tolerate because it "only" happens a bucket of times a year. The fact that I have not look for solutions nor patches means the pain might not be that high. Still interesting to consider if it resonates in other interviewers.
+- **The collaboration gap**: There are e-sign platforms and template libraries, but they are usually a one-way channel. They don’t support the live, collaborative negotiation that happens before signing.
+- **Client adoption**: Any solution needs to be dead simple for both the freelance and the client. If it adds steps or requires them to learn a new platform, they’ll just say "*let's stick to email*".
+- **Automation limit**: Some parts can be automated (filling templates, sending reminders), but the core negotiation is a human conversation. The tool shouldn’t get in the way of that.
+
+## Contractify
+
+![An AI-generated abstract illustration representing collaboration](/blog/the-one-person-studio-kit/proposal-tool.png)
+
+> Turn messy email negotiations into a clear, binding agreement without the back-and-forth chaos.
+
+Contractify is built for that messy middle. It starts as a shared, living proposal where both you and your client can discuss terms, adjust scope, and update figures in real-time. A collaborative doc structured for the specifics of a work agreement.
+
+- **Structured negotiation**: You send a proposal draft. Your client comments on a deliverable or suggests a new deadline. Instead of a fragmented email chain, their feedback attaches directly to the relevant clause, keeping the context intact.
+- **Easy diffing**: You introduce changes to the contract, and your client does as well. Every change creates a new version. You can always see what has changed since you last read the contract.
+- **One-click formalization**: Once both sides agree, you hit "*Lock It In*" The tool transforms the finalized proposal into a clean, formatted contract or statement of work, prepped for e-signature. All the discussion history is archived, not lost.
+- **Template library**: Start from your own saved templates or commonsense defaults. Everything is editable. It’s your process, just without the administrative debris.
+
+---
+
+## Validation
+
+I opened my mind to one of the branches of exploration I'm currently walking. The ideas are starting points, not promises.
+
+With these ideas in mind, my next step is trying to answer two main questions:
+
+##### 1. Do I love the idea?
+
+This is where **the thread™** I talked about at the beginning of the post starts being useful. I have understood that the domain is interesting to me (because I live it, and because I struggle with it). Now I have to understand if the specific problem and solution is also aligned with that interest.
+
+This translates into dedicating some time into imagining how that product would look like. Explore synergies and intersections, create some mockups and showing them in communities that share the same core problem.
+
+It might seem as looking for external validation. It's not. What this phase will reveal is if this is an idea that energizes me, and if I can feel both [joy and pride](/blog/whats-worth-building#have-fun) in working in it.
+
+##### 2. Is there a better idea?
+
+My engineering mind is always yelling at me to find more data that supports (or invalidate) an idea.
+
+This is where having an analytical mind hurts decision-making. I can't just ignore it, though. It's true that a single data point is not enough to understand if there is a pattern.
+
+The main point of this question is to give me the confidence to understand that the idea I pursue is shared, valuable, and therefore, it can be [sustainable](/blog/whats-worth-building#make-it-sustainable).
+
+This one is easy to answer: **just talk to other freelancers**. Understand their processes, their struggles and their pains.
+
+---
+
+## What's next
+
+I'll keep posting as I explore other domains and other ideas.
+
+This process of mapping my own frustrations has been its own reward. It's forced me to listen to the problems, not the impulsive builder's voice.
+
+If you're on a similar path, I'd love to hear from you. In the meantime, I'll be over here, trying to turn chaos into something slightly more coherent.
