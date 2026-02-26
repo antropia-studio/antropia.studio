@@ -8,15 +8,16 @@ interface Props {
       next: string | undefined;
     };
   };
+  basePath?: string;
 }
 
-const { page } = Astro.props;
+const { page, basePath = '/blog' } = Astro.props;
 const { currentPage, lastPage } = page;
 const pages = Array.from({ length: lastPage }, (_, i) => i + 1);
 
 function pageUrl(pageNum: number): string {
-  if (pageNum === 1) return '/blog/';
-  return `/blog/page/${pageNum}/`;
+  if (pageNum === 1) return `${basePath}/`;
+  return `${basePath}/page/${pageNum}/`;
 }
 ---
 

@@ -6,9 +6,12 @@ import Header from '../../components/blog/Header.astro';
 import Pagination from '../../components/blog/Pagination.astro';
 import PostMetadata from '../../components/blog/PostMetadata.astro';
 import Footer from '../../components/Footer.astro';
-import { BLOG_DESCRIPTION, BLOG_TITLE } from '../../consts';
+import { BLOG_DESCRIPTION, BLOG_TITLE, slugifyKeyword } from '../../consts';
 
-const { posts, page } = Astro.props;
+const { posts, page, activeKeyword } = Astro.props;
+const basePath = activeKeyword
+  ? `/blog/keyword/${slugifyKeyword(activeKeyword)}`
+  : '/blog';
 
 type Post = CollectionEntry<'blog' | 'drafts'>;
 ---
@@ -22,8 +25,16 @@ type Post = CollectionEntry<'blog' | 'drafts'>;
 />
 <body class="bg-antropia-white dark:bg-ash">
 <Header />
-<main class="center font-nudica flex px-6 pt-10 xl:pt-20">
+<main class=`center font-nudica flex px-6 ${activeKeyword ? '' : 'pt-10 xl:pt-20'}`>
   <section class="max-w-5xl">
+    {activeKeyword && (
+      <div class="mb-13 flex flex-col items-center gap-3">
+        <p class="text-white/60 text-xl font-light">
+          <span class="italic">Filtering by</span> <span
+          class="px-1 py-0.5 rounded-sm bg-blinking-blue hover:bg-sasquatch-socks font-black text-white uppercase text-sm">{activeKeyword}</span>
+        </p>
+      </div>
+    )}
     <ul>
       {
         posts.map((post: Post, index: number) => {
@@ -70,7 +81,7 @@ type Post = CollectionEntry<'blog' | 'drafts'>;
     </ul>
 
     {page && page.lastPage > 1 &&
-      <Pagination page={page} />}
+      <Pagination page={page} basePath={basePath} />}
   </section>
 </main>
 

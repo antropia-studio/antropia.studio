@@ -2,6 +2,7 @@
 import { Image } from 'astro:assets';
 import type { CollectionEntry } from 'astro:content';
 import FormattedDate from './FormattedDate.astro';
+import { slugifyKeyword } from '../../consts';
 
 type Props = CollectionEntry<'blog'>['data'];
 
@@ -35,7 +36,7 @@ const { author, authorAvatar, pubDate, updatedDate, keywords } = Astro.props;
       <div class="text-sm font-black">
         <a
           class="truncate text-white! decoration-0 px-1 py-0.5 rounded-sm bg-blinking-blue hover:bg-sasquatch-socks"
-          href="/blog">{keyword.toUpperCase()}</a>{index < keywords?.length - 1 ? ',' : ''}
+          href={`/blog/keyword/${slugifyKeyword(keyword)}/`}>{keyword.toUpperCase()}</a>{index < keywords?.length - 1 ? ',' : ''}
       </div>
     ))}
   </div>

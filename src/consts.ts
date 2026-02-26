@@ -6,3 +6,11 @@ export const BLOG_DESCRIPTION =
   "A tour of our work, our thoughts, and our ideas.";
 
 export const POSTS_PER_PAGE = 6;
+
+export function slugifyKeyword(keyword: string): string {
+  return keyword.toLowerCase().replace(/\s+/g, "-");
+}
+
+export function deslugifyKeyword(slug: string): string {
+  return slug.replace(/-/g, " ");
+}
