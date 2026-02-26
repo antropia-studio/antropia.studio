@@ -1,9 +1,8 @@
 ---
 title: 'The 40-hour app'
-description: "Our progress on publishing an app in 40 hours for both Android and iOS"
-summary: "Dive into the process we followed to create a new app from the ground up for both Android and iOS and publish it in the stores."
+description: "Dive into the process we followed to create a new app from the ground up for both Android and iOS and publish it in the stores."
 heroImage: "/blog/40-hour-app/hero.png"
-keywords: [ "App development", "Prototyping", "React Native", "App design" ]
+keywords: [ "product", "design", "tech" ]
 pubDate: 'Aug 28 2024'
 ---
 

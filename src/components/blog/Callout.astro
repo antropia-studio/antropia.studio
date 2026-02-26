@@ -1,41 +1,41 @@
 ---
-import BulbIcon from '../../assets/icons/lightbulb.svg';
-import NoteIcon from '../../assets/icons/notebook-text.svg';
-import WarningIcon from '../../assets/icons/triangle-alert.svg';
+import BulbIcon from "../../assets/icons/lightbulb.svg";
+import NoteIcon from "../../assets/icons/notebook-text.svg";
+import WarningIcon from "../../assets/icons/triangle-alert.svg";
 
 interface Props {
   title: string;
-  icon: 'note' | 'idea' | 'warning';
-  variant?: 'primary' | 'secondary';
+  icon: "note" | "idea" | "warning";
+  variant?: "primary" | "secondary";
 }
 
 const { title, icon, variant } = Astro.props;
 
-const getIconEmoji = (icon: Props['icon']) => {
+const getIconEmoji = (icon: Props["icon"]) => {
   switch (icon) {
-    case 'note':
+    case "note":
       return NoteIcon;
-    case 'idea':
+    case "idea":
       return BulbIcon;
-    case 'warning':
+    case "warning":
       return WarningIcon;
   }
 };
 
-const getColors = (variant: Props['variant']) => {
+const getColors = (variant: Props["variant"]) => {
   switch (variant) {
-    case 'primary':
+    case "primary":
     case undefined:
       return {
-        bg: 'bg-alucards-night',
-        border: 'border-blinking-blue',
-        header: 'text-ice-cold-stare',
+        bg: "bg-alucards-night",
+        border: "border-blinking-blue",
+        header: "text-ice-cold-stare",
       };
-    case 'secondary':
+    case "secondary":
       return {
-        bg: 'bg-sasquatch-socks/10',
-        border: 'border-sasquatch-socks',
-        header: 'text-candlelight-peach',
+        bg: "bg-sasquatch-socks/10",
+        border: "border-sasquatch-socks",
+        header: "text-candlelight-peach",
       };
   }
 };

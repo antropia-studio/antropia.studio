@@ -1,16 +1,23 @@
 ---
-import { Image } from 'astro:assets';
-import type { CollectionEntry } from 'astro:content';
-import FormattedDate from '../../components/blog/FormattedDate.astro';
-import Head from '../../components/blog/Head.astro';
-import Header from '../../components/blog/Header.astro';
-import SideNote from '../../components/blog/SideNote.astro';
-import Footer from '../../components/Footer.astro';
+import { Image } from "astro:assets";
+import type { CollectionEntry } from "astro:content";
+import FormattedDate from "../../components/blog/FormattedDate.astro";
+import Head from "../../components/blog/Head.astro";
+import Header from "../../components/blog/Header.astro";
+import Footer from "../../components/Footer.astro";
 
-type Props = CollectionEntry<'blog'>['data'];
+type Props = CollectionEntry<"blog">["data"];
 
-const { title, description, pubDate, updatedDate, heroImage, keywords } =
-  Astro.props;
+const {
+  title,
+  description,
+  author,
+  authorAvatar,
+  pubDate,
+  updatedDate,
+  heroImage,
+  keywords,
+} = Astro.props;
 ---
 
 <html class="dark" lang="en">
@@ -34,6 +41,42 @@ const { title, description, pubDate, updatedDate, heroImage, keywords } =
           {title.replace(/ /g, '   ')}
         </p>
 
+        <div class="flex flex-row gap-4 items-center">
+
+          <!-- Author -->
+          <div class="flex flex-row gap-2 items-center">
+            <Image width={38} height={38} src={authorAvatar} alt=""
+                   class="rounded-full border-2 border-sasquatch-socks" />
+            <p class="text-base font-bold text-white/80 mb-0!">{author}</p>
+          </div>
+
+          <!-- Date -->
+          <p class="text-base font-light text-white/50 mb-0!">
+            <FormattedDate date={pubDate} />
+            {
+              updatedDate && (
+                <div>
+                  Last updated on
+                  <FormattedDate date={updatedDate} />
+                </div>
+              )
+            }
+          </p>
+
+          <div class="flex flex-row items-center gap-2 mb-0! flex-1">
+            {keywords?.map((keyword) => (
+              <a
+                class="truncate border-2 border-sasquatch-socks rounded-full text-sm font-base! pb-0.5 px-2 decoration-0 hover:bg-sasquatch-socks hover:text-white!"
+                href="/blog">{keyword}</a>
+            ))}
+          </div>
+        </div>
+
+        <p class="mt-4 px-10 text-center text-xl font-normal italic">
+          {description}
+        </p>
+
+
         <div class="hero-image">
           {
             heroImage && (
@@ -47,24 +90,6 @@ const { title, description, pubDate, updatedDate, heroImage, keywords } =
             )
           }
         </div>
-
-        <p class="mt-2 mb-2! text-base font-light text-white/50">
-          <FormattedDate date={pubDate} />
-          {
-            updatedDate && (
-              <div>
-                Last updated on
-                <FormattedDate date={updatedDate} />
-              </div>
-            )
-          }
-        </p>
-
-        <p class="mt-4 px-10 text-center text-xl font-normal italic">
-          {description}
-        </p>
-
-        <hr />
       </div>
 
       <slot />

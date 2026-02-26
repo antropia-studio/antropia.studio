@@ -2,7 +2,7 @@
 title: 'The 8-hour myth'
 description: "A personal reflection on reimagining work hours at Antropia. Why working less might be the key to living more—and why the 8-hour workday is a century-old myth we need to question."
 heroImage: "/blog/8-hour-myth/hero.png"
-keywords: [ "work ethics", "work-hours", "8-hour", "work conditions" ]
+keywords: [ "coop", "opinion" ]
 pubDate: 'May 27 2025'
 ---
 

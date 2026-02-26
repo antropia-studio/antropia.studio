@@ -2,7 +2,7 @@
 title: 'Karumi 2.0'
 description: "Exploring how my years at Karumi shaped Antropia's human-centered approach to work and cooperative ownership."
 heroImage: "/blog/karumi-2/hero.png"
-keywords: [ "Origins", "Karumi", "Mobile Development", "Agency", "Consulting" ]
+keywords: [ "product studio" ]
 pubDate: 'May 22 2025'
 ---
 

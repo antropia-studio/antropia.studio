@@ -7,6 +7,8 @@ import { glob } from "astro/loaders";
 const postSchema = z.object({
   title: z.string(),
   description: z.string(),
+  author: z.string().default("Sergio Gutiérrez"),
+  authorAvatar: z.string().default("/blog/avatars/sergio.jpeg"),
   keywords: z.array(z.string()).optional(),
   pubDate: z.coerce.date(),
   updatedDate: z.coerce.date().optional(),
