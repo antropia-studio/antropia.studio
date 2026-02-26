@@ -4,3 +4,5 @@
 export const BLOG_TITLE = "Blog";
 export const BLOG_DESCRIPTION =
   "A tour of our work, our thoughts, and our ideas.";
+
+export const POSTS_PER_PAGE = 6;

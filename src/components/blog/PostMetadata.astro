@@ -1,0 +1,42 @@
+---
+import { Image } from 'astro:assets';
+import type { CollectionEntry } from 'astro:content';
+import FormattedDate from './FormattedDate.astro';
+
+type Props = CollectionEntry<'blog'>['data'];
+
+const { author, authorAvatar, pubDate, updatedDate, keywords } = Astro.props;
+---
+<div class="flex flex-col xl:flex-row gap-4 items-center">
+  <div class="flex flex-row gap-4 items-center">
+    <!-- Author -->
+    <div class="flex flex-row gap-2 items-center">
+      <Image width={32} height={32} src={authorAvatar} alt=""
+             class="rounded-full border-2 border-sasquatch-socks" />
+      <p class="text-base font-bold text-white/80 mb-0!">{author}</p>
+    </div>
+
+    <!-- Date -->
+    <p class="text-base font-light text-white/50 mb-0!">
+      <FormattedDate date={pubDate} />
+      {
+        updatedDate && (
+          <div>
+            Last updated on
+            <FormattedDate date={updatedDate} />
+          </div>
+        )
+      }
+    </p>
+  </div>
+
+  <div class="flex flex-row items-center gap-2">
+    {keywords?.map((keyword, index) => (
+      <div class="text-sm font-black">
+        <a
+          class="truncate text-white! decoration-0 px-1 py-0.5 rounded-sm bg-blinking-blue hover:bg-sasquatch-socks"
+          href="/blog">{keyword.toUpperCase()}</a>{index < keywords?.length - 1 ? ',' : ''}
+      </div>
+    ))}
+  </div>
+</div>

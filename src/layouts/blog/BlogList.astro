@@ -1,77 +1,81 @@
 ---
-import { Image } from "astro:assets";
-import { type CollectionEntry } from "astro:content";
-import FormattedDate from "../../components/blog/FormattedDate.astro";
-import Head from "../../components/blog/Head.astro";
-import Header from "../../components/blog/Header.astro";
-import Footer from "../../components/Footer.astro";
-import { BLOG_DESCRIPTION, BLOG_TITLE } from "../../consts";
+import { Image } from 'astro:assets';
+import { type CollectionEntry } from 'astro:content';
+import Head from '../../components/blog/Head.astro';
+import Header from '../../components/blog/Header.astro';
+import Pagination from '../../components/blog/Pagination.astro';
+import PostMetadata from '../../components/blog/PostMetadata.astro';
+import Footer from '../../components/Footer.astro';
+import { BLOG_DESCRIPTION, BLOG_TITLE } from '../../consts';
 
-const { posts } = Astro.props;
+const { posts, page } = Astro.props;
 
-type Post = CollectionEntry<"blog" | "drafts">;
+type Post = CollectionEntry<'blog' | 'drafts'>;
 ---
 
 <!doctype html>
 <html class="dark" lang="en">
-  <Head
-    title={BLOG_TITLE}
-    description={BLOG_DESCRIPTION}
-    image="/images/social.blog.png"
-  />
-  <body class="bg-antropia-white dark:bg-ash">
-    <Header />
-    <main class="center font-nudica flex px-6 pt-10 xl:pt-20">
-      <section class="max-w-[1024px]">
-        <ul>
-          {
-            posts.map((post: Post) => {
-              const url =
-                post.collection === 'drafts'
-                  ? `/blog/drafts/${post.id}/`
-                  : `/blog/${post.id}/`;
+<Head
+  title={BLOG_TITLE}
+  description={BLOG_DESCRIPTION}
+  image="/images/social.blog.png"
+/>
+<body class="bg-antropia-white dark:bg-ash">
+<Header />
+<main class="center font-nudica flex px-6 pt-10 xl:pt-20">
+  <section class="max-w-5xl">
+    <ul>
+      {
+        posts.map((post: Post, index: number) => {
+          const url =
+            post.collection === 'drafts'
+              ? `/blog/drafts/${post.id}/`
+              : `/blog/${post.id}/`;
 
-              return (
-                <li class="text-blinking-blue dark:text-antropia-white mb-16 flex flex-col items-center justify-center no-underline">
-                  <p class="font-round8 text-blinking-blue hover:dark:text-sasquatch-socks mb-4 text-center text-[20vw] leading-none uppercase xl:text-8xl dark:text-white">
-                    <a class="no-underline" href={url}>
-                      {post.data.title}
-                    </a>
-                  </p>
+          return (
+            <li
+              class="text-blinking-blue dark:text-antropia-white mb-16 flex flex-col items-center justify-center no-underline">
+              <p
+                class="font-round8 text-blinking-blue hover:dark:text-sasquatch-socks mb-4 text-center text-[20vw] leading-none uppercase xl:text-8xl dark:text-white">
+                <a class="no-underline" href={url}>
+                  {post.data.title}
+                </a>
+              </p>
 
-                  <a href={url}>
-                    <Image
-                      width={720}
-                      height={400}
-                      src={post.data.heroImage!}
-                      alt={post.data.title}
-                      style="border-radius: 1rem"
-                    />
-                  </a>
+              <a href={url}>
+                <Image
+                  width={720}
+                  height={400}
+                  src={post.data.heroImage!}
+                  alt={post.data.title}
+                  style="border-radius: 1rem"
+                />
+              </a>
 
-                  <p class="mt-4 p-0 text-base font-light dark:text-white">
-                    <FormattedDate date={post.data.pubDate} />
-                  </p>
+              <div class="py-6">
+                <PostMetadata {...post.data} />
+              </div>
 
-                  <p class="text-alucards-night w-full py-2 text-center text-xl italic md:w-3/4 md:px-10 dark:text-white/70">
-                    {post.data.description}
-                  </p>
+              <p
+                class="text-alucards-night w-full py-2 text-center text-xl italic md:w-3/4 md:px-10 dark:text-white/70">
+                {post.data.description}
+              </p>
 
-                  <p class="hover:dark:text-sasquatch-socks text-center underline">
-                    <a href={url}>Read more...</a>
-                  </p>
+              {(index < posts.length - 1) &&
+                <div class="bg-antropia-white/20 mt-20 h-px w-full" />}
+            </li>
+          );
+        })
+      }
+    </ul>
 
-                  <div class="bg-antropia-white/20 mt-20 h-px w-full" />
-                </li>
-              );
-            })
-          }
-        </ul>
-      </section>
-    </main>
+    {page && page.lastPage > 1 &&
+      <Pagination page={page} />}
+  </section>
+</main>
 
-    <div class="pb-16">
-    <Footer />
-    </div>
-  </body>
+<div class="pb-16">
+  <Footer includeRss />
+</div>
+</body>
 </html>

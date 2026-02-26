@@ -1,0 +1,52 @@
+---
+interface Props {
+  page: {
+    currentPage: number;
+    lastPage: number;
+    url: {
+      prev: string | undefined;
+      next: string | undefined;
+    };
+  };
+}
+
+const { page } = Astro.props;
+const { currentPage, lastPage } = page;
+const pages = Array.from({ length: lastPage }, (_, i) => i + 1);
+
+function pageUrl(pageNum: number): string {
+  if (pageNum === 1) return '/blog/';
+  return `/blog/page/${pageNum}/`;
+}
+---
+
+<nav class="mt-16 mb-8 flex items-center justify-center gap-2 font-nudica text-lg">
+  {page.url.prev ? (
+    <a href={page.url.prev}
+       class="text-white/60 hover:text-sasquatch-socks transition-colors h-11 w-11 text-center content-center">
+      &larr;
+    </a>
+  ) : (
+    <span class="text-white/20 h-11 w-11 text-center content-center">&larr;</span>
+  )}
+
+  {pages.map((pageNum) =>
+    pageNum === currentPage ? (
+      <span class="text-sasquatch-socks font-bold h-11 w-11 text-center content-center">{pageNum}</span>
+    ) : (
+      <a href={pageUrl(pageNum)}
+         class="text-white/60 hover:text-white transition-colors h-11 w-11 text-center content-center">
+        {pageNum}
+      </a>
+    ),
+  )}
+
+  {page.url.next ? (
+    <a href={page.url.next}
+       class="text-white/60 hover:text-sasquatch-socks transition-colors h-11 w-11 text-center content-center">
+      &rarr;
+    </a>
+  ) : (
+    <span class="text-white/20 h-11 w-11 text-center content-center">&rarr;</span>
+  )}
+</nav>

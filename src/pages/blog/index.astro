@@ -1,10 +1,28 @@
 ---
 import { getCollection } from "astro:content";
 import BlogList from "../../layouts/blog/BlogList.astro";
+import { POSTS_PER_PAGE } from "../../consts";
 
-const posts = (await getCollection("blog")).sort(
+const allPosts = (await getCollection("blog")).sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
 );
+const posts = allPosts.slice(0, POSTS_PER_PAGE);
+const lastPage = Math.ceil(allPosts.length / POSTS_PER_PAGE);
+
+const page = {
+  data: posts,
+  currentPage: 1,
+  lastPage,
+  total: allPosts.length,
+  size: POSTS_PER_PAGE,
+  url: {
+    current: "/blog/",
+    prev: undefined,
+    next: lastPage > 1 ? "/blog/page/2/" : undefined,
+    first: "/blog/",
+    last: lastPage > 1 ? `/blog/page/${lastPage}/` : "/blog/",
+  },
+};
 ---
 
-<BlogList posts={posts} />
+<BlogList posts={page.data} page={page} />

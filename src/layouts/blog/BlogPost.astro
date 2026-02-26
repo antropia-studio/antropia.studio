@@ -1,12 +1,13 @@
 ---
-import { Image } from "astro:assets";
-import type { CollectionEntry } from "astro:content";
-import FormattedDate from "../../components/blog/FormattedDate.astro";
-import Head from "../../components/blog/Head.astro";
-import Header from "../../components/blog/Header.astro";
-import Footer from "../../components/Footer.astro";
+import { Image } from 'astro:assets';
+import type { CollectionEntry } from 'astro:content';
+import FormattedDate from '../../components/blog/FormattedDate.astro';
+import Head from '../../components/blog/Head.astro';
+import Header from '../../components/blog/Header.astro';
+import PostMetadata from '../../components/blog/PostMetadata.astro';
+import Footer from '../../components/Footer.astro';
 
-type Props = CollectionEntry<"blog">["data"];
+type Props = CollectionEntry<'blog'>['data'];
 
 const {
   title,
@@ -41,36 +42,7 @@ const {
           {title.replace(/ /g, '   ')}
         </p>
 
-        <div class="flex flex-row gap-4 items-center">
-
-          <!-- Author -->
-          <div class="flex flex-row gap-2 items-center">
-            <Image width={38} height={38} src={authorAvatar} alt=""
-                   class="rounded-full border-2 border-sasquatch-socks" />
-            <p class="text-base font-bold text-white/80 mb-0!">{author}</p>
-          </div>
-
-          <!-- Date -->
-          <p class="text-base font-light text-white/50 mb-0!">
-            <FormattedDate date={pubDate} />
-            {
-              updatedDate && (
-                <div>
-                  Last updated on
-                  <FormattedDate date={updatedDate} />
-                </div>
-              )
-            }
-          </p>
-
-          <div class="flex flex-row items-center gap-2 mb-0! flex-1">
-            {keywords?.map((keyword) => (
-              <a
-                class="truncate border-2 border-sasquatch-socks rounded-full text-sm font-base! pb-0.5 px-2 decoration-0 hover:bg-sasquatch-socks hover:text-white!"
-                href="/blog">{keyword}</a>
-            ))}
-          </div>
-        </div>
+        <PostMetadata {...Astro.props} />
 
         <p class="mt-4 px-10 text-center text-xl font-normal italic">
           {description}
@@ -98,7 +70,7 @@ const {
 </main>
 
 <div class="pb-16">
-  <Footer />
+  <Footer includeRss />
 </div>
 </body>
 </html>
