@@ -342,7 +342,7 @@
   }
 
   hr {
-    @apply border-t-hello-summer/25;
+    @apply border-t-hello-summer/25 mt-12;
     width: 100%;
   }
 
