@@ -1,0 +1,17 @@
+---
+type Props = {
+  size: 'base' | 'large';
+};
+
+const { size } = Astro.props;
+---
+<div class="flex flex-row justify-center items-center mt-16">
+  <a href="/#contact">
+    <button
+      class="bg-white text-blinking-blue font-nudica uppercase text-2xl px-10 py-4 rounded-full hover:bg-blinking-blue hover:text-white cursor-pointer transition"
+    >
+      {Astro.slots.has('default') ?
+        <slot /> : <p class="mb-0!">Let's talk</p>}
+    </button>
+  </a>
+</div>

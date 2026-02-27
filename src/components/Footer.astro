@@ -1,17 +1,46 @@
 ---
+import antropiaLogoBlob from '../assets/antropia.blob.white.svg';
 import antropiaLogo from '../assets/logo.svg';
 import antropiaLogoDark from '../assets/logo-neg.svg';
 import Social from './Social.astro';
 
 interface Props {
   isDark?: boolean;
+  includeContactUs?: boolean;
   includeRss?: boolean;
 }
 
-const { isDark, includeRss } = Astro.props;
+const { isDark, includeContactUs, includeRss } = Astro.props;
 ---
 
 <footer class="mt-8 flex flex-col items-center gap-6">
+
+  {includeContactUs &&
+    <div class="flex flex-col items-center gap-6">
+      <hr class="border-hello-summer/20 w-screen" />
+
+      <div class="py-4 px-6 max-w-3xl my-4 text-white">
+        <div class="flex flex-row gap-9 items-center">
+          <img src={antropiaLogoBlob.src} width="80" alt="" class="hidden xl:block" />
+
+          <div class="flex flex-col">
+            <p class="text-3xl xl:text-4xl font-black text-center xl:text-start">Let's build something together!</p>
+            <p class="text-lg font-extralight hidden xl:block italic">We are the product studio turning your ideas
+              into
+              real
+              apps.</p>
+
+            <a href="/#contact"
+               class="bg-white text-blinking-blue font-bold text-center uppercase text-xl px-8 py-2 rounded-lg hover:bg-blinking-blue hover:text-white cursor-pointer transition mt-6 xl:mt-4">
+              Contact us
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  }
+
   <p
     class={`mx-4 xl:mx-0 text-center text-sm ${isDark ? 'text-alucards-night/60' : 'text-white/60'}`}>
     We collect aggregate and anonymous analytics.
