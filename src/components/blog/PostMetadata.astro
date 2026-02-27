@@ -1,8 +1,8 @@
 ---
 import { Image } from 'astro:assets';
 import type { CollectionEntry } from 'astro:content';
-import FormattedDate from './FormattedDate.astro';
 import { slugifyKeyword } from '../../consts';
+import FormattedDate from './FormattedDate.astro';
 
 type Props = CollectionEntry<'blog'>['data'];
 
@@ -13,7 +13,7 @@ const { author, authorAvatar, pubDate, updatedDate, keywords } = Astro.props;
     <!-- Author -->
     <div class="flex flex-row gap-2 items-center">
       <Image width={32} height={32} src={authorAvatar} alt=""
-             class="rounded-full border-2 border-sasquatch-socks" />
+             class="rounded-full border-2 border-sasquatch-socks my-0!" />
       <p class="text-base font-bold text-white/80 mb-0!">{author}</p>
     </div>
 
