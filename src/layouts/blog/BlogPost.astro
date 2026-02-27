@@ -1,15 +1,18 @@
 ---
 import { Image } from 'astro:assets';
 import type { CollectionEntry } from 'astro:content';
-import FormattedDate from '../../components/blog/FormattedDate.astro';
+import type { MarkdownHeading } from 'astro';
 import Head from '../../components/blog/Head.astro';
 import Header from '../../components/blog/Header.astro';
 import PostMetadata from '../../components/blog/PostMetadata.astro';
+import TableOfContents from '../../components/blog/TableOfContents.astro';
 import Footer from '../../components/Footer.astro';
 
-type Props = CollectionEntry<'blog'>['data'];
+type Props = CollectionEntry<'blog'>['data'] & {
+  headings: MarkdownHeading[];
+};
 
-const { title, description, heroImage, keywords } = Astro.props;
+const { title, description, heroImage, keywords, headings } = Astro.props;
 ---
 
 <html class="dark" lang="en">
@@ -62,5 +65,8 @@ const { title, description, heroImage, keywords } = Astro.props;
 <div class="pb-16">
   <Footer includeRss includeContactUs />
 </div>
+
+<TableOfContents headings={headings} />
+
 </body>
 </html>

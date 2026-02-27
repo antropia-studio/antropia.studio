@@ -131,7 +131,7 @@ source of meaning and mastery that enhances rather than depletes our lives.
 
 ---
 
-#### Context and Privilege
+# Context and Privilege
 
 This is a reflection of my personal experience, and I'm acutely aware that my answer to the question of working hours
 comes from a specific context. Age, life stage, family situation, economic realities — all these factors shape what's

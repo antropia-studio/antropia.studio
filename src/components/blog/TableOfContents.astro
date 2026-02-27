@@ -1,0 +1,96 @@
+---
+import type { MarkdownHeading } from 'astro';
+import TableOfContentsIcon from '../../assets/icons/table-of-contents.svg';
+
+interface HeadingTree extends MarkdownHeading {
+  children: HeadingTree[];
+}
+
+type Props = {
+  headings?: MarkdownHeading[];
+  nodes?: HeadingTree[];
+};
+
+const { headings, nodes } = Astro.props;
+
+function buildTree(flat: MarkdownHeading[]): HeadingTree[] {
+  const root: HeadingTree[] = [];
+  const stack: HeadingTree[] = [];
+
+  for (const heading of flat) {
+    const node: HeadingTree = { ...heading, children: [] };
+
+    while (stack.length > 0 && stack[stack.length - 1].depth >= heading.depth) {
+      stack.pop();
+    }
+
+    if (stack.length === 0) {
+      root.push(node);
+    } else {
+      stack[stack.length - 1].children.push(node);
+    }
+
+    stack.push(node);
+  }
+
+  return root;
+}
+
+const tree = nodes ?? buildTree(headings ?? []);
+const isRoot = !!headings;
+---
+
+{isRoot ? (
+<nav class="hidden xl:flex flex-row items-center fixed inset-y-0 right-10 max-w-xs text-sm">
+  <div id="toc-trigger" class="cursor-pointer px-3 py-3 rounded-sm border border-white/70 text-white/70">
+    <TableOfContentsIcon />
+  </div>
+
+  <div id="toc-container"
+       class="hidden absolute right-0 px-4 pt-6 pb-3 whitespace-nowrap border-2 border-white/70 rounded-xl text-sm bg-ash">
+    <ul>
+      {tree.map((node) => (
+        <li class="mb-3">
+          <a href={`#${node.slug}`} class="p-1 hover:bg-sasquatch-socks rounded-sm">{node.text}</a>
+          {node.children.length > 0 &&
+            <Astro.self nodes={node.children} />}
+        </li>
+      ))}
+    </ul>
+  </div>
+</nav>
+<script>
+  import { animate } from 'motion';
+
+  const trigger = document.getElementById('toc-trigger');
+  const container = document.getElementById('toc-container');
+
+  if (trigger && container) {
+    const nav = trigger.parentElement!;
+
+    const show = () => {
+      container.classList.remove('hidden');
+      animate(container, { opacity: [0, 1], x: [20, 0] }, { type: 'spring', duration: 0.5, bounce: 0.4 });
+    };
+
+    const hide = () => {
+      animate(container, { opacity: [1, 0], x: [0, 20] }, { type: 'spring', duration: 0.5, bounce: 0.4 }).then(() => {
+        container.classList.add('hidden');
+      });
+    };
+
+    nav.addEventListener('mouseenter', show);
+    nav.addEventListener('mouseleave', hide);
+  }
+</script>
+  ) : (
+<ul class="ml-6">
+  {tree.map((node) => (
+    <li class="mt-2">
+      <a href={`#${node.slug}`} class="p-1 hover:bg-sasquatch-socks rounded-sm">{node.text}</a>
+      {node.children.length > 0 &&
+        <Astro.self nodes={node.children} />}
+    </li>
+  ))}
+</ul>
+  )}
