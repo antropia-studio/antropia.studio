@@ -42,7 +42,7 @@ const isRoot = !!headings;
 
 {isRoot ? (
 <nav class="hidden xl:flex flex-row items-center fixed inset-y-0 right-10 max-w-xs text-sm">
-  <div id="toc-trigger" class="cursor-pointer px-3 py-3 rounded-sm border border-white/70 text-white/70">
+  <div id="toc-trigger" class="cursor-pointer px-3 py-3 rounded-sm text-white/70">
     <TableOfContentsIcon />
   </div>
 
@@ -70,11 +70,11 @@ const isRoot = !!headings;
 
     const show = () => {
       container.classList.remove('hidden');
-      animate(container, { opacity: [0, 1], x: [20, 0] }, { type: 'spring', duration: 0.5, bounce: 0.4 });
+      animate(container, { opacity: [0, 1], x: [20, 0] }, { type: 'spring', duration: 0.5, bounce: 0.5 });
     };
 
     const hide = () => {
-      animate(container, { opacity: [1, 0], x: [0, 20] }, { type: 'spring', duration: 0.5, bounce: 0.4 }).then(() => {
+      animate(container, { opacity: [1, 0], x: [0, 40] }, { type: 'spring', duration: 0.2, bounce: 0.1 }).then(() => {
         container.classList.add('hidden');
       });
     };
