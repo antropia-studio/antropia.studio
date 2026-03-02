@@ -10,24 +10,24 @@ const parseMarkdown = (text: string) => {
   return (
     text
       // Bold: **text** or __text__
-      .replace(/\*\*(.+?)\*\*/g, "<b>$1</b>")
-      .replace(/__(.+?)__/g, "<b>$1</b>")
+      .replace(/\*\*(.+?)\*\*/g, '<b>$1</b>')
+      .replace(/__(.+?)__/g, '<b>$1</b>')
       // Italic: *text* or _text_
-      .replace(/\*(.+?)\*/g, "<i>$1</i>")
-      .replace(/_(.+?)_/g, "<i>$1</i>")
+      .replace(/\*(.+?)\*/g, '<i>$1</i>')
+      .replace(/_(.+?)_/g, '<i>$1</i>')
   );
 };
 
 const parsedNote = parseMarkdown(note);
 ---
 
-<span class="sidenote-wrapper relative inline cursor-help">
-  <span class="sidenote-trigger text-white font-bold">
+<span class="sidenote-wrapper relative inline cursor-help zen:cursor-auto">
+  <span class="sidenote-trigger text-white font-bold zen:font-normal">
     <slot />
   </span>
 
   <span
-    class="sidenote-content fixed sidenote:w-64 p-4 bg-rose-950 sidenote:bg-sasquatch-socks/10 text-white sidenote:text-right max-sidenote:border-t-10 sidenote:border-r-10 border-sasquatch-socks text-base leading-relaxed opacity-0 pointer-events-none transition-opacity duration-200 z-10 sidenote:block font-normal"
+    class="sidenote-content fixed sidenote:w-64 p-4 bg-rose-950 sidenote:bg-sasquatch-socks/10 text-white sidenote:text-right max-sidenote:border-t-10 sidenote:border-r-10 border-sasquatch-socks text-base leading-relaxed opacity-0 pointer-events-none transition-opacity duration-200 z-10 sidenote:block font-normal zen:hidden"
     role="tooltip"
     set:html={parsedNote}
   />
@@ -72,6 +72,20 @@ const parsedNote = parseMarkdown(note);
       max-width: none;
     }
   }
+
+  html[data-readmode="zen"] {
+    .sidenote-trigger {
+      background: none;
+    }
+
+    .sidenote-trigger:hover {
+      background: none;
+    }
+
+    .sidenote-wrapper:hover .sidenote-content {
+      opacity: 0;
+    }
+  }
 </style>
 
 <script>
@@ -87,6 +101,7 @@ const parsedNote = parseMarkdown(note);
 
       if (!content) return;
       if (!proseContainer) return;
+
       if (window.innerWidth >= 1400) {
         const noteRect = content.getBoundingClientRect();
 

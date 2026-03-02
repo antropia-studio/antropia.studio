@@ -1,0 +1,90 @@
+---
+import MoonIcon from '../../assets/icons/moon.svg';
+import SettingsIcon from '../../assets/icons/settings.svg';
+import SunIcon from '../../assets/icons/sun.svg';
+---
+
+<div class="xl:flex flex-col items-start fixed bottom-6 left-6">
+  <div id="settings-container"
+       class="flex flex-col bg-ash-10 border boder-white p-4 rounded-xl gap-2 z-10">
+
+    <div class="flex flex-col gap-4">
+      <div class="flex flex-row items-center gap-6">
+        <div class="flex-1">
+          <p class="text-sm">Theme</p>
+        </div>
+
+        <div
+          class="flex flex-row flex-1 rounded-md bg-ash p-1 border border-white/10 gap-1 cursor-pointer h-10">
+          <div class="flex-1 flex flex-row justify-center rounded-sm py-1 px-3 hover:bg-blinking-blue/50">
+            <SunIcon width={20} />
+          </div>
+
+          <div
+            class="flex-1 flex flex-row justify-center rounded-sm py-1 px-3 hover:bg-blinking-blue/50 bg-blinking-blue">
+            <MoonIcon width={20} />
+          </div>
+        </div>
+      </div>
+
+      <div class="flex flex-row items-center gap-6">
+        <div class="flex-1">
+          <p class="text-sm">Read mode</p>
+        </div>
+
+        <div
+          class="flex flex-row flex-1 text-xs justify-between rounded-md bg-ash p-1 border border-white/10 gap-1 h-10">
+
+          <button
+            id="btn-read-mode-antropian"
+            data-is-selected="true"
+            class="flex flex-row center flex-1 rounded-sm py-1 px-3 hover:bg-blinking-blue/50 not-zen:bg-blinking-blue content-center cursor-pointer">
+            Antropian
+          </button>
+
+          <button
+            id="btn-read-mode-zen"
+            class="flex flex-row center flex-1 rounded-sm py-1 px-3 hover:bg-blinking-blue/50 zen:bg-blinking-blue content-center cursor-pointer">
+            Zen
+          </button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div id="settings-trigger" class="cursor-pointer px-3 py-3 rounded-sm text-white/70">
+    <SettingsIcon width={20} />
+  </div>
+
+
+</div>
+
+<script>
+  import { animate, type ValueTransition } from 'motion';
+
+  const ANIMATION_OPTIONS: ValueTransition = { type: 'spring', stiffness: 200, damping: 8, mass: 1 };
+  const trigger = document.getElementById('settings-trigger')!;
+  const container = document.getElementById('settings-container')!;
+  const readModeAntropianButton = document.getElementById('btn-read-mode-antropian') as HTMLButtonElement;
+  const readModeZenButton = document.getElementById('btn-read-mode-zen') as HTMLButtonElement;
+
+  const onToggleSettingsOpen = () => {
+    if (trigger.dataset.isOpen === 'true') {
+      animate(trigger, { rotate: [30, 0] }, ANIMATION_OPTIONS);
+      trigger.dataset.isOpen = 'false';
+    } else {
+      animate(trigger, { rotate: [0, 30] }, ANIMATION_OPTIONS);
+      trigger.dataset.isOpen = 'true';
+    }
+  };
+
+  const onToggleReadMode = (mode: 'antropian' | 'zen') => () => {
+    document.documentElement.dataset.readmode = mode;
+  };
+
+  trigger.addEventListener('click', onToggleSettingsOpen);
+  readModeAntropianButton.addEventListener('click', onToggleReadMode('antropian'));
+  readModeZenButton.addEventListener('click', onToggleReadMode('zen'));
+</script>
+

@@ -1,6 +1,7 @@
 @import "tailwindcss";
 
 @custom-variant dark (&:where(.dark, .dark *));
+@custom-variant zen (&:where([data-readmode="zen"] *));
 
 @theme {
   --navbar-width: 44px;
@@ -25,6 +26,8 @@
   --color-tory-blue: #374d86;
   --color-prime-purple: #636395;
   --color-ash: #0e0f17;
+  --color-ash-10: color-mix(in hsl, var(--color-ash) 95%, var(--color-white));
+  --color-ash-20: color-mix(in hsl, var(--color-ash) 80%, var(--color-white));
 
   --color-blog-text: #c2c2c8;
 
@@ -379,6 +382,16 @@
     h6 {
       @apply mt-12 text-start;
     }
+  }
+}
+
+html[data-readmode="zen"] .prose {
+  a {
+    @apply text-white font-bold underline;
+  }
+
+  hr {
+    @apply border-t-0 my-12;
   }
 }
 

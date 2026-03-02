@@ -22,15 +22,15 @@
     "@astrojs/sitemap": "^3.7.0",
     "@tailwindcss/vite": "^4.2.1",
     "astro": "^5.18.0",
-    "motion": "^12.34.3",
+    "motion": "^12.34.4",
     "tailwindcss": "^4.2.1"
   },
   "devDependencies": {
-    "@biomejs/biome": "2.4.4",
+    "@biomejs/biome": "2.4.5",
     "@commitlint/config-conventional": "^20.4.2",
     "@playwright/test": "^1.58.2",
     "commitlint": "^20.4.2",
-    "lefthook": "^2.1.1"
+    "lefthook": "^2.1.2"
   },
   "packageManager": "pnpm@10.30.3",
   "commitlint": {
