@@ -22,35 +22,41 @@ const parsedNote = parseMarkdown(note);
 ---
 
 <span class="sidenote-wrapper relative inline cursor-help zen:cursor-auto">
-  <span class="sidenote-trigger text-white font-bold zen:font-normal">
+  <span class="sidenote-trigger text-ash dark:text-antropia-white font-bold zen:font-normal">
     <slot />
   </span>
 
   <span
-    class="sidenote-content fixed sidenote:w-64 p-4 bg-rose-950 sidenote:bg-sasquatch-socks/10 text-white sidenote:text-right max-sidenote:border-t-10 sidenote:border-r-10 border-sasquatch-socks text-base leading-relaxed opacity-0 pointer-events-none transition-opacity duration-200 z-10 sidenote:block font-normal zen:hidden"
+    class="sidenote-content fixed sidenote:w-64 p-4 bg-rose-950 sidenote:bg-sasquatch-socks/10 text-ash dark:text-antropia-white sidenote:text-right max-sidenote:border-t-10 sidenote:border-r-10 border-sasquatch-socks text-base leading-relaxed opacity-0 pointer-events-none transition-opacity duration-200 z-10 sidenote:block font-normal zen:hidden"
     role="tooltip"
     set:html={parsedNote}
   />
 </span>
 
 <style>
+  :root {
+    --side-note-trigger-color: var(--color-hello-summer);
+    --side-note-trigger-hover-color: var(--color-sasquatch-socks);
+  }
+
+  html.dark {
+    --side-note-trigger-color: var(--color-blinking-blue);
+    --side-note-trigger-hover-color: var(--color-sasquatch-socks);
+  }
+
   .sidenote-trigger {
     background: linear-gradient(
       to bottom,
-      transparent 0%,
       transparent 50%,
-      var(--color-blinking-blue) 50%,
-      var(--color-blinking-blue) 100%
+      var(--side-note-trigger-color) 50%
     );
   }
 
   .sidenote-trigger:hover {
     background: linear-gradient(
       to bottom,
-      transparent 0%,
       transparent 50%,
-      var(--color-sasquatch-socks) 50%,
-      var(--color-sasquatch-socks) 100%
+      var(--side-note-trigger-hover-color) 50%
     );
   }
 

@@ -1,8 +1,14 @@
 ---
 import logo from '../../assets/blog.logo.svg';
+
+interface Props {
+  honorZenMode?: boolean;
+}
+
+const { honorZenMode } = Astro.props;
 ---
 
-<header class="zen:hidden">
+<header class=`${honorZenMode ? 'zen:hidden' : ''}`>
   <nav class="px-8 py-4 md:mb-10">
     <div
       class="flex flex-row items-center justify-center gap-6 md:justify-between"
@@ -16,8 +22,12 @@ import logo from '../../assets/blog.logo.svg';
       <h1
         class="font-nudica flex-1 text-center text-2xl font-black uppercase md:mr-20 md:text-4xl"
       >
-        <a class="text-antropia-white hover:text-sasquatch-socks " href="/blog">The Antropia Blog</a>
+        <a class="text-blinking-blue dark:text-antropia-white hover:text-sasquatch-socks " href="/blog">The Antropia
+          Blog</a>
       </h1>
     </div>
   </nav>
+</header>
+<header class=`${honorZenMode ? 'flex not-zen:hidden' : 'hidden'}`>
+  <div class="m-auto w-full max-w-225 px-4 pt-10"><a href="/blog">← Back to blog</a></div>
 </header>

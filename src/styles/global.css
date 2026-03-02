@@ -25,11 +25,21 @@
   --color-alucards-night: #030454;
   --color-tory-blue: #374d86;
   --color-prime-purple: #636395;
-  --color-ash: #0e0f17;
-  --color-ash-10: color-mix(in hsl, var(--color-ash) 95%, var(--color-white));
-  --color-ash-20: color-mix(in hsl, var(--color-ash) 80%, var(--color-white));
 
-  --color-blog-text: #c2c2c8;
+  --color-ash: #0e0f17;
+  --color-ash-10: color-mix(in hsl, var(--color-ash) 95%, var(--color-antropia-white));
+  --color-ash-20: color-mix(in hsl, var(--color-ash) 80%, var(--color-antropia-white));
+
+  --color-antropia-white-10: color-mix(in hsl, var(--color-ash), var(--color-antropia-white) 95%);
+  --color-antropia-white-20: color-mix(in hsl, var(--color-ash), var(--color-antropia-white) 80%);
+
+  --color-link: var(--color-blinking-blue);
+  --color-separator: color-mix(in hsl, var(--color-ash) 25%, var(--color-antropia-white));
+  --color-blog-header: var(--color-ash);
+  --color-blog-text: color-mix(in hsl, var(--color-ash) 95%, var(--color-antropia-white));
+  --color-blog-text-strong: var(--color-ash);
+  --color-blog-blockquote: var(--color-sasquatch-socks);
+  --color-blog-img-border: color-mix(in srgb, var(--color-ash) 20%, transparent);
 
   --text-10xl: 10rem;
   --text-10xl--line-height: 0.8;
@@ -53,6 +63,18 @@
   --spacing-navbar-xl: var(--navbar-width-xl);
 
   --ease-bounce: cubic-bezier(0.34, 1.15, 0.64, 1);
+}
+
+@layer base {
+  .dark {
+    --color-link: var(--color-sasquatch-socks);
+    --color-separator: color-mix(in hsl, var(--color-antropia-white) 15%, var(--color-ash));
+    --color-blog-header: var(--color-antropia-white);
+    --color-blog-text: color-mix(in hsl, var(--color-ash) 25%, var(--color-antropia-white));
+    --color-blog-text-strong: var(--color-antropia-white);
+    --color-blog-blockquote: var(--color-ice-cold-stare);
+    --color-blog-img-border: color-mix(in hsl, var(--color-antropia-white) 20%, transparent);
+  }
 }
 
 @utility center {
@@ -267,7 +289,7 @@
   h4,
   h5,
   h6 {
-    @apply font-nudica text-antropia-white mt-2 font-bold;
+    @apply font-nudica text-blog-header mt-2 font-bold;
     margin: 0.75em 0 0.2em;
   }
 
@@ -289,12 +311,12 @@
 
   b,
   strong {
-    @apply text-antropia-white font-bold;
+    @apply text-blog-text-strong font-bold;
   }
 
   img {
+    @apply border rounded-2xl border-blog-img-border;
     margin: 2rem auto;
-    border-radius: 24px;
   }
 
   p {
@@ -302,7 +324,7 @@
   }
 
   a {
-    @apply text-sasquatch-socks font-bold underline;
+    @apply text-link font-bold underline;
   }
 
   ol,
@@ -332,11 +354,12 @@
   }
 
   code {
-    @apply text-sasquatch-socks;
+    @apply text-blinking-blue dark:text-sasquatch-socks;
     border-radius: 4px;
   }
 
   blockquote {
+    @apply text-blog-blockquote px-2 py-2 xl:px-10 xl:py-6 text-center text-2xl italic font-medium dark:font-normal;
     line-height: 1.2;
   }
 
@@ -345,20 +368,20 @@
   }
 
   hr {
-    @apply border-t-hello-summer/25 mt-12;
+    @apply border-t-separator mt-12;
     width: 100%;
   }
 
   .footnote {
-    @apply text-ice-cold-stare/80 pb-4 text-center text-base font-light italic;
+    @apply text-blinking-blue dark:text-ice-cold-stare/80 pb-4 text-center text-base font-light italic;
   }
 
   #footnote-label {
-    @apply text-3xl text-white;
+    @apply text-3xl text-blog-header;
   }
 
   .footnotes ol li {
-    @apply marker:text-sasquatch-socks marker:font-bold;
+    @apply marker:text-link marker:font-bold;
   }
 
   .footnotes ol li p {
@@ -366,11 +389,7 @@
   }
 
   .footnotes ol li p a {
-    @apply text-candlelight-peach font-light italic;
-  }
-
-  blockquote {
-    @apply text-ice-cold-stare px-2 py-2 xl:px-10 xl:py-6 text-center text-2xl italic;
+    @apply text-link font-light italic;
   }
 
   @media (min-width: 1280px) {
@@ -387,11 +406,23 @@
 
 html[data-readmode="zen"] .prose {
   a {
-    @apply text-white font-bold underline;
+    @apply text-ash dark:text-antropia-white font-bold underline decoration-4;
+  }
+
+  code {
+    @apply text-ash dark:text-antropia-white;
   }
 
   hr {
     @apply border-t-0 my-12;
+  }
+
+  blockquote {
+    @apply text-ash dark:text-antropia-white;
+  }
+
+  .footnote {
+    @apply text-ash dark:text-antropia-white;
   }
 }
 

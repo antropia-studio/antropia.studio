@@ -42,16 +42,17 @@ const isRoot = !!headings;
 
 {isRoot ? (
 <nav class="hidden xl:flex flex-row items-center fixed inset-y-0 right-10 max-w-xs text-sm zen:hidden">
-  <div id="toc-trigger" class="cursor-pointer px-3 py-3 rounded-sm text-white/70">
+  <div id="toc-trigger" class="cursor-pointer px-3 py-3 rounded-sm text-ash/70 dark:text-antropia-white/70">
     <TableOfContentsIcon />
   </div>
 
   <div id="toc-container"
-       class="hidden absolute right-0 px-4 pt-6 pb-3 whitespace-nowrap border-2 border-white/70 rounded-xl text-sm bg-ash">
+       class="hidden absolute right-0 px-4 pt-6 pb-3 whitespace-nowrap border dark:border-2 border-ash/70 dark:border-antropia-white/70 rounded-xl text-sm bg-antropia-white-10 dark:bg-ash">
     <ul>
       {tree.map((node) => (
         <li class="mb-3">
-          <a href={`#${node.slug}`} class="p-1 hover:bg-sasquatch-socks rounded-sm">{node.text}</a>
+          <a href={`#${node.slug}`}
+             class="p-1 hover:bg-blinking-blue hover:text-antropia-white dark:hover:bg-sasquatch-socks rounded-sm">{node.text}</a>
           {node.children.length > 0 &&
             <Astro.self nodes={node.children} />}
         </li>
@@ -87,7 +88,8 @@ const isRoot = !!headings;
 <ul class="ml-6">
   {tree.map((node) => (
     <li class="mt-2">
-      <a href={`#${node.slug}`} class="p-1 hover:bg-sasquatch-socks rounded-sm">{node.text}</a>
+      <a href={`#${node.slug}`}
+         class="p-1 hover:bg-blinking-blue hover:text-antropia-white dark:hover:bg-sasquatch-socks rounded-sm">{node.text}</a>
       {node.children.length > 0 &&
         <Astro.self nodes={node.children} />}
     </li>

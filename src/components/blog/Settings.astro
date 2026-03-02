@@ -4,87 +4,133 @@ import SettingsIcon from '../../assets/icons/settings.svg';
 import SunIcon from '../../assets/icons/sun.svg';
 ---
 
-<div class="xl:flex flex-col items-start fixed bottom-6 left-6">
-  <div id="settings-container"
-       class="flex flex-col bg-ash-10 border boder-white p-4 rounded-xl gap-2 z-10">
+<div id="loading-screen" class="fixed inset-0 bg-ash transition-opacity duration-200" />
 
-    <div class="flex flex-col gap-4">
-      <div class="flex flex-row items-center gap-6">
-        <div class="flex-1">
-          <p class="text-sm">Theme</p>
-        </div>
+<div class="hidden xl:flex flex-col items-start fixed bottom-6 left-6">
+  <div id="settings-container" class="hidden opacity-0">
+    <div
+      class="flex flex-col bg-antropia-white-10 dark:bg-ash-10 border border-ash dark:border-antropia-white px-4 py-3 rounded-xl gap-2 z-10">
 
-        <div
-          class="flex flex-row flex-1 rounded-md bg-ash p-1 border border-white/10 gap-1 cursor-pointer h-10">
-          <div class="flex-1 flex flex-row justify-center rounded-sm py-1 px-3 hover:bg-blinking-blue/50">
-            <SunIcon width={20} />
+      <div class="flex flex-col gap-4">
+        <div class="flex flex-row items-center gap-6">
+          <div class="flex-1">
+            <p class="text-sm">Theme</p>
           </div>
 
           <div
-            class="flex-1 flex flex-row justify-center rounded-sm py-1 px-3 hover:bg-blinking-blue/50 bg-blinking-blue">
-            <MoonIcon width={20} />
+            class="flex flex-row flex-1 rounded-md dark:bg-ash bg-antropia-white p-1 border border-ash/40 dark:border-white/10 gap-1 cursor-pointer h-10">
+            <button
+              id="btn-theme-light"
+              class="flex-1 flex flex-row justify-center rounded-sm py-1 px-3 hover:bg-blinking-blue/60 dark:hover:bg-blinking-blue/50 not-dark:bg-blinking-blue text-antropia-white">
+              <SunIcon width={20} />
+            </button>
+
+            <button
+              id="btn-theme-dark"
+              class="flex-1 flex flex-row justify-center rounded-sm py-1 px-3 hover:bg-blinking-blue/60 dark:hover:bg-blinking-blue/50 dark:bg-blinking-blue hover:text-antropia-white">
+              <MoonIcon width={20} />
+            </button>
           </div>
         </div>
-      </div>
 
-      <div class="flex flex-row items-center gap-6">
-        <div class="flex-1">
-          <p class="text-sm">Read mode</p>
-        </div>
+        <div class="flex flex-row items-center gap-6">
+          <div class="flex-1">
+            <p class="text-sm">Read mode</p>
+          </div>
 
-        <div
-          class="flex flex-row flex-1 text-xs justify-between rounded-md bg-ash p-1 border border-white/10 gap-1 h-10">
+          <div
+            class="flex flex-row flex-1 text-xs justify-between rounded-md dark:bg-ash bg-antropia-white p-1 border border-ash/40 dark:border-white/10 gap-1 h-10">
 
-          <button
-            id="btn-read-mode-antropian"
-            data-is-selected="true"
-            class="flex flex-row center flex-1 rounded-sm py-1 px-3 hover:bg-blinking-blue/50 not-zen:bg-blinking-blue content-center cursor-pointer">
-            Antropian
-          </button>
+            <button
+              id="btn-read-mode-antropian"
+              data-is-selected="true"
+              class="flex flex-row center flex-1 rounded-sm py-1 px-3 hover:bg-blinking-blue/80 dark:hover:bg-blinking-blue/40 not-zen:bg-blinking-blue hover:text-antropia-white not-zen:text-antropia-white content-center cursor-pointer">
+              Antropian
+            </button>
 
-          <button
-            id="btn-read-mode-zen"
-            class="flex flex-row center flex-1 rounded-sm py-1 px-3 hover:bg-blinking-blue/50 zen:bg-blinking-blue content-center cursor-pointer">
-            Zen
-          </button>
+            <button
+              id="btn-read-mode-zen"
+              class="flex flex-row center flex-1 rounded-sm py-1 px-3 hover:bg-blinking-blue/80 dark:hover:bg-blinking-blue/40 zen:bg-blinking-blue hover:text-antropia-white zen:text-antropia-white content-center cursor-pointer">
+              Zen
+            </button>
+          </div>
         </div>
       </div>
     </div>
 
   </div>
 
-  <div id="settings-trigger" class="cursor-pointer px-3 py-3 rounded-sm text-white/70">
+  <div id="settings-trigger"
+       class="cursor-pointer px-3 py-3 rounded-sm text-ash/70 dark:text-antropia-white/70">
     <SettingsIcon width={20} />
   </div>
-
-
 </div>
 
 <script>
   import { animate, type ValueTransition } from 'motion';
 
   const ANIMATION_OPTIONS: ValueTransition = { type: 'spring', stiffness: 200, damping: 8, mass: 1 };
+  const loading = document.getElementById('loading-screen')!;
   const trigger = document.getElementById('settings-trigger')!;
   const container = document.getElementById('settings-container')!;
+  // Theme
+  const themeLightButton = document.getElementById('btn-theme-light') as HTMLButtonElement;
+  const themeDarkButton = document.getElementById('btn-theme-dark') as HTMLButtonElement;
+  // Read mode
   const readModeAntropianButton = document.getElementById('btn-read-mode-antropian') as HTMLButtonElement;
   const readModeZenButton = document.getElementById('btn-read-mode-zen') as HTMLButtonElement;
 
   const onToggleSettingsOpen = () => {
-    if (trigger.dataset.isOpen === 'true') {
-      animate(trigger, { rotate: [30, 0] }, ANIMATION_OPTIONS);
-      trigger.dataset.isOpen = 'false';
-    } else {
+    if (!trigger.dataset.isOpen) {
       animate(trigger, { rotate: [0, 30] }, ANIMATION_OPTIONS);
+      animate(container, { opacity: 1 }, { duration: 0.1 });
+      container.classList.remove('hidden');
       trigger.dataset.isOpen = 'true';
+    } else {
+      animate(trigger, { rotate: [30, 0] }, ANIMATION_OPTIONS);
+      animate(container, { opacity: 0 }, { duration: 0.1 }).then(() => {
+        container.classList.add('hidden');
+      });
+      delete trigger.dataset.isOpen;
     }
+  };
+
+  const onToggleTheme = (theme: 'light' | 'dark') => () => {
+    if (theme === 'light') {
+      document.documentElement.classList.remove('dark');
+    } else {
+      document.documentElement.classList.add('dark');
+    }
+
+    localStorage.setItem('theme', theme);
   };
 
   const onToggleReadMode = (mode: 'antropian' | 'zen') => () => {
     document.documentElement.dataset.readmode = mode;
+    localStorage.setItem('readmode', mode);
   };
 
   trigger.addEventListener('click', onToggleSettingsOpen);
   readModeAntropianButton.addEventListener('click', onToggleReadMode('antropian'));
   readModeZenButton.addEventListener('click', onToggleReadMode('zen'));
+  themeLightButton.addEventListener('click', onToggleTheme('light'));
+  themeDarkButton.addEventListener('click', onToggleTheme('dark'));
+
+  const theme = localStorage.getItem('theme');
+  if (theme) {
+    if (theme === 'light') {
+      document.documentElement.classList.remove('dark');
+    } else {
+      document.documentElement.classList.add('dark');
+    }
+  }
+
+  const readMode = localStorage.getItem('readmode');
+  if (readMode) {
+    document.documentElement.dataset.readmode = readMode;
+  }
+
+  loading.classList.add('opacity-0');
+  loading.classList.add('pointer-events-none');
 </script>
 

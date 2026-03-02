@@ -1,5 +1,5 @@
 ---
-import antropiaLogoBlob from '../assets/antropia.blob.white.svg';
+import antropiaLogoBlob from '../assets/antropia.blob.white.svg?raw';
 import antropiaLogo from '../assets/logo.svg';
 import antropiaLogoDark from '../assets/logo-neg.svg';
 import Social from './Social.astro';
@@ -17,21 +17,19 @@ const { isDark, includeContactUs, includeRss } = Astro.props;
 
   {includeContactUs &&
     <div class="flex flex-col items-center gap-6">
-      <hr class="border-hello-summer/20 w-screen" />
+      <hr class="border-separator w-screen" />
 
-      <div class="py-4 px-6 max-w-3xl my-4 text-white">
+      <div class="py-4 px-6 max-w-3xl my-4 text-ash dark:text-antropia-white">
         <div class="flex flex-row gap-9 items-center">
-          <img src={antropiaLogoBlob.src} width="80" alt="" class="hidden xl:block" />
+          <div class="text-blinking-blue dark:text-antropia-white [&_svg]:w-navbar-xl" set:html={antropiaLogoBlob} />
 
           <div class="flex flex-col">
             <p class="text-3xl xl:text-4xl font-black text-center xl:text-start">Let's build something together!</p>
-            <p class="text-lg font-extralight hidden xl:block italic">We are the product studio turning your ideas
-              into
-              real
-              apps.</p>
+            <p class="text-lg font-extralight hidden xl:block italic">We are the product studio turning your ideas into
+              real apps.</p>
 
             <a href="/#contact"
-               class="bg-white text-blinking-blue font-bold text-center uppercase text-xl px-8 py-2 rounded-lg hover:bg-blinking-blue hover:text-white cursor-pointer transition mt-6 xl:mt-4">
+               class="bg-blinking-blue dark:bg-antropia-white text-antropia-white dark:text-blinking-blue font-bold text-center uppercase text-xl px-8 py-2 rounded-lg hover:bg-antropia-white hover:text-blinking-blue hover:outline hover:outline-blinking-blue dark:hover:bg-blinking-blue dark:hover:text-antropia-white cursor-pointer transition mt-6 xl:mt-4">
               Contact us
             </a>
           </div>
@@ -42,12 +40,12 @@ const { isDark, includeContactUs, includeRss } = Astro.props;
   }
 
   <p
-    class={`mx-4 xl:mx-0 text-center text-sm ${isDark ? 'text-alucards-night/60' : 'text-white/60'}`}>
+    class={`mx-4 xl:mx-0 text-center text-sm ${isDark ? 'text-alucards-night/60' : 'text-ash/60 dark:text-antropia-white/60'}`}>
     We collect aggregate and anonymous analytics.
     <br />
     For the sake of transparency, you can see the dashboard
     <a href="https://antropiastudio.pirsch.io"
-       class={`underline ${isDark ? 'text-alucards-night' : 'text-white'}`}>here</a
+       class={`underline ${isDark ? 'text-alucards-night' : 'font-bold text-ash hover:text-blinking-blue dark:text-antropia-white'}`}>here</a
     >.
 
     {includeRss &&
@@ -55,14 +53,16 @@ const { isDark, includeContactUs, includeRss } = Astro.props;
         <br />
         We also publish our thoughts via
         <a href="/blog/rss.xml"
-           class={`underline ${isDark ? 'text-alucards-night' : 'text-white'}`}>RSS</a>.
+           class={`underline ${isDark ? 'text-alucards-night' : 'font-bold text-ash hover:text-blinking-blue dark:text-antropia-white'}`}>RSS</a>.
       </>}
   </p>
 
   <Social isDark={isDark} />
 
   <div class="flex flex-col items-center gap-2 xl:flex-row xl:gap-4">
-    <img src={isDark ? antropiaLogoDark.src : antropiaLogo.src} width="100" alt="Antropia Homepage" />
-    <span class={`text-xs xl:text-sm ${isDark ? 'text-alucards-night' : 'text-white'}`}>@2026 Antropia Studio</span>
+    <img src={isDark ? antropiaLogoDark.src : antropiaLogo.src} width="100" alt="Antropia Homepage"
+         class="hidden dark:flex" />
+    <span
+      class={`text-xs xl:text-sm ${isDark ? 'text-alucards-night' : 'text-ash dark:text-antropia-white'}`}>@2026 Antropia Studio</span>
   </div>
 </footer>

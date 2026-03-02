@@ -5,6 +5,7 @@ import Head from '../../components/blog/Head.astro';
 import Header from '../../components/blog/Header.astro';
 import Pagination from '../../components/blog/Pagination.astro';
 import PostMetadata from '../../components/blog/PostMetadata.astro';
+import Settings from '../../components/blog/Settings.astro';
 import Footer from '../../components/Footer.astro';
 import { BLOG_DESCRIPTION, BLOG_TITLE, slugifyKeyword } from '../../consts';
 
@@ -16,20 +17,19 @@ const basePath = activeKeyword
 type Post = CollectionEntry<'blog' | 'drafts'>;
 ---
 
-<!doctype html>
 <html class="dark" lang="en">
 <Head
   title={BLOG_TITLE}
   description={BLOG_DESCRIPTION}
   image="/images/social.blog.png"
 />
-<body class="bg-antropia-white dark:bg-ash">
+<body class="bg-antropia-white dark:bg-ash text-black dark:text-antropia-white">
 <Header />
 <main class=`center font-nudica flex px-6 ${activeKeyword ? '' : 'pt-10 xl:pt-20'}`>
   <section class="max-w-5xl">
     {activeKeyword && (
       <div class="mb-13 flex flex-col items-center gap-3">
-        <p class="text-white/60 text-xl font-light">
+        <p class="text-ash/60 dark:text-antropia-white/60 text-xl font-light">
           <span class="italic">Filtering by</span> <span
           class="px-1 py-0.5 rounded-sm bg-blinking-blue hover:bg-sasquatch-socks font-black text-white uppercase text-sm">{activeKeyword}</span>
         </p>
@@ -47,13 +47,13 @@ type Post = CollectionEntry<'blog' | 'drafts'>;
             <li
               class="text-blinking-blue dark:text-antropia-white mb-16 flex flex-col items-center justify-center no-underline">
               <p
-                class="font-round8 text-blinking-blue hover:dark:text-sasquatch-socks mb-4 text-center text-[20vw] leading-none uppercase xl:text-8xl dark:text-white">
+                class="font-round8 text-ash hover:text-blinking-blue hover:dark:text-sasquatch-socks mb-4 text-center text-[20vw] leading-none uppercase xl:text-8xl dark:text-antropia-white">
                 <a class="no-underline" href={url}>
                   {post.data.title}
                 </a>
               </p>
 
-              <a href={url}>
+              <a href={url} class="zen:hidden">
                 <Image
                   width={720}
                   height={400}
@@ -63,17 +63,17 @@ type Post = CollectionEntry<'blog' | 'drafts'>;
                 />
               </a>
 
-              <div class="py-6">
+              <div class="py-6 zen:hidden">
                 <PostMetadata {...post.data} />
               </div>
 
               <p
-                class="text-alucards-night w-full py-2 text-center text-xl italic md:w-3/4 md:px-10 dark:text-white/70">
+                class="text-alucards-night w-full py-2 text-center text-xl italic md:w-3/4 md:px-10 dark:text-antropia-white/70">
                 {post.data.description}
               </p>
 
               {(index < posts.length - 1) &&
-                <div class="bg-antropia-white/20 mt-20 h-px w-full" />}
+                <div class="bg-separator mt-16 zen:mt-10 h-px w-full zen:opacity-50" />}
             </li>
           );
         })
@@ -88,5 +88,8 @@ type Post = CollectionEntry<'blog' | 'drafts'>;
 <div class="pb-16">
   <Footer includeRss />
 </div>
+
+<Settings />
+
 </body>
 </html>
