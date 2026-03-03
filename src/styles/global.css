@@ -315,6 +315,7 @@
   }
 
   img {
+    @apply rounded-2xl;
     margin: 2rem auto;
   }
 
