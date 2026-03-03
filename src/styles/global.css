@@ -315,7 +315,6 @@
   }
 
   img {
-    @apply border rounded-2xl border-blog-img-border;
     margin: 2rem auto;
   }
 
