@@ -6,11 +6,12 @@ import Social from './Social.astro';
 
 interface Props {
   isDark?: boolean;
+  isLight?: boolean;
   includeContactUs?: boolean;
   includeRss?: boolean;
 }
 
-const { isDark, includeContactUs, includeRss } = Astro.props;
+const { isDark, isLight, includeContactUs, includeRss } = Astro.props;
 ---
 
 <footer class="mt-8 flex flex-col items-center gap-6">
@@ -21,7 +22,9 @@ const { isDark, includeContactUs, includeRss } = Astro.props;
 
       <div class="py-4 px-6 max-w-3xl my-4 text-ash dark:text-antropia-white">
         <div class="flex flex-row gap-9 items-center">
-          <div class="text-blinking-blue dark:text-antropia-white [&_svg]:w-navbar-xl" set:html={antropiaLogoBlob} />
+
+          <video id="logo-video" width={128} autoplay loop>
+          </video>
 
           <div class="flex flex-col">
             <p class="text-3xl xl:text-4xl font-black text-center xl:text-start">Let's build something together!</p>
@@ -40,12 +43,12 @@ const { isDark, includeContactUs, includeRss } = Astro.props;
   }
 
   <p
-    class={`mx-4 xl:mx-0 text-center text-sm ${isDark ? 'text-alucards-night/60' : 'text-ash/60 dark:text-antropia-white/60'}`}>
+    class={`mx-4 xl:mx-0 text-center text-sm ${isDark ? 'text-alucards-night/60' : isLight ? 'text-antropia-white/60' : 'text-ash/60 dark:text-antropia-white/60'}`}>
     We collect aggregate and anonymous analytics.
     <br />
     For the sake of transparency, you can see the dashboard
     <a href="https://antropiastudio.pirsch.io"
-       class={`underline ${isDark ? 'text-alucards-night' : 'font-bold text-ash hover:text-blinking-blue dark:text-antropia-white'}`}>here</a
+       class={`underline ${isDark ? 'text-alucards-night' : isLight ? 'text-antropia-white' : 'font-bold text-ash hover:text-blinking-blue dark:text-antropia-white'}`}>here</a
     >.
 
     {includeRss &&
@@ -53,16 +56,33 @@ const { isDark, includeContactUs, includeRss } = Astro.props;
         <br />
         We also publish our thoughts via
         <a href="/blog/rss.xml"
-           class={`underline ${isDark ? 'text-alucards-night' : 'font-bold text-ash hover:text-blinking-blue dark:text-antropia-white'}`}>RSS</a>.
+           class={`underline ${isDark ? 'text-alucards-night' : isLight ? 'text-antropia-white' : 'font-bold text-ash hover:text-blinking-blue dark:text-antropia-white'}`}>RSS</a>.
       </>}
   </p>
 
-  <Social isDark={isDark} />
+  <Social isDark={isDark} isLight={isLight} />
 
   <div class="flex flex-col items-center gap-2 xl:flex-row xl:gap-4">
     <img src={isDark ? antropiaLogoDark.src : antropiaLogo.src} width="100" alt="Antropia Homepage"
          class="hidden dark:flex" />
     <span
-      class={`text-xs xl:text-sm ${isDark ? 'text-alucards-night' : 'text-ash dark:text-antropia-white'}`}>@2026 Antropia Studio</span>
+      class={`text-xs xl:text-sm ${isDark ? 'text-alucards-night' : isLight ? 'text-antropia-white' : 'text-ash dark:text-antropia-white'}`}>@2026 Antropia Studio</span>
   </div>
 </footer>
+
+<script>
+  const video = document.getElementById('logo-video');
+
+  function updateVideoSrc() {
+    const isDark = document.documentElement.classList.contains('dark');
+    video.src = isDark
+      ? '/images/antropia/logo-animation-dark.webm'
+      : '/images/antropia/logo-animation-light.webm';
+    video.play();
+  }
+
+  updateVideoSrc();
+
+  new MutationObserver(updateVideoSrc)
+    .observe(document.documentElement, { attributeFilter: ['class'] });
+</script>
