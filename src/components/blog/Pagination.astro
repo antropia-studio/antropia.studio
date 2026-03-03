@@ -21,33 +21,30 @@ function pageUrl(pageNum: number): string {
 }
 ---
 
-<nav class="mt-16 mb-8 flex items-center justify-center gap-2 font-nudica text-lg">
-  {page.url.prev ? (
+<nav class="mt-16 mb-8 flex items-center justify-center gap-2 font-nudica text-lg font-black">
+  {page.url.prev && (
     <a href={page.url.prev}
-       class="text-white/60 hover:text-sasquatch-socks transition-colors h-11 w-11 text-center content-center">
+       class="text-link hover:text-sasquatch-socks transition-colors h-11 w-11 text-center content-center zen:text-ash zen:dark:text-antropia-white">
       &larr;
     </a>
-  ) : (
-    <span class="text-white/20 h-11 w-11 text-center content-center">&larr;</span>
   )}
 
   {pages.map((pageNum) =>
     pageNum === currentPage ? (
-      <span class="text-sasquatch-socks font-bold h-11 w-11 text-center content-center">{pageNum}</span>
+      <span
+        class="dark:text-antropia-white font-bold h-11 w-11 text-center content-center zen:rounded-full zen:border">{pageNum}</span>
     ) : (
       <a href={pageUrl(pageNum)}
-         class="text-white/60 hover:text-white transition-colors h-11 w-11 text-center content-center">
+         class="text-link transition-colors h-11 w-11 text-center content-center zen:text-ash zen:dark:text-antropia-white">
         {pageNum}
       </a>
     ),
   )}
 
-  {page.url.next ? (
+  {page.url.next && (
     <a href={page.url.next}
-       class="text-white/60 hover:text-sasquatch-socks transition-colors h-11 w-11 text-center content-center">
+       class="text-link hover:text-sasquatch-socks transition-colors h-11 w-11 text-center content-center zen:text-ash zen:dark:text-antropia-white">
       &rarr;
     </a>
-  ) : (
-    <span class="text-white/20 h-11 w-11 text-center content-center">&rarr;</span>
   )}
 </nav>

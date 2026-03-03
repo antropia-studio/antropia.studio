@@ -294,7 +294,7 @@
   }
 
   h1 {
-    @apply text-6xl uppercase;
+    @apply text-6xl uppercase font-black tracking-tighter;
   }
 
   h2 {

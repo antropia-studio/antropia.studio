@@ -45,9 +45,9 @@ type Post = CollectionEntry<'blog' | 'drafts'>;
 
           return (
             <li
-              class="text-blinking-blue dark:text-antropia-white mb-16 flex flex-col items-center justify-center no-underline">
+              class="text-blinking-blue dark:text-antropia-white mb-16 flex flex-col zen:flex-row center no-underline zen:items-start">
               <p
-                class="font-round8 text-ash hover:text-blinking-blue hover:dark:text-sasquatch-socks mb-4 text-center text-[20vw] leading-none uppercase xl:text-8xl dark:text-antropia-white">
+                class="font-round8 text-ash hover:text-blinking-blue hover:dark:text-sasquatch-socks mb-4 text-center text-[20vw] leading-none uppercase xl:text-8xl dark:text-antropia-white zen:xl:text-7xl zen:font-light zen:leading-[80%] zen:text-end zen:flex-1 zen:mb-0 zen:mt-2">
                 <a class="no-underline" href={url}>
                   {post.data.title}
                 </a>
@@ -68,12 +68,12 @@ type Post = CollectionEntry<'blog' | 'drafts'>;
               </div>
 
               <p
-                class="text-alucards-night w-full py-2 text-center text-xl italic md:w-3/4 md:px-10 dark:text-antropia-white/70">
+                class="text-alucards-night w-full py-2 text-center text-xl italic md:w-3/4 md:px-10 dark:text-antropia-white/70 zen:text-start zen:flex-2 zen:py-0">
                 {post.data.description}
               </p>
 
               {(index < posts.length - 1) &&
-                <div class="bg-separator mt-16 zen:mt-10 h-px w-full zen:opacity-50" />}
+                <div class="bg-separator mt-16 zen:mt-10 h-px w-full zen:hidden" />}
             </li>
           );
         })
