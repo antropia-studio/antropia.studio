@@ -294,11 +294,11 @@
   }
 
   h1 {
-    @apply text-6xl uppercase font-black tracking-tighter;
+    @apply wrap-break-word hyphens-auto text-5xl xl:text-6xl uppercase font-black tracking-tighter;
   }
 
   h2 {
-    @apply text-5xl;
+    @apply text-4xl xl:text-5xl;
   }
 
   h3 {
@@ -315,7 +315,7 @@
   }
 
   img {
-    @apply rounded-2xl;
+    @apply rounded-sm xl:rounded-2xl;
     margin: 2rem auto;
   }
 

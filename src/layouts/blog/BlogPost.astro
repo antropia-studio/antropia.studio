@@ -33,7 +33,7 @@ const { title, description, heroImage, keywords, headings } = Astro.props;
         <p
           id="blog-title"
           data-title={title}
-          class="w-screen font-round8 text-ash mb-0! text-center text-[26vw] whitespace-pre-wrap leading-[80%] font-bold uppercase md:text-9xl xl:text-12xl dark:text-antropia-white px-4 max-w-content zen:text-8xl zen:px-0 zen:text-left zen:mt-10 zen:w-full"
+          class="w-screen font-round8 text-ash mb-0! text-center text-[20vw] whitespace-pre-wrap leading-[80%] font-bold uppercase md:text-9xl xl:text-12xl dark:text-antropia-white px-4 max-w-content zen:text-8xl zen:px-0 zen:text-left zen:mt-10 zen:w-full"
         >
           {title.replace(/ /g, '   ')}
         </p>
@@ -53,9 +53,9 @@ const { title, description, heroImage, keywords, headings } = Astro.props;
               <Image
                 width={1020}
                 height={510}
+                class="rounded-sm xl:rounded-2xl"
                 src={heroImage}
                 alt=""
-                style="border-radius: 1rem"
               />
             )
           }
