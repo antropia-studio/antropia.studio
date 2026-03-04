@@ -1,0 +1,133 @@
+---
+title: "The shopkeeper's dashboard"
+description: "I ran some interviews to real shopkeepers to find the pain points worth solving. Here's what I found: patchwork invoicing, invisible inventory, and margins you can only calculate in your head."
+heroImage: "/blog/the-shopkeepers-dashboard/hero.png"
+keywords: ["product", "build in public"]
+pubDate: 'Mar 04 2026'
+---
+import Callout from "../../components/blog/Callout.astro"
+import SideNote from "../../components/blog/SideNote.astro"
+import Tag from "../../components/blog/Tag.astro"
+
+In the [one-person studio kit](/blog/the-one-person-studio-kit/) I interviewed myself and extracted a bunch of freelancer pains that could become products. This time I went one step further and talked to someone else.
+
+*Progress*.
+
+This time I decided to switch gears and focus on a different domain: **small businesses**. Specifically, an online shop that has recently opened a physical store and is growing their presence.
+
+I sat down with the owner, [Mom Test](https://www.momtestbook.com/) in hand, and asked about her day. It only took us 20 minutes to figure out some of the struggles and pains she actually finds in her daily routine.
+
+It's important to note we didn't talk about what tools she wished she had, nor what she'd pay for. Just... what does a regular Tuesday look like?
+
+That's where the interesting data comes from. Not in wishlists, but in workarounds. When someone is already paying for a solution that doesn't really work, or spending hours patching two services together, that's a real problem. <SideNote note="At least this is the hypothesis I want to verify with this whole experiment.">And real problems are fertile soil for sustainable products</SideNote>.
+
+Without more preamble, here are the problems I surfaced while running the exercise.
+
+<Callout title="Still ideas, not products" icon="note">
+  None of this is built or committed to. These are directions I'm exploring, shaped by a real conversation, but still very much in the "should I keep pulling this thread?" phase.
+</Callout>
+
+---
+
+# Patch-working invoices
+
+This one hit close to home because I have [the same problem](http://localhost:4321/blog/the-one-person-studio-kit/#1-tax-advisor-comms) as a freelancer, but her version is more convoluted.
+
+<Callout title="Weaving the thread" icon="note">
+ This problem really stands out to me because it's being shared by multiple domains. I already talked about **the thread™** in the last post. To recap, a thread is the story about why something is worth pursuing. Now, when multiple threads interact, and reinforce each other, that's a signal I can't ignore. I'm calling this **a braid™**.
+</Callout>
+
+<div className="mt-6" />
+
+In the shopkeepers case the workflow involves invoices arriving by email, but also from other places like Shopify, providers, and more. To make things worse, some shopkeepers have two different tax activities <SideNote note="One of their activities fall under Spain's *recargo de equivalencia* regime, which changes how VAT works. The other doesn't. Shared expenses go in a third folder. If you're not Spanish, just know it's a mess.">with different tax treatments</SideNote>, plus shared expenses.
+
+**Insights and open questions**
+
+- **Invoice source heterogeneity**: Some vendors don't even email invoices. Shopkeepers have to log into their portals and download them manually.
+- **System around this pain.** I've talked to people that leave invoice emails as unread to mark them for later processing. They use multiple directories to separate tax treatments, and Excel trackers on top of their gestoría's own process. These aren't signs of people who're mildly annoyed. This is someone who spent real effort patching a gap that no tool fills for them.
+- **The gestoría angle again**: Just like with freelancers, the relationship with the tax advisor is the bottleneck. Whatever they do internally, the interface with the client is always "upload your stuff to a shared folder." That last mile is the gap. Also, a beautiful **braid™**.
+- **Two tax regimes complicate everything**: This isn't a generic invoicing problem. The fact that they have to split expenses across different fiscal categories makes generic tools kind of useless. They need something that understands (or at least respects) that their business is not a single bucket.
+
+## The invoice bridge
+
+![An AI-generated illustration of a woman upside down drowning in invoices](/blog/the-shopkeepers-dashboard/the-invoice-bridge.png)
+
+> Stop downloading, sorting, and uploading invoices by hand. Let them flow to your tax advisor automatically, split by the tax rules that apply to your business.
+
+The disconnect between daily operations and quarterly tax prep is universal, but for a shopkeeper with multiple tax activities it's amplified. The invoice bridge sits between the mess and the gestoría, quietly organizing things so the quarterly scramble becomes a non-event.
+
+- **Automatic capture**: Connects to your email, Shopify account, and supplier portals to detect invoices as they arrive. No more leaving emails unread as a reminder system.
+- **Smart classification**: Learns which expenses belong to which tax activity. That provider's invoice? Goes to the *recargo* folder. The electricity bill? Shared expenses. You confirm with a tap, not a manual copy-paste-upload cycle.
+- **Adapts to your advisor's setup**: Uploads to Google Drive, Dropbox, or wherever your gestoría expects to find things.
+- **The Excel you don't have to maintain**: Keeps a running log of every invoice, vendor, amount, and classification. Searchable, exportable, and always up to date. When your gestor asks "did you upload the November water bill?" you can answer in seconds.
+
+---
+
+# The invisible inventory
+
+Shopify's inventory view doesn't work for all stores. Some owners set the stock to zero for discontinued products. They don't delete them, because it'd force them to reupload them again (e.g. assets, descriptions, prices... everything) if they decided to restock.
+
+In that scenario, users have to scroll through pages of zeros to find what matters.
+
+**Insights and open questions**
+
+- **Stock mismanagement has real consequences.** Lost customers, annoyed regulars, missed sales. It's not imaginary, it has happened to the people I interviewed. Their current system is their memory, and memory is a terrible inventory manager.
+- **Generic alerts don't help**: Interviewees have looked at inventory tools before. They all send alerts for everything, and so, they solve a problem by creating another one: spam. Context matters here: lead time, supplier reliability, how fast things sell. A flat "low stock" notification is pure noise.
+- **Lead times vary wildly**: Some products come from a local distributor next-day. Others ship from a different country and take weeks.
+- **Physical products need physical checks**: There's a limit to what software can do here. Bulk products sold by weight don't have a clean digital trail.
+
+## The stock sense
+
+![An AI-generated illustration of a truck delivering packages to stores](/blog/the-shopkeepers-dashboard/the-stock-sense.png)
+
+> Know what's running low before your customers do. Smart restocking alerts that understand lead times, not just quantities.
+
+Inventory management tools assume you have clean data. You don't. You have a Shopify catalog full of ghosts, a storage room you check by eye, and three suppliers with wildly different delivery times.
+
+Stock Sense doesn't try to replace your judgment. It just makes sure the information you need is visible when it matters.
+
+- **Focus view**: Hides discontinued and zero-stock products by default. Shows you what's actually moving, sorted by urgency. The Shopify catalog stays untouched (no need to delete anything), you just get a cleaner lens on top of it.
+- **Lead-time aware alerts**: Set delivery windows per supplier. A local product that arrives next-day gets a different alert threshold than one from Germany that takes three weeks. The tool reminds you when it's time to order, not when you've already run out.
+- **Sales velocity tracking**: Estimates how fast each product moves based on recent orders. Combines that with lead times to predict when you'll actually need to restock. No more gut-feeling math.
+- **Restock batching**: Groups suggestions by supplier so you can build an order that hits minimum thresholds without over-ordering.
+
+---
+
+# What I'm deliberately ignoring
+
+We discussed many other topics during the exercise, but I'm picking the ones that I consider to have the strongest signal. However, I'm writing down the ones that are fuzzier here, if only to have a reference point in case I re-consider them in the future.
+
+**Product margin calculations**
+
+This is a tempting problem to attack, but I have two reasons that made me wary:
+
+1. While the issue is real, interviewees didn't spend time or money on solving it. They just considered it a permanent pain and left it there.
+2. The data here is hard to cross. This by itself is both bad and good. It's bad because it's a hard problem that I'm not sure I'd be able to solve successfully with no friction (matching invoice lines with products). And for that same reason, it's great because there is true moat in doing it amazingly well. Then again, there is still point 1, so I'm going to skip it for now until I get a true signal people are willing to pay for it.
+
+**Order preparation and fulfillment**
+
+The workflow for packing orders is manual and held together <SideNote note="Sometimes literally!">with tape</SideNote>. Print labels, cut them with scissors, pick items from memory, weigh, pack, generate shipping labels. It works. The pain is real but the severity is medium, and the solution would likely require hardware integration (printers, scales) that makes it much harder to build and distribute.
+
+**Customer communication rituals**
+
+Some shopkeepers personally message new customers, ask about their order details or include personalized gifts. It's part of their brand identity. It works **because** it's manual and personal. Some things don't need to be optimized or fixed. They just need to be.
+
+---
+
+# Connecting the dots
+
+A shopkeeper's financial life is fragmented across tools that don't talk to each other. Shopify knows what they sold. Invoices know what they paid. Their memory knows what needs restocking.
+
+There is a solid benefit in connecting the whole system together, but it can only be done if you immerse in this domain completely.
+
+This is exactly the kind of problem that fits Antropia's [framework](/blog/whats-worth-building/#build-on-hard-context).
+
+Multiple tax regimes, supplier dynamics, physical inventory, local regulatory quirks. It's all a good mess.
+
+You can't build this in a weekend because the code is the easy part. The hard part is understanding *recargo de equivalencia*, lead times from international suppliers, and more importantly, that every shop is a reflection of the person behind the counter. You can't code that away.
+
+# What's next
+
+I'll keep pulling threads across all the domains I'm exploring. The freelancer kit and the shopkeeper's dashboard share more DNA than I initially thought, especially around invoicing and gestoría communication. A **braid™** that keeps getting thicker.
+
+If you run a small shop and any of this resonates, I'd love to hear from you. Even if it doesn't resonate, tell me that too. Knowing where I'm wrong is just as useful.
