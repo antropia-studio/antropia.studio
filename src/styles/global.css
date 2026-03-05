@@ -294,7 +294,7 @@
   }
 
   h1 {
-    @apply wrap-break-word hyphens-auto text-5xl xl:text-6xl uppercase font-black tracking-tighter;
+    @apply wrap-break-word hyphens-auto text-5xl xl:text-6xl uppercase font-black tracking-tighter xl:wrap-normal xl:hyphens-none;
   }
 
   h2 {
