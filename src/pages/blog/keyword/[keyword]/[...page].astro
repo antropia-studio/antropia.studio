@@ -1,13 +1,18 @@
 ---
 import { getCollection } from "astro:content";
-import BlogList from "../../../../layouts/blog/BlogList.astro";
 import {
+  deslugifyKeyword,
   POSTS_PER_PAGE,
   slugifyKeyword,
-  deslugifyKeyword,
 } from "../../../../consts";
+import BlogList from "../../../../layouts/blog/BlogList.astro";
 
-export async function getStaticPaths({ paginate }: { paginate: Function }) {
+type PaginateFn = (
+  items: CollectionEntry<"blog">[],
+  options: { params: { keyword: string }; pageSize: number },
+) => string[];
+
+export async function getStaticPaths({ paginate }: { paginate: PaginateFn }) {
   const allPosts = (await getCollection("blog")).sort(
     (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
   );
@@ -29,7 +34,6 @@ export async function getStaticPaths({ paginate }: { paginate: Function }) {
 
 const { page } = Astro.props;
 const { keyword } = Astro.params;
-
 ---
 
 <BlogList

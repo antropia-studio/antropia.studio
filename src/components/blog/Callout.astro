@@ -1,45 +1,45 @@
 ---
-import BulbIcon from '../../assets/icons/lightbulb.svg';
-import NoteIcon from '../../assets/icons/notebook-text.svg';
-import WarningIcon from '../../assets/icons/triangle-alert.svg';
+import BulbIcon from "../../assets/icons/lightbulb.svg";
+import NoteIcon from "../../assets/icons/notebook-text.svg";
+import WarningIcon from "../../assets/icons/triangle-alert.svg";
 
 interface Props {
   title: string;
-  icon: 'note' | 'idea' | 'warning';
-  variant?: 'primary' | 'secondary';
+  icon: "note" | "idea" | "warning";
+  variant?: "primary" | "secondary";
 }
 
 const { title, icon, variant } = Astro.props;
 
-const getIconEmoji = (icon: Props['icon']) => {
+const getIconEmoji = (icon: Props["icon"]) => {
   switch (icon) {
-    case 'note':
+    case "note":
       return NoteIcon;
-    case 'idea':
+    case "idea":
       return BulbIcon;
-    case 'warning':
+    case "warning":
       return WarningIcon;
   }
 };
 
-const getColors = (variant: Props['variant']) => {
+const getColors = (variant: Props["variant"]) => {
   switch (variant) {
-    case 'primary':
+    case "primary":
     case undefined:
       return {
-        bg: 'bg-ice-cold-stare dark:bg-alucards-night zen:bg-antropia-white dark:zen:bg-ash',
+        bg: "bg-ice-cold-stare dark:bg-alucards-night zen:bg-antropia-white dark:zen:bg-ash",
         border:
-          'border-blinking-blue dark:border-blinking-blue zen:border zen:border-ash dark:zen:border-white',
+          "border-blinking-blue dark:border-blinking-blue zen:border zen:border-ash dark:zen:border-white",
         header:
-          'text-alucards-night dark:text-ice-cold-stare zen:text-ash dark:zen:text-antropia-white',
+          "text-alucards-night dark:text-ice-cold-stare zen:text-ash dark:zen:text-antropia-white",
       };
-    case 'secondary':
+    case "secondary":
       return {
-        bg: 'bg-biscuit-cream dark:bg-sasquatch-socks/10 zen:bg-antropia-white dark:zen:bg-ash',
+        bg: "bg-biscuit-cream dark:bg-sasquatch-socks/10 zen:bg-antropia-white dark:zen:bg-ash",
         border:
-          'border-sasquatch-socks zen:border zen:border-ash dark:zen:border-white',
+          "border-sasquatch-socks zen:border zen:border-ash dark:zen:border-white",
         header:
-          'text-alucards-night dark:text-candlelight-peach zen:text-ash dark:zen:text-antropia-white',
+          "text-alucards-night dark:text-candlelight-peach zen:text-ash dark:zen:text-antropia-white",
       };
   }
 };

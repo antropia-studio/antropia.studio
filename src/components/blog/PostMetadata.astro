@@ -1,10 +1,10 @@
 ---
-import { Image } from 'astro:assets';
-import type { CollectionEntry } from 'astro:content';
-import { slugifyKeyword } from '../../consts';
-import FormattedDate from './FormattedDate.astro';
+import { Image } from "astro:assets";
+import type { CollectionEntry } from "astro:content";
+import { slugifyKeyword } from "../../consts";
+import FormattedDate from "./FormattedDate.astro";
 
-type Props = CollectionEntry<'blog'>['data'];
+type Props = CollectionEntry<"blog">["data"];
 
 const { author, authorAvatar, pubDate, updatedDate, keywords } = Astro.props;
 ---

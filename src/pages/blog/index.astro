@@ -1,7 +1,7 @@
 ---
 import { getCollection } from "astro:content";
-import BlogList from "../../layouts/blog/BlogList.astro";
 import { POSTS_PER_PAGE } from "../../consts";
+import BlogList from "../../layouts/blog/BlogList.astro";
 
 const allPosts = (await getCollection("blog")).sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),

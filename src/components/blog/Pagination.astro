@@ -11,7 +11,7 @@ interface Props {
   basePath?: string;
 }
 
-const { page, basePath = '/blog' } = Astro.props;
+const { page, basePath = "/blog" } = Astro.props;
 const { currentPage, lastPage } = page;
 const pages = Array.from({ length: lastPage }, (_, i) => i + 1);
 

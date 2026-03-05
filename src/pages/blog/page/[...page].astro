@@ -1,9 +1,14 @@
 ---
 import { getCollection } from "astro:content";
-import BlogList from "../../../layouts/blog/BlogList.astro";
 import { POSTS_PER_PAGE } from "../../../consts";
+import BlogList from "../../../layouts/blog/BlogList.astro";
 
-export async function getStaticPaths({ paginate }: { paginate: Function }) {
+type PaginateFn = (
+  items: CollectionEntry<"blog">[],
+  options: { pageSize: number },
+) => string[];
+
+export async function getStaticPaths({ paginate }: { paginate: PaginateFn }) {
   const posts = (await getCollection("blog")).sort(
     (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
   );

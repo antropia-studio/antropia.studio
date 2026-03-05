@@ -1,20 +1,20 @@
 ---
-import { Image } from 'astro:assets';
-import { type CollectionEntry } from 'astro:content';
-import Head from '../../components/blog/Head.astro';
-import Header from '../../components/blog/Header.astro';
-import Pagination from '../../components/blog/Pagination.astro';
-import PostMetadata from '../../components/blog/PostMetadata.astro';
-import Settings from '../../components/blog/Settings.astro';
-import Footer from '../../components/Footer.astro';
-import { BLOG_DESCRIPTION, BLOG_TITLE, slugifyKeyword } from '../../consts';
+import { Image } from "astro:assets";
+import { type CollectionEntry } from "astro:content";
+import Head from "../../components/blog/Head.astro";
+import Header from "../../components/blog/Header.astro";
+import Pagination from "../../components/blog/Pagination.astro";
+import PostMetadata from "../../components/blog/PostMetadata.astro";
+import Settings from "../../components/blog/Settings.astro";
+import Footer from "../../components/Footer.astro";
+import { BLOG_DESCRIPTION, BLOG_TITLE, slugifyKeyword } from "../../consts";
 
 const { posts, page, activeKeyword } = Astro.props;
 const basePath = activeKeyword
   ? `/blog/keyword/${slugifyKeyword(activeKeyword)}`
-  : '/blog';
+  : "/blog";
 
-type Post = CollectionEntry<'blog' | 'drafts'>;
+type Post = CollectionEntry<"blog" | "drafts">;
 ---
 
 <html class="dark" lang="en">

@@ -1,15 +1,15 @@
 ---
-import { Image } from 'astro:assets';
-import type { CollectionEntry } from 'astro:content';
-import type { MarkdownHeading } from 'astro';
-import Head from '../../components/blog/Head.astro';
-import Header from '../../components/blog/Header.astro';
-import PostMetadata from '../../components/blog/PostMetadata.astro';
-import Settings from '../../components/blog/Settings.astro';
-import TableOfContents from '../../components/blog/TableOfContents.astro';
-import Footer from '../../components/Footer.astro';
+import { Image } from "astro:assets";
+import type { CollectionEntry } from "astro:content";
+import type { MarkdownHeading } from "astro";
+import Head from "../../components/blog/Head.astro";
+import Header from "../../components/blog/Header.astro";
+import PostMetadata from "../../components/blog/PostMetadata.astro";
+import Settings from "../../components/blog/Settings.astro";
+import TableOfContents from "../../components/blog/TableOfContents.astro";
+import Footer from "../../components/Footer.astro";
 
-type Props = CollectionEntry<'blog'>['data'] & {
+type Props = CollectionEntry<"blog">["data"] & {
   headings: MarkdownHeading[];
 };
 

@@ -10,11 +10,11 @@ const parseMarkdown = (text: string) => {
   return (
     text
       // Bold: **text** or __text__
-      .replace(/\*\*(.+?)\*\*/g, '<b>$1</b>')
-      .replace(/__(.+?)__/g, '<b>$1</b>')
+      .replace(/\*\*(.+?)\*\*/g, "<b>$1</b>")
+      .replace(/__(.+?)__/g, "<b>$1</b>")
       // Italic: *text* or _text_
-      .replace(/\*(.+?)\*/g, '<i>$1</i>')
-      .replace(/_(.+?)_/g, '<i>$1</i>')
+      .replace(/\*(.+?)\*/g, "<i>$1</i>")
+      .replace(/_(.+?)_/g, "<i>$1</i>")
   );
 };
 
