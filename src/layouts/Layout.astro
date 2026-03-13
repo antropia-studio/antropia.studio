@@ -1,6 +1,6 @@
 ---
-import "../styles/fonts.css";
-import "../styles/global.css";
+import '../styles/fonts.css';
+import '../styles/global.css';
 
 interface Props {
   title?: string;
@@ -11,10 +11,10 @@ interface Props {
 }
 
 const {
-  title = "Antropia",
-  description = "Prototyping, design, and development. We create human-first apps in weeks.",
+  title = 'Antropia',
+  description = 'Product studio turning your ideas into real apps. Build your dream app in weeks, not years.',
   canonicalURL = Astro.url.href,
-  image = "/images/social.png",
+  image = '/images/social.png',
   class: className,
 } = Astro.props;
 ---
@@ -81,11 +81,15 @@ const {
   <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17863209457"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
     gtag('js', new Date());
 
     gtag('config', 'AW-17863209457');
-    gtag('event', 'conversion', {'send_to': 'AW-17863209457/B2UgCLLt6N8bEPHj68VC'});
+    gtag('event', 'conversion', { 'send_to': 'AW-17863209457/B2UgCLLt6N8bEPHj68VC' });
   </script>
 
   <!-- Font preload-->
