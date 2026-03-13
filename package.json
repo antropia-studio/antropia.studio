@@ -17,22 +17,22 @@
     "test:ui": "playwright test --ui"
   },
   "dependencies": {
-    "@astrojs/mdx": "^4.3.13",
-    "@astrojs/rss": "^4.0.15",
-    "@astrojs/sitemap": "^3.7.0",
+    "@astrojs/mdx": "^5.0.0",
+    "@astrojs/rss": "^4.0.17",
+    "@astrojs/sitemap": "^3.7.1",
     "@tailwindcss/vite": "^4.2.1",
-    "astro": "^5.18.0",
-    "motion": "^12.35.0",
+    "astro": "^6.0.4",
+    "motion": "^12.36.0",
     "tailwindcss": "^4.2.1"
   },
   "devDependencies": {
-    "@biomejs/biome": "2.4.5",
-    "@commitlint/config-conventional": "^20.4.3",
+    "@biomejs/biome": "2.4.6",
+    "@commitlint/config-conventional": "^20.4.4",
     "@playwright/test": "^1.58.2",
-    "commitlint": "^20.4.3",
-    "lefthook": "^2.1.2"
+    "commitlint": "^20.4.4",
+    "lefthook": "^2.1.4"
   },
-  "packageManager": "pnpm@10.30.3",
+  "packageManager": "pnpm@10.32.1",
   "commitlint": {
     "extends": [
       "@commitlint/config-conventional"
