@@ -1,0 +1,115 @@
+---
+title: 'Our stand on AI coding'
+description: ""
+heroImage: "/blog/antropia/hero.png"
+keywords: [ ]
+pubDate: 'May 04 2026'
+---
+
+import SideNote from "../../components/blog/SideNote.astro"
+
+The following page describes how we use AI (LLMs) at Antropia and the rationale behind some of these decisions.
+
+# Summary
+
+I have worked on moderate-scale projects using AI in different tasks: code assistance, coding agents, code reviewing, task definition, and research.
+
+From my experience AI can be as useful as a contextual search engine, and can be used to lower language barriers when used consciously. My current framing is that an LLM is a search engine. I take what it says with the same pinch of salt I'd take a Google result. It can also help bridge the language gap under certain conditions.
+
+Having said that, I recognize the damage AI has caused to the environment, people's security and privacy, and society as a whole.
+
+For these reasons, **I aim to minimize its use as much as humanly possible**. And when using it, I prioritize the use of local models, and small model providers over big-corps.
+
+# Argumentarium
+
+The impact of AI in the world can be analyzed from different angles. In this section, I have collected the ones that guide my decisions the most.
+
+## 1. Ethics
+
+To me this was the most obvious since the whole LLM-ball started rolling. Companies have been scraping the entire internet without consent, and then raising their voices when others did the same with their models.
+
+I'm not a hard advocate for copyright and intellectual property. To me, they are a subproduct of a system that rests on mutual distrust, and I believe <SideNote note="Paradoxically, changing one core hypothesis of a system usually changes the entire system dramatically. But, because we analyze the new system under the very same assumption we are challenging, change is seen as impossible">we'd be better off with them gone entirely</SideNote>.
+
+There were two ways the training of LLMs could have gone without raising so many eyebrows:
+1. **Following the rules**: You ask for permission to get a large corpus from different platforms. Then you train the model and you sell it. This is ok to me because it follows the rules we have designed around intellectual property and copyright, and it does with consent at the center of the picture (otherwise it'd be considered *stealing* when analyzed from within the system itself). I don't advocate for these particular rules, but I concede it's a coherent take.
+2. **Aiming for the greater good**: You take all the text you can, with or without permission, train your models and release them for free (or covering the training costs). Interestingly, this would also have been ok to me. I'm aware if analyzed only from within the system, we'd also consider this theft, but when we see the bigger picture, we'd realize it would be for the benefit of society as a whole.
+
+However, these companies followed a different path. That is, to **follow the set of rules they cherry-picked to later lock the models behind a paywall**. It's the intention and the inconsistency of their claims that makes it all wrong.
+
+## 2. Atrophy
+
+I have worked using LLMs to assist me while working on small and not-so-small projects.
+
+There is an invariant in all of them: **I had to spend an entire week afterward to remember how to do the most basic coding without resorting to LLMs**. This is not new, it has been discussed *ad nauseam* by others, and I'm just here to confirm it.
+
+The dependency AI creates is real, and it's bad.
+
+It's bad because we have to pay for it twice, first with our wallets, but also with our own skills that rust over time, deepening the dependency.
+
+It's even worse if you let it run uncontrolled, we lose critical thinking, creative skills, and in the end, we can't feel pride in our work, and we lose confidence in ourselves.
+
+I'm positive big AI companies know this, and it's why they are <SideNote note="How many times have I had to disable Copilot everywhere? It's exhausting">force-feeding everyone with their grandiose narratives</SideNote>. Because if people try it, they will start depending on it, not because it's particularly powerful, but because of FOMO and skill atrophy. We know how this all ends (it already started), eventually they will worse the experience, raise prices and cash it all.
+
+## 3. Quality
+
+This is one of the most interesting topics to me, because it's so nuanced, and still everyone is just throwing unfalsifiable claims like it's the end of the world. I don't pretend to do the same, and so I will only talk about my personal experience.
+
+As I said, I have worked in projects using LLMs in multiple steps of the workflow: code assistance, task generation, code reviewing, etc. One common pattern surfaced in all of them: **things seemed great, until they didn't**.
+
+This can be explained from multiple perspectives:
+
+- **Lack of context**: There always seems to be something missing in prompts. It can be something mundane like something you discussed with a colleague recently, or agreed with the team on how to do things from now on. Others are more substantial, like the number of users in your platform, or the last version of a framework. Skills and harnesses alleviate (not fix!) the problem for some time, but then the number of skills in your project is so large they don't fit in a regular context window, or they are plainly ignored.
+- **Project growth**: LLMs can make it look like you are flying for small projects like scripts or internal tooling. Projects with a short lifespan benefit from them. But when projects grow, or have been AI-assisted for longer, LLM results are more often than not, wrong. And the more you use LLMs on them, the more difficult (and expensive) their maintenance becomes.
+- **Appearance vs reality**: Have you ever filed a ticket with an LLM? It sure looks amazing, it covers all the scenarios, even the ones you didn't consider! Then you give that task to someone else and the entire thing crumbles. You thought you had it all covered because it was given to you, rather than thought. But when a human closes the loop, it's missing stuff, it introduces noise explaining obvious things, and others are just based on wrong assumptions. LLMs can produce things that look fantastic, in theory, but that when faced with the reality of things don't make that much sense.
+- **Lack of critical thinking**: LLMs displace work from thinking things through to reviewing things. These are two separate tasks in our brain, and they use different paths. How many times did we have to remind ourselves that we are owners of the code we review? We do it because reviewing can be shallow, but building rarely is. It's a way to force us to be thorough, because it's in building we truly understand the nuances of doing things a certain way, or questioning alternatives. With LLMs we lose that.
+
+The pattern is pretty clear to me. Short-term impressions are usually out of this world. Then reality hits, and you are left with a hard dependency on something you no longer control.
+
+## 4. Humanity
+
+This is probably the more innocent take, but to me is the most important one, and the one I have heard most from friends and fellow freelancers recently.
+
+I heard of Claude conversations being thrown to each other to prove a point, where code reviews and tickets were entirely made by AIs. I've lived it, and it's the most alienating feeling I have ever had.
+
+What's weird is the first question that popped in my head was "*why would I talk with you if I could just ask ChatGPT their opinion?*" to then suddenly realize it's actually a non-question. **It's not that I can do things with machines, it's that I want to do this with you, fellow human.**
+
+There is another level of it, and that's when entire teams shift to AI-assisted workflows. It's hard to see it at first, but propagates like a virus.
+
+You pick a PR to review, you read the description, and it's just a list of things that have changed, no explanation on why they picked X library instead of Y, no evaluation of the costs of implementing this abstraction, *weird*, you think to yourself. You do the review nonetheless, you write some comments on some odd code that was probably a debugging fluke, you look up and all of a sudden you now have 3 more PRs to review.
+
+You realize the process was inherently human, and now it's not. You are just a burden in the pipeline, *adapt or die*. Those using AI to do their work feel blazingly fast, because they are skipping <SideNote note="Not coding, that has not been the issue for a long time now">the hard work</SideNote> of reaching consensus, exploring alternatives, asking themselves why. Now they are loading it for the next human in the process, be it another fellow coder, a QA, or someone from support.
+
+If you don't use AI you are expelled, you can't keep up, they (think they) moved the bottleneck up one step, and that step is you.
+
+This is a clear example of [the prisoner's dilemma](https://en.wikipedia.org/wiki/Prisoner%27s_dilemma), and everyone is losing it out of FOMO, or imposition from above.
+
+But replacing the human was never the point of it, and if you think it is, maybe you should ask yourself why you work in the first place, apart from an <SideNote note="That's assumed, and nothing to be ashamed of. I say it so boldly because I have the privilege to say so, I'm full aware not everyone is">act of survival</SideNote>.
+
+To me, working that way feels miserable, and it misses the point so much it's not even worth it.
+
+I wouldn't have called the studio <SideNote note="*Anthropos* literally meaning *human* in Greek. In Spanish the Greek word would be *Antropos* without the *h*">*Antropia*</SideNote> if it wasn't to put humans at the core.
+
+# Conclusion
+
+I left so many <SideNote note="Energy, water, wealth concentration, security, financial bubble, labor shifts, education and juniors, layoffs, dubious productivity claims, slop, noise, dead internet theory, emotional distress, ...">other valid points</SideNote> out, but this is not a thorough review.
+
+After all this, you'd expect me to say I don't use LLMs at all. I do. Pretending otherwise would be dishonest.
+
+I do use LLMs but from a [closed-world assumption](https://en.wikipedia.org/wiki/Closed-world_assumption), always keeping some core principles, and the implications of using this technology in mind.
+
+These are some rules and uses of LLMs in the studio:
+
+- **Humans first**: I use LLMs as long as they don't displace human connections. I will never send you what Claude told me. If you ask me something I will work under the assumption that you want my take, not Claude's.
+- **Known things**: I use LLMs for things I already know how to do myself and understand completely. Even then, I test my skills from time to time, if only because it's fun, and sometimes that's the point.
+- **Build over review**: When faced with a problem I work to come up with a solution first by myself, no AI assistance. This forces me to use the building brain path. I have discovered the review path is far shallower, and it doesn't activate the reward of coming up with an original solution so strongly. Oh, and it makes it so much easier to explain the why's and truly own what I do.
+- **Lifting language barriers**: English is not my main language, so I often ask LLMs to find me a specific expression, or a word I can't remember. I have learned so many English expressions this way! As a Spanish myself, I also know there can be some cultural differences that I tend to avoid out of deference. That's why I sometimes use LLMs to soften the tone or match theirs. I have also heard of people using it to overcome their dyslexia which I find uplifting.
+- **Safe-check**: We are humans, and we make mistakes, and this is fine! But our entire sector premise is to reduce human errors as much as possible. This is why I sometimes run a single automated code, post, or document review through an LLM. I do this only as a last resort, and always after human review. It helps me lift my confidence before committing to something. I see it as a more thorough last-minute Google search.
+
+### Sources
+
+- https://simonwillison.net/2026/Apr/30/zig-anti-ai/ - Miguel recommendation. Open source is all about human interaction, community, and learning.
+- https://dbushell.com/ai/ - Love this, quite strong for me but the opinions are based on real stuff. Respect
+- https://billie.coop/public/blog/ai-disclaimer - A different take on people with dyslexia or using other languages, interesting point!
+- https://news.ycombinator.com/item?id=43106012 - HN post to someone asking if using LLMs is ethical from 2025. Prisoner's dilemma
+- https://www.ontestautomation.com/my-terms-and-conditions-for-using-ai/ - Another interesting take that is aligned with my own use of AI: it's a tool, not a teacher, not a creativity tool.
+- https://github.com/ghostty-org/ghostty/blob/main/AI_POLICY.md - Ghostty AI policy, it's more lenient than what I want, but it's a good starting point. I think some of these points can be bypassed or are hard to enforce and that's why I think harder restrictions are required.
