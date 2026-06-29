@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap');
 @import "tailwindcss";
 
 @custom-variant dark (&:where(.dark, .dark *));
@@ -52,6 +53,7 @@
 
   --font-round8: "Round8", "sans-serif";
   --font-nudica: "-apple-system", "BlinkMacSystemFont", "Nudica", "sans-serif";
+  --font-claim: "Instrument Serif", "sans-serif";
 
   --container-navbar: var(--navbar-width);
   --container-navbar-xl: var(--navbar-width-xl);

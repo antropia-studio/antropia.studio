@@ -2,9 +2,3 @@ allowBuilds:
   esbuild: true
   lefthook: true
   sharp: true
-minimumReleaseAgeExclude:
-  - astro@6.3.5
-  - framer-motion@12.39.0
-  - motion-dom@12.39.0
-  - motion-utils@12.39.0
-  - motion@12.39.0

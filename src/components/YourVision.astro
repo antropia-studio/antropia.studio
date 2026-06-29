@@ -1,8 +1,8 @@
 ---
-import yourVisionIcon from "../assets/your-vision.svg";
-import ContactButton from "./ContactButton.astro";
-import Step from "./Step.astro";
-import Steps from "./Steps.astro";
+import yourVisionIcon from '../assets/your-vision.svg';
+import ContactButton from './ContactButton.astro';
+import Step from './Step.astro';
+import Steps from './Steps.astro';
 ---
 
 <section id="your-vision" class="section">
@@ -10,8 +10,8 @@ import Steps from "./Steps.astro";
     class="mt-20 flex flex-col items-center gap-10 px-6 xl:flex-row xl:items-end xl:gap-20"
   >
     <div class="flex w-full flex-col xl:mb-10 xl:flex-1">
-      <h1 class="font-round8 xl:text-12xl flex-1 text-[28vw] leading-none text-white">
-        Your<br /><span class="text-blinking-blue ml-12.5 italic xl:ml-22.5">vision</span>
+      <h1 class="font-round8 xl:text-12xl flex-1 text-[28vw] text-white leading-24 xl:leading-44">
+        Your<br /><span class="text-hello-summer ml-12.5 italic xl:ml-22.5">vision</span>
       </h1>
     </div>
 
@@ -30,7 +30,7 @@ import Steps from "./Steps.astro";
       progress.
     </Step>
     <Step class="text-hello-summer" title="Eyes on the prize" slot="second">
-      We help navigate the exciting chaos of early-stage projects,
+      Early-stage work is messy. We keep things things pointed at a real outcome,
       ensuring your journey leads to <span class="font-bold underline-base">something tangible</span> you can be
       proud of.
     </Step>
@@ -42,8 +42,10 @@ import Steps from "./Steps.astro";
   </Steps>
 
   <p class="headline text-ice-cold-stare ml-2 xl:ml-0 xl:w-1/2 xl:text-white">
-    Ready to build something meaningful together?
+    Ready to build something together?
   </p>
 
-  <ContactButton />
+  <div>
+    <ContactButton class="ml-0!" />
+  </div>
 </section>
